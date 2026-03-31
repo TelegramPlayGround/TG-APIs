@@ -24,12 +24,18 @@ messages.uploadMedia#14967978 flags:# business_connection_id:flags.0?<a href="..
         media=types.InputMediaUploadedPhoto(
             file=client.upload_file(<em>'/path/to/file.jpg'</em>),
             spoiler=<strong>True</strong>,
+            live_photo=<strong>True</strong>,
             stickers=[types.InputDocument(
                 id=-12398745604826,
                 access_hash=-12398745604826,
                 file_reference=<em>b'arbitrary\x7f data \xfa here'</em>
             )],
-            ttl_seconds=42
+            ttl_seconds=42,
+            video=types.InputDocument(
+                id=-12398745604826,
+                access_hash=-12398745604826,
+                file_reference=<em>b'arbitrary\x7f data \xfa here'</em>
+            )
         ),
         business_connection_id=<em>'some string here'</em>
     ))
