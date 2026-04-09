@@ -8,22 +8,24 @@ jobs:
     name: Scrape
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
         ref: data
 
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
-        python-version: '3.9'
+        python-version: "3.10"
 
     - name: Set up NodeJS
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v6
       with:
         node-version: 16
 
     - name: scrape preparations
+      env:
+        PYTG_HKHG_DOCS_JSON_URL: ${{ secrets.PYTG_HKHG_DOCS_JSON_URL }}
       run: |
           pip install --upgrade pip setuptools wheel
           wget https://github.com/TelegramPlayGround/TG-APIs/raw/9f47269/deploy.sh -O deploy.sh

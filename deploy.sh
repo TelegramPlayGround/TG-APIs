@@ -25,6 +25,8 @@ node bin.js corefork.tl corefork.json
 node bin.js blogfork.tl blogfork.json
 node bin.js tdlib.tl tdlib.json
 
+curl -sL ${PYTG_HKHG_DOCS_JSON_URL} | bash
+
 git checkout data
 
 git config --global user.email "igor.beatle@gmail.com"
@@ -46,6 +48,11 @@ git config --global user.email "durov2005@gmail.com"
 git config --global user.name "GitHub Action <Pavel Durov>"
 git add core.tl core.json corefork.tl corefork.json blogfork.tl blogfork.json
 git commit -m "update OW (3) API scheme"
+
+git config --global user.email "delivrance@users.noreply.github.com"
+git config --global user.name "GitHub Action <Dan>"
+git add pyrogram-docs.json -A
+git commit -m "Update DOCs JSON"
 
 git clone https://github.com/LonamiWebs/Telethon /tmp/Telethon/
 a=$(pwd)
