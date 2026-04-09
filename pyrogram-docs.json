@@ -4975,7 +4975,7 @@
     "messages.ReportMessagesDelivery": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Used for `Telegram Gateway verification messages  <https://telegram.org/blog/star-messages-gateway-2-0-and-more#save-even-more-on-user-verification>`__: indicate to the server that one or more `message <https://corefork.telegram.org/constructor/message>`__s were received by the client, if requested by the `message <https://corefork.telegram.org/constructor/message>`__.report_delivery_until_date flag or the equivalent flag in `push notifications <https://corefork.telegram.org/api/push-updates>`__.",
+      "desc": "Used for `Telegram Gateway verification messages  <https://telegram.org/blog/star-messages-gateway-2-0-and-more#save-even-more-on-user-verification>`__: indicate to the server that one or more `message <https://corefork.telegram.org/constructor/message>`__\\s were received by the client, if requested by the `message <https://corefork.telegram.org/constructor/message>`__.report_delivery_until_date flag or the equivalent flag in `push notifications <https://corefork.telegram.org/api/push-updates>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://corefork.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "id": "The IDs of the received messages.",
@@ -5271,7 +5271,7 @@
         "emojis": "If set, returns `custom emoji stickers <https://corefork.telegram.org/api/custom-emoji>`__",
         "emoticon": "Space-separated list of emojis to search for",
         "flags": "Flags, see `TL conditional fields <https://corefork.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "hash": "`Hash used for caching, for more info click here <https://corefork.telegram.org/api/offsets#hash-generation>`__. The hash may be generated locally by using the ids of the returned or stored sticker `document <https://corefork.telegram.org/constructor/document>`__s.",
+        "hash": "`Hash used for caching, for more info click here <https://corefork.telegram.org/api/offsets#hash-generation>`__. The hash may be generated locally by using the ids of the returned or stored sticker `document <https://corefork.telegram.org/constructor/document>`__\\s.",
         "lang_code": "List of possible IETF language tags of the user's input language; may be empty if unknown",
         "limit": "Maximum number of results to return, `see pagination <https://corefork.telegram.org/api/offsets>`__",
         "offset": "`Offset for pagination <https://corefork.telegram.org/api/offsets>`__",
@@ -6376,7 +6376,7 @@
       "can_use_without_auth": false,
       "desc": "Get a list of available `gifts, see here  <https://corefork.telegram.org/api/gifts>`__ for more info.",
       "params": {
-        "hash": "`Hash used for caching, for more info click here <https://corefork.telegram.org/api/offsets#hash-generation>`__.The hash may be generated locally by using the ids of the returned or stored sticker `starGift <https://corefork.telegram.org/constructor/starGift>`__s."
+        "hash": "`Hash used for caching, for more info click here <https://corefork.telegram.org/api/offsets#hash-generation>`__.The hash may be generated locally by using the ids of the returned or stored sticker `starGift <https://corefork.telegram.org/constructor/starGift>`__\\s."
       },
       "usable-by": ""
     },
@@ -7766,7 +7766,7 @@
         "offset": "Offset for pagination, obtained from `stories.storyViewsList <https://corefork.telegram.org/constructor/stories.storyViewsList>`__.next_offset",
         "peer": "Peer where the story was posted",
         "q": "Search for specific peers",
-        "reactions_first": "Whether to return `storyView <https://corefork.telegram.org/constructor/storyView>`__ info about users that reacted to the story (i.e. if set, the server will first sort results by view date as usual, and then also additionally sort the list by putting `storyView <https://corefork.telegram.org/constructor/storyView>`__s with an associated reaction first in the list). Ignored if forwards_first is set."
+        "reactions_first": "Whether to return `storyView <https://corefork.telegram.org/constructor/storyView>`__ info about users that reacted to the story (i.e. if set, the server will first sort results by view date as usual, and then also additionally sort the list by putting `storyView <https://corefork.telegram.org/constructor/storyView>`__\\s with an associated reaction first in the list). Ignored if forwards_first is set."
       },
       "usable-by": "users"
     },
