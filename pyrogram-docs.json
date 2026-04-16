@@ -4350,7 +4350,8 @@
       "desc": "Get poll results",
       "params": {
         "msg_id": "Message ID of poll message",
-        "peer": "Peer where the poll was found"
+        "peer": "Peer where the poll was found",
+        "poll_hash": ""
       },
       "usable-by": "users"
     },
@@ -5285,9 +5286,11 @@
       "desc": "Send one or more chosen peers, as requested by a `keyboardButtonRequestPeer <https://corefork.telegram.org/constructor/keyboardButtonRequestPeer>`__ button.",
       "params": {
         "button_id": "The button_id field from the `keyboardButtonRequestPeer <https://corefork.telegram.org/constructor/keyboardButtonRequestPeer>`__ constructor.",
+        "flags": "Flags, see `TL conditional fields <https://corefork.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "msg_id": "ID of the message that contained the reply keyboard with the `keyboardButtonRequestPeer <https://corefork.telegram.org/constructor/keyboardButtonRequestPeer>`__ button.",
         "peer": "The bot that sent the `keyboardButtonRequestPeer <https://corefork.telegram.org/constructor/keyboardButtonRequestPeer>`__ button.",
-        "requested_peers": "The chosen peers."
+        "requested_peers": "The chosen peers.",
+        "webapp_req_id": ""
       },
       "usable-by": "users"
     },
@@ -5731,7 +5734,8 @@
         "flags": "Flags, see `TL conditional fields <https://corefork.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "id": "",
         "peer": "",
-        "to_lang": ""
+        "to_lang": "",
+        "tone": ""
       },
       "usable-by": "users"
     },
@@ -5870,7 +5874,8 @@
         "id": "A list of message IDs to translate",
         "peer": "If the text is a chat message, the peer ID",
         "text": "A list of styled messages to translate",
-        "to_lang": "Two-letter ISO 639-1 language code of the language to which the message is translated"
+        "to_lang": "Two-letter ISO 639-1 language code of the language to which the message is translated",
+        "tone": ""
       },
       "usable-by": "users"
     },
@@ -7615,6 +7620,7 @@
         "id": "ID of story to edit.",
         "media": "If specified, replaces the story media.",
         "media_areas": "`Media areas <https://corefork.telegram.org/api/stories#media-areas>`__ associated to the story, see `here \u00bb <https://corefork.telegram.org/api/stories#media-areas>`__ for more info.",
+        "music": "",
         "peer": "Peer where the story was posted.",
         "privacy_rules": "If specified, alters the `privacy settings \u00bb <https://corefork.telegram.org/api/privacy>`__ of the story, changing who can or can't view the story."
       },
@@ -7853,6 +7859,7 @@
         "fwd_modified": "Set this flag when reposting stories with fwd_from_id+fwd_from_id, if the media was modified before reposting.",
         "media": "The story media.",
         "media_areas": "`Media areas <https://corefork.telegram.org/api/stories#media-areas>`__ associated to the story, see `here \u00bb <https://corefork.telegram.org/api/stories#media-areas>`__ for more info.",
+        "music": "",
         "noforwards": "If set, disables forwards, screenshots, and downloads.",
         "peer": "The peer to send the story as.",
         "period": "Period after which the story is moved to archive (and to the profile if pinned is set), in seconds; must be one of 6 * 3600, 12 * 3600, 86400, or 2 * 86400 for Telegram Premium users, and 86400 otherwise.",
