@@ -259,9 +259,9 @@
     "account.DeletePasskey": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Delete a passkey associated to the current account, see `here  <https://corefork.telegram.org/api/passkeys#delete-passkeys>`__ for more info.",
       "params": {
-        "id": ""
+        "id": "Identifier of the passkey to delete, taken from `passkey <https://corefork.telegram.org/constructor/passkey>`__.id, usually obtained using `account.getPasskeys <https://corefork.telegram.org/method/account.getPasskeys>`__."
       },
       "usable-by": "users"
     },
@@ -509,7 +509,7 @@
     "account.GetPasskeys": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "List the passkeys associated to the current account that can be used to log in, see `here  <https://corefork.telegram.org/api/passkeys#list-passkeys>`__ for more info on passkeys.",
       "params": {},
       "usable-by": "users"
     },
@@ -650,7 +650,7 @@
     "account.InitPasskeyRegistration": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Initialize passkey registration for the current account, see `here  <https://corefork.telegram.org/api/passkeys#creating-a-passkey>`__ for more info on the full flow.",
       "params": {},
       "usable-by": "users"
     },
@@ -720,9 +720,9 @@
     "account.RegisterPasskey": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Complete passkey registration for the current account, see `here  <https://corefork.telegram.org/api/passkeys#creating-a-passkey>`__ for more info on the full flow.",
       "params": {
-        "credential": ""
+        "credential": "Registration result."
       },
       "usable-by": "users"
     },
@@ -1393,12 +1393,12 @@
     "auth.FinishPasskeyLogin": {
       "can_use_business_connection": false,
       "can_use_without_auth": true,
-      "desc": "",
+      "desc": "Complete login with a passkey over an unauthenticated connection, see `here  <https://corefork.telegram.org/api/passkeys#logging-in-with-a-passkey>`__ for more info.\nMust be sent to the user's native DC, as specified by the user_handle (dcId:userId) returned in the passkey assertion, see `here  <https://corefork.telegram.org/api/passkeys#logging-in-with-a-passkey>`__ for the full flow.",
       "params": {
-        "credential": "",
+        "credential": "Passkey assertion result.",
         "flags": "Flags, see `TL conditional fields <https://corefork.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "from_auth_key_id": "",
-        "from_dc_id": ""
+        "from_auth_key_id": "Auth key ID for the connection to from_dc_id (use the permanent auth key ID if PFS is enabled); set only if the user's DC is different from the DC used for the initial `auth.initPasskeyLogin <https://corefork.telegram.org/method/auth.initPasskeyLogin>`__.",
+        "from_dc_id": "DC ID used for the initial `auth.initPasskeyLogin <https://corefork.telegram.org/method/auth.initPasskeyLogin>`__ request; set only if the user's DC is different from the DC used for the initial `auth.initPasskeyLogin <https://corefork.telegram.org/method/auth.initPasskeyLogin>`__."
       },
       "usable-by": "users"
     },
@@ -1447,10 +1447,10 @@
     "auth.InitPasskeyLogin": {
       "can_use_business_connection": false,
       "can_use_without_auth": true,
-      "desc": "",
+      "desc": "Initialize login with a passkey over an unauthenticated connection, see `here  <https://corefork.telegram.org/api/passkeys#logging-in-with-a-passkey>`__ for more info.",
       "params": {
-        "api_hash": "",
-        "api_id": ""
+        "api_hash": "Application identifier hash (see `App configuration <https://corefork.telegram.org/myapp>`__)",
+        "api_id": "Application identifier (see `App configuration <https://corefork.telegram.org/myapp>`__)"
       },
       "usable-by": "users"
     },
@@ -8260,7 +8260,7 @@
       "desc": "Exact read date of a private message we sent to another user.\n\n"
     },
     "Passkey": {
-      "desc": "\n"
+      "desc": "Human-readable info about a passkey associated to an account, returned when `creating a passkey  <https://corefork.telegram.org/api/passkeys#creating-a-passkey>`__ or `listing passkeys  <https://corefork.telegram.org/api/passkeys#list-passkeys>`__.\n\n"
     },
     "Peer": {
       "desc": "Identifier of a private chat, basic group, group or channel (see `here  <https://corefork.telegram.org/api/peers>`__ for more info).\n\nMany constructors in the API need to be stored in a local database upon reception and should only ever be updated reactively (passively) when received via updates or by other means (as specified in the documentation), to avoid overloading the server by continuously requesting changes for the same unchanged information.\n"
@@ -8386,10 +8386,10 @@
       "desc": "Total number of non-refunded `Telegram Stars <https://corefork.telegram.org/api/stars>`__ a user has spent on sending us messages either directly or through a channel, see `here  <https://corefork.telegram.org/api/paid-messages>`__ for more info on paid messages.\n\nTelegram Stars are virtual items that allow users to purchase digital goods and services from bots and mini apps inside the Telegram ecosystem, send gifts to content creators on the Telegram platform, and more.\nTelegram Stars can be used to pay for sending messages to users, supergroups and channels that have configured paid messages, requiring a payment for every message sent to them.\n"
     },
     "account.PasskeyRegistrationOptions": {
-      "desc": "\n"
+      "desc": "Passkey registration options, see `here  <https://corefork.telegram.org/api/passkeys#creating-a-passkey>`__ for more info on the full flow.\n\n"
     },
     "account.Passkeys": {
-      "desc": "\n"
+      "desc": "List of `passkeys  <https://corefork.telegram.org/api/passkeys#list-passkeys>`__ associated to the current account.\n\n"
     },
     "account.Password": {
       "desc": "Configuration for two-factor authorization\n\n"
@@ -8446,7 +8446,7 @@
       "desc": "Login token (for QR code login)\n\n"
     },
     "auth.PasskeyLoginOptions": {
-      "desc": "\n"
+      "desc": "Passkey login options, see `here  <https://corefork.telegram.org/api/passkeys#logging-in-with-a-passkey>`__ for more info on the full flow.\n\n"
     },
     "auth.PasswordRecovery": {
       "desc": "Recovery info of a `2FA password <https://corefork.telegram.org/api/srp>`__, only for accounts with a `recovery email configured <https://corefork.telegram.org/api/srp#email-verification>`__.\n\nHow to login to a user's account if they have enabled 2FA, how to change password.\n"
