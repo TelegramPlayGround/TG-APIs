@@ -5448,7 +5448,7 @@
         "msg_id": "The message to react to",
         "peer": "The channel",
         "private": "Each post with star reactions has a leaderboard with the top senders, but users can opt out of appearing there if they prefer more privacy. Not populating this field will use the default reaction privacy, stored on the server and synced to clients using `updatePaidReactionPrivacy <https://corefork.telegram.org/constructor/updatePaidReactionPrivacy>`__ (see `here <https://corefork.telegram.org/api/reactions#paid-reaction-privacy>`__ for more info).",
-        "random_id": "Unique client message ID required to prevent message resending. Note: this argument must be composed of a 64-bit integer where the lower 32 bits are random, and the higher 32 bits are equal to the current unixtime, i.e. uint64_t random_id = (time() << 32) | ((uint64_t)random_uint32_t()): this differs from the random_id format of all other methods in the API, which just take 64 random bits."
+        "random_id": "Unique client message ID required to prevent message resending. Note: this argument must be composed of a 64-bit integer where the lower 32 bits are random, and the higher 32 bits are equal to the current unixtime, i.e. `uint64_t random_id = (time() << 32)"
       },
       "usable-by": "users"
     },
@@ -5729,11 +5729,11 @@
     "messages.SummarizeText": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Summarize the contents of a message with AI, see `here  <https://corefork.telegram.org/api/ai#summarize-messages>`__ for more info.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://corefork.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "id": "",
-        "peer": "",
+        "id": "Message ID.",
+        "peer": "The peer where the message is located.",
         "to_lang": "",
         "tone": ""
       },
@@ -6873,7 +6873,7 @@
     "phone.GetCallConfig": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get phone call configuration to be passed to libtgvoip's shared config",
+      "desc": "DEPRECATED: Get phone call configuration to be passed to the libtgvoip (deprecated) shared config.",
       "params": {},
       "usable-by": "users"
     },
