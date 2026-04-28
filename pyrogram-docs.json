@@ -6702,7 +6702,7 @@
     "phone.AcceptCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Accept incoming call",
+      "desc": "Accept incoming call, see `here  <https://corefork.telegram.org/api/calls#one-to-one-calls>`__ for more info on the full flow.",
       "params": {
         "g_b": "`Parameter for E2E encryption key exchange \u00bb <https://corefork.telegram.org/api/end-to-end/voice-calls>`__",
         "peer": "The call to accept",
@@ -6723,7 +6723,7 @@
     "phone.ConfirmCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "`Complete phone call E2E encryption key exchange  <https://corefork.telegram.org/api/end-to-end/voice-calls>`__",
+      "desc": "`Complete phone call E2E encryption key exchange  <https://corefork.telegram.org/api/end-to-end/voice-calls>`__, see `here  <https://corefork.telegram.org/api/calls#one-to-one-calls>`__ for more info on the full flow.",
       "params": {
         "g_a": "`Parameter for E2E encryption key exchange \u00bb <https://corefork.telegram.org/api/end-to-end/voice-calls>`__",
         "key_fingerprint": "Key fingerprint",
@@ -6812,7 +6812,7 @@
     "phone.DiscardCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Refuse or end running call",
+      "desc": "Refuse or end running call, see `here  <https://corefork.telegram.org/api/calls#one-to-one-calls>`__ for more info on the full flow.",
       "params": {
         "connection_id": "Preferred libtgvoip relay ID",
         "duration": "Call duration",
@@ -7022,7 +7022,7 @@
     "phone.ReceivedCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Optional: notify the server that the user is currently busy in a call: this will automatically refuse all incoming phone calls until the current phone call is ended.",
+      "desc": "Optional: notify the server that the user is currently busy in a call: this will automatically refuse all incoming phone calls until the current phone call is ended, see `here  <https://corefork.telegram.org/api/calls#one-to-one-calls>`__ for more info on the full flow.",
       "params": {
         "peer": "The phone call we're currently in"
       },
@@ -7031,7 +7031,7 @@
     "phone.RequestCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Start a telegram phone call",
+      "desc": "Start a telegram phone call, see `here  <https://corefork.telegram.org/api/calls#one-to-one-calls>`__ for more info on the full flow.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://corefork.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "g_a_hash": "`Parameter for E2E encryption key exchange \u00bb <https://corefork.telegram.org/api/end-to-end/voice-calls>`__",
@@ -7047,7 +7047,7 @@
       "can_use_without_auth": false,
       "desc": "Send phone call debug data to server",
       "params": {
-        "debug": "Debug statistics obtained from libtgvoip",
+        "debug": "Debug statistics obtained from tgcalls",
         "peer": "Phone call"
       },
       "usable-by": "users"
@@ -7055,9 +7055,9 @@
     "phone.SaveCallLog": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Save phone call debug information",
+      "desc": "Deprecated: send libtgvoip phone call debug information",
       "params": {
-        "file": "Logs",
+        "file": "Libtgvoip logs",
         "peer": "Phone call"
       },
       "usable-by": "users"
@@ -7129,13 +7129,13 @@
     "phone.SetCallRating": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Rate a call, returns info about the rating message sent to the official VoIP bot.",
+      "desc": "Rate a call, returns info about the rating message sent to the official VoIP bot, see `here  <https://corefork.telegram.org/api/calls#call-rating>`__ for more info on the full flow.",
       "params": {
-        "comment": "An additional comment",
+        "comment": "An additional comment with problem hashtags, see `here \u00bb <https://corefork.telegram.org/api/calls#call-rating>`__ for more info on the full flow.",
         "flags": "Flags, see `TL conditional fields <https://corefork.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "peer": "The call to rate",
         "rating": "Rating in 1-5 stars",
-        "user_initiative": "Whether the user decided on their own initiative to rate the call"
+        "user_initiative": "Whether the user decided on their own initiative to rate the call, must NOT be set if rating was requested by the server with `phoneCallDiscarded <https://corefork.telegram.org/constructor/phoneCallDiscarded>`__.need_rating."
       },
       "usable-by": "users"
     },
