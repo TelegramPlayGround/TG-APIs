@@ -1986,7 +1986,7 @@
         "admin_rights": "The admin rights",
         "channel": "The `supergroup/channel <https://core.telegram.org/api/channel>`__.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "rank": "Indicates the role (rank) of the admin in the group: just an arbitrary string",
+        "rank": "Indicates the role (rank) of the admin in the group: just an arbitrary string. If the flag is not set, the rank is left unchanged.",
         "user_id": "The ID of the user whose admin rights should be modified"
       },
       "usable-by": ""
@@ -3530,11 +3530,11 @@
     "messages.EditChatParticipantRank": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Edit a group participant's `tag  <https://core.telegram.org/api/rank>`__.",
       "params": {
-        "participant": "",
-        "peer": "",
-        "rank": ""
+        "participant": "The participant.",
+        "peer": "The basic group/supergroup.",
+        "rank": "The new tag."
       },
       "usable-by": ""
     },
