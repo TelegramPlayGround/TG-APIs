@@ -6313,28 +6313,28 @@
     "payments.GetStarGiftActiveAuctions": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Fetches all currently active `gift auctions <https://core.telegram.org/api/auctions>`__ where the user has placed a bid.",
       "params": {
-        "hash": ""
+        "hash": "Hash generated `as specified here \u00bb <https://core.telegram.org/api/auctions>`__"
       },
       "usable-by": "users"
     },
     "payments.GetStarGiftAuctionAcquiredGifts": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Fetches all the gifts that the current user won in an `auction <https://core.telegram.org/api/auctions>`__.",
       "params": {
-        "gift_id": ""
+        "gift_id": "The gift ID linked to the auction."
       },
       "usable-by": "users"
     },
     "payments.GetStarGiftAuctionState": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Returns info about a `collectible gift auction  <https://core.telegram.org/api/auctions>`__; also subscribes the user to auction updates, see `here  <https://core.telegram.org/api/auctions>`__ for more info on the full flow.",
       "params": {
-        "auction": "",
-        "version": ""
+        "auction": "Either the ID of the gift linked to the auction, or an `auction deep link slug \u00bb <https://core.telegram.org/api/links#auction-links>`__.",
+        "version": "Initially 0, then set to the returned `starGiftAuctionState <https://core.telegram.org/constructor/starGiftAuctionState>`__.version, to avoid refetching results if they haven't changed."
       },
       "usable-by": "users"
     },
@@ -8791,10 +8791,10 @@
       "desc": "\n"
     },
     "payments.StarGiftAuctionAcquiredGifts": {
-      "desc": "\n"
+      "desc": "Describes all the gifts that the current user won in an `auction <https://core.telegram.org/api/auctions>`__.\n\n"
     },
     "payments.StarGiftAuctionState": {
-      "desc": "\n"
+      "desc": "Describes a `collectible gift auction  <https://core.telegram.org/api/auctions>`__.\n\n"
     },
     "payments.StarGiftCollections": {
       "desc": "Represents a list of `star gift collections  <https://core.telegram.org/api/gifts#gift-collections>`__.\n\nUsers can send Gifts to their friends. The recipients of gifts can display them on their profile pages or turn them into Telegram Stars . Telegram Stars can be used for many things, including supporting creators and buying services in mini apps.\n"
