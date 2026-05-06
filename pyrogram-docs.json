@@ -4346,7 +4346,7 @@
       }
     },
     "KeyboardButtonStyle": {
-      "desc": "This constructor allows setting a custom background color and custom emoji label for a button, see `here  <https://core.telegram.org/api/bots/button#button-styles>`__ for more info.",
+      "desc": "This constructor allows setting a custom background color and custom emoji label for a button, see `here  <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info.",
       "params": {
         "bg_danger": "A red color, recommended for destructive actions.",
         "bg_primary": "A dark blue color, recommended for main actions.",
@@ -11290,7 +11290,7 @@
     "messages.ComposedMessageWithAI": {
       "desc": "Represents a message modified by AI.",
       "params": {
-        "diff_text": "If only the proofreading mode (`messages.composeMessageWithAI <https://core.telegram.org/method/messages.composeMessageWithAI>`__.proofread) is enabled, this field will be populated with a \"pre-rendered\" diff between the old and the new message text using only                `diff entities \u00bb <https://core.telegram.org/api/entities#diff-entities>`__.",
+        "diff_text": "If only the proofreading mode (`messages.composeMessageWithAI <https://core.telegram.org/method/messages.composeMessageWithAI>`__.proofread) is enabled, this field will be populated with a \"pre-rendered\" diff between the old and the new message text using only                                `diff entities \u00bb <https://core.telegram.org/api/entities#diff-entities>`__.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "result_text": "The modified message."
       }
@@ -21566,7 +21566,7 @@
       "desc": "Bot or inline keyboard rows\n\n"
     },
     "KeyboardButtonStyle": {
-      "desc": "This constructor allows setting a custom background color and custom emoji label for a button, see `here  <https://core.telegram.org/api/bots/button#button-styles>`__ for more info.\n\n"
+      "desc": "This constructor allows setting a custom background color and custom emoji label for a button, see `here  <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info.\n\n"
     },
     "LabeledPrice": {
       "desc": "Labeled pricetag\n\n"
