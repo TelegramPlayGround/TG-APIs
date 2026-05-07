@@ -18636,7 +18636,7 @@
     "messages.ToggleNoForwards": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Enable or disable `content protection <https://telegram.org/blog/protected-content-delete-by-date-and-more>`__ on a channel or chat",
+      "desc": "Enable or disable `content protection <https://core.telegram.org/api/protected-content>`__ on a channel, group or private chat.",
       "params": {
         "enabled": "Enable or disable content protection",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
