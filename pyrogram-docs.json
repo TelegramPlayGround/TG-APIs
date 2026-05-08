@@ -7787,9 +7787,9 @@
         "theme_available": "A chat theme associated to this gift is available, `see here \u00bb <https://core.telegram.org/api/themes#chat-themes>`__ for more info on how to use it.",
         "theme_peer": "The current chat where the associated `chat theme <https://core.telegram.org/api/themes#chat-themes>`__ is installed, if any (gift-based themes can only be installed in one chat at a time).",
         "title": "Collectible title.",
-        "value_amount": "Price of the gift.",
-        "value_currency": "Currency for the gift's price.",
-        "value_usd_amount": ""
+        "value_amount": "Estimated price of the gift.",
+        "value_currency": "Currency for the gift's estimated price.",
+        "value_usd_amount": "Estimated price of the gift in USD cents."
       }
     },
     "StarGiftUpgradePrice": {
@@ -7932,7 +7932,7 @@
         "giveaway_post_id": "ID of the message containing the `messageMediaGiveaway <https://core.telegram.org/constructor/messageMediaGiveaway>`__, for incoming `star giveaway prizes <https://core.telegram.org/api/giveaways#star-giveaways>`__.",
         "id": "Transaction ID.",
         "msg_id": "For `paid media transactions \u00bb <https://core.telegram.org/api/paid-media>`__, message ID of the paid media posted to peer.peer (can point to a deleted message; either way, extended_media will always contain the bought media).",
-        "offer": "",
+        "offer": "Represents payment for a `collectible gift purchase offer \u00bb <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__.",
         "paid_messages": "This transaction is related to the reception or transmission of a `paid message \u00bb <https://core.telegram.org/api/paid-messages>`__.",
         "peer": "Source of the incoming transaction, or its recipient for outgoing transactions.",
         "pending": "The transaction is currently pending.",
