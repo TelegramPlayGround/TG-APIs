@@ -5044,23 +5044,23 @@
       }
     },
     "MessageActionStarGiftPurchaseOffer": {
-      "desc": "",
+      "desc": "Contains an offer to purchase a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__, see `here  <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__ for the full flow.",
       "params": {
-        "accepted": "",
-        "declined": "",
-        "expires_at": "",
+        "accepted": "If set, the gift owner accepted this offer.",
+        "declined": "If set, the gift owner declined this offer.",
+        "expires_at": "Offer expiration date (UNIX timestamp): if the owner doesn't act before this date, the offer will expire and the buyer will be refunded automatically.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "gift": "",
-        "price": ""
+        "gift": "The collectible gift the offer is about.",
+        "price": "Offered price."
       }
     },
     "MessageActionStarGiftPurchaseOfferDeclined": {
-      "desc": "",
+      "desc": "A `collectible gift purchase offer  <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__ was declined, or the offer expired, see `here  <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__ for the full flow.",
       "params": {
-        "expired": "",
+        "expired": "If set, the owner didn't act before the `messageActionStarGiftPurchaseOffer <https://core.telegram.org/constructor/messageActionStarGiftPurchaseOffer>`__.expires_at deadline and the offer expired automatically; otherwise, the owner explicitly declined the offer.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "gift": "",
-        "price": ""
+        "gift": "The collectible gift the declined or expired offer was about.",
+        "price": "Offered price that is refunded automatically to the buyer."
       }
     },
     "MessageActionStarGiftUnique": {
@@ -7774,11 +7774,11 @@
         "host_id": "",
         "id": "Identifier of the collectible gift.",
         "num": "Unique identifier of this collectible gift among all (already upgraded) collectible gifts of the same type.",
-        "offer_min_stars": "",
+        "offer_min_stars": "If set, you can `send a purchase offer for this gift \u00bb <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__: the minimum offer price is specified in this flag.",
         "owner_address": "For `NFTs on the TON blockchain <https://core.telegram.org/api/gifts#withdraw-a-collectible-gift-to-the-ton-blockchain>`__, contains the address of the owner (append it to the `ton_blockchain_explorer_url client configuration value \u00bb <https://core.telegram.org/api/config#ton-blockchain-explorer-url>`__ to obtain a link with information about the address).",
         "owner_id": "The owner of the gift.",
         "owner_name": "The name of the owner if neither owner_id nor owner_address are set.",
-        "peer_color": "",
+        "peer_color": "Can contain a `collectible message palette \u00bb <https://core.telegram.org/api/colors#collectible-message-palettes>`__.",
         "released_by": "This gift was released by the specified peer.",
         "require_premium": "This gift can only be bought by users with a `Premium <https://core.telegram.org/api/premium>`__ subscription.",
         "resale_ton_only": "Whether the gift can be bought only using Toncoins.",
@@ -19570,11 +19570,11 @@
     "payments.ResolveStarGiftOffer": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Accept or decline a previously received `collectible gift purchase offer  <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__, see `here  <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__ for the full flow.",
       "params": {
-        "decline": "",
+        "decline": "If set, declines the offer; otherwise, accepts it.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "offer_msg_id": ""
+        "offer_msg_id": "Identifier of the `messageActionStarGiftPurchaseOffer <https://core.telegram.org/constructor/messageActionStarGiftPurchaseOffer>`__ service message describing the offer to act upon."
       },
       "usable-by": ""
     },
@@ -19607,15 +19607,15 @@
     "payments.SendStarGiftOffer": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Send an offer to purchase a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__, see `here  <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__ for the full flow.",
       "params": {
-        "allow_paid_stars": "",
-        "duration": "",
+        "allow_paid_stars": "If the destination peer has `paid messages \u00bb <https://core.telegram.org/api/paid-messages>`__ enabled, specifies the amount of `Telegram Stars <https://core.telegram.org/api/stars>`__ the sending user has agreed to pay in order to send the offer (in addition to the amount for the offer itself, contained in price).",
+        "duration": "Duration of the offer, in seconds: must be one of 21600, 43200, 86400, 129600, 172800, or 259200; can also be 120 in test mode.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "peer": "",
-        "price": "",
-        "random_id": "",
-        "slug": ""
+        "peer": "Owner of the collectible gift: equal to `starGiftUnique <https://core.telegram.org/constructor/starGiftUnique>`__.owner_id.",
+        "price": "Offer price, in stars or TON.",
+        "random_id": "Random 64-bit identifier used to avoid sending the same offer twice in case of network issues.",
+        "slug": "Identifier of the collectible gift: equal to `starGiftUnique <https://core.telegram.org/constructor/starGiftUnique>`__.slug."
       },
       "usable-by": "users"
     },
