@@ -656,7 +656,7 @@
         "megagroup": "Is this a supergroup? Changes to this flag should invalidate the local `channelFull <https://core.telegram.org/constructor/channelFull>`__ cache for this channel/supergroup ID, see `here \u00bb <https://core.telegram.org/api/peers#full-info-database>`__ for more info.",
         "min": "See `min <https://core.telegram.org/api/min>`__",
         "monoforum": "If set, this is a `monoforum \u00bb <https://core.telegram.org/api/monoforum>`__, and the ID of the associated channel is specified in the linked_monoforum_id.",
-        "noforwards": "Whether this channel or group is `protected <https://telegram.org/blog/protected-content-delete-by-date-and-more>`__, thus does not allow forwarding messages from it",
+        "noforwards": "Whether this channel or group is `protected <https://telegram.org/blog/content-protection-delete-by-date-and-more>`__, thus does not allow forwarding messages from it",
         "participants_count": "Participant count",
         "photo": "Profile photo",
         "profile_color": "The channel's `profile color <https://core.telegram.org/api/colors>`__.",
@@ -1281,7 +1281,7 @@
         "id": "ID of the group, see `here \u00bb <https://core.telegram.org/api/peers#peer-id>`__ for more info and the available ID range.",
         "left": "Whether the current user has left the group",
         "migrated_to": "Means this chat was `upgraded <https://core.telegram.org/api/channel>`__ to a supergroup",
-        "noforwards": "Whether this group is `protected <https://telegram.org/blog/protected-content-delete-by-date-and-more>`__, thus does not allow forwarding messages from it",
+        "noforwards": "Whether this group is `protected <https://telegram.org/blog/content-protection-delete-by-date-and-more>`__, thus does not allow forwarding messages from it",
         "participants_count": "Participant count",
         "photo": "Chat photo",
         "title": "Title",
@@ -4595,7 +4595,7 @@
         "media_unread": "Whether there are unread media attachments in this message",
         "mentioned": "Whether we were `mentioned <https://core.telegram.org/api/mentions>`__ in this message",
         "message": "The message",
-        "noforwards": "Whether this message is `protected <https://telegram.org/blog/protected-content-delete-by-date-and-more>`__ and thus cannot be forwarded; clients should also prevent users from saving attached media (i.e. videos should only be streamed, photos should be kept in RAM, et cetera).",
+        "noforwards": "Whether this message is `protected <https://telegram.org/blog/content-protection-delete-by-date-and-more>`__ and thus cannot be forwarded; clients should also prevent users from saving attached media (i.e. videos should only be streamed, photos should be kept in RAM, et cetera).",
         "offline": "If set, the message was sent because of a scheduled action by the message sender, for example, as away, or a greeting service message.",
         "out": "Is this an outgoing message",
         "paid_message_stars": "The amount of stars the sender has paid to send the message, see `here \u00bb <https://core.telegram.org/api/paid-messages>`__ for more info.",
@@ -4857,19 +4857,19 @@
       }
     },
     "MessageActionNoForwardsRequest": {
-      "desc": "",
+      "desc": "Emitted only in private chats if the other side requested to disable `content protection  <https://core.telegram.org/api/content-protection#for-users>`__.",
       "params": {
-        "expired": "",
+        "expired": "If set, this request was accepted or rejected by the other user and thus cannot be used anymore.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "new_value": "",
-        "prev_value": ""
+        "new_value": "New requested protection status.",
+        "prev_value": "Previous protection status."
       }
     },
     "MessageActionNoForwardsToggle": {
-      "desc": "",
+      "desc": "Emitted only in private chats when enabling or disabling `content protection  <https://core.telegram.org/api/content-protection#for-users>`__.",
       "params": {
-        "new_value": "",
-        "prev_value": ""
+        "new_value": "New protection status.",
+        "prev_value": "Previous protection status (if true, the chat was protected). May be equal to new_value when replying to requests, see `here \u00bb <https://core.telegram.org/api/content-protection#for-users>`__ for more info on the full flow."
       }
     },
     "MessageActionPaidMessagesPrice": {
@@ -8176,7 +8176,7 @@
         "media_areas": "List of media areas, see `here \u00bb <https://core.telegram.org/api/stories#media-areas>`__ for more info on media areas.",
         "min": "Full information about this story was omitted for space and performance reasons; use `stories.getStoriesByID <https://core.telegram.org/method/stories.getStoriesByID>`__ to fetch full info about this story when and if needed.",
         "music": "",
-        "noforwards": "Whether this story is `protected <https://telegram.org/blog/protected-content-delete-by-date-and-more>`__ and thus cannot be forwarded; clients should also prevent users from saving attached media (i.e. videos should only be streamed, photos should be kept in RAM, et cetera).",
+        "noforwards": "Whether this story is `protected <https://telegram.org/blog/content-protection-delete-by-date-and-more>`__ and thus cannot be forwarded; clients should also prevent users from saving attached media (i.e. videos should only be streamed, photos should be kept in RAM, et cetera).",
         "out": "indicates whether we sent this story.",
         "pinned": "Whether this story is pinned on the user's profile",
         "privacy": "`Privacy rules <https://core.telegram.org/api/privacy>`__ indicating who can and can't view this story",
@@ -9926,8 +9926,8 @@
         "has_scheduled": "Whether `scheduled messages <https://core.telegram.org/api/scheduled-messages>`__ are available",
         "id": "User ID",
         "main_tab": "The main tab for the user's profile, see `here \u00bb <https://core.telegram.org/api/profile#tabs>`__ for more info.",
-        "noforwards_my_enabled": "",
-        "noforwards_peer_enabled": "",
+        "noforwards_my_enabled": "If set, `content protection \u00bb <https://core.telegram.org/api/content-protection#for-users>`__ was enabled in this private chat by us.",
+        "noforwards_peer_enabled": "If set, `content protection \u00bb <https://core.telegram.org/api/content-protection#for-users>`__ was enabled in this private chat by this user.",
         "note": "A private note for this contact, only visible to us; see `here \u00bb <https://core.telegram.org/api/contacts#private-notes-for-contacts>`__ for more info on contact notes.",
         "notify_settings": "Notification settings",
         "personal_channel_id": "ID of the associated personal `channel \u00bb <https://core.telegram.org/api/channel>`__, that should be shown in the `profile page <https://core.telegram.org/api/profile#personal-channel>`__.",
@@ -16634,7 +16634,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "from_peer": "Source of messages",
         "id": "IDs of messages",
-        "noforwards": "Only for bots, disallows further re-forwarding and saving of the messages, even if the destination chat doesn't have `content protection <https://telegram.org/blog/protected-content-delete-by-date-and-more>`__ enabled",
+        "noforwards": "Only for bots, disallows further re-forwarding and saving of the messages, even if the destination chat doesn't have `content protection <https://telegram.org/blog/content-protection-delete-by-date-and-more>`__ enabled",
         "quick_reply_shortcut": "Add the messages to the specified `quick reply shortcut \u00bb <https://core.telegram.org/api/business#quick-reply-shortcuts>`__, instead.",
         "random_id": "Random ID to prevent resending of messages",
         "reply_to": "Can only contain an `inputReplyToMonoForum <https://core.telegram.org/constructor/inputReplyToMonoForum>`__, to forward messages to a `monoforum topic <https://core.telegram.org/api/monoforum>`__ (mutually exclusive with top_msg_id).",
@@ -18371,7 +18371,7 @@
         "invert_media": "If set, any eventual webpage preview will be shown on top of the message instead of at the bottom.",
         "media": "Attached media",
         "message": "Caption",
-        "noforwards": "Only for bots, disallows forwarding and saving of the messages, even if the destination chat doesn't have `content protection <https://telegram.org/blog/protected-content-delete-by-date-and-more>`__ enabled",
+        "noforwards": "Only for bots, disallows forwarding and saving of the messages, even if the destination chat doesn't have `content protection <https://telegram.org/blog/content-protection-delete-by-date-and-more>`__ enabled",
         "peer": "Destination",
         "quick_reply_shortcut": "Add the message to the specified `quick reply shortcut \u00bb <https://core.telegram.org/api/business#quick-reply-shortcuts>`__, instead.",
         "random_id": "Random ID to avoid resending the same message",
@@ -18401,7 +18401,7 @@
         "invert_media": "If set, any eventual webpage preview will be shown on top of the message instead of at the bottom.",
         "message": "The message",
         "no_webpage": "Set this flag to disable generation of the webpage preview",
-        "noforwards": "Only for bots, disallows forwarding and saving of the messages, even if the destination chat doesn't have `content protection <https://telegram.org/blog/protected-content-delete-by-date-and-more>`__ enabled",
+        "noforwards": "Only for bots, disallows forwarding and saving of the messages, even if the destination chat doesn't have `content protection <https://telegram.org/blog/content-protection-delete-by-date-and-more>`__ enabled",
         "peer": "The destination where the message will be sent",
         "quick_reply_shortcut": "Add the message to the specified `quick reply shortcut \u00bb <https://core.telegram.org/api/business#quick-reply-shortcuts>`__, instead.",
         "random_id": "Unique client message ID required to prevent message resending",
@@ -18429,7 +18429,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "invert_media": "If set, any eventual webpage preview will be shown on top of the message instead of at the bottom.",
         "multi_media": "The medias to send: note that they must be separately uploaded using `messages.uploadMedia <https://core.telegram.org/method/messages.uploadMedia>`__ first, using raw inputMediaUploaded* constructors is not supported.",
-        "noforwards": "Only for bots, disallows forwarding and saving of the messages, even if the destination chat doesn't have `content protection <https://telegram.org/blog/protected-content-delete-by-date-and-more>`__ enabled",
+        "noforwards": "Only for bots, disallows forwarding and saving of the messages, even if the destination chat doesn't have `content protection <https://telegram.org/blog/content-protection-delete-by-date-and-more>`__ enabled",
         "peer": "The destination chat",
         "quick_reply_shortcut": "Add the message to the specified `quick reply shortcut \u00bb <https://core.telegram.org/api/business#quick-reply-shortcuts>`__, instead.",
         "reply_to": "If set, indicates that the message should be sent in reply to the specified message or story.",
@@ -18783,12 +18783,12 @@
     "messages.ToggleNoForwards": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Enable or disable `content protection <https://core.telegram.org/api/protected-content>`__ on a channel, group or private chat.",
+      "desc": "Enable or disable `content protection <https://core.telegram.org/api/content-protection>`__ on a channel, group or private chat.",
       "params": {
         "enabled": "Enable or disable content protection",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "peer": "The chat or channel",
-        "request_msg_id": ""
+        "request_msg_id": "Used only inside private chats to accept or refuse a request to disable content protection, see `here \u00bb <https://core.telegram.org/api/content-protection#for-users>`__ for more info on the full flow."
       },
       "usable-by": "users"
     },
