@@ -6,6 +6,18 @@
         "days": "This account will self-destruct in the specified number of days"
       }
     },
+    "AiComposeTone": {
+      "desc": "",
+      "params": {}
+    },
+    "AiComposeToneDefault": {
+      "desc": "",
+      "params": {}
+    },
+    "AiComposeToneExample": {
+      "desc": "",
+      "params": {}
+    },
     "AttachMenuBot": {
       "desc": "Represents a `bot mini app that can be launched from the attachment/side menu  <https://core.telegram.org/api/bots/attach>`__\nAt least one of the show_in_attach_menu or the show_in_side_menu flags will always be set.",
       "params": {
@@ -2432,6 +2444,18 @@
     },
     "InlineQueryPeerTypeSameBotPM": {
       "desc": "Peer type: private chat with the bot itself",
+      "params": {}
+    },
+    "InputAiComposeToneDefault": {
+      "desc": "",
+      "params": {}
+    },
+    "InputAiComposeToneID": {
+      "desc": "",
+      "params": {}
+    },
+    "InputAiComposeToneSlug": {
+      "desc": "",
       "params": {}
     },
     "InputAppEvent": {
@@ -8433,6 +8457,10 @@
       "desc": "Most frequently used `Main Mini Bot Apps <https://core.telegram.org/api/bots/webapps#main-mini-apps>`__.",
       "params": {}
     },
+    "TopPeerCategoryBotsGuestChat": {
+      "desc": "",
+      "params": {}
+    },
     "TopPeerCategoryBotsInline": {
       "desc": "Most used inline bots",
       "params": {}
@@ -8471,6 +8499,10 @@
     },
     "TopPeerCategoryPhoneCalls": {
       "desc": "Most frequently called users",
+      "params": {}
+    },
+    "UpdateAiComposeTones": {
+      "desc": "",
       "params": {}
     },
     "UpdateAttachMenuBots": {
@@ -8546,6 +8578,10 @@
         "qts": "New qts value, see `updates \u00bb <https://core.telegram.org/api/updates>`__ for more info.",
         "reply_to_message": "The message that message is replying to."
       }
+    },
+    "UpdateBotGuestChatQuery": {
+      "desc": "",
+      "params": {}
     },
     "UpdateBotInlineQuery": {
       "desc": "An incoming inline query",
@@ -10110,6 +10146,10 @@
         "video_cover_photo": "Represents a custom `video cover <https://core.telegram.org/api/files#video-covers>`__."
       }
     },
+    "WebPageAttributeAiComposeTone": {
+      "desc": "",
+      "params": {}
+    },
     "WebPageAttributeStarGiftAuction": {
       "desc": "Contains info about a `collectible gift auction  <https://core.telegram.org/api/auctions>`__ for a `webPage <https://core.telegram.org/constructor/webPage>`__ preview of an `auction  <https://core.telegram.org/api/auctions>`__ (the `webPage <https://core.telegram.org/constructor/webPage>`__ will have a type of telegram_auction).",
       "params": {
@@ -10466,6 +10506,14 @@
         "users": "Users"
       }
     },
+    "aicompose.Tones": {
+      "desc": "",
+      "params": {}
+    },
+    "aicompose.TonesNotModified": {
+      "desc": "",
+      "params": {}
+    },
     "auth.Authorization": {
       "desc": "Contains user authorization info.",
       "params": {
@@ -10660,6 +10708,10 @@
         "beginning": "If set, the secret word in the sent SMS (which may contain multiple words) starts with this letter.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__"
       }
+    },
+    "bots.AccessSettings": {
+      "desc": "",
+      "params": {}
     },
     "bots.BotInfo": {
       "desc": "Localized information about a bot.",
@@ -12381,6 +12433,10 @@
         "views_graph": "Message view graph"
       }
     },
+    "stats.PollStats": {
+      "desc": "",
+      "params": {}
+    },
     "stats.PublicForwards": {
       "desc": "Contains info about the forwards of a `story <https://core.telegram.org/api/stories>`__ as a message to public chats and reposts by public channels.",
       "params": {
@@ -14028,6 +14084,55 @@
       },
       "usable-by": "users"
     },
+    "aicompose.CreateTone": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
+    },
+    "aicompose.DeleteTone": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
+    },
+    "aicompose.GetTone": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
+    },
+    "aicompose.GetToneExample": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
+    },
+    "aicompose.GetTones": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
+    },
+    "aicompose.SaveTone": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
+    },
+    "aicompose.UpdateTone": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
+    },
     "auth.AcceptLoginToken": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
@@ -14382,6 +14487,13 @@
       },
       "usable-by": "users"
     },
+    "bots.EditAccessSettings": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
+    },
     "bots.EditPreviewMedia": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
@@ -14402,6 +14514,13 @@
         "bot": "",
         "revoke": ""
       },
+      "usable-by": ""
+    },
+    "bots.GetAccessSettings": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
       "usable-by": ""
     },
     "bots.GetAdminedBots": {
@@ -16205,6 +16324,20 @@
       },
       "usable-by": ""
     },
+    "messages.DeleteParticipantReaction": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
+    },
+    "messages.DeleteParticipantReactions": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
+    },
     "messages.DeletePhoneCallHistory": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
@@ -17142,6 +17275,13 @@
         "peer": "The peer"
       },
       "usable-by": "users"
+    },
+    "messages.GetPersonalChannelHistory": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
     },
     "messages.GetPinnedDialogs": {
       "can_use_business_connection": false,
@@ -18407,6 +18547,13 @@
         "url": "URL to open"
       },
       "usable-by": "bots"
+    },
+    "messages.SetBotGuestChatResult": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
     },
     "messages.SetBotPrecheckoutResults": {
       "can_use_business_connection": false,
@@ -20266,6 +20413,13 @@
       },
       "usable-by": "users"
     },
+    "stats.GetPollStats": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "",
+      "params": {},
+      "usable-by": ""
+    },
     "stats.GetStoryPublicForwards": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
@@ -21004,6 +21158,12 @@
     "AccountDaysTTL": {
       "desc": "Time-to-live of current account\n\n"
     },
+    "AiComposeTone": {
+      "desc": ""
+    },
+    "AiComposeToneExample": {
+      "desc": ""
+    },
     "AttachMenuBot": {
       "desc": "Represents a `bot mini app that can be launched from the attachment menu  <https://core.telegram.org/bots/webapps#launching-mini-apps-from-the-attachment-menu>`__\n\n"
     },
@@ -21366,6 +21526,9 @@
     },
     "InlineQueryPeerType": {
       "desc": "Inline query peer type.\n\n"
+    },
+    "InputAiComposeTone": {
+      "desc": ""
     },
     "InputAppEvent": {
       "desc": "Object contains info about an event that occurred in the application.\n\n"
@@ -22213,6 +22376,9 @@
     "account.WebAuthorizations": {
       "desc": "Web authorizations\n\n"
     },
+    "aicompose.Tones": {
+      "desc": ""
+    },
     "auth.Authorization": {
       "desc": "Object contains info on user authorization.\n\n"
     },
@@ -22239,6 +22405,9 @@
     },
     "auth.SentCodeType": {
       "desc": "Type of the verification code that was sent\n\n"
+    },
+    "bots.AccessSettings": {
+      "desc": ""
     },
     "bots.BotInfo": {
       "desc": "Localized name, about text and description of a bot.\n\n"
@@ -22701,6 +22870,9 @@
     },
     "stats.MessageStats": {
       "desc": "Message statistics\n\n"
+    },
+    "stats.PollStats": {
+      "desc": ""
     },
     "stats.PublicForwards": {
       "desc": "Contains info about the forwards of a `story <https://core.telegram.org/api/stories>`__ as a message to public chats and reposts by public channels.\n\nTelegram users and channels can easily post and view stories through the API.\n"
