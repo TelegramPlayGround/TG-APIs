@@ -1793,7 +1793,7 @@
       "params": {
         "disallow_limited_stargifts": "Disallow the reception of limited-supply gifts (those with the `starGift <https://core.telegram.org/constructor/starGift>`__.limited flag set).",
         "disallow_premium_gifts": "Disallow the reception of `gifted Telegram Premium subscriptions \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
-        "disallow_stargifts_from_channels": "",
+        "disallow_stargifts_from_channels": "Disallow the reception of gifts sent by channels.",
         "disallow_unique_stargifts": "Disallow the reception of `collectible gifts \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
         "disallow_unlimited_stargifts": "Disallow the reception of gifts with an unlimited supply (those with the `starGift <https://core.telegram.org/constructor/starGift>`__.limited flag not set).",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__"
@@ -4759,7 +4759,7 @@
         "crypto_amount": "If crypto_currency is set, contains the paid amount, in the smallest units of the cryptocurrency.",
         "crypto_currency": "If set, the gift was made using the specified cryptocurrency.",
         "currency": "Three-letter ISO 4217 `currency <https://core.telegram.org/bots/payments#supported-currencies>`__ code",
-        "days": "",
+        "days": "Duration of the gifted Telegram Premium subscription, in days.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "message": "Message attached with the gift",
         "slug": "Slug of the `Telegram Premium giftcode link <https://core.telegram.org/api/links#premium-giftcode-links>`__",
@@ -4774,7 +4774,7 @@
         "crypto_amount": "If the gift was bought using a cryptocurrency, price of the gift in the smallest units of a cryptocurrency.",
         "crypto_currency": "If the gift was bought using a cryptocurrency, the cryptocurrency name.",
         "currency": "Three-letter ISO 4217 `currency <https://core.telegram.org/bots/payments#supported-currencies>`__ code",
-        "days": "",
+        "days": "Duration of the gifted Telegram Premium subscription, in days.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "message": "Message attached with the gift"
       }
@@ -5066,16 +5066,16 @@
     "MessageActionStarGiftUnique": {
       "desc": "A `gift  <https://core.telegram.org/api/gifts>`__ was upgraded to a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
       "params": {
-        "assigned": "",
-        "can_craft_at": "",
+        "assigned": "This collectible gift was assigned from the `TON blockchain \u00bb <https://core.telegram.org/api/gifts#withdraw-a-collectible-gift-to-the-ton-blockchain>`__.",
+        "can_craft_at": "If set, this gift can be used for `crafting \u00bb <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__ only starting from the specified unixtime.",
         "can_export_at": "If set, indicates that the current gift can't be `exported to the TON blockchain \u00bb <https://core.telegram.org/api/gifts#withdraw-a-collectible-gift-to-the-ton-blockchain>`__ yet: the owner will be able to export it at the specified unixtime.",
         "can_resell_at": "If set, indicates that the current gift can't be `resold \u00bb <https://core.telegram.org/api/gifts#reselling-collectible-gifts>`__ yet: the owner will be able to put it up for sale at the specified unixtime.",
         "can_transfer_at": "If set, indicates that the current gift can't be `transferred \u00bb <https://core.telegram.org/api/gifts#transferring-collectible-gifts>`__ yet: the owner will be able to transfer it at the specified unixtime.",
-        "craft": "",
+        "craft": "This collectible gift was obtained by `crafting \u00bb <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__.",
         "drop_original_details_stars": "If set, the `starGiftAttributeOriginalDetails <https://core.telegram.org/constructor/starGiftAttributeOriginalDetails>`__ attribute of this gift may be removed by paying the specified amount of stars, see `here \u00bb <https://core.telegram.org/api/gifts#dropping-the-original-details-of-an-upgraded-gift>`__ for the full flow.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "from_id": "Sender of the gift (unset for anonymous gifts).",
-        "from_offer": "",
+        "from_offer": "This collectible gift was transferred after a `purchase offer \u00bb <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__ was accepted.",
         "gift": "The collectible gift.",
         "peer": "Receiver of the gift.",
         "prepaid_upgrade": "The sender has pre-paid for the upgrade of this gift to a collectible gift.",
@@ -7092,7 +7092,7 @@
     "SavedStarGift": {
       "desc": "Represents a `gift <https://core.telegram.org/api/gifts>`__ owned by a peer.",
       "params": {
-        "can_craft_at": "",
+        "can_craft_at": "If set, this gift can be used for `crafting \u00bb <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__ only starting from the specified unixtime.",
         "can_export_at": "If set, indicates that the current gift can't be `exported to the TON blockchain \u00bb <https://core.telegram.org/api/gifts#withdraw-a-collectible-gift-to-the-ton-blockchain>`__ yet: the owner will be able to export it at the specified unixtime.",
         "can_resell_at": "If set, indicates that the current gift can't be `resold \u00bb <https://core.telegram.org/api/gifts#reselling-collectible-gifts>`__ yet: the owner will be able to put it up for sale at the specified unixtime.",
         "can_transfer_at": "If set, indicates that the current gift can't be `transferred \u00bb <https://core.telegram.org/api/gifts#transferring-collectible-gifts>`__ yet: the owner will be able to transfer it at the specified unixtime.",
@@ -7104,7 +7104,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "from_id": "Sender of the gift (unset for anonymous gifts).",
         "gift": "The collectible gift.",
-        "gift_num": "",
+        "gift_num": "Collectible number assigned to the gift, if already known.",
         "message": "Message attached to the gift.",
         "msg_id": "For gifts received by users, ID to use in `inputSavedStarGiftUser <https://core.telegram.org/constructor/inputSavedStarGiftUser>`__ constructors.",
         "name_hidden": "If set, the gift sender in from_id and the message are set only for the receiver of the gift.",
@@ -7545,7 +7545,7 @@
         "availability_remains": "For limited-supply gifts: the remaining number of gifts that may be bought.",
         "availability_resale": "The total number of (upgraded to `collectibles <https://core.telegram.org/api/gifts#collectible-gifts>`__) gifts of this type currently on `resale <https://core.telegram.org/api/gifts#reselling-collectible-gifts>`__",
         "availability_total": "For limited-supply gifts: the total number of gifts that was available in the initial supply.",
-        "background": "",
+        "background": "Default background palette for this gift type, used when rendering gift cards and previews before a specific collectible backdrop is chosen.",
         "birthday": "Whether this is a birthday-themed gift",
         "convert_stars": "The receiver of this gift may convert it to this many Telegram Stars, instead of displaying it on their profile page.convert_stars will be equal to stars only if the gift was bought using recently bought Telegram Stars, otherwise it will be less than stars.",
         "first_sale_date": "For sold out gifts only: when was the gift first bought.",
@@ -7556,7 +7556,7 @@
         "limited": "Whether this is a limited-supply gift.",
         "limited_per_user": "If set, the maximum number of gifts of this type that can be owned by a single user is limited and specified in per_user_total, and the remaining slots for the current user in per_user_remains.",
         "locked_until_date": "If set, the specified gift possibly cannot be sent until the specified date, see `here \u00bb <https://core.telegram.org/api/gifts>`__ for the full flow.",
-        "peer_color_available": "",
+        "peer_color_available": "If set, collectible gifts of this type may be used to generate a `message color palette and pattern \u00bb <https://core.telegram.org/api/colors#collectible-message-palettes>`__.",
         "per_user_remains": "Remaining number of gifts of this type that can be owned by the current user.",
         "per_user_total": "Maximum number of gifts of this type that can be owned by any user.",
         "released_by": "This gift was released by the specified peer.",
@@ -7567,7 +7567,7 @@
         "sticker": "`Sticker <https://core.telegram.org/api/stickers>`__ that represents the gift.",
         "title": "Title of the gift",
         "upgrade_stars": "The number of Telegram Stars the user can pay to `convert the gift into a collectible gift \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
-        "upgrade_variants": ""
+        "upgrade_variants": "Total number of possible `collectible variants \u00bb <https://core.telegram.org/api/gifts#listing-all-possible-collectible-variants>`__ for this gift type."
       }
     },
     "StarGiftActiveAuctionState": {
@@ -7586,7 +7586,7 @@
         "edge_color": "Color of the edges of the backdrop in RGB24 format.",
         "name": "Name of the backdrop",
         "pattern_color": "Color of the `starGiftAttributePattern <https://core.telegram.org/constructor/starGiftAttributePattern>`__ applied on the backdrop in RGB24 format.",
-        "rarity": "",
+        "rarity": "Rarity of this backdrop.",
         "text_color": "Color of the text on the backdrop in RGB24 format."
       }
     },
@@ -7618,11 +7618,11 @@
     "StarGiftAttributeModel": {
       "desc": "The model of a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
       "params": {
-        "crafted": "",
+        "crafted": "This model is reserved for `crafting \u00bb <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__, and should be filtered out from regular upgrade previews.",
         "document": "The `sticker <https://core.telegram.org/api/stickers>`__ representing the upgraded gift",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "name": "Name of the model",
-        "rarity": ""
+        "rarity": "Rarity of this model."
       }
     },
     "StarGiftAttributeOriginalDetails": {
@@ -7640,29 +7640,29 @@
       "params": {
         "document": "The symbol",
         "name": "Name of the symbol",
-        "rarity": ""
+        "rarity": "Rarity of this pattern."
       }
     },
     "StarGiftAttributeRarity": {
-      "desc": "",
+      "desc": "Exact rarity value for a collectible gift attribute.",
       "params": {
-        "permille": ""
+        "permille": "Probability of this attribute, in permille"
       }
     },
     "StarGiftAttributeRarityEpic": {
-      "desc": "",
+      "desc": "Represents epic collectible gift attribute rarity.",
       "params": {}
     },
     "StarGiftAttributeRarityLegendary": {
-      "desc": "",
+      "desc": "Represents legendary collectible gift attribute rarity.",
       "params": {}
     },
     "StarGiftAttributeRarityRare": {
-      "desc": "",
+      "desc": "Represents rare collectible gift attribute rarity.",
       "params": {}
     },
     "StarGiftAttributeRarityUncommon": {
-      "desc": "",
+      "desc": "Represents uncommon collectible gift attribute rarity.",
       "params": {}
     },
     "StarGiftAuctionAcquiredGift": {
@@ -7671,7 +7671,7 @@
         "bid_amount": "The amount in `Telegram Stars <https://core.telegram.org/api/stars>`__ that was bid in order to obtain the gift.",
         "date": "When was the gift obtained.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "gift_num": "",
+        "gift_num": "If set, the collectible number of the won gift among all collectibles of the same type.",
         "message": "Optional message that attached with the gift, passed when making the bid.",
         "name_hidden": "If set, your name will be hidden if the destination peer decides to display the gift on their profile (they will still see that you sent the gift).",
         "peer": "The peer that received the gift.",
@@ -7741,11 +7741,11 @@
       }
     },
     "StarGiftBackground": {
-      "desc": "",
+      "desc": "Contains the default background palette of a `gift type  <https://core.telegram.org/api/gifts#listing-all-possible-collectible-variants>`__.",
       "params": {
-        "center_color": "",
-        "edge_color": "",
-        "text_color": ""
+        "center_color": "Center color of the background palette, in RGB24 format.",
+        "edge_color": "Edge color of the background palette, in RGB24 format.",
+        "text_color": "Text color to use on top of the background palette, in RGB24 format."
       }
     },
     "StarGiftCollection": {
@@ -7765,14 +7765,14 @@
         "attributes": "Collectible attributes",
         "availability_issued": "Total number of gifts of the same type that were upgraded to a collectible gift.",
         "availability_total": "Total number of gifts of the same type that can be upgraded or were already upgraded to a collectible gift.",
-        "burned": "",
-        "craft_chance_permille": "",
-        "crafted": "",
+        "burned": "This gift was already used as an ingredient for `crafting another collectible gift \u00bb <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__.",
+        "craft_chance_permille": "Success probability, per 1000, contributed by this gift when it is used for `crafting \u00bb <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__.",
+        "crafted": "This collectible gift was obtained by `crafting \u00bb <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__, not by upgrading a regular gift.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "gift_address": "For `NFTs on the TON blockchain <https://core.telegram.org/api/gifts#withdraw-a-collectible-gift-to-the-ton-blockchain>`__, contains the address of the NFT (append it to the `ton_blockchain_explorer_url client configuration value \u00bb <https://core.telegram.org/api/config#ton-blockchain-explorer-url>`__ to obtain a link with information about the address).",
-        "gift_id": "Unique ID of the gift.",
-        "host_id": "",
-        "id": "Identifier of the collectible gift.",
+        "gift_id": "ID of the regular gift from which this gift was upgraded (all collectible gifts upgraded from the same gift will have the same gift_id, with different attributes).",
+        "host_id": "If set, the gift is currently hosted on the specified user or channel profile even though ownership belongs to a TON wallet. The owner may transfer, resell or export the gift, while the host or owner may show it on the profile, use it as a theme/status and add it to a collection.",
+        "id": "Unique identifier of this collectible gift.",
         "num": "Unique identifier of this collectible gift among all (already upgraded) collectible gifts of the same type.",
         "offer_min_stars": "If set, you can `send a purchase offer for this gift \u00bb <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__: the minimum offer price is specified in this flag.",
         "owner_address": "For `NFTs on the TON blockchain <https://core.telegram.org/api/gifts#withdraw-a-collectible-gift-to-the-ton-blockchain>`__, contains the address of the owner (append it to the `ton_blockchain_explorer_url client configuration value \u00bb <https://core.telegram.org/api/config#ton-blockchain-explorer-url>`__ to obtain a link with information about the address).",
@@ -11906,7 +11906,7 @@
       "params": {
         "chats": "Mentioned chats",
         "date": "Creation date of the gift code.",
-        "days": "",
+        "days": "Duration of the gifted Telegram Premium subscription, in days.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "from_id": "The peer that created the gift code.",
         "giveaway_msg_id": "Message ID of the giveaway in the channel specified in from_id.",
@@ -12124,7 +12124,7 @@
     "payments.StarGiftUpgradeAttributes": {
       "desc": "",
       "params": {
-        "attributes": ""
+        "attributes": "Full list of possible attributes that may be assigned when gifts of the specified type are turned into `collectible gifts \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__."
       }
     },
     "payments.StarGiftUpgradePreview": {
@@ -22104,7 +22104,7 @@
       "desc": "Contains information about the current user's state in an `auction  <https://core.telegram.org/api/auctions>`__.\nThe bid_amount, bid_date, bid_peer and min_bid_amount flags of `starGiftAuctionUserState <https://core.telegram.org/constructor/starGiftAuctionUserState>`__ will all be set if the user placed a bid in the auction.\n\nContains information about the current user's state in an `auction  <https://core.telegram.org/api/auctions>`__.\nThe bid_amount, bid_date, bid_peer and min_bid_amount flags of `starGiftAuctionUserState <https://core.telegram.org/constructor/starGiftAuctionUserState>`__ will all be set if the user placed a bid in the auction.\n"
     },
     "StarGiftBackground": {
-      "desc": "\n"
+      "desc": "Contains the default background palette of a `gift type  <https://core.telegram.org/api/gifts#listing-all-possible-collectible-variants>`__.\n\nUsers can send Gifts to their friends. The recipients of gifts can display them on their profile pages or turn them into Telegram Stars . Telegram Stars can be used for many things, including supporting creators and buying services in mini apps.\n"
     },
     "StarGiftCollection": {
       "desc": "Represents a `star gift collection  <https://core.telegram.org/api/gifts#gift-collections>`__.\n\nUsers can send Gifts to their friends. The recipients of gifts can display them on their profile pages or turn them into Telegram Stars . Telegram Stars can be used for many things, including supporting creators and buying services in mini apps.\n"
