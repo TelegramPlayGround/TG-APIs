@@ -8,15 +8,34 @@
     },
     "AiComposeTone": {
       "desc": "",
-      "params": {}
+      "params": {
+        "access_hash": "",
+        "author_id": "",
+        "creator": "",
+        "emoji_id": "",
+        "example_english": "",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "id": "",
+        "installs_count": "",
+        "prompt": "",
+        "slug": "",
+        "title": ""
+      }
     },
     "AiComposeToneDefault": {
       "desc": "",
-      "params": {}
+      "params": {
+        "emoji_id": "",
+        "title": "",
+        "tone": ""
+      }
     },
     "AiComposeToneExample": {
       "desc": "",
-      "params": {}
+      "params": {
+        "from": "",
+        "to": ""
+      }
     },
     "AttachMenuBot": {
       "desc": "Represents a `bot mini app that can be launched from the attachment/side menu  <https://core.telegram.org/api/bots/attach>`__\nAt least one of the show_in_attach_menu or the show_in_side_menu flags will always be set.",
@@ -1339,6 +1358,7 @@
         "send_photos": "If set, does not allow a user to send photos in a `supergroup/chat <https://core.telegram.org/api/channel>`__.",
         "send_plain": "If set, does not allow a user to send text messages in a `supergroup/chat <https://core.telegram.org/api/channel>`__.",
         "send_polls": "If set, does not allow a user to send polls in a `supergroup/chat <https://core.telegram.org/api/channel>`__",
+        "send_reactions": "",
         "send_roundvideos": "If set, does not allow a user to send round videos in a `supergroup/chat <https://core.telegram.org/api/channel>`__.",
         "send_stickers": "If set, does not allow a user to send stickers in a `supergroup/chat <https://core.telegram.org/api/channel>`__",
         "send_videos": "If set, does not allow a user to send videos in a `supergroup/chat <https://core.telegram.org/api/channel>`__.",
@@ -2448,15 +2468,22 @@
     },
     "InputAiComposeToneDefault": {
       "desc": "",
-      "params": {}
+      "params": {
+        "tone": ""
+      }
     },
     "InputAiComposeToneID": {
       "desc": "",
-      "params": {}
+      "params": {
+        "access_hash": "",
+        "id": ""
+      }
     },
     "InputAiComposeToneSlug": {
       "desc": "",
-      "params": {}
+      "params": {
+        "slug": ""
+      }
     },
     "InputAppEvent": {
       "desc": "Event that occurred in the application.",
@@ -4021,6 +4048,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "phone_code_hash": "phone_code_hash returned by `auth.sendCode <https://core.telegram.org/method/auth.sendCode>`__.",
         "phone_number": "Phone number.",
+        "premium_days": "",
         "restore": "Set this flag to restore a previously made purchase."
       }
     },
@@ -4588,6 +4616,7 @@
         "from_scheduled": "Whether this is a `scheduled message <https://core.telegram.org/api/scheduled-messages>`__",
         "fwd_from": "Info about forwarded messages",
         "grouped_id": "Multiple media messages sent using `messages.sendMultiMedia <https://core.telegram.org/method/messages.sendMultiMedia>`__ with the same grouped ID indicate an `album or media group <https://core.telegram.org/api/files#albums-grouped-media>`__",
+        "guestchat_via_from": "",
         "id": "ID of the message",
         "invert_media": "If set, any eventual webpage preview will be shown on top of the message instead of at the bottom.",
         "legacy": "This is a legacy message: it has to be refetched with the new layer",
@@ -6517,6 +6546,7 @@
         "close_date": "Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future; can't be used together with close_period.",
         "close_period": "Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with close_date.",
         "closed": "Whether the poll is closed and doesn't accept any more answers",
+        "countries_iso2": "",
         "creator": "",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "hash": "",
@@ -6528,7 +6558,8 @@
         "question": "The question of the poll (only `Premium <https://core.telegram.org/api/premium>`__ users can use `custom emoji entities <https://core.telegram.org/api/custom-emoji>`__ here).",
         "quiz": "Whether this is a quiz (with wrong and correct answers, results shown in the return type)",
         "revoting_disabled": "",
-        "shuffle_answers": ""
+        "shuffle_answers": "",
+        "subscribers_only": ""
       }
     },
     "PollAnswer": {
@@ -6556,6 +6587,7 @@
     "PollResults": {
       "desc": "Results of poll",
       "params": {
+        "can_view_stats": "",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "has_unread_votes": "",
         "min": "Similar to `min <https://core.telegram.org/api/min>`__ objects, used for poll constructors that are the same for all users so they don't have the option chosen by the current user (you can use `messages.getPollResults <https://core.telegram.org/method/messages.getPollResults>`__ to get the full poll results).",
@@ -8581,7 +8613,13 @@
     },
     "UpdateBotGuestChatQuery": {
       "desc": "",
-      "params": {}
+      "params": {
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "message": "",
+        "qts": "",
+        "query_id": "",
+        "reference_messages": ""
+      }
     },
     "UpdateBotInlineQuery": {
       "desc": "An incoming inline query",
@@ -9650,7 +9688,7 @@
       }
     },
     "UpdateStarGiftCraftFail": {
-      "desc": "",
+      "desc": "Indicates that a `crafting  <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__ attempt did not produce a new collectible gift.",
       "params": {}
     },
     "UpdateStarsBalance": {
@@ -9849,6 +9887,7 @@
         "bot_chat_history": "Can the bot see all messages in groups?",
         "bot_forum_can_manage_topics": "If set, this bot supports `bot forum topics \u00bb <https://core.telegram.org/api/forum#bot-forums>`__, and users (not just the bot!) are allowed to create and manage bot forum topics in their private chat with the bot.",
         "bot_forum_view": "If set, this bot supports `bot forum topics \u00bb <https://core.telegram.org/api/forum#bot-forums>`__.",
+        "bot_guestchat": "",
         "bot_has_main_app": "If set, this bot has configured a `Main Mini App \u00bb <https://core.telegram.org/api/bots/webapps#main-mini-apps>`__.",
         "bot_info_version": "Version of the `bot_info field in userFull <https://core.telegram.org/constructor/userFull>`__, incremented every time it changes. Changes to this flag should invalidate the local `userFull <https://core.telegram.org/constructor/userFull>`__ cache for this user ID, see `here \u00bb <https://core.telegram.org/api/peers#full-info-database>`__ for more info.",
         "bot_inline_geo": "Whether the bot can request our geolocation in inline mode",
@@ -10148,7 +10187,9 @@
     },
     "WebPageAttributeAiComposeTone": {
       "desc": "",
-      "params": {}
+      "params": {
+        "emoji_id": ""
+      }
     },
     "WebPageAttributeStarGiftAuction": {
       "desc": "Contains info about a `collectible gift auction  <https://core.telegram.org/api/auctions>`__ for a `webPage <https://core.telegram.org/constructor/webPage>`__ preview of an `auction  <https://core.telegram.org/api/auctions>`__ (the `webPage <https://core.telegram.org/constructor/webPage>`__ will have a type of telegram_auction).",
@@ -10508,7 +10549,11 @@
     },
     "aicompose.Tones": {
       "desc": "",
-      "params": {}
+      "params": {
+        "hash": "",
+        "tones": "",
+        "users": ""
+      }
     },
     "aicompose.TonesNotModified": {
       "desc": "",
@@ -10614,6 +10659,7 @@
         "amount": "Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in `currencies.json <https://core.telegram.org/bots/payments/currencies.json>`__, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
         "currency": "Three-letter ISO 4217 `currency <https://core.telegram.org/bots/payments#supported-currencies>`__ code.",
         "phone_code_hash": "Phone code hash, to be stored and later re-used with `auth.signIn <https://core.telegram.org/method/auth.signIn>`__",
+        "premium_days": "",
         "store_product": "For official apps, tore identifier of the Telegram Premium subscription.",
         "support_email_address": "An email address that can be contacted for more information about this request.",
         "support_email_subject": "The mandatory subject for the email."
@@ -10711,7 +10757,11 @@
     },
     "bots.AccessSettings": {
       "desc": "",
-      "params": {}
+      "params": {
+        "add_users": "",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "restricted": ""
+      }
     },
     "bots.BotInfo": {
       "desc": "Localized information about a bot.",
@@ -12122,9 +12172,9 @@
       "params": {}
     },
     "payments.StarGiftUpgradeAttributes": {
-      "desc": "",
+      "desc": "List of just the collectible attributes that may appear for a gift type once it's upgraded to a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
       "params": {
-        "attributes": "Full list of possible attributes that may be assigned when gifts of the specified type are turned into `collectible gifts \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__."
+        "attributes": "Full list of possible attributes that may be assigned when gifts of the specified type are turned into `collectible gifts \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__, including craft-only models marked with `starGiftAttributeModel <https://core.telegram.org/constructor/starGiftAttributeModel>`__.crafted."
       }
     },
     "payments.StarGiftUpgradePreview": {
@@ -12435,7 +12485,9 @@
     },
     "stats.PollStats": {
       "desc": "",
-      "params": {}
+      "params": {
+        "votes_graph": ""
+      }
     },
     "stats.PublicForwards": {
       "desc": "Contains info about the forwards of a `story <https://core.telegram.org/api/stories>`__ as a message to public chats and reposts by public channels.",
@@ -14088,49 +14140,74 @@
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "display_author": "",
+        "emoji_id": "",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "prompt": "",
+        "title": ""
+      },
       "usable-by": ""
     },
     "aicompose.DeleteTone": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "tone": ""
+      },
       "usable-by": ""
     },
     "aicompose.GetTone": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "tone": ""
+      },
       "usable-by": ""
     },
     "aicompose.GetToneExample": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "num": "",
+        "tone": ""
+      },
       "usable-by": ""
     },
     "aicompose.GetTones": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "hash": ""
+      },
       "usable-by": ""
     },
     "aicompose.SaveTone": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "tone": "",
+        "unsave": ""
+      },
       "usable-by": ""
     },
     "aicompose.UpdateTone": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "display_author": "",
+        "emoji_id": "",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "prompt": "",
+        "title": "",
+        "tone": ""
+      },
       "usable-by": ""
     },
     "auth.AcceptLoginToken": {
@@ -14491,7 +14568,12 @@
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "add_users": "",
+        "bot": "",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "restricted": ""
+      },
       "usable-by": ""
     },
     "bots.EditPreviewMedia": {
@@ -14520,7 +14602,9 @@
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "bot": ""
+      },
       "usable-by": ""
     },
     "bots.GetAdminedBots": {
@@ -15661,6 +15745,7 @@
       "desc": "Get most used peers",
       "params": {
         "bots_app": "Most frequently used `Main Mini Bot Apps <https://core.telegram.org/api/bots/webapps#main-mini-apps>`__.",
+        "bots_guestchat": "",
         "bots_inline": "Most used inline bots",
         "bots_pm": "Most used bots",
         "channels": "Most frequently visited channels",
@@ -16211,11 +16296,11 @@
       "can_use_without_auth": false,
       "desc": "Invokes telegram's AI Editor that can translate, transform, fixup and/or emojify your message in a number of different ways, privately powered by `Cocoon <https://cocoon.org>`__, see `here  <https://core.telegram.org/api/ai#compose-messages>`__ for more info!\nAll of the modes specified below can be combined.",
       "params": {
-        "change_tone": "If set, rephrases the message using the specified `tone \u00bb <#ai-compose-tones>`__",
         "emojify": "If set, adds emojis to the message",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "proofread": "If set, proofreads and fixes mistakes in the message",
         "text": "The message",
+        "tone": "",
         "translate_to_lang": "If set, translates the message to the specified language"
       },
       "usable-by": ""
@@ -16328,14 +16413,21 @@
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "msg_id": "",
+        "participant": "",
+        "peer": ""
+      },
       "usable-by": ""
     },
     "messages.DeleteParticipantReactions": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "participant": "",
+        "peer": ""
+      },
       "usable-by": ""
     },
     "messages.DeletePhoneCallHistory": {
@@ -17280,7 +17372,13 @@
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "hash": "",
+        "limit": "Maximum number of results to return, `see pagination <https://core.telegram.org/api/offsets>`__",
+        "max_id": "",
+        "min_id": "",
+        "user_id": ""
+      },
       "usable-by": ""
     },
     "messages.GetPinnedDialogs": {
@@ -18552,7 +18650,10 @@
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "query_id": "",
+        "result": ""
+      },
       "usable-by": ""
     },
     "messages.SetBotPrecheckoutResults": {
@@ -19121,9 +19222,9 @@
     "payments.CraftStarGift": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Craft a new `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__ by combining 1 to 4 owned collectible gifts of the same base gift type.\nThe passed gifts must all have the same `starGiftUnique <https://core.telegram.org/constructor/starGiftUnique>`__.gift_id, must be usable for crafting, and must not be blocked by a future can_craft_at timestamp.\nThe first passed gift must not be located on the TON blockchain.",
       "params": {
-        "stargift": ""
+        "stargift": "1 to 4 owned collectible gifts of the same type to use for `crafting \u00bb <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__. The first gift's ID is reused if crafting succeeds."
       },
       "usable-by": "users"
     },
@@ -19214,11 +19315,11 @@
     "payments.GetCraftStarGifts": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Obtain owned `collectible gifts  <https://core.telegram.org/api/gifts#collectible-gifts>`__ of a specific type that can be used for `crafting  <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__.",
       "params": {
-        "gift_id": "",
+        "gift_id": "Identifier of the base gift type, equal to `starGiftUnique <https://core.telegram.org/constructor/starGiftUnique>`__.gift_id of the first selected gift.",
         "limit": "Maximum number of results to return, `see pagination <https://core.telegram.org/api/offsets>`__",
-        "offset": ""
+        "offset": "Offset for pagination."
       },
       "usable-by": "users"
     },
@@ -19271,7 +19372,7 @@
         "attributes": "Optionally filter gifts with the specified attributes. If no attributes of a specific type are specified, all attributes of that type are allowed.",
         "attributes_hash": "If a previous call to the method was made and `payments.resaleStarGifts <https://core.telegram.org/constructor/payments.resaleStarGifts>`__.attributes_hash was set, pass it here to avoid returning any results if they haven't changed. Otherwise, set this flag and pass 0 to return `payments.resaleStarGifts <https://core.telegram.org/constructor/payments.resaleStarGifts>`__.attributes_hash and `payments.resaleStarGifts <https://core.telegram.org/constructor/payments.resaleStarGifts>`__.attributes, these two fields will not be set if this flag is not set.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "for_craft": "",
+        "for_craft": "Only return collectible gifts that can be bought and used for `crafting \u00bb <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__; render each returned gift's `starGiftUnique <https://core.telegram.org/constructor/starGiftUnique>`__.craft_chance_permille as its crafting success contribution.",
         "gift_id": "Mandatory identifier of the base gift from which the collectible gift was upgraded.",
         "limit": "Maximum number of results to return, `see pagination <https://core.telegram.org/api/offsets>`__",
         "offset": "Offset for pagination. If not equal to an empty string, `payments.resaleStarGifts <https://core.telegram.org/constructor/payments.resaleStarGifts>`__.counters will not be set to avoid returning the counters every time a new page is fetched.",
@@ -19360,9 +19461,9 @@
     "payments.GetStarGiftUpgradeAttributes": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Obtains the full list of just the collectible attributes that may appear for a gift type once it's upgraded to a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__.\nThe result may also include `starGiftAttributeModel <https://core.telegram.org/constructor/starGiftAttributeModel>`__ constructors with the crafted flag set: these models are reserved for `crafting  <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__ and should be filtered out from regular upgrade previews (and vice versa).",
       "params": {
-        "gift_id": ""
+        "gift_id": "Non-collectible base gift ID, from `starGift <https://core.telegram.org/constructor/starGift>`__.id"
       },
       "usable-by": "users"
     },
@@ -20417,7 +20518,12 @@
       "can_use_business_connection": false,
       "can_use_without_auth": false,
       "desc": "",
-      "params": {},
+      "params": {
+        "dark": "",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "msg_id": "",
+        "peer": ""
+      },
       "usable-by": ""
     },
     "stats.GetStoryPublicForwards": {
@@ -21159,10 +21265,10 @@
       "desc": "Time-to-live of current account\n\n"
     },
     "AiComposeTone": {
-      "desc": ""
+      "desc": "\n"
     },
     "AiComposeToneExample": {
-      "desc": ""
+      "desc": "\n"
     },
     "AttachMenuBot": {
       "desc": "Represents a `bot mini app that can be launched from the attachment menu  <https://core.telegram.org/bots/webapps#launching-mini-apps-from-the-attachment-menu>`__\n\n"
@@ -21528,7 +21634,7 @@
       "desc": "Inline query peer type.\n\n"
     },
     "InputAiComposeTone": {
-      "desc": ""
+      "desc": "\n"
     },
     "InputAppEvent": {
       "desc": "Object contains info about an event that occurred in the application.\n\n"
@@ -22377,7 +22483,7 @@
       "desc": "Web authorizations\n\n"
     },
     "aicompose.Tones": {
-      "desc": ""
+      "desc": "\n"
     },
     "auth.Authorization": {
       "desc": "Object contains info on user authorization.\n\n"
@@ -22407,7 +22513,7 @@
       "desc": "Type of the verification code that was sent\n\n"
     },
     "bots.AccessSettings": {
-      "desc": ""
+      "desc": "\n"
     },
     "bots.BotInfo": {
       "desc": "Localized name, about text and description of a bot.\n\n"
@@ -22782,7 +22888,7 @@
       "desc": "Represents a list of `star gift collections  <https://core.telegram.org/api/gifts#gift-collections>`__.\n\nUsers can send Gifts to their friends. The recipients of gifts can display them on their profile pages or turn them into Telegram Stars . Telegram Stars can be used for many things, including supporting creators and buying services in mini apps.\n"
     },
     "payments.StarGiftUpgradeAttributes": {
-      "desc": "\n"
+      "desc": "List of just the collectible attributes that may appear for a gift type once it's upgraded to a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__.\n\nUsers can send Gifts to their friends. The recipients of gifts can display them on their profile pages or turn them into Telegram Stars . Telegram Stars can be used for many things, including supporting creators and buying services in mini apps.\n"
     },
     "payments.StarGiftUpgradePreview": {
       "desc": "A preview of the possible attributes (chosen randomly) a `gift  <https://core.telegram.org/api/gifts>`__ can receive after upgrading it to a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__, see `here  <https://core.telegram.org/api/gifts#collectible-gifts>`__ for more info.\n\nUsers can send Gifts to their friends. The recipients of gifts can display them on their profile pages or turn them into Telegram Stars . Telegram Stars can be used for many things, including supporting creators and buying services in mini apps.\n"
@@ -22872,7 +22978,7 @@
       "desc": "Message statistics\n\n"
     },
     "stats.PollStats": {
-      "desc": ""
+      "desc": "\n"
     },
     "stats.PublicForwards": {
       "desc": "Contains info about the forwards of a `story <https://core.telegram.org/api/stories>`__ as a message to public chats and reposts by public channels.\n\nTelegram users and channels can easily post and view stories through the API.\n"
