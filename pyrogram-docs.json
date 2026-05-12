@@ -8804,7 +8804,7 @@
       }
     },
     "UpdateChannelTooLong": {
-      "desc": "There are new updates in the specified channel, the client must fetch them.\nIf the difference is too long or if the channel isn't currently in the states, start fetching from the specified pts.",
+      "desc": "There are new updates in the specified channel, the client must fetch them manually by invoking `updates.getChannelDifference <https://core.telegram.org/method/updates.getChannelDifference>`__ as specified in the `documentation  <https://core.telegram.org/api/updates>`__.\nIf the channel's PTS isn't currently stored in the database (i.e. we joined this channel on another client while the current client was offline), start fetching from the specified pts.\nDoes not necessarily indicate the `channel message box size limit was reached <https://core.telegram.org/api/updates#recovering-gaps-for-very-old-messages>`__, it simply indicates that the number of queued updates in a message box is too large to be delivered passively through the socket.",
       "params": {
         "channel_id": "The channel",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -9839,7 +9839,7 @@
       }
     },
     "UpdatesTooLong": {
-      "desc": "Too many updates, it is necessary to execute `updates.getDifference <https://core.telegram.org/method/updates.getDifference>`__.",
+      "desc": "The number of queued updates in the common message box is too large to be delivered passively through the socket, invoke `updates.getDifference <https://core.telegram.org/method/updates.getDifference>`__ to fetch the difference as specified in the `documentation  <https://core.telegram.org/api/updates>`__.\nDoes not necessarily indicate the `message box size limit was reached <https://core.telegram.org/api/updates#recovering-gaps-for-very-old-messages>`__, it simply indicates that the number of queued updates in a message box is too large to be delivered passively through the socket.",
       "params": {}
     },
     "UrlAuthResultAccepted": {
@@ -12676,13 +12676,13 @@
       }
     },
     "updates.ChannelDifferenceTooLong": {
-      "desc": "The provided pts + limit < remote pts. Simply, there are too many updates to be fetched (more than limit), the client has to resolve the update gap in one of the following ways (assuming the existence of a persistent database to locally store messages):\nIt should be also noted that some messages like live location messages shouldn't be deleted.",
+      "desc": "The passed pts is too old: one or more updates starting from the specified PTS were deleted from the message box of this channel.\nFor supergroups/channels, this usually happens for updates older than latestPts - 100000 (though do not rely on this value, it's a server-side implementation detail that may change, and should not be used by clients in any way).",
       "params": {
         "chats": "Chats from messages",
         "dialog": "Dialog containing the latest `PTS <https://core.telegram.org/api/updates>`__ that can be used to reset the channel state",
-        "final": "Whether there are more updates that must be fetched (always false)",
+        "final": "Whether there are more updates that must be fetched (always set)",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "messages": "The latest messages",
+        "messages": "The latest messages (not starting from the passed pts, just the latest messages).",
         "timeout": "Clients are supposed to refetch the channel difference after timeout seconds have elapsed",
         "users": "Users from messages"
       }
