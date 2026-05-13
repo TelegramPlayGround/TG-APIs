@@ -9485,7 +9485,7 @@
             "Array of String"
           ],
           "required": false,
-          "description": "Optional. A list of update types the bot is subscribed to. Defaults to all update types except chat_member."
+          "description": "Optional. A list of update types the bot is subscribed to. Defaults to all update types except chat_member, message_reaction, and message_reaction_count."
         }
       ]
     },
