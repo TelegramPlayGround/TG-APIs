@@ -21780,6 +21780,9 @@
     "InputSecureValue": {
       "desc": "Secure value, `for more info see the passport docs  <https://core.telegram.org/passport/encryption#encryption>`__\n\n"
     },
+    "InputSingleMedia": {
+      "desc": "A single media in an `album or grouped media <https://core.telegram.org/api/files#albums-grouped-media>`__ sent with `messages.sendMultiMedia <https://core.telegram.org/method/messages.sendMultiMedia>`__.\n\nHow to transfer large data batches correctly.\nSend an `album or grouped media <https://core.telegram.org/api/files#albums-grouped-media>`__\n"
+    },
     "InputStarGiftAuction": {
       "desc": "\n"
     },
@@ -22106,6 +22109,9 @@
     },
     "SavedDialog": {
       "desc": "Represents a `saved message dialog  <https://core.telegram.org/api/saved-messages>`__.\n\nThe Saved Messages chat allows users to bookmark messages and media: it's a personal cloud storage for any messages or media you may want to send or forward there.\n"
+    },
+    "SavedReactionTag": {
+      "desc": "Info about a `saved message reaction tag  <https://core.telegram.org/api/saved-messages#tags>`__.\n\nThe Saved Messages chat allows users to bookmark messages and media: it's a personal cloud storage for any messages or media you may want to send or forward there.\n"
     },
     "SavedStarGift": {
       "desc": "Represents a `gift <https://core.telegram.org/api/gifts>`__ owned by a peer.\n\nUsers can send Gifts to their friends. The recipients of gifts can display them on their profile pages or turn them into Telegram Stars . Telegram Stars can be used for many things, including supporting creators and buying services in mini apps.\n"
