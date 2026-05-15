@@ -5289,7 +5289,7 @@
       }
     },
     "MessageEntityFormattedDate": {
-      "desc": "",
+      "desc": "Represents a specific point in time.",
       "params": {
         "date": "",
         "day_of_week": "",
@@ -16549,11 +16549,11 @@
     "messages.EditChatCreator": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Transfer the ownership of a basic group, supergroup or channel to another user, see `here  <https://core.telegram.org/api/channel#transferring-ownership-of-a-groupchannel>`__ for the full flow.",
       "params": {
-        "password": "",
-        "peer": "",
-        "user_id": ""
+        "password": "The current account's `2FA password <https://core.telegram.org/api/srp>`__.",
+        "peer": "Owned group/supergroup/channel.",
+        "user_id": "ID of the new owner."
       },
       "usable-by": ""
     },
@@ -17173,9 +17173,9 @@
     "messages.GetFutureChatCreatorAfterLeave": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Group/channel owners only: returns the ID of the user that will become the new owner of the group if we decide to leave the group, see `here  <https://core.telegram.org/api/channel#leaving-groups-channels>`__ for more info on the full flow.",
       "params": {
-        "peer": ""
+        "peer": "The basic group/supergroup/channel we're about to leave."
       },
       "usable-by": ""
     },
@@ -19378,7 +19378,7 @@
         "offset": "Offset for pagination. If not equal to an empty string, `payments.resaleStarGifts <https://core.telegram.org/constructor/payments.resaleStarGifts>`__.counters will not be set to avoid returning the counters every time a new page is fetched.",
         "sort_by_num": "Sort gifts by number (ascending).",
         "sort_by_price": "Sort gifts by price (ascending).",
-        "stars_only": ""
+        "stars_only": "Only return gifts that can be bought using `Stars <https://core.telegram.org/api/stars>`__."
       },
       "usable-by": "users"
     },
