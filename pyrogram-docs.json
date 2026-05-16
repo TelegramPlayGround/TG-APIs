@@ -5289,18 +5289,18 @@
       }
     },
     "MessageEntityFormattedDate": {
-      "desc": "Represents a specific point in time.",
+      "desc": "Represents a specific point in time, rendered as specified `here  <https://core.telegram.org/api/entities#date-entities>`__\nAll flags are optional, with the following limitations:\nIf any of the flags are combined, their rendering order in the text is the following:\n\n\n\n\n\t | relative cannot combined with any other flag \n\n\t | short_time and long_time cannot be combined with each other \n\n\t | short_date and long_date cannot be combined with each other",
       "params": {
-        "date": "",
-        "day_of_week": "",
+        "date": "The date as a UNIX timestamp: the allowed value ranges from 0 to the current date plus 1098 days (time()+1098*86400).",
+        "day_of_week": "Renders the day of the week according to the user's locale settings.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "length": "",
-        "long_date": "",
-        "long_time": "",
-        "offset": "",
-        "relative": "",
-        "short_date": "",
-        "short_time": ""
+        "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
+        "long_date": "Renders the time in long format: always month, date and year, all according the user's locale settings; cannot be combined with short_date.",
+        "long_time": "Renders the time in long format: hours, minutes, seconds and maybe timezone, according to the user's locale settings; cannot be combined with short_time.",
+        "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
+        "relative": "If set, render a relative date, see `here \u00bb <https://core.telegram.org/api/entities#date-entities>`__ for more info. Cannot be combined with any of the other flags.",
+        "short_date": "Renders the time in short format: month, date, (and year, if different from the current one), all according the user's locale settings; cannot be combined with long_date.",
+        "short_time": "Renders the time in short format: hours and minutes, according to the user's locale settings; cannot be combined with long_time."
       }
     },
     "MessageEntityHashtag": {
