@@ -1808,17 +1808,6 @@
         "folder_id": "`Peer folder ID, for more info click here <https://core.telegram.org/api/folders#peer-folders>`__"
       }
     },
-    "DisallowedGiftsSettings": {
-      "desc": "Disallow the reception of specific `gift <https://core.telegram.org/api/gifts>`__ types.",
-      "params": {
-        "disallow_limited_stargifts": "Disallow the reception of limited-supply gifts (those with the `starGift <https://core.telegram.org/constructor/starGift>`__.limited flag set).",
-        "disallow_premium_gifts": "Disallow the reception of `gifted Telegram Premium subscriptions \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
-        "disallow_stargifts_from_channels": "Disallow the reception of gifts sent by channels.",
-        "disallow_unique_stargifts": "Disallow the reception of `collectible gifts \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
-        "disallow_unlimited_stargifts": "Disallow the reception of gifts with an unlimited supply (those with the `starGift <https://core.telegram.org/constructor/starGift>`__.limited flag not set).",
-        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__"
-      }
-    },
     "Document": {
       "desc": "Document",
       "params": {
@@ -3048,18 +3037,6 @@
         "include_upgrade": "Also pay for an eventual upgrade of the gift to a `collectible gift \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
         "message": "Optional message, attached with the gift. The maximum length for this field is specified in the `stargifts_message_length_max client configuration value \u00bb <https://core.telegram.org/api/config#stargifts-message-length-max>`__.",
         "peer": "Receiver of the gift."
-      }
-    },
-    "InputInvoiceStarGiftAuctionBid": {
-      "desc": "Used to place a bid in a `collectible gift auction  <https://core.telegram.org/api/auctions>`__.",
-      "params": {
-        "bid_amount": "Total amount of the bid in `Telegram Stars <https://core.telegram.org/api/stars>`__.",
-        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "gift_id": "Identifier of the gift, from `starGift <https://core.telegram.org/constructor/starGift>`__.id",
-        "hide_name": "If set, your name will be hidden if the destination peer decides to display the gift on their profile (they will still see that you sent the gift).    Must not be set when updating an existing bid, as the value cannot be changed for existing bids.",
-        "message": "Optional message that will be attached with the gift if we end up winning this round: the maximum length for this field is specified in the `stargifts_message_length_max client configuration value \u00bb <https://core.telegram.org/api/config#stargifts-message-length-max>`__.    Must not be set when updating an existing bid, as the value cannot be changed for existing bids.",
-        "peer": "Identifier of the user or channel (only if `channelFull <https://core.telegram.org/constructor/channelFull>`__.stargifts_available is set) that will receive the gift.",
-        "update_bid": "Must be set when increasing an already existing bid."
       }
     },
     "InputInvoiceStarGiftDropOriginalDetails": {
@@ -5641,14 +5618,6 @@
         "peer": "The peer that voted for the queried option"
       }
     },
-    "MessagePeerVoteMultiple": {
-      "desc": "How a peer voted in a multiple-choice poll",
-      "params": {
-        "date": "When did the peer cast their votes",
-        "options": "Options chosen by the peer",
-        "peer": "Peer ID"
-      }
-    },
     "MessageRange": {
       "desc": "Indicates a range of chat messages",
       "params": {
@@ -8009,10 +7978,6 @@
     },
     "StarsTransactionPeerFragment": {
       "desc": "Describes a `Telegram Star <https://core.telegram.org/api/stars>`__ transaction with `Fragment <https://fragment.com>`__, used when purchasing Telegram Stars through `Fragment <https://fragment.com>`__.",
-      "params": {}
-    },
-    "StarsTransactionPeerPlayMarket": {
-      "desc": "Describes a `Telegram Star <https://core.telegram.org/api/stars>`__ transaction with the Play Store, used when purchasing Telegram Stars through the Play Store.",
       "params": {}
     },
     "StarsTransactionPeerPremiumBot": {
@@ -12577,14 +12542,6 @@
         "users": "Mentioned users"
       }
     },
-    "stories.AllStoriesNotModified": {
-      "desc": "The list of active (or active and hidden) `stories <https://core.telegram.org/api/stories#watching-stories>`__ has not changed.",
-      "params": {
-        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "state": "State to use to ask for updates",
-        "stealth_mode": "Current `stealth mode <https://core.telegram.org/api/stories#stealth-mode>`__ information"
-      }
-    },
     "stories.CanSendStoryCount": {
       "desc": "Contains the number of available active story slots (equal to the value of the `story_expiring_limit_* client configuration parameter <https://core.telegram.org/api/config#story-expiring-limit-default>`__ minus the number of currently active stories).",
       "params": {
@@ -13413,16 +13370,6 @@
       "desc": "Get saved `Telegram Passport <https://core.telegram.org/passport>`__ document, `for more info see the passport docs  <https://core.telegram.org/passport/encryption#encryption>`__",
       "params": {
         "types": "Requested value types"
-      },
-      "usable-by": "users"
-    },
-    "account.GetTheme": {
-      "can_use_business_connection": false,
-      "can_use_without_auth": false,
-      "desc": "Get theme information",
-      "params": {
-        "format": "Theme format, a string that identifies the theming engines supported by the client",
-        "theme": "Theme"
       },
       "usable-by": "users"
     },
@@ -21837,9 +21784,6 @@
     "KeyboardButtonStyle": {
       "desc": "This constructor allows setting a custom background color and custom emoji label for a button, see `here  <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info.\n\nUsers can interact with your bot via buttons or even inline buttons, straight from inline messages in any chat.\n"
     },
-    "LabeledPrice": {
-      "desc": "Labeled pricetag\n\n"
-    },
     "LangPackDifference": {
       "desc": "Language pack changes\n\n"
     },
@@ -21959,9 +21903,6 @@
     },
     "PaymentCharge": {
       "desc": "Charged payment\n\n"
-    },
-    "PaymentFormMethod": {
-      "desc": "Represents a payment method\n\n"
     },
     "PaymentRequestedInfo": {
       "desc": "Requested payment info\n\n"
