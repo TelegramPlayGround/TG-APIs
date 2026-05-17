@@ -2026,6 +2026,14 @@
       "desc": "The list of `custom emojis <https://core.telegram.org/api/custom-emoji>`__ hasn't changed.",
       "params": {}
     },
+    "EmojiStatus": {
+      "desc": "An `emoji status <https://core.telegram.org/api/emoji-status>`__",
+      "params": {
+        "document_id": "`Custom emoji document ID <https://core.telegram.org/api/custom-emoji>`__",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "until": "If set, the emoji status will be active until the specified unixtime."
+      }
+    },
     "EmojiStatusCollectible": {
       "desc": "An `owned collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__ as emoji status.\nCannot be passed to `account.updateEmojiStatus <https://core.telegram.org/method/account.updateEmojiStatus>`__, must be converted to an `inputEmojiStatusCollectible <https://core.telegram.org/constructor/inputEmojiStatusCollectible>`__ first before passing it to that method.",
       "params": {
@@ -3560,6 +3568,12 @@
         "chat_id": "Chat identifier"
       }
     },
+    "InputPeerColorCollectible": {
+      "desc": "Represents a `color palette  <https://core.telegram.org/api/colors>`__ associated to a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__, see `here  <https://core.telegram.org/api/colors#collectible-gift-palettes>`__ for more info.",
+      "params": {
+        "collectible_id": "ID of the `collectible gift \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__."
+      }
+    },
     "InputPeerEmpty": {
       "desc": "An empty constructor, no user or chat is defined.",
       "params": {}
@@ -3922,12 +3936,6 @@
         "random_id": "Unique client media ID required to prevent message resending"
       }
     },
-    "InputStarGiftAuction": {
-      "desc": "Used to fetch `auctions <https://core.telegram.org/api/auctions>`__ using the ID of the linked `collectible gift <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
-      "params": {
-        "gift_id": "`Collectible gift ID <https://core.telegram.org/api/gifts#collectible-gifts>`__"
-      }
-    },
     "InputStarGiftAuctionSlug": {
       "desc": "Used to fetch `auctions <https://core.telegram.org/api/auctions>`__ using the `slug of an auction deep link  <https://core.telegram.org/api/links#auction-links>`__.",
       "params": {
@@ -3944,10 +3952,6 @@
     },
     "InputStickerSetAnimatedEmoji": {
       "desc": "Animated emojis stickerset",
-      "params": {}
-    },
-    "InputStickerSetAnimatedEmojiAnimations": {
-      "desc": "Animated emoji reaction stickerset (contains animations to play when a user clicks on a given animated emoji)",
       "params": {}
     },
     "InputStickerSetDice": {
@@ -6839,12 +6843,6 @@
         "count": "Number of users that reacted with this emoji.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "reaction": "The reaction."
-      }
-    },
-    "ReactionCustomEmoji": {
-      "desc": "`Custom emoji <https://core.telegram.org/api/custom-emoji>`__ message reaction",
-      "params": {
-        "document_id": "`Custom emoji document ID <https://core.telegram.org/api/custom-emoji>`__"
       }
     },
     "ReactionEmoji": {
@@ -18101,6 +18099,23 @@
       },
       "usable-by": "users"
     },
+    "messages.RequestAppWebView": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "Open a `bot mini app <https://core.telegram.org/bots/webapps>`__ from a `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__, sending over user information after user confirmation.\nAfter calling this method, until the user closes the webview, `messages.prolongWebView <https://core.telegram.org/method/messages.prolongWebView>`__ must be called every 60 seconds.",
+      "params": {
+        "app": "The app obtained by invoking `messages.getBotApp <https://core.telegram.org/method/messages.getBotApp>`__ as specified in the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__ docs.",
+        "compact": "If set, requests to open the mini app in compact mode (as opposed to normal or fullscreen mode). Must be set if the mode parameter of the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__ is equal to compact.",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "fullscreen": "If set, requests to open the mini app in fullscreen mode (as opposed to compact or normal mode). Must be set if the mode parameter of the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__ is equal to fullscreen.",
+        "peer": "If the client has clicked on the link in a Telegram chat, pass the chat's peer information; otherwise pass the bot's peer information, instead.",
+        "platform": "Short name of the application; 0-64 English letters, digits, and underscores",
+        "start_param": "If the startapp query string parameter is present in the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__, pass it to start_param.",
+        "theme_params": "`Theme parameters \u00bb <https://core.telegram.org/api/bots/webapps#theme-parameters>`__",
+        "write_allowed": "Set this flag if the bot is asking permission to send messages to the user as specified in the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__ docs, and the user agreed."
+      },
+      "usable-by": "users"
+    },
     "messages.RequestEncryption": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
@@ -21512,6 +21527,9 @@
     "EncryptedChat": {
       "desc": "Object contains info on an encrypted chat.\n\n"
     },
+    "EncryptedFile": {
+      "desc": "Seta an encrypted file.\n\n"
+    },
     "EncryptedMessage": {
       "desc": "Object contains encrypted message.\n\n"
     },
@@ -21943,9 +21961,6 @@
     },
     "PeerColor": {
       "desc": "Represents a `color palette  <https://core.telegram.org/api/colors>`__.\n\nTelegram users and channels can change the accent color and background pattern of their profile page and their messages!\n"
-    },
-    "PeerLocated": {
-      "desc": "Geolocated peer\n\n"
     },
     "PeerNotifySettings": {
       "desc": "Notification settings.\n\n"
