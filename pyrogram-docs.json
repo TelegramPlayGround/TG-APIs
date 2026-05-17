@@ -3398,10 +3398,6 @@
       "desc": "Return only messages containing contacts",
       "params": {}
     },
-    "InputMessagesFilterDocument": {
-      "desc": "Filter for messages containing documents.",
-      "params": {}
-    },
     "InputMessagesFilterEmpty": {
       "desc": "Filter is absent.",
       "params": {}
@@ -12666,6 +12662,15 @@
         "users": "Users"
       }
     },
+    "updates.ChannelDifferenceEmpty": {
+      "desc": "There are no new updates",
+      "params": {
+        "final": "Whether there are more updates that must be fetched (always false)",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "pts": "The latest `PTS <https://core.telegram.org/api/updates>`__",
+        "timeout": "Clients are supposed to refetch the channel difference after timeout seconds have elapsed, if the user is `currently viewing the chat, see here \u00bb <https://core.telegram.org/api/updates#subscribing-to-updates-of-channels-supergroups>`__ for more info."
+      }
+    },
     "updates.ChannelDifferenceTooLong": {
       "desc": "The passed pts is too old: one or more updates starting from the specified PTS were deleted from the message box of this channel.\nFor supergroups/channels, this usually happens for updates older than latestPts - 100000 (though do not rely on this value, it's a server-side implementation detail that may change, and should not be used by clients in any way).",
       "params": {
@@ -12705,6 +12710,12 @@
         "new_messages": "List of new messages",
         "other_updates": "List of updates",
         "users": "List of users mentioned in events"
+      }
+    },
+    "updates.DifferenceTooLong": {
+      "desc": "The difference is `too long <https://core.telegram.org/api/updates#recovering-gaps>`__, and the specified state must be used to refetch updates.",
+      "params": {
+        "pts": "The new state to use."
       }
     },
     "updates.State": {
@@ -13168,6 +13179,15 @@
       "desc": "Get autosave settings",
       "params": {},
       "usable-by": "users"
+    },
+    "account.GetBotBusinessConnection": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "Bots may invoke this method to re-fetch the `updateBotBusinessConnect <https://core.telegram.org/constructor/updateBotBusinessConnect>`__ constructor associated with a specific `business connection_id, see here  <https://core.telegram.org/api/bots/connected-business-bots>`__ for more info on connected business bots.\nThis is needed for example for freshly logged in bots that are receiving some `updateBotNewBusinessMessage <https://core.telegram.org/constructor/updateBotNewBusinessMessage>`__, etc. updates because some users have already connected to the bot before it could login.\nIn this case, the bot is receiving messages from the business connection, but it hasn't cached the associated `updateBotBusinessConnect <https://core.telegram.org/constructor/updateBotBusinessConnect>`__ with info about the connection (can it reply to messages? etc.) yet, and cannot receive the old ones because they were sent when the bot wasn't logged into the session yet.\nThis method can be used to fetch info about a not-yet-cached business connection, and should not be invoked if the info is already cached or to fetch changes, as eventual changes will automatically be sent as new `updateBotBusinessConnect <https://core.telegram.org/constructor/updateBotBusinessConnect>`__ updates to the bot using the usual `update delivery methods  <https://core.telegram.org/api/updates>`__.",
+      "params": {
+        "connection_id": "`Business connection ID \u00bb <https://core.telegram.org/api/bots/connected-business-bots>`__."
+      },
+      "usable-by": ""
     },
     "account.GetBusinessChatLinks": {
       "can_use_business_connection": false,
@@ -22733,9 +22753,6 @@
     },
     "messages.InvitedUsers": {
       "desc": "Contains info about successfully or unsuccessfully `invited  <https://core.telegram.org/api/invites#direct-invites>`__ users.\n\nChats and channels may have a public username or a private invite link: private invite links may be further enhanced with per-user join requests.\n"
-    },
-    "messages.MessageEditData": {
-      "desc": "Message edit data for media\n\n"
     },
     "messages.MessageReactionsList": {
       "desc": "List of peers that reacted to a specific message\n\n"
