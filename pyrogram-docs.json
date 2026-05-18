@@ -3936,6 +3936,12 @@
         "random_id": "Unique client media ID required to prevent message resending"
       }
     },
+    "InputStarGiftAuction": {
+      "desc": "Used to fetch `auctions <https://core.telegram.org/api/auctions>`__ using the ID of the linked `collectible gift <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
+      "params": {
+        "gift_id": "`Collectible gift ID <https://core.telegram.org/api/gifts#collectible-gifts>`__"
+      }
+    },
     "InputStarGiftAuctionSlug": {
       "desc": "Used to fetch `auctions <https://core.telegram.org/api/auctions>`__ using the `slug of an auction deep link  <https://core.telegram.org/api/links#auction-links>`__.",
       "params": {
@@ -3952,6 +3958,10 @@
     },
     "InputStickerSetAnimatedEmoji": {
       "desc": "Animated emojis stickerset",
+      "params": {}
+    },
+    "InputStickerSetAnimatedEmojiAnimations": {
+      "desc": "Animated emoji reaction stickerset (contains animations to play when a user clicks on a given animated emoji)",
       "params": {}
     },
     "InputStickerSetDice": {
@@ -6843,6 +6853,12 @@
         "count": "Number of users that reacted with this emoji.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "reaction": "The reaction."
+      }
+    },
+    "ReactionCustomEmoji": {
+      "desc": "`Custom emoji <https://core.telegram.org/api/custom-emoji>`__ message reaction",
+      "params": {
+        "document_id": "`Custom emoji document ID <https://core.telegram.org/api/custom-emoji>`__"
       }
     },
     "ReactionEmoji": {
@@ -13582,15 +13598,6 @@
       "can_use_without_auth": false,
       "desc": "Resend the code to verify an email to use as `2FA recovery method <https://core.telegram.org/api/srp>`__.",
       "params": {},
-      "usable-by": "users"
-    },
-    "account.ResetAuthorization": {
-      "can_use_business_connection": false,
-      "can_use_without_auth": false,
-      "desc": "Log out an active `authorized session <https://core.telegram.org/api/auth>`__ by its hash",
-      "params": {
-        "hash": "Session hash"
-      },
       "usable-by": "users"
     },
     "account.ResetNotifySettings": {
@@ -21961,6 +21968,9 @@
     },
     "PeerColor": {
       "desc": "Represents a `color palette  <https://core.telegram.org/api/colors>`__.\n\nTelegram users and channels can change the accent color and background pattern of their profile page and their messages!\n"
+    },
+    "PeerLocated": {
+      "desc": "Geolocated peer\n\n"
     },
     "PeerNotifySettings": {
       "desc": "Notification settings.\n\n"
