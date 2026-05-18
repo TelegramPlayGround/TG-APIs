@@ -13600,6 +13600,15 @@
       "params": {},
       "usable-by": "users"
     },
+    "account.ResetAuthorization": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "Log out an active `authorized session <https://core.telegram.org/api/auth>`__ by its hash",
+      "params": {
+        "hash": "Session hash"
+      },
+      "usable-by": "users"
+    },
     "account.ResetNotifySettings": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
