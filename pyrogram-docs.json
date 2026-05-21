@@ -4670,9 +4670,9 @@
       }
     },
     "MessageActionChangeCreator": {
-      "desc": "",
+      "desc": "Service message: emitted to a supergroup when `ownership transfer completes after the old owner left the group  <https://core.telegram.org/api/channel#leaving-groups-channels>`__ (7 days after the old owner left without rejoining), indicating that ownership has been transferred to a new owner.\nSent from the user ID of the old owner.",
       "params": {
-        "new_creator_id": ""
+        "new_creator_id": "The ID of the user who became the new owner of the group/channel."
       }
     },
     "MessageActionChannelCreate": {
@@ -4880,9 +4880,9 @@
       }
     },
     "MessageActionNewCreatorPending": {
-      "desc": "",
+      "desc": "Service message: emitted to a supergroup when the `group/channel creator leaves the group  <https://core.telegram.org/api/channel#leaving-groups-channels>`__, indicating that ownership transfer is pending. The new_creator_id user will become the new owner after 7 days if the old owner does not rejoin.\nSent from the user ID of the old owner.",
       "params": {
-        "new_creator_id": ""
+        "new_creator_id": "The ID of the user who will become the new owner of the group/channel after 7 days if the old owner does not rejoin."
       }
     },
     "MessageActionNoForwardsRequest": {
@@ -19990,10 +19990,10 @@
     "phone.GetGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get info about a group call",
+      "desc": "Get info about a group call and its participants.",
       "params": {
         "call": "The group call",
-        "limit": "Maximum number of results to return, `see pagination <https://core.telegram.org/api/offsets>`__"
+        "limit": "Maximum number of participants to return in this call. If the number of returned participants is less than `groupCall <https://core.telegram.org/constructor/groupCall>`__.participants_count, paginate through the remaining participants using `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__, passing to offset the `phone.groupCall <https://core.telegram.org/constructor/phone.groupCall>`__.participants_next_offset returned by this call."
       },
       "usable-by": "users"
     },
@@ -20056,7 +20056,7 @@
         "call": "Group call",
         "ids": "If specified, will fetch group participant info about the specified peers",
         "limit": "Maximum number of results to return, `see pagination <https://core.telegram.org/api/offsets>`__",
-        "offset": "Offset for results, taken from the next_offset field of `phone.groupParticipants <https://core.telegram.org/constructor/phone.groupParticipants>`__, initially an empty string. Note: if no more results are available, the method call will return an empty next_offset; thus, avoid providing the next_offset returned in `phone.groupParticipants <https://core.telegram.org/constructor/phone.groupParticipants>`__ if it is empty, to avoid an infinite loop.",
+        "offset": "Offset for results, taken from the next_offset field of `phone.groupParticipants <https://core.telegram.org/constructor/phone.groupParticipants>`__ or the participants_next_offset field of `phone.groupCall <https://core.telegram.org/constructor/phone.groupCall>`__, initially an empty string. Note: if no more results are available, the method call will return an empty next_offset; thus, avoid providing the next_offset returned in `phone.groupParticipants <https://core.telegram.org/constructor/phone.groupParticipants>`__ if it is empty, to avoid an infinite loop.",
         "sources": "If specified, will fetch group participant info about the specified WebRTC source IDs"
       },
       "usable-by": "users"
