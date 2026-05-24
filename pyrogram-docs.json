@@ -18222,24 +18222,6 @@
       },
       "usable-by": "users"
     },
-    "messages.SaveDraft": {
-      "can_use_business_connection": false,
-      "can_use_without_auth": false,
-      "desc": "Save a message `draft <https://core.telegram.org/api/drafts>`__ associated to a chat.",
-      "params": {
-        "effect": "Specifies a `message effect \u00bb <https://core.telegram.org/api/effects>`__ to use for the message.",
-        "entities": "Message `entities <https://core.telegram.org/api/entities>`__ for styled text",
-        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "invert_media": "If set, any eventual webpage preview will be shown on top of the message instead of at the bottom.",
-        "media": "Attached media",
-        "message": "The draft",
-        "no_webpage": "Disable generation of the webpage preview",
-        "peer": "Destination of the message that should be sent",
-        "reply_to": "If set, indicates that the message should be sent in reply to the specified message or story.",
-        "suggested_post": "Used to `suggest a post to a channel, see here \u00bb <https://core.telegram.org/api/suggested-posts>`__ for more info on the full flow."
-      },
-      "usable-by": "users"
-    },
     "messages.SaveGif": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
@@ -22227,9 +22209,6 @@
     "StarsGiftOption": {
       "desc": "`Telegram Stars gift option <https://core.telegram.org/api/stars#buying-or-gifting-stars>`__.\n\nTelegram Stars are virtual items that allow users to purchase digital goods and services from bots and mini apps inside the Telegram ecosystem, send gifts to content creators on the Telegram platform, and more.\n"
     },
-    "StarsGiveawayOption": {
-      "desc": "Contains info about a `Telegram Star giveaway <https://core.telegram.org/api/giveaways#star-giveaways>`__ option.\n\nTelegram channel and supergroup administrators may launch giveaways to randomly distribute Telegram Premium subscriptions and other gifts among their followers, in exchange for boosts.\n"
-    },
     "StarsGiveawayWinnersOption": {
       "desc": "Represents a possible option for the number of winners in a star giveaway\n\n"
     },
@@ -22304,9 +22283,6 @@
     },
     "StoryReaction": {
       "desc": "How a certain peer reacted to or interacted with a story\n\n"
-    },
-    "StoryView": {
-      "desc": "`Story <https://core.telegram.org/api/stories>`__ view date and reaction information\n\nTelegram users and channels can easily post and view stories through the API.\n"
     },
     "StoryViews": {
       "desc": "Aggregated view and reaction information of a `story <https://core.telegram.org/api/stories>`__\n\nTelegram users and channels can easily post and view stories through the API.\n"
