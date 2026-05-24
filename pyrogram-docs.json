@@ -19867,8 +19867,8 @@
         "peer": "Associate the group call or livestream to the provided `group/supergroup/channel <https://core.telegram.org/api/channel>`__",
         "random_id": "Unique client message ID required to prevent creation of duplicate group calls",
         "rtmp_stream": "Whether RTMP stream support should be enabled: only the `group/supergroup/channel <https://core.telegram.org/api/channel>`__ owner can use this flag.",
-        "schedule_date": "For scheduled group call or livestreams, the absolute date when the group call will start",
-        "title": "Call title"
+        "schedule_date": "For scheduled group call or livestreams, the absolute date (unixtime) when the group call is expected to start: the date must be at least 10 seconds and at most 8 days in the future.",
+        "title": "Call title, if not set defaults to the group/channel's name."
       },
       "usable-by": "users"
     },
