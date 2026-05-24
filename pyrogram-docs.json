@@ -4848,18 +4848,18 @@
       }
     },
     "MessageActionGroupCall": {
-      "desc": "The group call has ended",
+      "desc": "A `video chat/livestream <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__ was started or terminated.",
       "params": {
         "call": "Group call",
-        "duration": "Group call duration",
+        "duration": "Duration of the group call in seconds, for terminated calls.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__"
       }
     },
     "MessageActionGroupCallScheduled": {
-      "desc": "A group call was scheduled",
+      "desc": "A `video chat/livestream <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__ was scheduled.",
       "params": {
         "call": "The group call",
-        "schedule_date": "When is this group call scheduled to start"
+        "schedule_date": "When is the group call scheduled to start"
       }
     },
     "MessageActionHistoryClear": {
