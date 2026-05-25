@@ -19993,7 +19993,7 @@
       "desc": "Get info about a group call and its participants.",
       "params": {
         "call": "The group call",
-        "limit": "Maximum number of participants to return in this call. If the number of returned participants is less than `groupCall <https://core.telegram.org/constructor/groupCall>`__.participants_count, paginate through the remaining participants using `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__, passing to offset the `phone.groupCall <https://core.telegram.org/constructor/phone.groupCall>`__.participants_next_offset returned by this call."
+        "limit": "Maximum number of participants to return in this call (0 to return a server-defined amount). If the number of returned participants is less than `groupCall <https://core.telegram.org/constructor/groupCall>`__.participants_count, paginate through the remaining participants using `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__, passing to offset the `phone.groupCall <https://core.telegram.org/constructor/phone.groupCall>`__.participants_next_offset returned by this call. This parameter behaves in a different way compared to the limit of `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__, see `here \u00bb <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__ for more info."
       },
       "usable-by": "users"
     },
