@@ -2333,7 +2333,7 @@
       }
     },
     "GroupCallDiscarded": {
-      "desc": "An ended group call",
+      "desc": "An ended `group call <https://core.telegram.org/api/group-calls>`__.",
       "params": {
         "access_hash": "Group call access hash",
         "duration": "Group call duration",
@@ -2962,7 +2962,7 @@
       "params": {}
     },
     "InputGroupCall": {
-      "desc": "Points to a specific group call",
+      "desc": "Points to a specific `group call <https://core.telegram.org/api/group-calls>`__.",
       "params": {
         "access_hash": "Group call access hash",
         "id": "Group call ID"
@@ -3620,7 +3620,7 @@
       }
     },
     "InputPhoneCall": {
-      "desc": "Phone call",
+      "desc": "Identifies a `phone call <https://core.telegram.org/api/calls>`__.",
       "params": {
         "access_hash": "Access hash",
         "id": "Call ID"
@@ -4867,7 +4867,7 @@
       "params": {}
     },
     "MessageActionInviteToGroupCall": {
-      "desc": "A set of users was invited to the group call",
+      "desc": "A set of users was invited to a `group call <https://core.telegram.org/api/group-calls>`__.",
       "params": {
         "call": "The group call",
         "users": "The invited users"
@@ -6334,7 +6334,7 @@
       }
     },
     "PhoneCall": {
-      "desc": "Phone call",
+      "desc": "Phone call, see `here  <https://core.telegram.org/api/calls>`__ for more info on the full flow.",
       "params": {
         "access_hash": "Access hash",
         "admin_id": "User ID of the creator of the call",
@@ -6354,7 +6354,7 @@
       }
     },
     "PhoneCallAccepted": {
-      "desc": "An accepted phone call",
+      "desc": "An accepted phone call, see `here  <https://core.telegram.org/api/calls>`__ for more info on the full flow.",
       "params": {
         "access_hash": "Access hash of phone call",
         "admin_id": "ID of the call creator",
@@ -6368,15 +6368,15 @@
       }
     },
     "PhoneCallDiscardReasonBusy": {
-      "desc": "The phone call was discarded because the user is busy in another call",
+      "desc": "The phone call was discarded because the user is busy in another call, see `here  <https://core.telegram.org/api/calls>`__ for more info.",
       "params": {}
     },
     "PhoneCallDiscardReasonDisconnect": {
-      "desc": "The phone call was disconnected",
+      "desc": "The phone call was disconnected, see `here  <https://core.telegram.org/api/calls>`__ for more info.",
       "params": {}
     },
     "PhoneCallDiscardReasonHangup": {
-      "desc": "The phone call was ended normally",
+      "desc": "The phone call was ended normally, see `here  <https://core.telegram.org/api/calls>`__ for more info.",
       "params": {}
     },
     "PhoneCallDiscardReasonMigrateConferenceCall": {
@@ -6386,11 +6386,11 @@
       }
     },
     "PhoneCallDiscardReasonMissed": {
-      "desc": "The phone call was missed",
+      "desc": "The phone call was missed, see `here  <https://core.telegram.org/api/calls>`__ for more info.",
       "params": {}
     },
     "PhoneCallDiscarded": {
-      "desc": "Indicates a discarded phone call",
+      "desc": "Indicates a discarded phone call, see `here  <https://core.telegram.org/api/calls>`__ for more info on the full flow.",
       "params": {
         "duration": "Duration of the phone call in seconds",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -6408,7 +6408,7 @@
       }
     },
     "PhoneCallProtocol": {
-      "desc": "Protocol info for libtgvoip",
+      "desc": "Protocol info for the VoIP library, see `here  <https://core.telegram.org/api/calls#populating-phonecallprotocol>`__ for details on how to populate it.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "library_versions": "When using `phone.requestCall <https://core.telegram.org/method/phone.requestCall>`__ and `phone.acceptCall <https://core.telegram.org/method/phone.acceptCall>`__, specify all library versions supported by the client. The server will merge and choose the best library version supported by both peers, returning only the best value in the result of the callee's `phone.acceptCall <https://core.telegram.org/method/phone.acceptCall>`__ and in the `phoneCallAccepted <https://core.telegram.org/constructor/phoneCallAccepted>`__ update received by the caller.",
@@ -6419,7 +6419,7 @@
       }
     },
     "PhoneCallRequested": {
-      "desc": "Requested phone call",
+      "desc": "Requested phone call, see `here  <https://core.telegram.org/api/calls>`__ for more info on the full flow.",
       "params": {
         "access_hash": "Access hash",
         "admin_id": "ID of the creator of the phone call",
@@ -6433,7 +6433,7 @@
       }
     },
     "PhoneCallWaiting": {
-      "desc": "Incoming phone call",
+      "desc": "Incoming phone call, see `here  <https://core.telegram.org/api/calls>`__ for more info on the full flow.",
       "params": {
         "access_hash": "Access hash",
         "admin_id": "Admin ID",
@@ -6459,7 +6459,7 @@
       }
     },
     "PhoneConnectionWebrtc": {
-      "desc": "WebRTC connection parameters",
+      "desc": "WebRTC connection parameters for a `phone call <https://core.telegram.org/api/calls>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "id": "Endpoint ID",
@@ -9084,7 +9084,7 @@
       }
     },
     "UpdateGroupCall": {
-      "desc": "A new groupcall was started",
+      "desc": "Info about a `group call <https://core.telegram.org/api/group-calls>`__ was updated.",
       "params": {
         "call": "Info about the group call or livestream",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -9102,7 +9102,7 @@
       }
     },
     "UpdateGroupCallConnection": {
-      "desc": "New WebRTC parameters",
+      "desc": "New WebRTC connection parameters for the currently joined `group call <https://core.telegram.org/api/group-calls>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "params": "WebRTC parameters",
@@ -9110,7 +9110,7 @@
       }
     },
     "UpdateGroupCallEncryptedMessage": {
-      "desc": "",
+      "desc": "A new E2E-encrypted message was received in a `conference call <https://core.telegram.org/api/group-calls#conference-calls>`__, sent using `phone.sendGroupCallEncryptedMessage <https://core.telegram.org/method/phone.sendGroupCallEncryptedMessage>`__.",
       "params": {
         "call": "",
         "encrypted_message": "",
@@ -9118,14 +9118,14 @@
       }
     },
     "UpdateGroupCallMessage": {
-      "desc": "",
+      "desc": "A new in-call message was received in a `group call or livestream <https://core.telegram.org/api/group-calls>`__, sent using `phone.sendGroupCallMessage <https://core.telegram.org/method/phone.sendGroupCallMessage>`__.",
       "params": {
         "call": "",
         "message": ""
       }
     },
     "UpdateGroupCallParticipants": {
-      "desc": "The participant list of a certain group call has changed",
+      "desc": "The participant list of a `group call <https://core.telegram.org/api/group-calls#applying-group-call-updates>`__ has changed.",
       "params": {
         "call": "Group call",
         "participants": "New participant list",
@@ -19823,7 +19823,7 @@
     "phone.CheckGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Check whether the group call Server Forwarding Unit is currently receiving the streams with the specified WebRTC source IDs.\nReturns an intersection of the source IDs specified in sources, and the source IDs currently being forwarded by the SFU.",
+      "desc": "Check whether the `group call <https://core.telegram.org/api/group-calls>`__ Server Forwarding Unit is currently receiving the streams with the specified WebRTC source IDs.\nReturns an intersection of the source IDs specified in sources, and the source IDs currently being forwarded by the SFU.",
       "params": {
         "call": "Group call",
         "sources": "Source IDs"
@@ -19845,7 +19845,7 @@
     "phone.CreateConferenceCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Create and optionally join a new conference call.",
+      "desc": "Create and optionally join a new `conference call <https://core.telegram.org/api/group-calls#conference-calls>`__.",
       "params": {
         "block": "Initial blockchain block (can only be used if join is set).",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -19861,7 +19861,7 @@
     "phone.CreateGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Create a group call or livestream",
+      "desc": "Create a `group call or livestream <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "peer": "Associate the group call or livestream to the provided `group/supergroup/channel <https://core.telegram.org/api/channel>`__",
@@ -19875,7 +19875,7 @@
     "phone.DeclineConferenceCallInvite": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Declines a conference call invite.",
+      "desc": "Decline a `conference call <https://core.telegram.org/api/group-calls#conference-calls>`__ invite.",
       "params": {
         "msg_id": "The ID of the `messageActionConferenceCall <https://core.telegram.org/constructor/messageActionConferenceCall>`__ to decline."
       },
@@ -19884,7 +19884,7 @@
     "phone.DeleteConferenceCallParticipants": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Remove participants from a conference call.\nExactly one of the only_left and kick flags must be set.",
+      "desc": "Remove participants from a `conference call <https://core.telegram.org/api/group-calls#conference-calls>`__.\nExactly one of the only_left and kick flags must be set.",
       "params": {
         "block": "The `block containing an appropriate e2e.chain.changeSetGroupState event <https://core.telegram.org/api/end-to-end/group-calls>`__",
         "call": "The conference call.",
@@ -19898,7 +19898,7 @@
     "phone.DeleteGroupCallMessages": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Delete messages from the in-call message overlay of a `group call or livestream <https://core.telegram.org/api/group-calls#conference-calls>`__.",
       "params": {
         "call": "",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -19910,7 +19910,7 @@
     "phone.DeleteGroupCallParticipantMessages": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Delete all messages from a specific participant in the in-call message overlay of a `group call or livestream <https://core.telegram.org/api/group-calls#conference-calls>`__.",
       "params": {
         "call": "",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -19936,7 +19936,7 @@
     "phone.DiscardGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Terminate a group call",
+      "desc": "Terminate a `group call <https://core.telegram.org/api/group-calls>`__, ending the room for all participants.",
       "params": {
         "call": "The group call to terminate"
       },
@@ -19945,7 +19945,7 @@
     "phone.EditGroupCallParticipant": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Edit information about a given group call participant\nNote: `flags <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__.N?`Bool <https://core.telegram.org/type/Bool>`__ parameters can have three possible values:\n\n\n\n\n\t | If the `TL flag <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__ is not set, the previous value will not be changed. \n\n\t | If the `TL flag <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__ is set and contains a `boolTrue <https://core.telegram.org/constructor/boolTrue>`__, the previous value will be overwritten to true. \n\n\t | If the `TL flag <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__ is set and contains a `boolFalse <https://core.telegram.org/constructor/boolFalse>`__, the previous value will be overwritten to false.",
+      "desc": "Edit information about a given `group call <https://core.telegram.org/api/group-calls>`__ participant.\nNote: `flags <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__.N?`Bool <https://core.telegram.org/type/Bool>`__ parameters can have three possible values:\n\n\n\n\n\t | If the `TL flag <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__ is not set, the previous value will not be changed. \n\n\t | If the `TL flag <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__ is set and contains a `boolTrue <https://core.telegram.org/constructor/boolTrue>`__, the previous value will be overwritten to true. \n\n\t | If the `TL flag <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__ is set and contains a `boolFalse <https://core.telegram.org/constructor/boolFalse>`__, the previous value will be overwritten to false.",
       "params": {
         "call": "The group call",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -19962,7 +19962,7 @@
     "phone.EditGroupCallTitle": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Edit the title of a group call or livestream",
+      "desc": "Edit the title of a `group call or livestream <https://core.telegram.org/api/group-calls>`__.",
       "params": {
         "call": "Group call",
         "title": "New title"
@@ -19990,7 +19990,7 @@
     "phone.GetGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get info about a group call and its participants.",
+      "desc": "Get info about a `group call <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__ and its participants.",
       "params": {
         "call": "The group call",
         "limit": "Maximum number of participants to return in this call (0 to return a server-defined amount). If the number of returned participants is less than `groupCall <https://core.telegram.org/constructor/groupCall>`__.participants_count, paginate through the remaining participants using `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__, passing to offset the `phone.groupCall <https://core.telegram.org/constructor/phone.groupCall>`__.participants_next_offset returned by this call. This parameter behaves in a different way compared to the limit of `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__, see `here \u00bb <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__ for more info."
@@ -20012,7 +20012,7 @@
     "phone.GetGroupCallJoinAs": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get a list of peers that can be used to join a group call, presenting yourself as a specific user/channel.",
+      "desc": "Get a list of peers that can be used to join a `group call <https://core.telegram.org/api/group-calls#creating-joining-a-group-call-on-behalf-of-owned-channels>`__, presenting yourself as a specific user/channel.",
       "params": {
         "peer": "The dialog whose group call or livestream we're trying to join"
       },
@@ -20021,7 +20021,7 @@
     "phone.GetGroupCallStars": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Fetch the `livestream <https://core.telegram.org/api/group-calls#livestreams>`__ donor and paid-message leaderboard.",
       "params": {
         "call": ""
       },
@@ -20051,7 +20051,7 @@
     "phone.GetGroupParticipants": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get group call participants",
+      "desc": "Get `group call <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__ participants.",
       "params": {
         "call": "Group call",
         "ids": "If specified, will fetch group participant info about the specified peers",
@@ -20064,7 +20064,7 @@
     "phone.InviteConferenceCallParticipant": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Invite a user to a conference call.",
+      "desc": "Invite a user to a `conference call <https://core.telegram.org/api/group-calls#conference-calls>`__.",
       "params": {
         "call": "The conference call.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -20076,7 +20076,7 @@
     "phone.InviteToGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Invite a set of users to a group call.",
+      "desc": "Invite a set of users to a `group call <https://core.telegram.org/api/group-calls>`__.",
       "params": {
         "call": "The group call",
         "users": "The users to invite."
@@ -20086,7 +20086,7 @@
     "phone.JoinGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Join a group call",
+      "desc": "Join a `group call <https://core.telegram.org/api/group-calls>`__, see `here  <https://core.telegram.org/api/group-calls>`__ for the full flow.",
       "params": {
         "block": "The `block containing an appropriate e2e.chain.changeSetGroupState event <https://core.telegram.org/api/end-to-end/group-calls>`__.",
         "call": "The group call",
@@ -20103,7 +20103,7 @@
     "phone.JoinGroupCallPresentation": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Start screen sharing in a call",
+      "desc": "Start screen sharing in a `group call <https://core.telegram.org/api/group-calls>`__.",
       "params": {
         "call": "The group call",
         "params": "WebRTC parameters"
@@ -20113,7 +20113,7 @@
     "phone.LeaveGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Leave a group call",
+      "desc": "Leave a `group call <https://core.telegram.org/api/group-calls>`__.",
       "params": {
         "call": "The group call",
         "source": "Your source ID"
@@ -20123,7 +20123,7 @@
     "phone.LeaveGroupCallPresentation": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Stop screen sharing in a group call",
+      "desc": "Stop screen sharing in a `group call <https://core.telegram.org/api/group-calls>`__.",
       "params": {
         "call": "The group call"
       },
@@ -20155,7 +20155,7 @@
     "phone.SaveCallDebug": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Send phone call debug data to server",
+      "desc": "Send `phone call <https://core.telegram.org/api/calls#call-debug>`__ debug data to server.",
       "params": {
         "debug": "Debug statistics obtained from tgcalls",
         "peer": "Phone call"
@@ -20175,7 +20175,7 @@
     "phone.SaveDefaultGroupCallJoinAs": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Set the default peer that will be used to join a group call in a specific dialog.",
+      "desc": "Set the default peer that will be used to join a `group call <https://core.telegram.org/api/group-calls#creating-joining-a-group-call-on-behalf-of-owned-channels>`__ in a specific dialog.",
       "params": {
         "join_as": "The default peer that will be used to join group calls in this dialog, presenting yourself as a specific user/channel.",
         "peer": "The dialog"
@@ -20205,7 +20205,7 @@
     "phone.SendGroupCallEncryptedMessage": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Send an E2E-encrypted message to all participants of a `conference call <https://core.telegram.org/api/group-calls#conference-calls>`__, using the `E2E encryption protocol <https://core.telegram.org/api/end-to-end/group-calls#encryption-protocol>`__.",
       "params": {
         "call": "",
         "encrypted_message": ""
@@ -20215,7 +20215,7 @@
     "phone.SendGroupCallMessage": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Send a transient in-call message to all participants of a `group call or livestream <https://core.telegram.org/api/group-calls#conference-calls>`__.",
       "params": {
         "allow_paid_stars": "",
         "call": "",
@@ -20229,7 +20229,7 @@
     "phone.SendSignalingData": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Send VoIP signaling data",
+      "desc": "Send VoIP `signaling data <https://core.telegram.org/api/calls#signaling-data>`__ for an ongoing phone call.",
       "params": {
         "data": "Signaling payload",
         "peer": "Phone call"
@@ -20252,7 +20252,7 @@
     "phone.StartScheduledGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Start a scheduled group call.",
+      "desc": "Start a scheduled `group call <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__.",
       "params": {
         "call": "The scheduled group call"
       },
@@ -20261,7 +20261,7 @@
     "phone.ToggleGroupCallRecord": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Start or stop recording a group call: the recorded audio and video streams will be automatically sent to Saved messages (the chat with ourselves).",
+      "desc": "Start or stop recording a `group call <https://core.telegram.org/api/group-calls>`__: the recorded audio and video streams will be automatically sent to Saved messages (the chat with ourselves).",
       "params": {
         "call": "The group call or livestream",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -20275,7 +20275,7 @@
     "phone.ToggleGroupCallSettings": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Change group call settings",
+      "desc": "Change `group call <https://core.telegram.org/api/group-calls>`__ settings.",
       "params": {
         "call": "Group call",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -20289,7 +20289,7 @@
     "phone.ToggleGroupCallStartSubscription": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Subscribe or unsubscribe to a scheduled group call",
+      "desc": "Subscribe or unsubscribe to a scheduled `group call <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__.",
       "params": {
         "call": "Scheduled group call",
         "subscribed": "Enable or disable subscription"
