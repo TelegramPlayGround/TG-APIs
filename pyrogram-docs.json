@@ -13976,7 +13976,7 @@
     "account.UpdateConnectedBot": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Connect a `business bot  <https://core.telegram.org/api/bots/connected-business-bots>`__ to the current account, or to change the current connection settings.\n\n\n\n\n\t | apply_min_photo \n\n\t | attach_menu_enabled \n\n\t | bot_can_edit",
+      "desc": "Connect a `business bot  <https://core.telegram.org/api/bots/connected-business-bots>`__ to the current account, or to change the current connection settings.",
       "params": {
         "bot": "The bot to connect or disconnect",
         "deleted": "Whether to fully disconnect the bot from the current account.",
@@ -15670,7 +15670,7 @@
     "contacts.GetBirthdays": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Fetch all users with birthdays that fall within +1/-1 days, relative to the current day: this method should be invoked by clients every 6-8 hours, and if the result is non-empty, it should be used to appropriately update locally cached birthday information in `user <https://core.telegram.org/constructor/user>`__.birthday.\n`See here  <https://core.telegram.org/api/profile#birthday>`__ for more info.\n\n\n\n\n\t | apply_min_photo \n\n\t | attach_menu_enabled \n\n\t | bot_can_edit",
+      "desc": "Fetch all users with birthdays that fall within +1/-1 days, relative to the current day: this method should be invoked by clients every 6-8 hours, and if the result is non-empty, it should be used to appropriately update locally cached birthday information in `user <https://core.telegram.org/constructor/user>`__.birthday.\n`See here  <https://core.telegram.org/api/profile#birthday>`__ for more info.",
       "params": {},
       "usable-by": "users"
     },
@@ -19990,7 +19990,7 @@
     "phone.GetGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get info about a group call and its participants.\n\n\n\n\n\t | can_change_join_muted \n\n\t | can_change_messages_enabled \n\n\t | creator \n\n\t | default_send_as \n\n\t | invite_link \n\n\t | join_muted \n\n\t | schedule_start_subscribed \n\n\t | stream_dc_id \n\n\t | unmuted_video_count \n\n\t | unmuted_video_limit",
+      "desc": "Get info about a group call and its participants.",
       "params": {
         "call": "The group call",
         "limit": "Maximum number of participants to return in this call (0 to return a server-defined amount). If the number of returned participants is less than `groupCall <https://core.telegram.org/constructor/groupCall>`__.participants_count, paginate through the remaining participants using `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__, passing to offset the `phone.groupCall <https://core.telegram.org/constructor/phone.groupCall>`__.participants_next_offset returned by this call. This parameter behaves in a different way compared to the limit of `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__, see `here \u00bb <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__ for more info."
