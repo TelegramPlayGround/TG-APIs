@@ -11225,15 +11225,6 @@
       "desc": "Internal use",
       "params": {}
     },
-    "messages.AffectedFoundMessages": {
-      "desc": "Messages found and affected by changes",
-      "params": {
-        "messages": "Affected message IDs",
-        "offset": "If bigger than zero, the request must be repeated to remove more messages",
-        "pts": "`Event count after generation <https://core.telegram.org/api/updates>`__",
-        "pts_count": "`Number of events that were generated <https://core.telegram.org/api/updates>`__"
-      }
-    },
     "messages.AffectedHistory": {
       "desc": "Affected part of communication history with the user or in a chat.",
       "params": {
@@ -11480,13 +11471,6 @@
     "messages.EmojiGameUnavailable": {
       "desc": "",
       "params": {}
-    },
-    "messages.EmojiGroups": {
-      "desc": "Represents a list of `emoji categories <https://core.telegram.org/api/emoji-categories>`__.",
-      "params": {
-        "groups": "A list of `emoji categories <https://core.telegram.org/api/emoji-categories>`__.",
-        "hash": "`Hash used for caching, for more info click here <https://core.telegram.org/api/offsets#hash-generation>`__"
-      }
     },
     "messages.EmojiGroupsNotModified": {
       "desc": "The list of `emoji categories <https://core.telegram.org/api/emoji-categories>`__ hasn't changed.",
@@ -21575,9 +21559,6 @@
     },
     "Folder": {
       "desc": "A folder\n\n"
-    },
-    "FolderPeer": {
-      "desc": "Peer associated to folder\n\n"
     },
     "ForumTopic": {
       "desc": "Contains information about a `forum topic <https://core.telegram.org/api/forum#forum-topics>`__\n\nTelegram allows creating forums with multiple distinct topics.\n"
