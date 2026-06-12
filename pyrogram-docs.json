@@ -16772,6 +16772,17 @@
       },
       "usable-by": "users"
     },
+    "messages.EditChatCreator": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "Transfer the ownership of a basic group, supergroup or channel to another user, see `here  <https://core.telegram.org/api/channel#transferring-ownership-of-a-groupchannel>`__ for the full flow.",
+      "params": {
+        "password": "The current account's `2FA password <https://core.telegram.org/api/srp>`__.",
+        "peer": "Owned group/supergroup/channel.",
+        "user_id": "ID of the new owner."
+      },
+      "usable-by": ""
+    },
     "messages.EditChatDefaultBannedRights": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
@@ -21695,6 +21706,9 @@
     },
     "Contact": {
       "desc": "A contact of the current user.\n\n"
+    },
+    "ContactBirthday": {
+      "desc": "Birthday information of a contact.\n\n"
     },
     "ContactStatus": {
       "desc": "Contact status: online / offline.\n\n"
