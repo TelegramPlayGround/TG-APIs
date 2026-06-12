@@ -7647,13 +7647,6 @@
         "url": "Contains the URL to open when the user clicks on the sponsored message."
       }
     },
-    "SponsoredMessageReportOption": {
-      "desc": "A `report option for a sponsored message  <https://core.telegram.org/api/sponsored-messages#reporting-sponsored-messages>`__.",
-      "params": {
-        "option": "Option identifier to pass to `messages.reportSponsoredMessage <https://core.telegram.org/method/messages.reportSponsoredMessage>`__.",
-        "text": "Localized description of the option."
-      }
-    },
     "SponsoredPeer": {
       "desc": "A sponsored peer.",
       "params": {
