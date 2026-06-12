@@ -12302,6 +12302,18 @@
         "saved_info": "Saved server-side order information"
       }
     },
+    "payments.SavedStarGifts": {
+      "desc": "Represents a list of `gifts <https://core.telegram.org/api/gifts>`__.",
+      "params": {
+        "chat_notifications_enabled": "Ternary value: can be not set, set&true, set&false. Can only be set for channels we own: the value indicates whether we `enabled gift notifications <https://core.telegram.org/api/gifts#notifications-for-received-channel-gifts>`__ for this channel.",
+        "chats": "Channels mentioned in gifts",
+        "count": "Total number of results (can be less than the returned gifts, in which case next_offset will be set).",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "gifts": "Gifts",
+        "next_offset": "Offset to pass to `payments.getSavedStarGifts <https://core.telegram.org/method/payments.getSavedStarGifts>`__ to fetch the next page of results.",
+        "users": "Users mentioned in gifts"
+      }
+    },
     "payments.StarGiftActiveAuctions": {
       "desc": "Describes all currently active `gift auctions <https://core.telegram.org/api/auctions>`__ where the user has placed a bid.",
       "params": {
@@ -16423,6 +16435,15 @@
       },
       "usable-by": "users"
     },
+    "messages.CheckChatInvite": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "Check the validity of a chat invite link and get basic info about it",
+      "params": {
+        "hash": "Invite hash from `chat invite deep link \u00bb <https://core.telegram.org/api/links#chat-invite-links>`__."
+      },
+      "usable-by": "users"
+    },
     "messages.CheckHistoryImport": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
@@ -17477,6 +17498,15 @@
         "peer": "Dialog"
       },
       "usable-by": "users"
+    },
+    "messages.GetMessages": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "Returns the list of messages by their IDs.",
+      "params": {
+        "id": "Message ID list"
+      },
+      "usable-by": ""
     },
     "messages.GetMessagesReactions": {
       "can_use_business_connection": false,
