@@ -7647,6 +7647,13 @@
         "url": "Contains the URL to open when the user clicks on the sponsored message."
       }
     },
+    "SponsoredMessageReportOption": {
+      "desc": "A `report option for a sponsored message  <https://core.telegram.org/api/sponsored-messages#reporting-sponsored-messages>`__.",
+      "params": {
+        "option": "Option identifier to pass to `messages.reportSponsoredMessage <https://core.telegram.org/method/messages.reportSponsoredMessage>`__.",
+        "text": "Localized description of the option."
+      }
+    },
     "SponsoredPeer": {
       "desc": "A sponsored peer.",
       "params": {
@@ -9238,7 +9245,7 @@
       "params": {
         "blocks": "Blocks.",
         "call": "The conference call.",
-        "next_offset": "Offset of the next block.",
+        "next_offset": "Height of the block located after the last block in blocks.",
         "sub_chain_id": "Subchain ID."
       }
     },
@@ -20226,11 +20233,11 @@
     "phone.GetGroupCallChainBlocks": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Fetch the blocks of a `conference blockchain  <https://core.telegram.org/api/end-to-end/group-calls>`__.",
+      "desc": "Fetch the blocks of a `conference blockchain  <https://core.telegram.org/api/end-to-end/group-calls>`__, returns an `updateGroupCallChainBlocks <https://core.telegram.org/constructor/updateGroupCallChainBlocks>`__ to be handled as `specifiede here  <https://core.telegram.org/api/end-to-end/group-calls#handling-updates>`__.\nIf the number of blocks returned by any call to this method is equal to limit, this method must be re-invoked immediately after processing the returned `updateGroupCallChainBlocks <https://core.telegram.org/constructor/updateGroupCallChainBlocks>`__, with the newly committed offset (usually equal to the returned next_offset).",
       "params": {
         "call": "The conference.",
         "limit": "Maximum number of blocks to return in this call, `see pagination <https://core.telegram.org/api/offsets>`__",
-        "offset": "Offset for pagination.",
+        "offset": "Start fetching blocks starting from the specified height.",
         "sub_chain_id": "Subchain ID."
       },
       "usable-by": "users"
