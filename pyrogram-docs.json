@@ -8759,6 +8759,16 @@
         "reply_to_message": "The message that message is replying to."
       }
     },
+    "UpdateBotGuestChatQuery": {
+      "desc": "",
+      "params": {
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "message": "",
+        "qts": "",
+        "query_id": "",
+        "reference_messages": ""
+      }
+    },
     "UpdateBotInlineQuery": {
       "desc": "An incoming inline query",
       "params": {
@@ -10704,6 +10714,10 @@
         "authorizations": "Web authorization list",
         "users": "Users"
       }
+    },
+    "account.WebBrowserSettings": {
+      "desc": "",
+      "params": {}
     },
     "account.WebBrowserSettingsNotModified": {
       "desc": "",
@@ -23144,9 +23158,6 @@
     },
     "payments.StarsRevenueStats": {
       "desc": "`Star revenue statistics, see here  <https://core.telegram.org/api/stars>`__ for more info.\nNote that all balances and currency amounts and graph values are in Stars.\n\nTelegram Stars are virtual items that allow users to purchase digital goods and services from bots and mini apps inside the Telegram ecosystem, send gifts to content creators on the Telegram platform, and more.\n"
-    },
-    "payments.StarsRevenueWithdrawalUrl": {
-      "desc": "Contains the URL to use to `withdraw Telegram Star revenue <https://core.telegram.org/api/stars#withdrawing-revenue>`__.\n\nTelegram Stars are virtual items that allow users to purchase digital goods and services from bots and mini apps inside the Telegram ecosystem, send gifts to content creators on the Telegram platform, and more.\n"
     },
     "payments.StarsStatus": {
       "desc": "Info about the current `Telegram Star subscriptions, balance and transaction history  <https://core.telegram.org/api/stars#balance-and-transaction-history>`__.\n\nTelegram Stars are virtual items that allow users to purchase digital goods and services from bots and mini apps inside the Telegram ecosystem, send gifts to content creators on the Telegram platform, and more.\n"
