@@ -8759,16 +8759,6 @@
         "reply_to_message": "The message that message is replying to."
       }
     },
-    "UpdateBotGuestChatQuery": {
-      "desc": "",
-      "params": {
-        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "message": "",
-        "qts": "",
-        "query_id": "",
-        "reference_messages": ""
-      }
-    },
     "UpdateBotInlineQuery": {
       "desc": "An incoming inline query",
       "params": {
@@ -10714,10 +10704,6 @@
         "authorizations": "Web authorization list",
         "users": "Users"
       }
-    },
-    "account.WebBrowserSettings": {
-      "desc": "",
-      "params": {}
     },
     "account.WebBrowserSettingsNotModified": {
       "desc": "",
@@ -20205,10 +20191,10 @@
     "phone.ExportGroupCallInvite": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get an `invite link <https://core.telegram.org/api/links#video-chat-livestream-links>`__ for a group call or livestream",
+      "desc": "Get an `invite link <https://core.telegram.org/api/links#video-chat-livestream-links>`__ for a `video chat/livestream  <https://core.telegram.org/api/group-calls#video-chatslivestreams>`__; cannot be used for `live stories  <https://core.telegram.org/api/group-calls#live-stories>`__ or `conference calls  <https://core.telegram.org/api/group-calls#conference-calls>`__.",
       "params": {
-        "call": "The group call",
-        "can_self_unmute": "For livestreams or muted group chats, if set, users that join using this link will be able to speak without explicitly requesting permission by (for example by raising their hand).",
+        "call": "The `video chat/livestream \u00bb <https://core.telegram.org/api/group-calls#video-chatslivestreams>`__",
+        "can_self_unmute": "For livestreams or muted group chats, if set, users that join using this link will be able to speak without explicitly requesting permission, for example by raising their hand.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__"
       },
       "usable-by": "users"
@@ -20309,9 +20295,9 @@
     "phone.InviteToGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Invite a set of users to a `group call <https://core.telegram.org/api/group-calls>`__.",
+      "desc": "Invite a set of users to a `video chat/livestream  <https://core.telegram.org/api/group-calls#video-chatslivestreams>`__; cannot be used for `live stories  <https://core.telegram.org/api/group-calls#live-stories>`__ or `conference calls  <https://core.telegram.org/api/group-calls#conference-calls>`__.",
       "params": {
-        "call": "The group call",
+        "call": "The `video chat/livestream \u00bb <https://core.telegram.org/api/group-calls#video-chatslivestreams>`__",
         "users": "The users to invite."
       },
       "usable-by": "users"
@@ -20321,14 +20307,14 @@
       "can_use_without_auth": false,
       "desc": "Join a `group call <https://core.telegram.org/api/group-calls>`__, see `here  <https://core.telegram.org/api/group-calls>`__ for the full flow.",
       "params": {
-        "block": "The `block containing an appropriate e2e.chain.changeSetGroupState event <https://core.telegram.org/api/end-to-end/group-calls>`__.",
+        "block": "The `block containing an appropriate e2e.chain.changeSetGroupState event <https://core.telegram.org/api/end-to-end/group-calls>`__, only for `conference calls \u00bb <https://core.telegram.org/api/group-calls#conference-calls>`__.",
         "call": "The group call",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "invite_hash": "The invitation hash from the `invite link \u00bb <https://core.telegram.org/api/links#video-chat-livestream-links>`__, if provided allows speaking in a livestream or muted group chat.",
-        "join_as": "Join the group call, presenting yourself as the specified user/channel",
+        "invite_hash": "The invitation hash from the `invite link \u00bb <https://core.telegram.org/api/links#video-chat-livestream-links>`__, if provided allows speaking in a livestream or muted group call (`video chats/livestreams \u00bb <https://core.telegram.org/api/group-calls#video-chatslivestreams>`__ only, cannot be used by `live stories \u00bb <https://core.telegram.org/api/group-calls#live-stories>`__ or `conference calls \u00bb <https://core.telegram.org/api/group-calls#conference-calls>`__).",
+        "join_as": "Join the group call, presenting yourself as the specified user/channel (`video chats/livestreams \u00bb <https://core.telegram.org/api/group-calls#video-chatslivestreams>`__ only, must be equal to `inputPeerSelf <https://core.telegram.org/constructor/inputPeerSelf>`__ when joining `live stories \u00bb <https://core.telegram.org/api/group-calls#live-stories>`__ or `conference calls \u00bb <https://core.telegram.org/api/group-calls#conference-calls>`__).",
         "muted": "If set, the user will be muted by default upon joining.",
         "params": "WebRTC parameters",
-        "public_key": "For conference calls, your public key.",
+        "public_key": "For `conference calls \u00bb <https://core.telegram.org/api/group-calls#conference-calls>`__ only, your public key.",
         "video_stopped": "If set, the user's video will be disabled by default upon joining."
       },
       "usable-by": "users"
