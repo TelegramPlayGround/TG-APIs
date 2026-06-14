@@ -11048,14 +11048,6 @@
         "users": "Related user information"
       }
     },
-    "chatlists.ChatlistUpdates": {
-      "desc": "Updated information about a `chat folder deep link  <https://core.telegram.org/api/links#chat-folder-links>`__.",
-      "params": {
-        "chats": "Related chat information",
-        "missing_peers": "New peers to join",
-        "users": "Related user information"
-      }
-    },
     "chatlists.ExportedChatlistInvite": {
       "desc": "Info about an exported `chat folder deep link  <https://core.telegram.org/api/links#chat-folder-links>`__.",
       "params": {
@@ -12325,14 +12317,6 @@
     "payments.StarGiftActiveAuctionsNotModified": {
       "desc": "The list of currently active `gift auctions <https://core.telegram.org/api/auctions>`__ where the user has placed a bid hasn't changed.",
       "params": {}
-    },
-    "payments.StarGiftAuctionAcquiredGifts": {
-      "desc": "Describes all the gifts that the current user won in an `auction <https://core.telegram.org/api/auctions>`__.",
-      "params": {
-        "chats": "Mentioned chats",
-        "gifts": "The gifts",
-        "users": "Mentioned users"
-      }
     },
     "payments.StarGiftAuctionState": {
       "desc": "Describes a `collectible gift auction  <https://core.telegram.org/api/auctions>`__.",
@@ -14053,16 +14037,6 @@
       },
       "usable-by": "users"
     },
-    "account.ToggleConnectedBotPaused": {
-      "can_use_business_connection": false,
-      "can_use_without_auth": false,
-      "desc": "Pause or unpause a specific chat, temporarily disconnecting it from all `business bots  <https://core.telegram.org/api/bots/connected-business-bots>`__.",
-      "params": {
-        "paused": "Whether to pause or unpause the chat",
-        "peer": "The chat to pause"
-      },
-      "usable-by": "users"
-    },
     "account.ToggleNoPaidMessagesException": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
@@ -15064,18 +15038,6 @@
         "active": "Whether to activate or deactivate it",
         "bot": "The bot",
         "username": "Username"
-      },
-      "usable-by": "users"
-    },
-    "bots.UpdateStarRefProgram": {
-      "can_use_business_connection": false,
-      "can_use_without_auth": false,
-      "desc": "Create, edit or delete the `affiliate program <https://core.telegram.org/api/bots/referrals>`__ of a bot we own",
-      "params": {
-        "bot": "The bot",
-        "commission_permille": "The permille commission rate: it indicates the share of Telegram Stars received by affiliates for every transaction made by users they referred inside of the bot.    The minimum and maximum values for this parameter are contained in the `starref_min_commission_permille <https://core.telegram.org/api/config#starref-min-commission-permille>`__ and `starref_max_commission_permille <https://core.telegram.org/api/config#starref-max-commission-permille>`__ client configuration parameters.   Can be 0 to terminate the affiliate program.  Both the duration and the commission may only be raised after creation of the program: to lower them, the program must first be terminated and a new one created.",
-        "duration_months": "Indicates the duration of the affiliate program; if not set, there is no expiration date.",
-        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__"
       },
       "usable-by": "users"
     },
