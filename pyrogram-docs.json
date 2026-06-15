@@ -3709,6 +3709,10 @@
       "desc": "Whether messages forwarded from you will be `anonymous <https://telegram.org/blog/unsend-privacy-emoji#anonymous-forwarding>`__",
       "params": {}
     },
+    "InputPrivacyKeyNoPaidMessages": {
+      "desc": "Who can send you messages without paying, if `paid messages  <https://core.telegram.org/api/paid-messages>`__ are enabled.",
+      "params": {}
+    },
     "InputPrivacyKeyPhoneCall": {
       "desc": "Whether you will accept phone calls",
       "params": {}
@@ -6312,6 +6316,14 @@
       "desc": "Group.",
       "params": {
         "chat_id": "Group identifier"
+      }
+    },
+    "PeerColor": {
+      "desc": "Represents a `color palette  <https://core.telegram.org/api/colors>`__.",
+      "params": {
+        "background_emoji_id": "Optional `custom emoji ID <https://core.telegram.org/api/custom-emoji>`__ used to generate the pattern.",
+        "color": "`Color palette ID, see here \u00bb <https://core.telegram.org/api/colors>`__ for more info; if not set, the default palette should be used.",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__"
       }
     },
     "PeerColorCollectible": {
