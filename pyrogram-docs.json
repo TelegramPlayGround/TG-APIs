@@ -1101,7 +1101,7 @@
         "boosts_unrestrict": "The number of `boosts <https://core.telegram.org/api/boost>`__ this supergroup requires to bypass slowmode and other restrictions, see `here \u00bb <https://core.telegram.org/api/boost#bypass-slowmode-and-chat-restrictions>`__ for more info.",
         "bot_info": "Info about bots in the channel/supergroup",
         "bot_verification": "`Bot verification icon <https://core.telegram.org/api/bots/verification>`__",
-        "call": "Livestream or group call information",
+        "call": "Active or scheduled `video chat/livestream \u00bb <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__ associated with this supergroup/channel",
         "can_delete_channel": "Can we delete this channel?",
         "can_set_location": "Can we set the geolocation of this group (for geogroups)",
         "can_set_stickers": "Can we `associate <https://core.telegram.org/method/channels.setStickers>`__ a stickerpack to the supergroup?",
@@ -1117,7 +1117,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "flags2": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "folder_id": "`Peer folder ID, for more info click here <https://core.telegram.org/api/folders#peer-folders>`__",
-        "groupcall_default_join_as": "When using `phone.getGroupCallJoinAs <https://core.telegram.org/method/phone.getGroupCallJoinAs>`__ to get a list of peers that can be used to join a group call, this field indicates the peer that should be selected by default.",
+        "groupcall_default_join_as": "Explicitly saved default peer used to join this supergroup/channel's `video chat/livestream \u00bb <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__; if absent, the current user is used",
         "has_scheduled": "Whether scheduled messages are available",
         "hidden_prehistory": "Is the history before we joined hidden to us?",
         "id": "ID of the channel",
@@ -1172,7 +1172,7 @@
       "params": {}
     },
     "ChannelMessagesFilter": {
-      "desc": "Filter for getting only certain types of channel messages",
+      "desc": "Filter for getting only certain types of channel messages.\nThis filter cannot be used to fetch messages older than the channel message box size.",
       "params": {
         "exclude_new_messages": "Whether to exclude new messages from the search",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -1324,7 +1324,7 @@
         "edit_stories": "If set, allows the admin to edit `stories <https://core.telegram.org/api/stories>`__ posted by the other admins of the `channel <https://core.telegram.org/api/channel>`__.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "invite_users": "If set, allows the admin to invite users in the `channel/supergroup <https://core.telegram.org/api/channel>`__",
-        "manage_call": "If set, allows the admin to change group call/livestream settings",
+        "manage_call": "If set, allows the admin to create and administer `video chats/livestreams \u00bb <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__",
         "manage_direct_messages": "If set, allows the admin to manage the `direct messages monoforum \u00bb <https://core.telegram.org/api/monoforum>`__ and `decline suggested posts \u00bb <https://core.telegram.org/api/suggested-posts>`__.",
         "manage_ranks": "",
         "manage_topics": "If set, allows the admin to create, delete or modify `forum topics \u00bb <https://core.telegram.org/api/forum#forum-topics>`__.",
@@ -1390,13 +1390,13 @@
         "about": "About string for this chat",
         "available_reactions": "Allowed `message reactions \u00bb <https://core.telegram.org/api/reactions>`__",
         "bot_info": "Info about bots that are in this chat",
-        "call": "Group call information",
+        "call": "Active or scheduled `video chat \u00bb <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__ associated with this basic group",
         "can_set_username": "Can we change the username of this chat",
         "chat_photo": "Chat photo",
         "exported_invite": "Chat invite",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "folder_id": "`Peer folder ID, for more info click here <https://core.telegram.org/api/folders#peer-folders>`__",
-        "groupcall_default_join_as": "When using `phone.getGroupCallJoinAs <https://core.telegram.org/method/phone.getGroupCallJoinAs>`__ to get a list of peers that can be used to join a group call, this field indicates the peer that should be selected by default.",
+        "groupcall_default_join_as": "Explicitly saved default peer used to join this group's `video chat \u00bb <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__; if absent, the current user is used",
         "has_scheduled": "Whether `scheduled messages <https://core.telegram.org/api/scheduled-messages>`__ are available",
         "id": "ID of the chat",
         "notify_settings": "Notification settings",
@@ -2226,7 +2226,7 @@
         "id": "`Topic ID <https://core.telegram.org/api/forum#forum-topics>`__",
         "my": "Whether the topic was created by the current user",
         "notify_settings": "Notification settings",
-        "peer": "Contains the supergroup/private chat where the topic is located.",
+        "peer": "Contains the supergroup/private chat where the topic is located.  This field is useful especially when this object is returned by methods like `messages.getMessages <https://core.telegram.org/method/messages.getMessages>`__, which can return messages and forum topics belonging to different (private chat) peers in the same method call, making it impossible to tell the topic's peer based on the method call parameters or surrounding context.",
         "pinned": "Whether the topic is pinned",
         "read_inbox_max_id": "Position up to which all incoming messages are read.",
         "read_outbox_max_id": "Position up to which all outgoing messages are read.",
@@ -2305,39 +2305,39 @@
       }
     },
     "GroupCall": {
-      "desc": "Info about a `group call <https://core.telegram.org/api/group-calls>`__.",
+      "desc": "Describes a `group call <https://core.telegram.org/api/group-calls>`__.",
       "params": {
         "access_hash": "Group call access hash",
         "can_change_join_muted": "Whether the current user can change the value of the join_muted flag using `phone.toggleGroupCallSettings <https://core.telegram.org/method/phone.toggleGroupCallSettings>`__",
-        "can_change_messages_enabled": "",
+        "can_change_messages_enabled": "Whether the current user may enable or disable the `in-call message overlay \u00bb <https://core.telegram.org/api/group-calls#in-call-messages>`__",
         "can_start_video": "Whether you can start streaming video into the call",
         "conference": "Whether this is an E2E conference call.",
-        "creator": "Whether we're created this group call.",
-        "default_send_as": "",
+        "creator": "Whether the current user created this group call.",
+        "default_send_as": "Default peer displayed as the author of `live story comments and reactions \u00bb <https://core.telegram.org/api/group-calls#in-call-messages>`__",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "id": "Group call ID",
-        "invite_link": "Invitation link for the conference.",
+        "invite_link": "Invitation link for a `conference call \u00bb <https://core.telegram.org/api/group-calls#conference-calls>`__.",
         "join_date_asc": "Specifies the ordering to use when locally sorting by date and displaying in the UI group call participants.",
         "join_muted": "Whether the user should be muted upon joining the call",
         "listeners_hidden": "Whether the listeners list is hidden and cannot be fetched using `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__. The phone.groupParticipants.count and groupCall.participants_count counters will still include listeners.",
-        "messages_enabled": "",
-        "min": "",
+        "messages_enabled": "Whether the `in-call message overlay \u00bb <https://core.telegram.org/api/group-calls#in-call-messages>`__ is enabled",
+        "min": "Whether this is a partial constructor that must be applied using the `group call update rules \u00bb <https://core.telegram.org/api/group-calls#applying-group-call-updates>`__",
         "participants_count": "Participant count",
         "record_start_date": "When was the recording started",
         "record_video_active": "Whether the group call is currently being recorded",
-        "rtmp_stream": "Whether RTMP streams are allowed",
+        "rtmp_stream": "Whether this call uses `RTMP livestream mode \u00bb <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__",
         "schedule_date": "When is the call scheduled to start",
         "schedule_start_subscribed": "Whether we subscribed to the scheduled call",
-        "send_paid_messages_stars": "",
-        "stream_dc_id": "DC ID to be used for livestream chunks",
+        "send_paid_messages_stars": "Minimum Stars donation required from users other than the live story owner to send a `paid comment \u00bb <https://core.telegram.org/api/group-calls#paid-live-story-comments>`__; 0 or no value allows free comments",
+        "stream_dc_id": "Media DC ID to use for `RTMP stream requests \u00bb <https://core.telegram.org/api/group-calls#playing-an-rtmp-livestream>`__",
         "title": "Group call title",
         "unmuted_video_count": "Number of people currently streaming video into the call",
         "unmuted_video_limit": "Maximum number of people allowed to stream video into the call",
-        "version": "Version"
+        "version": "Revision used to apply `group call updates \u00bb <https://core.telegram.org/api/group-calls#applying-group-call-updates>`__"
       }
     },
     "GroupCallDiscarded": {
-      "desc": "An ended `group call <https://core.telegram.org/api/group-calls>`__.",
+      "desc": "Describes an ended `group call <https://core.telegram.org/api/group-calls>`__.",
       "params": {
         "access_hash": "Group call access hash",
         "duration": "Group call duration",
@@ -2345,29 +2345,29 @@
       }
     },
     "GroupCallDonor": {
-      "desc": "",
+      "desc": "Describes a live story donor in the `donation leaderboard  <https://core.telegram.org/api/group-calls#paid-live-story-donations>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "my": "",
-        "peer_id": "",
-        "stars": "",
-        "top": ""
+        "my": "Whether this entry describes the current user's donations",
+        "peer_id": "Donor displayed in the leaderboard",
+        "stars": "Total Stars donated by this donor",
+        "top": "Whether this donor is included in the top-donor leaderboard"
       }
     },
     "GroupCallMessage": {
-      "desc": "Represents a transient in-call message, `emoji reaction  <https://core.telegram.org/api/group-calls#in-call-reactions>`__, paid live story comment or standalone paid live story donation.",
+      "desc": "Represents an `in-call message  <https://core.telegram.org/api/group-calls#in-call-messages>`__, emoji reaction, paid live story comment or standalone paid live story donation.",
       "params": {
-        "date": "",
+        "date": "Message date",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "from_admin": "",
-        "from_id": "",
-        "id": "",
+        "from_admin": "Whether the message was sent by a group call admin",
+        "from_id": "Displayed message author",
+        "id": "Message ID",
         "message": "Message text or emoji reaction; empty for standalone paid live story donations",
         "paid_message_stars": "Number of Telegram Stars donated with the message or standalone donation"
       }
     },
     "GroupCallParticipant": {
-      "desc": "Info about a group call participant",
+      "desc": "Describes a group call participant and their current state, see `applying group call updates  <https://core.telegram.org/api/group-calls#applying-group-call-updates>`__.",
       "params": {
         "about": "Info about this participant",
         "active_date": "When was this participant last active in the group call",
@@ -2375,16 +2375,16 @@
         "date": "When did this participant join the group call",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "just_joined": "Whether the participant has just joined",
-        "left": "Whether the participant has left",
+        "left": "Whether the participant left the media layer; in conferences, another participant must then prune them from the E2E blockchain",
         "min": "If not set, the volume and muted_by_you fields can be safely used to overwrite locally cached information; otherwise, volume will contain valid information only if volume_by_admin is set both in the cache and in the received constructor.",
         "muted": "Whether the participant is muted",
         "muted_by_you": "Whether this participant was muted by the current user",
-        "paid_stars_total": "",
-        "peer": "Peer information",
+        "paid_stars_total": "Total Stars donated by this participant in a live story",
+        "peer": "Peer represented by this participant",
         "presentation": "Info about the screen sharing stream the participant is currently broadcasting",
         "raise_hand_rating": "Specifies the UI visualization order of peers with raised hands: peers with a higher rating should be showed first in the list.",
         "self": "Whether this participant is the current user",
-        "source": "Source ID",
+        "source": "Source ID of the participant's main audio stream",
         "versioned": "If set, and `updateGroupCallParticipants <https://core.telegram.org/constructor/updateGroupCallParticipants>`__.version < locally stored call.version, info about this participant should be ignored. If (...), and `updateGroupCallParticipants <https://core.telegram.org/constructor/updateGroupCallParticipants>`__.version > call.version+1, the participant list should be refetched using `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__.",
         "video": "Info about the video stream the participant is currently broadcasting",
         "video_joined": "Whether this participant is currently broadcasting video",
@@ -2410,9 +2410,9 @@
       }
     },
     "GroupCallStreamChannel": {
-      "desc": "Info about an available stream channel in a group call or livestream",
+      "desc": "Describes an available RTMP stream channel and its current playback timestamp, see `playing an RTMP livestream  <https://core.telegram.org/api/group-calls#playing-an-rtmp-livestream>`__.",
       "params": {
-        "channel": "Channel ID",
+        "channel": "Stream channel ID, used as a source of the synthetic unified video source group and as `inputGroupCallStream <https://core.telegram.org/constructor/inputGroupCallStream>`__.video_channel when fetching the corresponding video segment",
         "last_timestamp_ms": "Last seen timestamp to easily start fetching livestream chunks using `inputGroupCallStream <https://core.telegram.org/constructor/inputGroupCallStream>`__",
         "scale": "Specifies the duration of the media segment to fetch. To obtain this value in milliseconds, bitshift 1000 to the right scale times: duration_ms := 1000 >> scale."
       }
@@ -2977,7 +2977,7 @@
       }
     },
     "InputGroupCallInviteMessage": {
-      "desc": "Join a group call through a `messageActionConferenceCall <https://core.telegram.org/constructor/messageActionConferenceCall>`__ invitation message.",
+      "desc": "Identifies a `conference call  <https://core.telegram.org/api/group-calls#conference-calls>`__ using its `messageActionConferenceCall <https://core.telegram.org/constructor/messageActionConferenceCall>`__ invitation service message.",
       "params": {
         "msg_id": "ID of the `messageActionConferenceCall <https://core.telegram.org/constructor/messageActionConferenceCall>`__."
       }
@@ -2989,13 +2989,13 @@
       }
     },
     "InputGroupCallStream": {
-      "desc": "Chunk of a livestream",
+      "desc": "Identifies a media chunk of an RTMP-mode video chat, livestream or live story, see `playing an RTMP livestream  <https://core.telegram.org/api/group-calls#playing-an-rtmp-livestream>`__.",
       "params": {
-        "call": "Livestream info",
+        "call": "RTMP-mode group call",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "scale": "Specifies the duration of the media segment to fetch in milliseconds, by bitshifting 1000 to the right scale times: duration_ms := 1000 >> scale",
-        "time_ms": "Timestamp in milliseconds",
-        "video_channel": "Selected video or unified stream channel; omit together with video_quality to fetch a separate audio stream in non-unified broadcast mode",
+        "time_ms": "Timestamp of the chunk to fetch, in milliseconds",
+        "video_channel": "`groupCallStreamChannel <https://core.telegram.org/constructor/groupCallStreamChannel>`__.channel value of the video channel to fetch; unified video uses channel 1. Omit together with video_quality to fetch audio",
         "video_quality": "Selected video quality (0 = lowest, 1 = medium, 2 = best)"
       }
     },
@@ -3707,10 +3707,6 @@
     },
     "InputPrivacyKeyForwards": {
       "desc": "Whether messages forwarded from you will be `anonymous <https://telegram.org/blog/unsend-privacy-emoji#anonymous-forwarding>`__",
-      "params": {}
-    },
-    "InputPrivacyKeyNoPaidMessages": {
-      "desc": "Who can send you messages without paying, if `paid messages  <https://core.telegram.org/api/paid-messages>`__ are enabled.",
       "params": {}
     },
     "InputPrivacyKeyPhoneCall": {
@@ -4792,7 +4788,7 @@
       }
     },
     "MessageActionConferenceCall": {
-      "desc": "Represents a `conference call <https://core.telegram.org/api/end-to-end/group-calls>`__ (or an invitation to a conference call, if neither the missed nor active flags are set).\nIf `call_requests_disabled <https://core.telegram.org/api/config#call-requests-disabled>`__ is not set or false, an incoming `messageActionConferenceCall <https://core.telegram.org/constructor/messageActionConferenceCall>`__ with the missed and active flags not set should trigger ringing and an incoming call screen, just like for one-on-one calls.",
+      "desc": "Represents a `conference call  <https://core.telegram.org/api/group-calls#conference-calls>`__, or an invitation to one if neither the missed nor active flags are set.\nIf `call_requests_disabled <https://core.telegram.org/api/config#call-requests-disabled>`__ is not set or false, an incoming `messageActionConferenceCall <https://core.telegram.org/constructor/messageActionConferenceCall>`__ with the missed and active flags not set should trigger ringing and an incoming call screen, just like for one-on-one calls.",
       "params": {
         "active": "Whether the user is currently in the conference call.",
         "call_id": "Call ID.",
@@ -4902,7 +4898,7 @@
     "MessageActionGroupCall": {
       "desc": "A `video chat/livestream <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__ was started or terminated.",
       "params": {
-        "call": "Group call",
+        "call": "Video chat/livestream that started or ended",
         "duration": "Duration of the group call in seconds, for terminated calls.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__"
       }
@@ -4910,7 +4906,7 @@
     "MessageActionGroupCallScheduled": {
       "desc": "A `video chat/livestream <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__ was scheduled.",
       "params": {
-        "call": "The group call",
+        "call": "Scheduled video chat/livestream",
         "schedule_date": "When is the group call scheduled to start"
       }
     },
@@ -4919,9 +4915,9 @@
       "params": {}
     },
     "MessageActionInviteToGroupCall": {
-      "desc": "A set of users was invited to a `group call <https://core.telegram.org/api/group-calls>`__.",
+      "desc": "A set of users was invited to a `video chat/livestream  <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__.",
       "params": {
-        "call": "The group call",
+        "call": "Video chat/livestream to which the users were invited",
         "users": "The invited users"
       }
     },
@@ -5648,11 +5644,11 @@
       }
     },
     "MessageMediaVideoStream": {
-      "desc": "",
+      "desc": "Identifies the active group call associated with a `live story  <https://core.telegram.org/api/group-calls#live-stories>`__.",
       "params": {
-        "call": "",
+        "call": "Active live story group call",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "rtmp_stream": ""
+        "rtmp_stream": "Whether the live story uses `RTMP livestream mode \u00bb <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__"
       }
     },
     "MessageMediaWebPage": {
@@ -6316,14 +6312,6 @@
       "desc": "Group.",
       "params": {
         "chat_id": "Group identifier"
-      }
-    },
-    "PeerColor": {
-      "desc": "Represents a `color palette  <https://core.telegram.org/api/colors>`__.",
-      "params": {
-        "background_emoji_id": "Optional `custom emoji ID <https://core.telegram.org/api/custom-emoji>`__ used to generate the pattern.",
-        "color": "`Color palette ID, see here \u00bb <https://core.telegram.org/api/colors>`__ for more info; if not set, the default palette should be used.",
-        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__"
       }
     },
     "PeerColorCollectible": {
@@ -9000,7 +8988,7 @@
       }
     },
     "UpdateChatParticipant": {
-      "desc": "A user has joined or left a specific `basic group  <https://core.telegram.org/api/channel#basic-groups>`__",
+      "desc": "A user has joined or left a specific `basic group  <https://core.telegram.org/api/channel#basic-groups>`__: this update can only be received by bots, see `here  <https://core.telegram.org/api/peers#basic-group-updates>`__ for the user version of this update.",
       "params": {
         "actor_id": "User that triggered the change (inviter, admin that kicked the user, or the even the user_id itself)",
         "chat_id": "`Chat <https://core.telegram.org/api/channel>`__ ID",
@@ -9087,10 +9075,10 @@
       }
     },
     "UpdateDeleteGroupCallMessages": {
-      "desc": "",
+      "desc": "Indicates that messages were deleted from the `in-call message overlay  <https://core.telegram.org/api/group-calls#in-call-messages>`__ of a video chat/livestream or live story, including in RTMP mode.",
       "params": {
-        "call": "",
-        "messages": ""
+        "call": "Video chat/livestream or live story from which the messages were deleted",
+        "messages": "IDs of the deleted in-call messages"
       }
     },
     "UpdateDeleteMessages": {
@@ -9232,25 +9220,25 @@
       }
     },
     "UpdateGroupCall": {
-      "desc": "Info about a `group call <https://core.telegram.org/api/group-calls>`__ was updated.",
+      "desc": "Indicates that group call information changed, see `applying group call updates  <https://core.telegram.org/api/group-calls#applying-group-call-updates>`__.",
       "params": {
         "call": "Info about the group call or livestream",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "live_story": "",
-        "peer": ""
+        "live_story": "Whether this update belongs to a `live story \u00bb <https://core.telegram.org/api/group-calls#live-stories>`__",
+        "peer": "Peer associated with the group call"
       }
     },
     "UpdateGroupCallChainBlocks": {
-      "desc": "Contains updates to the blockchain of a conference call, see `here  <https://core.telegram.org/api/end-to-end/group-calls>`__ for more info.",
+      "desc": "Contains conference call blockchain blocks, see `handling E2E group call updates  <https://core.telegram.org/api/end-to-end/group-calls#handling-updates>`__.",
       "params": {
-        "blocks": "Blocks.",
-        "call": "The conference call.",
-        "next_offset": "Height of the block located after the last block in blocks.",
-        "sub_chain_id": "Subchain ID."
+        "blocks": "Serialized subchain blocks with the server-adjusted constructor IDs described in the `subchain documentation \u00bb <https://core.telegram.org/api/end-to-end/group-calls#subchains>`__",
+        "call": "Conference whose specified subchain received these blocks",
+        "next_offset": "Height of the block located after the last block in blocks; the first returned block has height next_offset - blocks.length",
+        "sub_chain_id": "0 for the main state blockchain, 1 for the call verification subchain"
       }
     },
     "UpdateGroupCallConnection": {
-      "desc": "Connection parameters returned after joining a `group call <https://core.telegram.org/api/group-calls>`__.\nIf presentation is set, the parameters belong to the separate `presentation connection <https://core.telegram.org/api/group-calls#presentations>`__; otherwise they belong to the main connection.\nFor a normal WebRTC connection, pass params to the local tgcalls group-call engine as its join response payload. It has the following shape:\ntransport contains the remote ICE and DTLS connection parameters. Each candidate may also contain the optional tcptype, rel-addr and rel-port fields. The optional video object describes the endpoint assigned to the client's published video, the server SSRC used for bandwidth probing, and the negotiated video codecs, RTCP feedback types and RTP header extensions.\nFor a broadcast stream, including an `RTMP-mode call <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__, params instead has the following shape:\nIf stream is set, initialize the local call engine in stream playback mode instead of passing the payload as an RTC join response.",
+      "desc": "Connection parameters returned after joining a group call, see `presentations  <https://core.telegram.org/api/group-calls#presentations>`__ and `RTMP livestreams  <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__.\nIf presentation is set, the parameters belong to the separate `presentation connection <https://core.telegram.org/api/group-calls#presentations>`__; otherwise they belong to the main connection.\nFor a normal WebRTC connection, pass params to the local tgcalls group-call engine as its join response payload.\nFor `RTMP-mode calls <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__, params instead has the following shape:",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "params": "RTC join response parameters or broadcast-stream metadata, as described above",
@@ -9260,24 +9248,24 @@
     "UpdateGroupCallEncryptedMessage": {
       "desc": "A new E2E-encrypted message or emoji reaction was received in a conference call, see `here  <https://core.telegram.org/api/end-to-end/group-calls#receiving-and-decrypting-a-message>`__ for the decryption process.",
       "params": {
-        "call": "Conference call",
+        "call": "Conference call that received the encrypted message",
         "encrypted_message": "Complete encrypted packet",
         "from_id": "Sender whose blockchain public key must be used to verify the encrypted packet"
       }
     },
     "UpdateGroupCallMessage": {
-      "desc": "A new in-call message was received in a `group call or livestream <https://core.telegram.org/api/group-calls>`__, sent using `phone.sendGroupCallMessage <https://core.telegram.org/method/phone.sendGroupCallMessage>`__.",
+      "desc": "A new message, reaction, paid comment or donation was received through the `in-call message overlay  <https://core.telegram.org/api/group-calls#in-call-messages>`__.",
       "params": {
-        "call": "",
-        "message": ""
+        "call": "Group call that received the message",
+        "message": "Received in-call message"
       }
     },
     "UpdateGroupCallParticipants": {
       "desc": "The participant list of a `group call <https://core.telegram.org/api/group-calls#applying-group-call-updates>`__ has changed.",
       "params": {
-        "call": "Group call",
-        "participants": "New participant list",
-        "version": "Version"
+        "call": "Group call whose participants changed",
+        "participants": "Participants whose state changed",
+        "version": "Group call revision used by the `update application rules \u00bb <https://core.telegram.org/api/group-calls#applying-group-call-updates>`__"
       }
     },
     "UpdateInlineBotCallbackQuery": {
@@ -12477,7 +12465,7 @@
       }
     },
     "phone.GroupCall": {
-      "desc": "Contains info about a group call, and partial info about its participants.",
+      "desc": "Contains group call information and an initial participant page, see `getting info about a group call  <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__.",
       "params": {
         "call": "Info about the group call",
         "chats": "Chats mentioned in the participants vector",
@@ -12487,40 +12475,40 @@
       }
     },
     "phone.GroupCallStars": {
-      "desc": "",
+      "desc": "Contains a live story's total donations and top donors, see `paid live story donations  <https://core.telegram.org/api/group-calls#paid-live-story-donations>`__.",
       "params": {
-        "chats": "",
-        "top_donors": "",
-        "total_stars": "",
-        "users": ""
+        "chats": "Chats mentioned in top_donors",
+        "top_donors": "Top donors",
+        "total_stars": "Total Stars donated to the live story",
+        "users": "Users mentioned in top_donors"
       }
     },
     "phone.GroupCallStreamChannels": {
-      "desc": "Info about RTMP streams in a group call or livestream",
+      "desc": "Contains the available channels of an RTMP-mode group call, see `playing an RTMP livestream  <https://core.telegram.org/api/group-calls#playing-an-rtmp-livestream>`__.",
       "params": {
-        "channels": "RTMP streams"
+        "channels": "Available RTMP stream channels; may be empty while the external publisher is not sending media"
       }
     },
     "phone.GroupCallStreamRtmpUrl": {
-      "desc": "RTMP URL and stream key to be used in streaming software",
+      "desc": "Contains the RTMP publishing URL and secret stream key, see `creating and publishing an RTMP livestream  <https://core.telegram.org/api/group-calls#creating-and-publishing-an-rtmp-livestream>`__.",
       "params": {
-        "key": "Stream key",
+        "key": "Secret stream key",
         "url": "RTMP URL"
       }
     },
     "phone.GroupParticipants": {
-      "desc": "Info about the participants of a group call or livestream",
+      "desc": "Contains a page of group call participants, see `getting info about a group call  <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__.",
       "params": {
         "chats": "Mentioned chats",
         "count": "Number of participants",
         "next_offset": "If not empty, the specified list of participants is partial, and more participants can be fetched specifying this parameter as offset in `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__.",
         "participants": "List of participants",
         "users": "Mentioned users",
-        "version": "Version info"
+        "version": "Current participant-list version, used to apply and detect gaps in versioned `updateGroupCallParticipants <https://core.telegram.org/constructor/updateGroupCallParticipants>`__ updates"
       }
     },
     "phone.JoinAsPeers": {
-      "desc": "A list of peers that can be used to join a group call, presenting yourself as a specific user/channel.",
+      "desc": "Contains the peers that may be used to join a video chat/livestream, see `joining on behalf of owned channels  <https://core.telegram.org/api/group-calls#joining-a-group-call-on-behalf-of-owned-channels>`__.",
       "params": {
         "chats": "Chats mentioned in the peers vector",
         "peers": "Peers",
@@ -15379,7 +15367,7 @@
     "channels.GetSendAs": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Obtains a list of peers that can be displayed as the sender in a specific context.",
+      "desc": "Obtains a list of peers that can be displayed as the sender in a specific context. With for_live_stories, returns peers that may author `live story in-call messages  <https://core.telegram.org/api/group-calls#in-call-messages>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "for_live_stories": "Fetch the peers that may be passed to `phone.sendGroupCallMessage <https://core.telegram.org/method/phone.sendGroupCallMessage>`__.send_as to comment or react in a `live story \u00bb <https://core.telegram.org/api/group-calls#in-call-messages>`__.",
@@ -20058,7 +20046,7 @@
       "can_use_without_auth": false,
       "desc": "Check which of the specified source IDs the server still recognizes as joined to a group call. This method can be used with all group call types, see `here  <https://core.telegram.org/api/group-calls#maintaining-group-call-connections>`__ for more info.\nAfter joining the main connection with `phone.joinGroupCall <https://core.telegram.org/method/phone.joinGroupCall>`__, pass its non-zero SSRC/source ID to this method periodically. If a presentation connection is also active, include the separate source registered using `phone.joinGroupCallPresentation <https://core.telegram.org/method/phone.joinGroupCallPresentation>`__.\nThe method returns the subset of the supplied sources that are still joined. A missing source means that the corresponding connection must be recreated and joined again; it does not indicate whether media packets are currently flowing. If the method returns GROUPCALL_JOIN_MISSING, the main connection must be rejoined.",
       "params": {
-        "call": "Group call",
+        "call": "Group call whose WebRTC connections should be checked",
         "sources": "Non-zero SSRC/source IDs of the caller's main and presentation connections"
       },
       "usable-by": "users"
@@ -20078,14 +20066,14 @@
     "phone.CreateConferenceCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Create and optionally join a new `conference call <https://core.telegram.org/api/group-calls#conference-calls>`__.",
+      "desc": "Create and optionally join a new `conference call  <https://core.telegram.org/api/group-calls#conference-calls>`__.",
       "params": {
-        "block": "Initial blockchain block (can only be used if join is set).",
+        "block": "Initial main-chain block for subchain 0 (can only be used if join is set).",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "join": "If set, also join the call, otherwise just create the call link.",
         "muted": "If set, mute our microphone when joining the call (can only be used if join is set).",
-        "params": "Parameters from tgcalls (can only be used if join is set).",
-        "public_key": "Public key (can only be used if join is set).",
+        "params": "Join payload generated by the local call engine (can only be used if join is set).",
+        "public_key": "Fresh E2E public key for the creator (can only be used if join is set).",
         "random_id": "Unique client message ID required to prevent creation of duplicate group calls.",
         "video_stopped": "If set, our video stream is disabled (can only be used if join is set)."
       },
@@ -20099,8 +20087,8 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "peer": "Associate the group call or livestream to the provided `group/supergroup/channel <https://core.telegram.org/api/channel>`__",
         "random_id": "Unique client message ID required to prevent creation of duplicate group calls",
-        "rtmp_stream": "Create the call in `RTMP livestream mode \u00bb <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__, where one external streamer publishes all audio and video; only the group/supergroup/channel owner can use this flag",
-        "schedule_date": "For scheduled group call or livestreams, the absolute date (unixtime) when the group call is expected to start: the date must be at least 10 seconds and at most 8 days in the future.",
+        "rtmp_stream": "Create the call in `RTMP livestream mode \u00bb <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__, where one external streamer publishes all audio and video",
+        "schedule_date": "Schedule date, at least 10 seconds and at most 8 days in the future; the call must still be manually started using `phone.startScheduledGroupCall <https://core.telegram.org/method/phone.startScheduledGroupCall>`__",
         "title": "Call title, if not set defaults to the group/channel's name."
       },
       "usable-by": "users"
@@ -20117,12 +20105,12 @@
     "phone.DeleteConferenceCallParticipants": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Remove participants from a `conference call <https://core.telegram.org/api/group-calls#conference-calls>`__.\nExactly one of the only_left and kick flags must be set.",
+      "desc": "Remove participants from a `conference call  <https://core.telegram.org/api/end-to-end/group-calls#removing-a-participant>`__.\nExactly one of the only_left and kick flags must be set.",
       "params": {
-        "block": "The `block containing an appropriate e2e.chain.changeSetGroupState event <https://core.telegram.org/api/end-to-end/group-calls>`__",
-        "call": "The conference call.",
+        "block": "Main-chain block removing the specified users and establishing a new shared key, see `removing a participant \u00bb <https://core.telegram.org/api/end-to-end/group-calls#removing-a-participant>`__",
+        "call": "Conference from which to remove participants",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "ids": "IDs of users to remove.",
+        "ids": "User IDs to remove from the conference and E2E blockchain",
         "kick": "Whether this is a forced removal of active members in a conference call.",
         "only_left": "Whether this is a removal of members that already left the conference call."
       },
@@ -20131,9 +20119,9 @@
     "phone.DeleteGroupCallMessages": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Delete specific messages from a `live story's in-call message overlay  <https://core.telegram.org/api/group-calls#in-call-messages>`__.\nNon-admin participants may delete messages they sent; admins may delete any message.",
+      "desc": "Delete specific messages from the `in-call message overlay  <https://core.telegram.org/api/group-calls#in-call-messages>`__ of a video chat/livestream or live story, including in RTMP mode.\nNon-admin participants may delete messages they sent; admins may delete any message.",
       "params": {
-        "call": "The live story's group call",
+        "call": "Video chat/livestream or live story containing the messages",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "messages": "IDs of the messages to delete",
         "report_spam": "When moderating another participant's messages, also report them as spam"
@@ -20143,9 +20131,9 @@
     "phone.DeleteGroupCallParticipantMessages": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "As an admin, delete all messages from a specific participant in a `live story's in-call message overlay  <https://core.telegram.org/api/group-calls#in-call-messages>`__.",
+      "desc": "As an admin, delete all messages from a specific participant in the `in-call message overlay  <https://core.telegram.org/api/group-calls#in-call-messages>`__ of a video chat/livestream or live story, including in RTMP mode.",
       "params": {
-        "call": "The live story's group call",
+        "call": "Video chat/livestream or live story containing the messages",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "participant": "The participant whose messages should be deleted",
         "report_spam": "Also report the participant's messages as spam"
@@ -20180,15 +20168,15 @@
       "can_use_without_auth": false,
       "desc": "Edit information about a participant of a non-RTMP video chat/livestream or conference. The raise_hand field is only supported in video chats/livestreams, see `here  <https://core.telegram.org/api/group-calls#managing-an-active-group-call>`__ for more info.\nNote: `flags <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__.N?`Bool <https://core.telegram.org/type/Bool>`__ parameters can have three possible values:\n\n\n\n\n\t | If the `TL flag <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__ is not set, the previous value will not be changed. \n\n\t | If the `TL flag <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__ is set and contains a `boolTrue <https://core.telegram.org/constructor/boolTrue>`__, the previous value will be overwritten to true. \n\n\t | If the `TL flag <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__ is set and contains a `boolFalse <https://core.telegram.org/constructor/boolFalse>`__, the previous value will be overwritten to false.",
       "params": {
-        "call": "The group call",
+        "call": "Non-RTMP video chat/livestream or conference",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "muted": "Whether to mute or unmute the specified participant",
+        "muted": "Change the participant's mute state; allowing a forcibly muted participant to self-unmute does not immediately unmute them",
         "participant": "The group call participant (can also be the user itself)",
-        "presentation_paused": "Pause or resume the screen sharing stream",
+        "presentation_paused": "Pause or resume the current user's presentation stream",
         "raise_hand": "Raise or lower hand; only supported in video chats/livestreams",
-        "video_paused": "Pause or resume the video stream",
-        "video_stopped": "Start or stop the video stream",
-        "volume": "New volume, between 1 and 20000; 10000 represents 100% volume"
+        "video_paused": "Pause or resume the current user's video stream",
+        "video_stopped": "Start or stop the current user's video stream",
+        "volume": "New volume, between 1 and 20000; 10000 represents 100%. Without moderation rights, changing another participant's volume affects only local playback"
       },
       "usable-by": "users"
     },
@@ -20197,7 +20185,7 @@
       "can_use_without_auth": false,
       "desc": "Edit the title of a video chat or livestream. This method cannot be used with live stories or conferences, see `here  <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__ for more info.",
       "params": {
-        "call": "Group call",
+        "call": "Video chat or livestream whose title should be changed",
         "title": "New title"
       },
       "usable-by": "users"
@@ -20205,10 +20193,10 @@
     "phone.ExportGroupCallInvite": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get an `invite link <https://core.telegram.org/api/links#video-chat-livestream-links>`__ for a `video chat/livestream  <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__; cannot be used for `live stories  <https://core.telegram.org/api/group-calls#live-stories>`__ or `conference calls  <https://core.telegram.org/api/group-calls#conference-calls>`__.",
+      "desc": "Get an invite link for a public `video chat/livestream  <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__.\nNon-admin members or subscribers may export a link with can_self_unmute omitted. Only group call admins may set can_self_unmute to export a link that allows users to speak.\nCannot be used for video chats/livestreams associated with private groups/channels, `conference calls  <https://core.telegram.org/api/group-calls#conference-calls>`__ or `live stories  <https://core.telegram.org/api/group-calls#live-stories>`__.",
       "params": {
-        "call": "The `video chat/livestream \u00bb <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__",
-        "can_self_unmute": "For livestreams or muted group chats, if set, users that join using this link will be able to speak without explicitly requesting permission, for example by raising their hand.",
+        "call": "The public `video chat/livestream \u00bb <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__",
+        "can_self_unmute": "For public video chats/livestreams, group call admins only: allow users that join using this link to speak without explicitly requesting permission, for example by raising their hand.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__"
       },
       "usable-by": "users"
@@ -20225,7 +20213,7 @@
       "can_use_without_auth": false,
       "desc": "Get info about a `group call <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__ and its participants.",
       "params": {
-        "call": "The group call",
+        "call": "Group call of any type to fetch",
         "limit": "Maximum number of participants to return in this call (0 to return a server-defined amount). If the number of returned participants is less than `groupCall <https://core.telegram.org/constructor/groupCall>`__.participants_count, paginate through the remaining participants using `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__, passing to offset the `phone.groupCall <https://core.telegram.org/constructor/phone.groupCall>`__.participants_next_offset returned by this call. This parameter behaves in a different way compared to the limit of `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__, see `here \u00bb <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__ for more info."
       },
       "usable-by": "users"
@@ -20233,12 +20221,12 @@
     "phone.GetGroupCallChainBlocks": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Fetch the blocks of a `conference blockchain  <https://core.telegram.org/api/end-to-end/group-calls>`__, returns an `updateGroupCallChainBlocks <https://core.telegram.org/constructor/updateGroupCallChainBlocks>`__ to be handled as `specifiede here  <https://core.telegram.org/api/end-to-end/group-calls#handling-updates>`__.\nIf the number of blocks returned by any call to this method is equal to limit, this method must be re-invoked immediately after processing the returned `updateGroupCallChainBlocks <https://core.telegram.org/constructor/updateGroupCallChainBlocks>`__, with the newly committed offset (usually equal to the returned next_offset).",
+      "desc": "Fetch blocks from a conference call `subchain  <https://core.telegram.org/api/end-to-end/group-calls#subchains>`__; handle the returned `updateGroupCallChainBlocks <https://core.telegram.org/constructor/updateGroupCallChainBlocks>`__ as `specified here  <https://core.telegram.org/api/end-to-end/group-calls#handling-updates>`__.\nIf the number of blocks returned by any call to this method is equal to limit, this method must be re-invoked immediately after processing the returned `updateGroupCallChainBlocks <https://core.telegram.org/constructor/updateGroupCallChainBlocks>`__, with the newly committed offset (usually equal to the returned next_offset).",
       "params": {
-        "call": "The conference.",
+        "call": "Conference whose subchain blocks should be fetched",
         "limit": "Maximum number of blocks to return in this call, `see pagination <https://core.telegram.org/api/offsets>`__, max 100.",
-        "offset": "Start fetching blocks starting from the specified height.",
-        "sub_chain_id": "Subchain ID."
+        "offset": "Fetch blocks starting from this height; pass -1 to fetch the latest block",
+        "sub_chain_id": "0 for the main state blockchain, 1 for the call verification subchain"
       },
       "usable-by": "users"
     },
@@ -20254,9 +20242,9 @@
     "phone.GetGroupCallStars": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Fetch the donor and paid-message leaderboard of a live story. This method can only be used with live stories, see `here  <https://core.telegram.org/api/group-calls#live-stories>`__ for more info.",
+      "desc": "Fetch a live story's total donations and top donors, see `paid live story donations  <https://core.telegram.org/api/group-calls#paid-live-story-donations>`__.",
       "params": {
-        "call": ""
+        "call": "Live story group call"
       },
       "usable-by": "users"
     },
@@ -20272,7 +20260,7 @@
     "phone.GetGroupCallStreamRtmpUrl": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get the RTMP URL and stream key used by the single external streamer that publishes all audio and video for an RTMP-mode video chat, livestream or live story. This method can be invoked before creating the group call, see `here  <https://core.telegram.org/api/group-calls#creating-and-publishing-an-rtmp-livestream>`__ for the full flow.",
+      "desc": "Get the RTMP URL and stream key used by the single external streamer that publishes all audio and video for an RTMP-mode video chat, livestream or live story.\nSee `here  <https://core.telegram.org/api/group-calls#creating-and-publishing-an-rtmp-livestream>`__ for the full flow.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "live_story": "Obtain credentials for an RTMP live story instead of a video chat/livestream",
@@ -20286,7 +20274,7 @@
       "can_use_without_auth": false,
       "desc": "Get `group call <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__ participants.",
       "params": {
-        "call": "Group call",
+        "call": "Group call whose participants should be fetched",
         "ids": "If specified, will fetch group participant info about the specified peers",
         "limit": "Maximum number of results to return, `see pagination <https://core.telegram.org/api/offsets>`__",
         "offset": "Offset for results, taken from the next_offset field of `phone.groupParticipants <https://core.telegram.org/constructor/phone.groupParticipants>`__ or the participants_next_offset field of `phone.groupCall <https://core.telegram.org/constructor/phone.groupCall>`__, initially an empty string. Note: if no more results are available, the method call will return an empty next_offset; thus, avoid providing the next_offset returned in `phone.groupParticipants <https://core.telegram.org/constructor/phone.groupParticipants>`__ if it is empty, to avoid an infinite loop.",
@@ -20302,7 +20290,7 @@
         "call": "The conference call.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "user_id": "The user to invite.",
-        "video": "Invite the user to also turn on their video feed."
+        "video": "Whether this is a video conference invitation"
       },
       "usable-by": "users"
     },
@@ -20319,17 +20307,17 @@
     "phone.JoinGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Join a `group call <https://core.telegram.org/api/group-calls>`__, see `here  <https://core.telegram.org/api/group-calls>`__ for the full flow.\nThe params field must contain a join payload generated by the local tgcalls group-call engine. It contains a random non-zero audio ssrc, ICE ufrag and pwd, DTLS fingerprints, and, when publishing video, ssrc-groups.\nFor example, a join payload without published video has the following shape:\nWhen joining an RTMP-mode call, generate the payload without published video source groups.",
+      "desc": "Join any `group call type  <https://core.telegram.org/api/group-calls#group-call-types>`__. Conference calls additionally require the `E2E joining flow  <https://core.telegram.org/api/end-to-end/group-calls#joining-a-call>`__.\nThe params field must contain a join payload generated by the local tgcalls group-call engine. It contains a random non-zero audio ssrc, ICE ufrag and pwd, DTLS fingerprints, and, when publishing video, ssrc-groups.\nFor example, a join payload without published video has the following shape:\nWhen joining an RTMP-mode call, generate the payload without published video source groups.",
       "params": {
-        "block": "The `block containing an appropriate e2e.chain.changeSetGroupState event <https://core.telegram.org/api/end-to-end/group-calls>`__, only for `conference calls \u00bb <https://core.telegram.org/api/group-calls#conference-calls>`__.",
-        "call": "The group call",
+        "block": "The `main-chain block that adds the joining user \u00bb <https://core.telegram.org/api/end-to-end/group-calls#joining-a-call>`__, only for `conference calls \u00bb <https://core.telegram.org/api/group-calls#conference-calls>`__.",
+        "call": "Group call to join",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "invite_hash": "The invitation hash from the `invite link \u00bb <https://core.telegram.org/api/links#video-chat-livestream-links>`__, if provided allows speaking in a livestream or muted group call (`video chats/livestreams \u00bb <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__ only, cannot be used by `live stories \u00bb <https://core.telegram.org/api/group-calls#live-stories>`__ or `conference calls \u00bb <https://core.telegram.org/api/group-calls#conference-calls>`__).",
         "join_as": "Join the group call, presenting yourself as the specified user/channel; this peer is also used as the author of in-call messages in normal video chats/livestreams. Only video chats/livestreams may use another peer; this field must be equal to `inputPeerSelf <https://core.telegram.org/constructor/inputPeerSelf>`__ when joining `live stories \u00bb <https://core.telegram.org/api/group-calls#live-stories>`__ or `conference calls \u00bb <https://core.telegram.org/api/group-calls#conference-calls>`__.",
-        "muted": "If set, the user will be muted by default upon joining.",
+        "muted": "Join muted; required for live story listeners and RTMP-mode viewers",
         "params": "Join payload generated by the local tgcalls group-call engine, as described above",
         "public_key": "For `conference calls \u00bb <https://core.telegram.org/api/group-calls#conference-calls>`__ only, your public key.",
-        "video_stopped": "If set, the user's video will be disabled by default upon joining."
+        "video_stopped": "Join with video disabled; required for live story listeners and RTMP-mode viewers"
       },
       "usable-by": "users"
     },
@@ -20338,8 +20326,8 @@
       "can_use_without_auth": false,
       "desc": "Start screen sharing in a non-RTMP video chat/livestream or conference. Presentations are not supported in live stories or RTMP-mode video chats/livestreams, see `here  <https://core.telegram.org/api/group-calls#presentations>`__ for more info.",
       "params": {
-        "call": "The group call",
-        "params": "WebRTC parameters"
+        "call": "Joined non-RTMP video chat/livestream or conference in which to start presenting",
+        "params": "Join payload generated by a separate local call-engine instance for the presentation"
       },
       "usable-by": "users"
     },
@@ -20348,8 +20336,8 @@
       "can_use_without_auth": false,
       "desc": "Leave a group call without ending it for other participants. This method can be used with all group call types, see `here  <https://core.telegram.org/api/group-calls#managing-an-active-group-call>`__ for more info.",
       "params": {
-        "call": "The group call",
-        "source": "Your source ID"
+        "call": "Group call to leave",
+        "source": "Source ID of the main group call stream"
       },
       "usable-by": "users"
     },
@@ -20358,7 +20346,7 @@
       "can_use_without_auth": false,
       "desc": "Stop screen sharing in a non-RTMP video chat/livestream or conference. Presentations are not supported in live stories or RTMP-mode video chats/livestreams, see `here  <https://core.telegram.org/api/group-calls#presentations>`__ for more info.",
       "params": {
-        "call": "The group call"
+        "call": "Group call whose presentation connection should be stopped"
       },
       "usable-by": "users"
     },
@@ -20408,30 +20396,30 @@
     "phone.SaveDefaultGroupCallJoinAs": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Set the default peer that will be used to join a `group call <https://core.telegram.org/api/group-calls#creating-joining-a-group-call-on-behalf-of-owned-channels>`__ in a specific dialog.",
+      "desc": "Set the default peer used to join a `video chat/livestream  <https://core.telegram.org/api/group-calls#joining-a-group-call-on-behalf-of-owned-channels>`__ associated with a specific dialog.",
       "params": {
-        "join_as": "The default peer that will be used to join group calls in this dialog, presenting yourself as a specific user/channel.",
-        "peer": "The dialog"
+        "join_as": "Eligible peer to use by default when joining the dialog's video chats/livestreams, selected from `phone.getGroupCallJoinAs <https://core.telegram.org/method/phone.getGroupCallJoinAs>`__",
+        "peer": "Basic group, supergroup or channel whose video chat/livestream default should be changed"
       },
       "usable-by": "users"
     },
     "phone.SaveDefaultSendAs": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Save the default peer to display as the author of comments and paid reactions in a live story. This method can only be used with live stories, see `here  <https://core.telegram.org/api/group-calls#paid-live-story-comments>`__ for more info.\nIt cannot be used for normal video chats/livestreams, where in-call messages are sent as the peer used to join the call (join_as).",
+      "desc": "Save the default peer displayed as the author of live story comments and reactions, see `in-call messages  <https://core.telegram.org/api/group-calls#in-call-messages>`__.\nIt cannot be used for normal video chats/livestreams, where in-call messages are sent as the peer used to join the call (join_as).",
       "params": {
         "call": "Live story group call",
-        "send_as": "Peer to display as the author of subsequent comments and paid reactions"
+        "send_as": "Peer to display as the author of subsequent comments and reactions"
       },
       "usable-by": "users"
     },
     "phone.SendConferenceCallBroadcast": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Broadcast a blockchain block to all members of a conference call, see `here  <https://core.telegram.org/api/end-to-end/group-calls>`__ for more info.",
+      "desc": "Submit a verification message to conference call subchain 1, see `subchains  <https://core.telegram.org/api/end-to-end/group-calls#subchains>`__.",
       "params": {
-        "block": "The block to broadcast.",
-        "call": "The conference where to broadcast the block."
+        "block": "Serialized e2e.chain.GroupBroadcast verification message.",
+        "call": "Conference whose verification subchain should receive the message"
       },
       "usable-by": "users"
     },
@@ -20440,7 +20428,7 @@
       "can_use_without_auth": false,
       "desc": "Send an E2E-encrypted message or emoji reaction to all participants of a conference call. This method can only be used with conferences; see `here  <https://core.telegram.org/api/end-to-end/group-calls#conference-in-call-messages>`__ for the serialization and encryption process.",
       "params": {
-        "call": "Conference call",
+        "call": "Conference call that should receive the encrypted message or reaction",
         "encrypted_message": "Complete encrypted message or reaction packet produced as specified `here \u00bb <https://core.telegram.org/api/end-to-end/group-calls#encrypting-and-sending-a-message>`__"
       },
       "usable-by": "users"
@@ -20448,13 +20436,13 @@
     "phone.SendGroupCallMessage": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Send a transient in-call message to all participants of a non-RTMP video chat/livestream or live story, see `here  <https://core.telegram.org/api/group-calls#in-call-messages>`__ for more info.\nThe send_as field can only be populated for live stories, where it optionally selects the displayed author. If omitted, the server automatically selects the appropriate author. Do not populate it for video chats/livestreams.\nVideo chats/livestreams and live stories support `animated emoji reactions  <https://core.telegram.org/api/group-calls#in-call-reactions>`__, encoded as messages containing only a standard available reaction emoji or a single custom emoji entity.\nFor a paid live story comment, pass the user-confirmed donation amount in allow_paid_stars. For commenters other than the live story owner, this amount must be at least the current `groupCall <https://core.telegram.org/constructor/groupCall>`__.send_paid_messages_stars minimum. A higher amount may be donated to highlight the comment. The live story owner may comment without populating allow_paid_stars. To send a standalone paid live story donation, pass a positive allow_paid_stars value and an empty message, see `here  <https://core.telegram.org/api/group-calls#paid-live-story-donations>`__ for the full flow.",
+      "desc": "Send an in-call message to all participants of a video chat/livestream or live story, including in RTMP mode, see `here  <https://core.telegram.org/api/group-calls#in-call-messages>`__ for more info.\nThe send_as field can only be populated for live stories, where it optionally selects the displayed author. If omitted, the server automatically selects the appropriate author. Do not populate it for video chats/livestreams.\nVideo chats/livestreams and live stories support `animated emoji reactions  <https://core.telegram.org/api/group-calls#in-call-reactions>`__, encoded as messages containing only a standard available reaction emoji or a single custom emoji entity.\nFor a paid live story comment, pass the user-confirmed donation amount in allow_paid_stars. For commenters other than the live story owner, this amount must be at least the current `groupCall <https://core.telegram.org/constructor/groupCall>`__.send_paid_messages_stars minimum. A higher amount may be donated to highlight the comment. The live story owner may comment without populating allow_paid_stars. To send a standalone paid live story donation, pass a positive allow_paid_stars value and an empty message, see `here  <https://core.telegram.org/api/group-calls#paid-live-story-donations>`__ for the full flow.",
       "params": {
         "allow_paid_stars": "User-confirmed number of Telegram Stars to donate with a live story comment or standalone donation",
-        "call": "Group call",
+        "call": "Video chat/livestream or live story that should receive the message, reaction or donation",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "message": "Message text or emoji reaction; pass an empty value when sending a standalone paid live story donation",
-        "random_id": "Client-generated random ID used to deduplicate the message",
+        "random_id": "Fresh client-generated random ID used to deduplicate the message or donation",
         "send_as": "Optional peer to display as the author of a live story message or reaction; can only be used for live stories"
       },
       "usable-by": "users"
@@ -20487,7 +20475,7 @@
       "can_use_without_auth": false,
       "desc": "Start a scheduled `group call <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__.",
       "params": {
-        "call": "The scheduled group call"
+        "call": "Scheduled video chat/livestream to start, before or after its scheduled date"
       },
       "usable-by": "users"
     },
@@ -20496,7 +20484,7 @@
       "can_use_without_auth": false,
       "desc": "Start or stop recording a video chat/livestream, see `here  <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__ for more info. The recorded audio and video streams will be automatically sent to Saved Messages (the chat with ourselves).",
       "params": {
-        "call": "The group call or livestream",
+        "call": "Video chat/livestream to record",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "start": "Whether to start or stop recording",
         "title": "Recording title",
@@ -20510,10 +20498,10 @@
       "can_use_without_auth": false,
       "desc": "Change group call settings. Each setting supports different group call types, see `here  <https://core.telegram.org/api/group-calls#managing-an-active-group-call>`__ for more info.",
       "params": {
-        "call": "Group call",
+        "call": "Group call whose settings should be changed",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "join_muted": "Whether users joining a video chat or livestream should be muted by default",
-        "messages_enabled": "Enable or disable the in-call message overlay in non-RTMP video chats/livestreams and live stories",
+        "join_muted": "Whether users joining a non-RTMP video chat/livestream should be muted by default",
+        "messages_enabled": "Enable or disable the in-call message overlay in video chats/livestreams, conferences and live stories, including in RTMP mode",
         "reset_invite_hash": "Invalidate existing invite links for video chats, livestreams and conferences",
         "send_paid_messages_stars": "Set the minimum Telegram Stars donation required from users other than the live story owner for each comment; the owner may always comment without donating, and 0 allows free comments for everyone"
       },
@@ -20524,8 +20512,8 @@
       "can_use_without_auth": false,
       "desc": "Subscribe or unsubscribe to a scheduled `group call <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__.",
       "params": {
-        "call": "Scheduled group call",
-        "subscribed": "Enable or disable subscription"
+        "call": "Scheduled video chat/livestream that has not started yet",
+        "subscribed": "Whether to receive a service-notification message when the call starts"
       },
       "usable-by": "users"
     },
@@ -21229,15 +21217,15 @@
       "can_use_without_auth": false,
       "desc": "Start a live story, optionally using RTMP livestream mode, see `here  <https://core.telegram.org/api/group-calls#live-stories>`__ for the full flow.",
       "params": {
-        "caption": "",
+        "caption": "Live story caption",
         "entities": "`Message entities for styled text <https://core.telegram.org/api/entities>`__",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "messages_enabled": "Whether the in-call message overlay should be enabled",
-        "noforwards": "",
-        "peer": "",
-        "pinned": "",
-        "privacy_rules": "",
-        "random_id": "",
+        "messages_enabled": "Whether the `in-call message overlay \u00bb <https://core.telegram.org/api/group-calls#in-call-messages>`__ should be enabled",
+        "noforwards": "Whether viewers must be prevented from forwarding or saving the live story",
+        "peer": "User, supergroup or channel that will own the live story; basic groups cannot post live stories",
+        "pinned": "Whether to pin the live story on the peer's profile",
+        "privacy_rules": "Privacy rules defining who can view the live story",
+        "random_id": "Client-generated random ID used to prevent duplicate live stories",
         "rtmp_stream": "Create the live story in `RTMP livestream mode \u00bb <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__, where one external streamer publishes all audio and video",
         "send_paid_messages_stars": "Minimum Telegram Stars donation required from users other than the live story owner for each comment; the owner may always comment without donating, and 0 allows free comments for everyone"
       },
@@ -21834,10 +21822,10 @@
       "desc": "A group call\n\n"
     },
     "GroupCallDonor": {
-      "desc": "\n"
+      "desc": "Describes a live story donor in the `donation leaderboard  <https://core.telegram.org/api/group-calls#paid-live-story-donations>`__.\n\n"
     },
     "GroupCallMessage": {
-      "desc": "\n"
+      "desc": "Represents an in-call message, `emoji reaction  <https://core.telegram.org/api/group-calls#in-call-reactions>`__, paid live story comment or standalone paid live story donation.\n\n"
     },
     "GroupCallParticipant": {
       "desc": "Info about a group call participant\n\n"
@@ -23184,7 +23172,7 @@
       "desc": "Contains info about a group call, and partial info about its participants.\n\n"
     },
     "phone.GroupCallStars": {
-      "desc": "\n"
+      "desc": "Contains a live story's total donations and top donors, see `paid live story donations  <https://core.telegram.org/api/group-calls#paid-live-story-donations>`__.\n\n"
     },
     "phone.GroupCallStreamChannels": {
       "desc": "Info about RTMP streams in a group call or livestream\n\n"
