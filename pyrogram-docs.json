@@ -6792,6 +6792,10 @@
       "desc": "Who can send you messages without paying, if `paid messages  <https://core.telegram.org/api/paid-messages>`__ are enabled.",
       "params": {}
     },
+    "PrivacyKeyPhoneCall": {
+      "desc": "Whether the user accepts phone calls",
+      "params": {}
+    },
     "PrivacyKeyPhoneNumber": {
       "desc": "Whether the user allows us to see his phone number",
       "params": {}
@@ -10319,6 +10323,10 @@
         "url": "Document URL"
       }
     },
+    "WebDomainException": {
+      "desc": "",
+      "params": {}
+    },
     "WebPage": {
       "desc": "Webpage preview",
       "params": {
@@ -13699,6 +13707,19 @@
         "message_chats": "Whether to export messages in `basic groups <https://core.telegram.org/api/channel#basic-groups>`__",
         "message_megagroups": "Whether to export messages in `supergroups <https://core.telegram.org/api/channel#supergroups>`__",
         "message_users": "Whether to export messages in private chats"
+      },
+      "usable-by": "users"
+    },
+    "account.InstallTheme": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "Install a theme",
+      "params": {
+        "base_theme": "Indicates a basic theme provided by all clients",
+        "dark": "Whether to install the dark version",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "format": "Theme format, a string that identifies the theming engines supported by the client",
+        "theme": "Theme to install"
       },
       "usable-by": "users"
     },
@@ -17105,6 +17126,15 @@
       "can_use_without_auth": false,
       "desc": "Gets the default value of the Time-To-Live setting, applied to all new chats.",
       "params": {},
+      "usable-by": "users"
+    },
+    "messages.GetDefaultTagReactions": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "Fetch a default recommended list of `saved message tag reactions <https://core.telegram.org/api/saved-messages#tags>`__.",
+      "params": {
+        "hash": "`Hash used for caching, for more info click here <https://core.telegram.org/api/offsets#hash-generation>`__."
+      },
       "usable-by": "users"
     },
     "messages.GetDhConfig": {
