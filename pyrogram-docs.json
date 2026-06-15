@@ -2410,11 +2410,11 @@
       }
     },
     "GroupCallStreamChannel": {
-      "desc": "Info about an RTMP stream in a group call or livestream",
+      "desc": "Info about an available stream channel in a group call or livestream",
       "params": {
         "channel": "Channel ID",
         "last_timestamp_ms": "Last seen timestamp to easily start fetching livestream chunks using `inputGroupCallStream <https://core.telegram.org/constructor/inputGroupCallStream>`__",
-        "scale": "Specifies the duration of the video segment to fetch in milliseconds, by bitshifting 1000 to the right scale times: duration_ms := 1000 >> scale."
+        "scale": "Specifies the duration of the media segment to fetch. To obtain this value in milliseconds, bitshift 1000 to the right scale times: duration_ms := 1000 >> scale."
       }
     },
     "HighScore": {
@@ -2993,9 +2993,9 @@
       "params": {
         "call": "Livestream info",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "scale": "Specifies the duration of the video segment to fetch in milliseconds, by bitshifting 1000 to the right scale times: duration_ms := 1000 >> scale",
+        "scale": "Specifies the duration of the media segment to fetch in milliseconds, by bitshifting 1000 to the right scale times: duration_ms := 1000 >> scale",
         "time_ms": "Timestamp in milliseconds",
-        "video_channel": "Selected video channel",
+        "video_channel": "Selected video or unified stream channel; omit together with video_quality to fetch a separate audio stream in non-unified broadcast mode",
         "video_quality": "Selected video quality (0 = lowest, 1 = medium, 2 = best)"
       }
     },
@@ -9250,7 +9250,7 @@
       }
     },
     "UpdateGroupCallConnection": {
-      "desc": "Connection parameters returned after joining a `group call <https://core.telegram.org/api/group-calls>`__.\nIf presentation is set, the parameters belong to the separate `presentation connection <https://core.telegram.org/api/group-calls#presentations>`__; otherwise they belong to the main connection.\nFor a normal RTC connection, pass params to the local tgcalls group-call engine as its join response payload. It has the following shape:\ntransport contains the remote ICE and DTLS connection parameters. Each candidate may also contain the optional tcptype, rel-addr and rel-port fields. The optional video object describes the endpoint assigned to the client's published video, the server SSRC used for bandwidth probing, and the negotiated video codecs, RTCP feedback types and RTP header extensions.\nFor a broadcast stream, including an `RTMP-mode call <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__, params instead has the following shape:\nIf stream is set, initialize the local call engine in stream playback mode instead of passing the payload as an RTC join response. The rtmp field indicates RTMP playback mode. The optional rtmp_stream_url and rtmp_stream_key fields, available only to admins, contain publishing credentials and must be kept secret.",
+      "desc": "Connection parameters returned after joining a `group call <https://core.telegram.org/api/group-calls>`__.\nIf presentation is set, the parameters belong to the separate `presentation connection <https://core.telegram.org/api/group-calls#presentations>`__; otherwise they belong to the main connection.\nFor a normal WebRTC connection, pass params to the local tgcalls group-call engine as its join response payload. It has the following shape:\ntransport contains the remote ICE and DTLS connection parameters. Each candidate may also contain the optional tcptype, rel-addr and rel-port fields. The optional video object describes the endpoint assigned to the client's published video, the server SSRC used for bandwidth probing, and the negotiated video codecs, RTCP feedback types and RTP header extensions.\nFor a broadcast stream, including an `RTMP-mode call <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__, params instead has the following shape:\nIf stream is set, initialize the local call engine in stream playback mode instead of passing the payload as an RTC join response.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "params": "RTC join response parameters or broadcast-stream metadata, as described above",
@@ -20131,24 +20131,24 @@
     "phone.DeleteGroupCallMessages": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Delete messages from the in-call message overlay of a non-RTMP video chat/livestream or live story, see `here  <https://core.telegram.org/api/group-calls#in-call-messages>`__ for more info.",
+      "desc": "Delete specific messages from a `live story's in-call message overlay  <https://core.telegram.org/api/group-calls#in-call-messages>`__.\nNon-admin participants may delete messages they sent; admins may delete any message.",
       "params": {
-        "call": "",
+        "call": "The live story's group call",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "messages": "",
-        "report_spam": ""
+        "messages": "IDs of the messages to delete",
+        "report_spam": "When moderating another participant's messages, also report them as spam"
       },
       "usable-by": "users"
     },
     "phone.DeleteGroupCallParticipantMessages": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Delete all messages from a specific participant in the in-call message overlay of a non-RTMP video chat/livestream or live story, see `here  <https://core.telegram.org/api/group-calls#in-call-messages>`__ for more info.",
+      "desc": "As an admin, delete all messages from a specific participant in a `live story's in-call message overlay  <https://core.telegram.org/api/group-calls#in-call-messages>`__.",
       "params": {
-        "call": "",
+        "call": "The live story's group call",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "participant": "",
-        "report_spam": ""
+        "participant": "The participant whose messages should be deleted",
+        "report_spam": "Also report the participant's messages as spam"
       },
       "usable-by": "users"
     },
@@ -20263,7 +20263,7 @@
     "phone.GetGroupCallStreamChannels": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get the available video channels and current playback timestamp of an RTMP-mode video chat, livestream or live story, see `here  <https://core.telegram.org/api/group-calls#playing-an-rtmp-livestream>`__ for the full flow.\nThe group call must be joined before invoking this method. Send the request to the media DC specified by `groupCall <https://core.telegram.org/constructor/groupCall>`__.stream_dc_id.",
+      "desc": "Get the available stream channels and current playback timestamp of an RTMP-mode video chat, livestream or live story, see `here  <https://core.telegram.org/api/group-calls#playing-an-rtmp-livestream>`__ for the full flow.\nThe group call must be joined before invoking this method. Send the request to the media DC specified by `groupCall <https://core.telegram.org/constructor/groupCall>`__.stream_dc_id.",
       "params": {
         "call": "RTMP-mode video chat, livestream or live story"
       },
