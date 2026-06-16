@@ -9510,12 +9510,6 @@
         "requests_pending": "Number of pending `join requests \u00bb <https://core.telegram.org/api/invites#join-requests>`__ for the chat or channel"
       }
     },
-    "UpdatePhoneCall": {
-      "desc": "An incoming phone call",
-      "params": {
-        "phone_call": "Phone call"
-      }
-    },
     "UpdatePhoneCallSignalingData": {
       "desc": "Incoming phone call signaling payload",
       "params": {
@@ -9846,12 +9840,6 @@
     "UpdateStarGiftCraftFail": {
       "desc": "Indicates that a `crafting  <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__ attempt did not produce a new collectible gift.",
       "params": {}
-    },
-    "UpdateStarsBalance": {
-      "desc": "The current account's `Telegram Stars balance  <https://core.telegram.org/api/stars>`__ has changed.",
-      "params": {
-        "balance": "New balance."
-      }
     },
     "UpdateStarsRevenueStatus": {
       "desc": "The `Telegram Star balance of a channel/bot we own has changed  <https://core.telegram.org/api/stars#revenue-statistics>`__.",
@@ -15510,16 +15498,6 @@
       "params": {
         "broadcast": "Channel",
         "group": "`Discussion group <https://core.telegram.org/api/discussion>`__ to associate to the channel"
-      },
-      "usable-by": "users"
-    },
-    "channels.SetEmojiStickers": {
-      "can_use_business_connection": false,
-      "can_use_without_auth": false,
-      "desc": "Set a `custom emoji stickerset <https://core.telegram.org/api/custom-emoji>`__ for supergroups. Only usable after reaching at least the `boost level  <https://core.telegram.org/api/boost>`__ specified in the `group_emoji_stickers_level_min  <https://core.telegram.org/api/config#group-emoji-stickers-level-min>`__ config parameter.",
-      "params": {
-        "channel": "The supergroup",
-        "stickerset": "The custom emoji stickerset to associate to the supergroup"
       },
       "usable-by": "users"
     },
