@@ -4673,7 +4673,7 @@
         "invert_media": "If set, any eventual webpage preview will be shown on top of the message instead of at the bottom.",
         "legacy": "This is a legacy message: it has to be refetched with the new layer",
         "media": "Media attachment",
-        "media_unread": "Whether there are unread media attachments in this message",
+        "media_unread": "Whether there are unread media attachments in this message, see `here \u00bb <https://core.telegram.org/api/views#read-message-contents>`__ for more info on how to clear this flag.",
         "mentioned": "Whether we were `mentioned <https://core.telegram.org/api/mentions>`__ in this message",
         "message": "The message",
         "noforwards": "Whether this message is `protected <https://telegram.org/blog/content-protection-delete-by-date-and-more>`__ and thus cannot be forwarded; clients should also prevent users from saving attached media (i.e. videos should only be streamed, photos should be kept in RAM, et cetera).",
@@ -17682,11 +17682,11 @@
     "messages.GetRecentLocations": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get live location history of a certain user",
+      "desc": "Get all recent `live locations <https://core.telegram.org/api/live-location>`__ sent to a specific chat: returns up to 1 location message (`messageMediaGeoLive <https://core.telegram.org/constructor/messageMediaGeoLive>`__) per chat participant.",
       "params": {
         "hash": "`Hash used for caching, for more info click here <https://core.telegram.org/api/offsets#hash-generation>`__",
         "limit": "Maximum number of results to return, `see pagination <https://core.telegram.org/api/offsets>`__",
-        "peer": "User"
+        "peer": "Target group or private chat."
       },
       "usable-by": "users"
     },
@@ -18132,7 +18132,7 @@
       "can_use_without_auth": false,
       "desc": "Marks message history as read.",
       "params": {
-        "max_id": "If a positive value is passed, only messages with identifiers less or equal than the given one will be read",
+        "max_id": "If a positive value is passed, only messages with identifiers less than or equal to the given one will be read",
         "peer": "Target user or group"
       },
       "usable-by": "users"
@@ -18185,7 +18185,7 @@
       "can_use_without_auth": false,
       "desc": "Mark messages as read in a `monoforum topic  <https://core.telegram.org/api/monoforum>`__.",
       "params": {
-        "max_id": "If a positive value is passed, only messages with identifiers less or equal than the given one will be read.",
+        "max_id": "If a positive value is passed, only messages with identifiers less than or equal to the given one will be read.",
         "parent_peer": "ID of the monoforum group.",
         "peer": "ID of the topic."
       },
