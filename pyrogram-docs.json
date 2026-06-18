@@ -3186,7 +3186,7 @@
         "id": "The document to be forwarded.",
         "query": "Text query or emoji that was used by the user to find this sticker or GIF: used to improve search result relevance.",
         "spoiler": "Whether this media should be hidden behind a spoiler warning",
-        "ttl_seconds": "Time to live of self-destructing document",
+        "ttl_seconds": "Time to live of self-destructing document, can be 0 to disable self-destruction, 0x7FFFFFFF to self-destruct the document immediately after it's played; otherwise self-destructs ttl_seconds after it's played.",
         "video_cover": "Custom video cover.",
         "video_timestamp": "Start playing the video at the specified timestamp (seconds)."
       }
@@ -3196,7 +3196,7 @@
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "spoiler": "Whether this media should be hidden behind a spoiler warning",
-        "ttl_seconds": "Self-destruct time to live of document",
+        "ttl_seconds": "Time to live of self-destructing document, can be 0 to disable self-destruction, 0x7FFFFFFF to self-destruct the document immediately after it's played; otherwise self-destructs ttl_seconds after it's played.",
         "url": "URL of the document",
         "video_cover": "Custom video cover.",
         "video_timestamp": "Start playing the video at the specified timestamp (seconds)."
@@ -3260,7 +3260,7 @@
         "id": "Photo to be forwarded",
         "live_photo": "",
         "spoiler": "Whether this media should be hidden behind a spoiler warning",
-        "ttl_seconds": "Time to live in seconds of self-destructing photo",
+        "ttl_seconds": "Time to live of self-destructing photo, can be 0 to disable self-destruction, 0x7FFFFFFF to self-destruct the document immediately after it's played; otherwise self-destructs ttl_seconds after it's played.",
         "video": ""
       }
     },
@@ -3269,7 +3269,7 @@
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "spoiler": "Whether this media should be hidden behind a spoiler warning",
-        "ttl_seconds": "Self-destruct time to live of photo",
+        "ttl_seconds": "Time to live of self-destructing photo, can be 0 to disable self-destruction, 0x7FFFFFFF to self-destruct the photo immediately after it's played; otherwise self-destructs ttl_seconds after it's played.",
         "url": "URL of the photo"
       }
     },
@@ -3318,7 +3318,7 @@
         "spoiler": "Whether this media should be hidden behind a spoiler warning",
         "stickers": "Attached stickers",
         "thumb": "Thumbnail of the document, uploaded as for the file",
-        "ttl_seconds": "Time to live in seconds of self-destructing document",
+        "ttl_seconds": "Time to live of self-destructing document, can be 0 to disable self-destruction, 0x7FFFFFFF to self-destruct the document immediately after it's played; otherwise self-destructs ttl_seconds after it's played.",
         "video_cover": "Start playing the video at the specified timestamp (seconds).",
         "video_timestamp": "Start playing the video at the specified timestamp (seconds)."
       }
@@ -3331,7 +3331,7 @@
         "live_photo": "",
         "spoiler": "Whether this media should be hidden behind a spoiler warning",
         "stickers": "Attached mask stickers",
-        "ttl_seconds": "Time to live in seconds of self-destructing photo",
+        "ttl_seconds": "Time to live of self-destructing photo, can be 0 to disable self-destruction, 0x7FFFFFFF to self-destruct the photo immediately after it's played; otherwise self-destructs ttl_seconds after it's played.",
         "video": ""
       }
     },
@@ -5505,7 +5505,7 @@
         "nopremium": "Whether this is a normal sticker, if not set this is a premium sticker and a premium sticker animation must be played.",
         "round": "Whether this is a round video.",
         "spoiler": "Whether this media should be hidden behind a spoiler warning",
-        "ttl_seconds": "Time to live of self-destructing document",
+        "ttl_seconds": "Time to live of self-destructing document, can be 0 to disable self-destruction, 0x7FFFFFFF to self-destruct the document immediately after it's played; otherwise self-destructs ttl_seconds after it's played.",
         "video": "Whether this is a video.",
         "video_cover": "Custom video cover.",
         "video_timestamp": "Start playing the video at the specified timestamp (seconds).",
@@ -5601,7 +5601,7 @@
         "live_photo": "",
         "photo": "Photo",
         "spoiler": "Whether this media should be hidden behind a spoiler warning",
-        "ttl_seconds": "Time to live in seconds of self-destructing photo",
+        "ttl_seconds": "Time to live of self-destructing photo, can be 0 to disable self-destruction, 0x7FFFFFFF to self-destruct the photo immediately after it's played; otherwise self-destructs ttl_seconds after it's played.",
         "video": ""
       }
     },
@@ -5865,6 +5865,12 @@
     "NotificationSoundNone": {
       "desc": "No notification sound should be used",
       "params": {}
+    },
+    "NotificationSoundRingtone": {
+      "desc": "A specific previously uploaded notification sound should be used",
+      "params": {
+        "id": "Document ID of notification sound uploaded using `account.uploadRingtone <https://core.telegram.org/method/account.uploadRingtone>`__"
+      }
     },
     "NotifyBroadcasts": {
       "desc": "Channel notification settings",
@@ -7528,6 +7534,10 @@
       "params": {
         "emoticon": "Emoji"
       }
+    },
+    "SendMessageGamePlayAction": {
+      "desc": "User is playing a game",
+      "params": {}
     },
     "SendMessageGeoLocationAction": {
       "desc": "User is selecting a location to share.",
