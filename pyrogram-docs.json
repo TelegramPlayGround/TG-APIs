@@ -5866,12 +5866,6 @@
       "desc": "No notification sound should be used",
       "params": {}
     },
-    "NotificationSoundRingtone": {
-      "desc": "A specific previously uploaded notification sound should be used",
-      "params": {
-        "id": "Document ID of notification sound uploaded using `account.uploadRingtone <https://core.telegram.org/method/account.uploadRingtone>`__"
-      }
-    },
     "NotifyBroadcasts": {
       "desc": "Channel notification settings",
       "params": {}
@@ -7534,10 +7528,6 @@
       "params": {
         "emoticon": "Emoji"
       }
-    },
-    "SendMessageGamePlayAction": {
-      "desc": "User is playing a game",
-      "params": {}
     },
     "SendMessageGeoLocationAction": {
       "desc": "User is selecting a location to share.",
