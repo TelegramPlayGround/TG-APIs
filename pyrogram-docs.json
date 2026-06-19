@@ -9847,6 +9847,12 @@
       "desc": "Indicates that a `crafting  <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__ attempt did not produce a new collectible gift.",
       "params": {}
     },
+    "UpdateStarsBalance": {
+      "desc": "The current account's `Telegram Stars balance  <https://core.telegram.org/api/stars>`__ has changed.",
+      "params": {
+        "balance": "New balance."
+      }
+    },
     "UpdateStarsRevenueStatus": {
       "desc": "The `Telegram Star balance of a channel/bot we own has changed  <https://core.telegram.org/api/stars#revenue-statistics>`__.",
       "params": {
