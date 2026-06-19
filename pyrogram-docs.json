@@ -7594,12 +7594,6 @@
         "progress": "Progress percentage"
       }
     },
-    "SendMessageUploadRoundAction": {
-      "desc": "User is uploading a round video",
-      "params": {
-        "progress": "Progress percentage"
-      }
-    },
     "SendMessageUploadVideoAction": {
       "desc": "User is uploading a video.",
       "params": {
@@ -9313,11 +9307,11 @@
       "params": {}
     },
     "UpdateManagedBot": {
-      "desc": "",
+      "desc": "`Manager bots <https://core.telegram.org/api/bots/create>`__ only: a bot managed by the currently logged in bot was created or updated.",
       "params": {
-        "bot_id": "",
-        "qts": "",
-        "user_id": ""
+        "bot_id": "The ID of the managed bot.",
+        "qts": "New qts value, see `updates \u00bb <https://core.telegram.org/api/updates>`__ for more info.",
+        "user_id": "The ID of the user that owns of the newly created or edited managed bot."
       }
     },
     "UpdateMessageExtendedMedia": {
