@@ -13205,7 +13205,7 @@
       "can_use_without_auth": false,
       "desc": "",
       "params": {},
-      "usable-by": ""
+      "usable-by": "users"
     },
     "account.ConfirmPasswordEmail": {
       "can_use_business_connection": false,
@@ -13305,7 +13305,7 @@
       "can_use_without_auth": false,
       "desc": "",
       "params": {},
-      "usable-by": ""
+      "usable-by": "users"
     },
     "account.DisablePeerConnectedBot": {
       "can_use_business_connection": false,
@@ -13685,7 +13685,7 @@
       "can_use_without_auth": false,
       "desc": "",
       "params": {},
-      "usable-by": ""
+      "usable-by": "users"
     },
     "account.InitPasskeyRegistration": {
       "can_use_business_connection": false,
@@ -14100,7 +14100,7 @@
       "can_use_without_auth": false,
       "desc": "",
       "params": {},
-      "usable-by": ""
+      "usable-by": "users"
     },
     "account.UnregisterDevice": {
       "can_use_business_connection": false,
@@ -14295,7 +14295,7 @@
       "can_use_without_auth": false,
       "desc": "",
       "params": {},
-      "usable-by": ""
+      "usable-by": "users"
     },
     "account.UploadRingtone": {
       "can_use_business_connection": false,
@@ -14366,7 +14366,7 @@
         "prompt": "",
         "title": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "aicompose.DeleteTone": {
       "can_use_business_connection": false,
@@ -14375,7 +14375,7 @@
       "params": {
         "tone": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "aicompose.GetTone": {
       "can_use_business_connection": false,
@@ -14384,7 +14384,7 @@
       "params": {
         "tone": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "aicompose.GetToneExample": {
       "can_use_business_connection": false,
@@ -14394,7 +14394,7 @@
         "num": "",
         "tone": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "aicompose.GetTones": {
       "can_use_business_connection": false,
@@ -14403,7 +14403,7 @@
       "params": {
         "hash": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "aicompose.SaveTone": {
       "can_use_business_connection": false,
@@ -14413,7 +14413,7 @@
         "tone": "",
         "unsave": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "aicompose.UpdateTone": {
       "can_use_business_connection": false,
@@ -14427,7 +14427,7 @@
         "title": "",
         "tone": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "auth.AcceptLoginToken": {
       "can_use_business_connection": false,
@@ -14757,7 +14757,7 @@
       "params": {
         "username": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "bots.CreateBot": {
       "can_use_business_connection": false,
@@ -14770,7 +14770,7 @@
         "username": "",
         "via_deeplink": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "bots.DeletePreviewMedia": {
       "can_use_business_connection": false,
@@ -14793,7 +14793,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "restricted": ""
       },
-      "usable-by": ""
+      "usable-by": "bots"
     },
     "bots.EditPreviewMedia": {
       "can_use_business_connection": false,
@@ -14815,7 +14815,7 @@
         "bot": "",
         "revoke": ""
       },
-      "usable-by": ""
+      "usable-by": "bots"
     },
     "bots.GetAccessSettings": {
       "can_use_business_connection": false,
@@ -14824,7 +14824,7 @@
       "params": {
         "bot": ""
       },
-      "usable-by": ""
+      "usable-by": "bots"
     },
     "bots.GetAdminedBots": {
       "can_use_business_connection": false,
@@ -14909,7 +14909,7 @@
         "bot": "",
         "webapp_req_id": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "bots.InvokeWebViewCustomMethod": {
       "can_use_business_connection": false,
@@ -14951,7 +14951,7 @@
         "button": "",
         "user_id": ""
       },
-      "usable-by": ""
+      "usable-by": "bots"
     },
     "bots.ResetBotCommands": {
       "can_use_business_connection": false,
@@ -15044,7 +15044,7 @@
       "can_use_without_auth": false,
       "desc": "",
       "params": {},
-      "usable-by": ""
+      "usable-by": "bots"
     },
     "bots.ToggleUserEmojiStatusPermission": {
       "can_use_business_connection": false,
@@ -16422,7 +16422,7 @@
         "msg_id": "",
         "peer": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "messages.AppendTodoList": {
       "can_use_business_connection": false,
@@ -16479,7 +16479,7 @@
         "match_code": "The emoji or code selected by the user from the list in `urlAuthResultRequest <https://core.telegram.org/constructor/urlAuthResultRequest>`__.match_codes",
         "url": "The OAuth deep link"
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "messages.ClearAllDrafts": {
       "can_use_business_connection": false,
@@ -16529,7 +16529,7 @@
         "tone": "",
         "translate_to_lang": "If set, translates the message to the specified language"
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "messages.CreateChat": {
       "can_use_business_connection": false,
@@ -16566,7 +16566,7 @@
       "params": {
         "url": "The OAuth deep link from the `OAUTH_REQUEST push notification <https://core.telegram.org/api/push-updates#oauth-request>`__ or the `oauth_request web event <https://core.telegram.org/api/web-events#oauth-request>`__"
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "messages.DeleteChat": {
       "can_use_business_connection": false,
@@ -16675,7 +16675,7 @@
         "option": "",
         "peer": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "messages.DeleteQuickReplyMessages": {
       "can_use_business_connection": false,
@@ -16781,7 +16781,7 @@
         "peer": "Owned group/supergroup/channel.",
         "user_id": "ID of the new owner."
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "messages.EditChatDefaultBannedRights": {
       "can_use_business_connection": false,
@@ -17403,7 +17403,7 @@
       "params": {
         "peer": "The basic group/supergroup/channel we're about to leave."
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "messages.GetGameHighScores": {
       "can_use_business_connection": false,
@@ -17605,7 +17605,7 @@
         "min_id": "",
         "user_id": ""
       },
-      "usable-by": ""
+      "usable-by": "bots"
     },
     "messages.GetPinnedDialogs": {
       "can_use_business_connection": false,
@@ -17733,7 +17733,7 @@
       "can_use_without_auth": false,
       "desc": "",
       "params": {},
-      "usable-by": ""
+      "usable-by": "users"
     },
     "messages.GetSavedDialogs": {
       "can_use_business_connection": false,
@@ -17946,7 +17946,7 @@
         "peer": "",
         "top_msg_id": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "messages.GetUnreadReactions": {
       "can_use_business_connection": false,
@@ -18166,7 +18166,7 @@
         "peer": "",
         "top_msg_id": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "messages.ReadReactions": {
       "can_use_business_connection": false,
@@ -18306,7 +18306,7 @@
         "id": "",
         "listened_duration": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "messages.ReportReaction": {
       "can_use_business_connection": false,
@@ -18327,7 +18327,7 @@
         "metrics": "",
         "peer": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "messages.ReportSpam": {
       "can_use_business_connection": false,
@@ -18887,7 +18887,7 @@
         "query_id": "",
         "result": ""
       },
-      "usable-by": ""
+      "usable-by": "bots"
     },
     "messages.SetBotPrecheckoutResults": {
       "can_use_business_connection": false,
@@ -20757,7 +20757,7 @@
         "msg_id": "",
         "peer": ""
       },
-      "usable-by": ""
+      "usable-by": "users"
     },
     "stats.GetStoryPublicForwards": {
       "can_use_business_connection": false,
