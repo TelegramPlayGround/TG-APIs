@@ -7594,6 +7594,12 @@
         "progress": "Progress percentage"
       }
     },
+    "SendMessageUploadRoundAction": {
+      "desc": "User is uploading a round video",
+      "params": {
+        "progress": "Progress percentage"
+      }
+    },
     "SendMessageUploadVideoAction": {
       "desc": "User is uploading a video.",
       "params": {
