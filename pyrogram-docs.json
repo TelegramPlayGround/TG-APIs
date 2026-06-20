@@ -1326,7 +1326,7 @@
         "invite_users": "If set, allows the admin to invite users in the `channel/supergroup <https://core.telegram.org/api/channel>`__",
         "manage_call": "If set, allows the admin to create and administer `video chats/livestreams \u00bb <https://core.telegram.org/api/group-calls#video-chats-livestreams>`__",
         "manage_direct_messages": "If set, allows the admin to manage the `direct messages monoforum \u00bb <https://core.telegram.org/api/monoforum>`__ and `decline suggested posts \u00bb <https://core.telegram.org/api/suggested-posts>`__.",
-        "manage_ranks": "",
+        "manage_ranks": "If set, allows the admin to modify the `member tag \u00bb <https://core.telegram.org/api/rank>`__ of any user.",
         "manage_topics": "If set, allows the admin to create, delete or modify `forum topics \u00bb <https://core.telegram.org/api/forum#forum-topics>`__.",
         "other": "Set this flag if none of the other flags are set, but you still want the user to be an admin: if this or any of the other flags are set, the admin can get the chat `admin log <https://core.telegram.org/api/recent-actions>`__, get `chat statistics <https://core.telegram.org/api/stats>`__, get `message statistics in channels <https://core.telegram.org/api/stats>`__, get channel members, see anonymous administrators in supergroups and ignore slow mode.",
         "pin_messages": "If set, allows the admin to pin messages in the `channel/supergroup <https://core.telegram.org/api/channel>`__",
@@ -1610,7 +1610,7 @@
         "dc_options": "DC IP list",
         "dc_txt_domain_name": "Domain name for fetching encrypted DC list from DNS TXT record",
         "default_p2p_contacts": "Whether the client should use P2P by default for phone calls with contacts",
-        "edit_time_limit": "Only messages with age smaller than the one specified can be edited",
+        "edit_time_limit": "Only messages with age (in seconds) smaller than the one specified in this field can be edited",
         "expires": "Expiration date of this config: when it expires it'll have to be refetched using `help.getConfig <https://core.telegram.org/method/help.getConfig>`__",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "force_try_ipv6": "Whether to forcefully connect using IPv6 `dcOptions <https://core.telegram.org/type/DcOption>`__, even if the client knows that IPv4 is available.",
@@ -3114,7 +3114,7 @@
       }
     },
     "InputKeyboardButtonRequestPeer": {
-      "desc": "Prompts the user to select and share one or more peers with the bot using `messages.sendBotRequestedPeer <https://core.telegram.org/method/messages.sendBotRequestedPeer>`__.",
+      "desc": "Prompts the user to select and share one or more peers with the bot using `messages.sendBotRequestedPeer <https://core.telegram.org/method/messages.sendBotRequestedPeer>`__.\nUse this constructor to send a `keyboardButtonRequestPeer <https://core.telegram.org/constructor/keyboardButtonRequestPeer>`__ button in a `reply keyboard <https://core.telegram.org/bots/features#keyboards>`__ in a private chat.\nSee `peer requests <https://core.telegram.org/api/bots/buttons#peer-requests>`__ for the full flow.",
       "params": {
         "button_id": "Button ID, to be passed to `messages.sendBotRequestedPeer <https://core.telegram.org/method/messages.sendBotRequestedPeer>`__.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -3128,7 +3128,7 @@
       }
     },
     "InputKeyboardButtonUrlAuth": {
-      "desc": "Button to request a user to `authorize <https://core.telegram.org/method/messages.acceptUrlAuth>`__ via URL using `Seamless Telegram Login <https://telegram.org/blog/privacy-discussions-web-bots#meet-seamless-web-bots>`__.",
+      "desc": "Button to request a user to `authorize <https://core.telegram.org/method/messages.acceptUrlAuth>`__ via URL using `Seamless Telegram Login <https://telegram.org/blog/privacy-discussions-web-bots#meet-seamless-web-bots>`__.\nUse this constructor to send a `keyboardButtonUrlAuth <https://core.telegram.org/constructor/keyboardButtonUrlAuth>`__ button in an `inline keyboard <https://core.telegram.org/bots/features#inline-keyboards>`__.",
       "params": {
         "bot": "Username of a bot, which will be used for user authorization. See `Setting up a bot <https://core.telegram.org/widgets/login#setting-up-a-bot>`__ for more details. If not specified, the current bot's username will be assumed. The url's domain must be the same as the domain linked with the bot. See `Linking your domain to the bot <https://core.telegram.org/widgets/login#linking-your-domain-to-the-bot>`__ for more details.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -3140,7 +3140,7 @@
       }
     },
     "InputKeyboardButtonUserProfile": {
-      "desc": "Button that links directly to a user profile",
+      "desc": "Button that links directly to a user profile\nUse this constructor to send a `keyboardButtonUserProfile <https://core.telegram.org/constructor/keyboardButtonUserProfile>`__ button in an `inline keyboard <https://core.telegram.org/bots/features#inline-keyboards>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "style": "Button style, see `here \u00bb <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info on button styles.",
@@ -4356,7 +4356,7 @@
       }
     },
     "KeyboardButton": {
-      "desc": "Bot keyboard button",
+      "desc": "Bot keyboard button\nAvailable only in `reply keyboards <https://core.telegram.org/constructor/replyKeyboardMarkup>`__.\nWhen pressed, clients must send text as a message to the current chat, replying to the message that attached the `replyKeyboardMarkup <https://core.telegram.org/constructor/replyKeyboardMarkup>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "style": "Button style, see `here \u00bb <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info on button styles.",
@@ -4364,7 +4364,7 @@
       }
     },
     "KeyboardButtonBuy": {
-      "desc": "Button to buy a product",
+      "desc": "Button to buy a product\nAvailable only in `inline keyboards <https://core.telegram.org/constructor/replyInlineMarkup>`__.\nWhen pressed, clients must start the `payment flow for the attached invoice <https://core.telegram.org/api/payments>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "style": "Button style, see `here \u00bb <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info on button styles.",
@@ -4372,7 +4372,7 @@
       }
     },
     "KeyboardButtonCallback": {
-      "desc": "Callback button",
+      "desc": "Callback button\nAvailable only in `inline keyboards <https://core.telegram.org/constructor/replyInlineMarkup>`__.\nWhen pressed, clients send data to the bot, optionally providing the user's `2FA SRP parameters <https://core.telegram.org/api/srp>`__ for identity verification, as described in `callback queries <https://core.telegram.org/api/bots/buttons#callback-queries>`__.",
       "params": {
         "data": "Callback data",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -4382,7 +4382,7 @@
       }
     },
     "KeyboardButtonCopy": {
-      "desc": "Clipboard button: when clicked, the attached text must be copied to the clipboard.",
+      "desc": "Clipboard button\nAvailable only in `inline keyboards <https://core.telegram.org/constructor/replyInlineMarkup>`__.\nWhen pressed, clients must copy copy_text to the clipboard.",
       "params": {
         "copy_text": "The text that will be copied to the clipboard",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -4391,7 +4391,7 @@
       }
     },
     "KeyboardButtonGame": {
-      "desc": "Button to start a game",
+      "desc": "Button to start a game\nAvailable only in `inline keyboards <https://core.telegram.org/constructor/replyInlineMarkup>`__.\nWhen pressed, clients must open the `game <https://core.telegram.org/constructor/game>`__ from the attached `messageMediaGame <https://core.telegram.org/constructor/messageMediaGame>`__ constructor by invoking `messages.getBotCallbackAnswer <https://core.telegram.org/method/messages.getBotCallbackAnswer>`__ with the game flag set, as described in `Starting a game <https://core.telegram.org/api/bots/games#starting-a-game>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "style": "Button style, see `here \u00bb <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info on button styles.",
@@ -4399,7 +4399,7 @@
       }
     },
     "KeyboardButtonRequestGeoLocation": {
-      "desc": "Button to request a user's geolocation",
+      "desc": "Button to request a user's geolocation\nAvailable only in private chats, in `reply keyboards <https://core.telegram.org/constructor/replyKeyboardMarkup>`__.\nWhen pressed, clients must request permission from the user to send the current user's geolocation to the chat, replying to the message that attached the `replyKeyboardMarkup <https://core.telegram.org/constructor/replyKeyboardMarkup>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "style": "Button style, see `here \u00bb <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info on button styles.",
@@ -4407,7 +4407,7 @@
       }
     },
     "KeyboardButtonRequestPeer": {
-      "desc": "Prompts the user to select and share one or more peers with the bot using `messages.sendBotRequestedPeer <https://core.telegram.org/method/messages.sendBotRequestedPeer>`__",
+      "desc": "Prompts the user to select and share one or more peers with the bot using `messages.sendBotRequestedPeer <https://core.telegram.org/method/messages.sendBotRequestedPeer>`__\nAvailable only in private chats, in `reply keyboards <https://core.telegram.org/constructor/replyKeyboardMarkup>`__.\nSee `peer requests <https://core.telegram.org/api/bots/buttons#peer-requests>`__ for the full flow.",
       "params": {
         "button_id": "Button ID, to be passed to `messages.sendBotRequestedPeer <https://core.telegram.org/method/messages.sendBotRequestedPeer>`__.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -4418,7 +4418,7 @@
       }
     },
     "KeyboardButtonRequestPhone": {
-      "desc": "Button to request a user's phone number",
+      "desc": "Button to request a user's phone number\nAvailable only in private chats, in `reply keyboards <https://core.telegram.org/constructor/replyKeyboardMarkup>`__.\nWhen pressed, clients must request permission from the user to send the current user's contact to the chat, replying to the message that attached the `replyKeyboardMarkup <https://core.telegram.org/constructor/replyKeyboardMarkup>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "style": "Button style, see `here \u00bb <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info on button styles.",
@@ -4426,7 +4426,7 @@
       }
     },
     "KeyboardButtonRequestPoll": {
-      "desc": "A button that allows the user to create and send a poll when pressed; available only in private",
+      "desc": "Button to request a poll from the user\nAvailable only in private chats, in `reply keyboards <https://core.telegram.org/constructor/replyKeyboardMarkup>`__.\nWhen pressed, clients prompt the user to create and send a `poll <https://core.telegram.org/api/poll>`__, replying to the message that attached the `replyKeyboardMarkup <https://core.telegram.org/constructor/replyKeyboardMarkup>`__. If quiz is set, the prompt must create a quiz poll.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "quiz": "If set, only quiz polls can be sent",
@@ -4441,7 +4441,7 @@
       }
     },
     "KeyboardButtonSimpleWebView": {
-      "desc": "Button to open a `bot mini app <https://core.telegram.org/api/bots/webapps>`__ using `messages.requestSimpleWebView <https://core.telegram.org/method/messages.requestSimpleWebView>`__, without sending user information to the web app.\nCan only be sent or received as part of a reply keyboard, use `keyboardButtonWebView <https://core.telegram.org/constructor/keyboardButtonWebView>`__ for inline keyboards.",
+      "desc": "Button to open a `bot mini app <https://core.telegram.org/api/bots/webapps>`__ using `messages.requestSimpleWebView <https://core.telegram.org/method/messages.requestSimpleWebView>`__, without sending user information to the web app.\nCan only be sent or received as part of a reply keyboard, use `keyboardButtonWebView <https://core.telegram.org/constructor/keyboardButtonWebView>`__ for inline keyboards.\nWhen pressed, clients must open a `Keyboard Button Mini App <https://core.telegram.org/api/bots/webapps#keyboard-button-mini-apps>`__ using `messages.requestSimpleWebView <https://core.telegram.org/method/messages.requestSimpleWebView>`__, passing url to `messages.requestSimpleWebView <https://core.telegram.org/method/messages.requestSimpleWebView>`__.url.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "style": "Button style, see `here \u00bb <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info on button styles.",
@@ -4460,7 +4460,7 @@
       }
     },
     "KeyboardButtonSwitchInline": {
-      "desc": "Button to force a user to switch to inline mode: pressing the button will prompt the user to select one of their chats, open that chat and insert the bot's username and the specified inline query in the input field.",
+      "desc": "Button to switch the user to inline mode\nAvailable only in `inline keyboards <https://core.telegram.org/constructor/replyInlineMarkup>`__.\nWhen pressed, clients must insert the bot's username and query into the chat input field, triggering an `inline query <https://core.telegram.org/api/bots/inline>`__.\nIf same_peer is set, clients use the current chat. Otherwise, clients prompt the user to select a chat, filtered by peer_types if specified.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "peer_types": "Filter to use when selecting chats.",
@@ -4471,7 +4471,7 @@
       }
     },
     "KeyboardButtonUrl": {
-      "desc": "URL button",
+      "desc": "URL button\nAvailable only in `inline keyboards <https://core.telegram.org/constructor/replyInlineMarkup>`__.\nWhen pressed, clients open url, showing a confirmation prompt unless the URL is one of the `internal URIs <https://github.com/DrKLO/Telegram/blob/002c01ecd37cd08ed07b3ed84d79318d091dfc85/TMessagesProj/src/main/java/org/telegram/messenger/browser/Browser.java#L351>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "style": "Button style, see `here \u00bb <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info on button styles.",
@@ -4480,7 +4480,7 @@
       }
     },
     "KeyboardButtonUrlAuth": {
-      "desc": "Button to request a user to authorize via URL using `Seamless Telegram Login <https://telegram.org/blog/privacy-discussions-web-bots#meet-seamless-web-bots>`__. When the user clicks on such a button, `messages.requestUrlAuth <https://core.telegram.org/method/messages.requestUrlAuth>`__ should be called, providing the button_id and the ID of the container message. The returned `urlAuthResultRequest <https://core.telegram.org/constructor/urlAuthResultRequest>`__ object will contain more details about the authorization request (request_write_access if the bot would like to send messages to the user along with the username of the bot which will be used for user authorization). Finally, the user can choose to call `messages.acceptUrlAuth <https://core.telegram.org/method/messages.acceptUrlAuth>`__ to get a `urlAuthResultAccepted <https://core.telegram.org/constructor/urlAuthResultAccepted>`__ with the URL to open instead of the url of this constructor, or a `urlAuthResultDefault <https://core.telegram.org/constructor/urlAuthResultDefault>`__, in which case the url of this constructor must be opened, instead. If the user refuses the authorization request but still wants to open the link, the url of this constructor must be used.",
+      "desc": "Button to request a user to authorize via URL using `Seamless Telegram Login <https://telegram.org/blog/privacy-discussions-web-bots#meet-seamless-web-bots>`__. When the user clicks on such a button, `messages.requestUrlAuth <https://core.telegram.org/method/messages.requestUrlAuth>`__ should be called, providing the button_id and the ID of the container message. The returned `urlAuthResultRequest <https://core.telegram.org/constructor/urlAuthResultRequest>`__ object will contain more details about the authorization request (request_write_access if the bot would like to send messages to the user along with the username of the bot which will be used for user authorization). Finally, the user can choose to call `messages.acceptUrlAuth <https://core.telegram.org/method/messages.acceptUrlAuth>`__ to get a `urlAuthResultAccepted <https://core.telegram.org/constructor/urlAuthResultAccepted>`__ with the URL to open instead of the url of this constructor, or a `urlAuthResultDefault <https://core.telegram.org/constructor/urlAuthResultDefault>`__, in which case the url of this constructor must be opened, instead. If the user refuses the authorization request but still wants to open the link, the url of this constructor must be used.\nAvailable only in `inline keyboards <https://core.telegram.org/constructor/replyInlineMarkup>`__.",
       "params": {
         "button_id": "ID of the button to pass to `messages.requestUrlAuth <https://core.telegram.org/method/messages.requestUrlAuth>`__",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -4491,7 +4491,7 @@
       }
     },
     "KeyboardButtonUserProfile": {
-      "desc": "Button that links directly to a user profile",
+      "desc": "Button that links directly to a user profile\nAvailable only in `inline keyboards <https://core.telegram.org/constructor/replyInlineMarkup>`__.\nWhen pressed, clients must open the profile of the user identified by user_id.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "style": "Button style, see `here \u00bb <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info on button styles.",
@@ -4500,7 +4500,7 @@
       }
     },
     "KeyboardButtonWebView": {
-      "desc": "Button to open a `bot mini app <https://core.telegram.org/api/bots/webapps>`__ using `messages.requestWebView <https://core.telegram.org/method/messages.requestWebView>`__, sending over user information after user confirmation.\nCan only be sent or received as part of an inline keyboard, use `keyboardButtonSimpleWebView <https://core.telegram.org/constructor/keyboardButtonSimpleWebView>`__ for reply keyboards.",
+      "desc": "Button to open a `bot mini app <https://core.telegram.org/api/bots/webapps>`__ using `messages.requestWebView <https://core.telegram.org/method/messages.requestWebView>`__, sending over user information after user confirmation.\nCan only be sent or received as part of an inline keyboard, use `keyboardButtonSimpleWebView <https://core.telegram.org/constructor/keyboardButtonSimpleWebView>`__ for reply keyboards.\nWhen pressed, clients must open an `Inline Button Mini App <https://core.telegram.org/api/bots/webapps#inline-button-mini-apps>`__ using `messages.requestWebView <https://core.telegram.org/method/messages.requestWebView>`__, passing url to `messages.requestWebView <https://core.telegram.org/method/messages.requestWebView>`__.url.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "style": "Button style, see `here \u00bb <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info on button styles.",
@@ -5967,15 +5967,6 @@
         "cover": "Cover"
       }
     },
-    "PageBlockDetails": {
-      "desc": "A collapsible details block",
-      "params": {
-        "blocks": "Block contents",
-        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "open": "Whether the block is open by default",
-        "title": "Always visible heading for the block"
-      }
-    },
     "PageBlockDivider": {
       "desc": "An empty block separating a page",
       "params": {}
@@ -7039,7 +7030,7 @@
       }
     },
     "ReplyInlineMarkup": {
-      "desc": "Bot or inline keyboard",
+      "desc": "Represents an inline keyboard",
       "params": {
         "rows": "Bot or inline keyboard rows"
       }
@@ -7054,14 +7045,14 @@
       }
     },
     "ReplyKeyboardHide": {
-      "desc": "Hide sent bot keyboard",
+      "desc": "Hide sent reply keyboard",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "selective": "Use this flag if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply (has reply_to_message_id), sender of the original message.Example: A user votes in a poll, bot returns confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet"
       }
     },
     "ReplyKeyboardMarkup": {
-      "desc": "Bot keyboard",
+      "desc": "Represents a reply keyboard",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "persistent": "Requests clients to always show the keyboard when the regular keyboard is hidden.",
@@ -7116,7 +7107,7 @@
     "RequestPeerTypeCreateBot": {
       "desc": "",
       "params": {
-        "bot_managed": "",
+        "bot_managed": "Must always be set.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "suggested_name": "",
         "suggested_username": ""
@@ -9313,7 +9304,7 @@
       "params": {}
     },
     "UpdateManagedBot": {
-      "desc": "`Manager bots <https://core.telegram.org/api/bots/create>`__ only: a bot managed by the currently logged in bot was created or updated.",
+      "desc": "`Manager bots <https://core.telegram.org/api/bots/managed-bots>`__ only: a bot managed by the currently logged in bot was created or updated.",
       "params": {
         "bot_id": "The ID of the managed bot.",
         "qts": "New qts value, see `updates \u00bb <https://core.telegram.org/api/updates>`__ for more info.",
