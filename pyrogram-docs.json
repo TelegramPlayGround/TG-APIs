@@ -3276,13 +3276,13 @@
     "InputMediaPoll": {
       "desc": "A poll",
       "params": {
-        "attached_media": "",
-        "correct_answers": "Correct answer IDs (for quiz polls)",
+        "attached_media": "Optional media attachment to display alongside the poll",
+        "correct_answers": "0-based indices of the correct answers in the answers vector (for quiz polls)",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "poll": "The poll to send",
         "solution": "Explanation of quiz solution",
         "solution_entities": "`Message entities for styled text <https://core.telegram.org/api/entities>`__",
-        "solution_media": ""
+        "solution_media": "Optional media attachment shown alongside the quiz solution explanation"
       }
     },
     "InputMediaStakeDice": {
@@ -3382,14 +3382,14 @@
       "params": {}
     },
     "InputMessageReadMetric": {
-      "desc": "",
+      "desc": "Read metric for a single message exposure, describing how long the message was visible in the chat viewport.",
       "params": {
-        "active_time_in_view_ms": "",
-        "height_to_viewport_ratio_permille": "",
-        "msg_id": "",
-        "seen_range_ratio_permille": "",
-        "time_in_view_ms": "",
-        "view_id": ""
+        "active_time_in_view_ms": "Part of time_in_view_ms accumulated while the user is active",
+        "height_to_viewport_ratio_permille": "round(max_message_height * 1000 / max_viewport_height), may exceed 1000 when the message is taller than the viewport",
+        "msg_id": "ID of the message",
+        "seen_range_ratio_permille": "round(max_seen_vertical_range * 1000 / max_message_height), clamped to the 0\u20131000 range",
+        "time_in_view_ms": "Total exposure time in milliseconds of at least one pixel of the message, after the 300 ms entry grace period",
+        "view_id": "Random non-zero 64-bit ID generated for this exposure"
       }
     },
     "InputMessageReplyTo": {
@@ -3450,7 +3450,7 @@
       "params": {}
     },
     "InputMessagesFilterPoll": {
-      "desc": "",
+      "desc": "Filter for poll messages, see `searching for polls  <https://core.telegram.org/api/poll#searching-for-polls>`__",
       "params": {}
     },
     "InputMessagesFilterRoundVideo": {
@@ -3682,11 +3682,11 @@
       }
     },
     "InputPollAnswer": {
-      "desc": "",
+      "desc": "An answer option to add to an `open-answer poll  <https://core.telegram.org/api/poll#open-answer-polls>`__",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "media": "",
-        "text": ""
+        "media": "Optional media attachment to display alongside the answer",
+        "text": "The answer text"
       }
     },
     "InputPrivacyKeyAbout": {
@@ -5021,15 +5021,15 @@
       "params": {}
     },
     "MessageActionPollAppendAnswer": {
-      "desc": "",
+      "desc": "A new answer option was added to an `open-answer poll  <https://core.telegram.org/api/poll#open-answer-polls>`__",
       "params": {
-        "answer": ""
+        "answer": "The answer that was added"
       }
     },
     "MessageActionPollDeleteAnswer": {
-      "desc": "",
+      "desc": "An answer option was removed from an `open-answer poll  <https://core.telegram.org/api/poll#open-answer-polls>`__",
       "params": {
-        "answer": ""
+        "answer": "The answer that was removed"
       }
     },
     "MessageActionPrizeStars": {
@@ -5608,7 +5608,7 @@
     "MessageMediaPoll": {
       "desc": "Poll",
       "params": {
-        "attached_media": "",
+        "attached_media": "Optional media attachment displayed alongside the poll",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "poll": "The poll",
         "results": "The results of the poll"
@@ -5965,6 +5965,15 @@
       "desc": "A page cover",
       "params": {
         "cover": "Cover"
+      }
+    },
+    "PageBlockDetails": {
+      "desc": "A collapsible details block",
+      "params": {
+        "blocks": "Block contents",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "open": "Whether the block is open by default",
+        "title": "Always visible heading for the block"
       }
     },
     "PageBlockDivider": {
@@ -6625,29 +6634,29 @@
         "close_date": "Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future; can't be used together with close_period.",
         "close_period": "Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with close_date.",
         "closed": "Whether the poll is closed and doesn't accept any more answers",
-        "countries_iso2": "",
-        "creator": "",
+        "countries_iso2": "If set, only users from the specified ISO 3166-1 alpha-2 country codes may vote",
+        "creator": "Whether the current user created this poll",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "hash": "",
-        "hide_results_until_close": "",
+        "hash": "Hash for use with `messages.getPollResults <https://core.telegram.org/method/messages.getPollResults>`__",
+        "hide_results_until_close": "Whether vote results are hidden from all participants until the poll is closed",
         "id": "ID of the poll",
         "multiple_choice": "Whether multiple options can be chosen as answer",
-        "open_answers": "",
+        "open_answers": "Whether users can add new answer options after the poll is created, see `polls \u00bb <https://core.telegram.org/api/poll#open-answer-polls>`__",
         "public_voters": "Whether cast votes are publicly visible to all users (non-anonymous poll)",
         "question": "The question of the poll (only `Premium <https://core.telegram.org/api/premium>`__ users can use `custom emoji entities <https://core.telegram.org/api/custom-emoji>`__ here).",
         "quiz": "Whether this is a quiz (with wrong and correct answers, results shown in the return type)",
-        "revoting_disabled": "",
-        "shuffle_answers": "",
-        "subscribers_only": ""
+        "revoting_disabled": "If set, users cannot change their vote after casting it",
+        "shuffle_answers": "Whether answer options are displayed in a randomized order to each user",
+        "subscribers_only": "Whether only channel subscribers can vote"
       }
     },
     "PollAnswer": {
       "desc": "A possible answer of a poll",
       "params": {
-        "added_by": "",
-        "date": "",
+        "added_by": "The peer who added this answer; only set for answers dynamically added to an open-answer poll, see `polls \u00bb <https://core.telegram.org/api/poll#open-answer-polls>`__",
+        "date": "When this answer was added; only set for answers dynamically added to an open-answer poll",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "media": "",
+        "media": "Optional media attachment displayed alongside the answer",
         "option": "The param that has to be passed to `messages.sendVote <https://core.telegram.org/method/messages.sendVote>`__.",
         "text": "Textual representation of the answer (only `Premium <https://core.telegram.org/api/premium>`__ users can use `custom emoji entities <https://core.telegram.org/api/custom-emoji>`__ here)."
       }
@@ -6659,22 +6668,22 @@
         "correct": "For quizzes, whether the option we have chosen is correct",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "option": "The param that has to be passed to `messages.sendVote <https://core.telegram.org/method/messages.sendVote>`__.",
-        "recent_voters": "",
+        "recent_voters": "Peers of the most recent voters for this option; mutually exclusive with voters",
         "voters": "How many users voted for this option"
       }
     },
     "PollResults": {
       "desc": "Results of poll",
       "params": {
-        "can_view_stats": "",
+        "can_view_stats": "Whether the current user can view detailed poll statistics via `stats.getPollStats <https://core.telegram.org/method/stats.getPollStats>`__",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "has_unread_votes": "",
+        "has_unread_votes": "Whether there are unread votes in this non-anonymous poll, see `polls \u00bb <https://core.telegram.org/api/poll#unread-poll-votes>`__",
         "min": "Similar to `min <https://core.telegram.org/api/min>`__ objects, used for poll constructors that are the same for all users so they don't have the option chosen by the current user (you can use `messages.getPollResults <https://core.telegram.org/method/messages.getPollResults>`__ to get the full poll results).",
         "recent_voters": "IDs of the last users that recently voted in the poll",
         "results": "Poll results",
         "solution": "Explanation of quiz solution",
         "solution_entities": "`Message entities for styled text in quiz solution <https://core.telegram.org/api/entities>`__",
-        "solution_media": "",
+        "solution_media": "Optional media attachment shown alongside the quiz solution explanation",
         "total_voters": "Total number of people that voted in the poll"
       }
     },
@@ -9330,12 +9339,12 @@
       "desc": "The results of a poll have changed",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "msg_id": "",
-        "peer": "",
+        "msg_id": "Message ID of the poll",
+        "peer": "Peer of the message containing the poll",
         "poll": "If the server knows the client hasn't cached this poll yet, the poll itself",
         "poll_id": "Poll ID",
         "results": "New poll results",
-        "top_msg_id": ""
+        "top_msg_id": "If the poll is in a forum topic, the ID of the top message of the topic"
       }
     },
     "UpdateMessagePollVote": {
@@ -9344,7 +9353,7 @@
         "options": "Chosen option(s)",
         "peer": "The peer that voted in the poll",
         "poll_id": "Poll ID",
-        "positions": "",
+        "positions": "0-based indices of the voted options within the answers vector, corresponding element-by-element to options",
         "qts": "New qts value, see `updates \u00bb <https://core.telegram.org/api/updates>`__ for more info."
       }
     },
@@ -10923,11 +10932,11 @@
       }
     },
     "bots.AccessSettings": {
-      "desc": "",
+      "desc": "Access restriction settings for a `managed bot  <https://core.telegram.org/api/bots/managed-bots#managing-a-managed-bot>`__.",
       "params": {
-        "add_users": "",
+        "add_users": "Additional users (max 10, excluding the owner) who can access the managed bot; only present when restricted is set",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "restricted": ""
+        "restricted": "If set, only the owner and the users in add_users can access the managed bot"
       }
     },
     "bots.BotInfo": {
@@ -10939,9 +10948,9 @@
       }
     },
     "bots.ExportedBotToken": {
-      "desc": "",
+      "desc": "The bot token of a `managed bot  <https://core.telegram.org/api/bots/managed-bots#managing-a-managed-bot>`__, exported by the manager bot.",
       "params": {
-        "token": ""
+        "token": "The bot token of the managed bot"
       }
     },
     "bots.PopularAppBots": {
@@ -14744,22 +14753,22 @@
     "bots.CheckUsername": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Check whether a username is available and valid for use when `creating a managed bot  <https://core.telegram.org/api/bots/managed-bots#creating-a-managed-bot>`__.",
       "params": {
-        "username": ""
+        "username": "Username to check; only letters, digits and underscores are allowed, must end in bot, and the full username must be 5\u201332 characters long"
       },
       "usable-by": "users"
     },
     "bots.CreateBot": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Create a `managed bot  <https://core.telegram.org/api/bots/managed-bots#creating-a-managed-bot>`__ owned by the current user and controlled by the specified manager bot.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "manager_id": "",
-        "name": "",
-        "username": "",
-        "via_deeplink": ""
+        "manager_id": "The manager bot that will control the created bot; must have the `user <https://core.telegram.org/constructor/user>`__.bot_can_manage_bots flag set",
+        "name": "Display name of the bot, 1\u201364 characters",
+        "username": "Username for the bot, as validated by `bots.checkUsername <https://core.telegram.org/method/bots.checkUsername>`__",
+        "via_deeplink": "Set only if the creation prompt was opened from a `managed bot creation request deep link \u00bb <https://core.telegram.org/api/links#managed-bot-creation-request-links>`__"
       },
       "usable-by": "users"
     },
@@ -14777,12 +14786,12 @@
     "bots.EditAccessSettings": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Edit the `access restriction settings  <https://core.telegram.org/api/bots/managed-bots#managing-a-managed-bot>`__ of a managed bot; can only be called by the manager bot.",
       "params": {
-        "add_users": "",
-        "bot": "",
+        "add_users": "Additional users (max 10, excluding the owner) allowed to access the managed bot when restricted is set",
+        "bot": "The managed bot whose access settings to edit",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "restricted": ""
+        "restricted": "If set, restricts access to the managed bot to only the owner and the users in add_users"
       },
       "usable-by": "bots"
     },
@@ -14801,19 +14810,19 @@
     "bots.ExportBotToken": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Export the bot token of a `managed bot  <https://core.telegram.org/api/bots/managed-bots#managing-a-managed-bot>`__; can only be called by the manager bot.",
       "params": {
-        "bot": "",
-        "revoke": ""
+        "bot": "The managed bot to export the token for",
+        "revoke": "If `boolTrue <https://core.telegram.org/constructor/boolTrue>`__, revoke the current token and generate a new one"
       },
       "usable-by": "bots"
     },
     "bots.GetAccessSettings": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Get the `access restriction settings  <https://core.telegram.org/api/bots/managed-bots#managing-a-managed-bot>`__ of a managed bot; can only be called by the manager bot.",
       "params": {
-        "bot": ""
+        "bot": "The managed bot whose access settings to retrieve"
       },
       "usable-by": "bots"
     },
@@ -16407,11 +16416,11 @@
     "messages.AddPollAnswer": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Add an answer option to an `open-answer poll  <https://core.telegram.org/api/poll#open-answer-polls>`__",
       "params": {
-        "answer": "",
-        "msg_id": "",
-        "peer": ""
+        "answer": "The new answer option to add, use `inputPollAnswer <https://core.telegram.org/constructor/inputPollAnswer>`__",
+        "msg_id": "Message ID of the poll",
+        "peer": "Peer where the poll is located"
       },
       "usable-by": "users"
     },
@@ -16660,11 +16669,11 @@
     "messages.DeletePollAnswer": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Remove an answer option from an `open-answer poll  <https://core.telegram.org/api/poll#open-answer-polls>`__",
       "params": {
-        "msg_id": "",
-        "option": "",
-        "peer": ""
+        "msg_id": "Message ID of the poll",
+        "option": "The option identifier of the answer to remove",
+        "peer": "Peer where the poll is located"
       },
       "usable-by": "users"
     },
@@ -17621,7 +17630,7 @@
       "params": {
         "msg_id": "Message ID of poll message",
         "peer": "Peer where the poll was found",
-        "poll_hash": ""
+        "poll_hash": "Pass the poll.hash from the last received poll state; the server skips returning unchanged data"
       },
       "usable-by": "users"
     },
@@ -17926,16 +17935,16 @@
     "messages.GetUnreadPollVotes": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Get messages containing polls with `unread votes  <https://core.telegram.org/api/poll#unread-poll-votes>`__",
       "params": {
         "add_offset": "`Offsets for pagination, for more info click here <https://core.telegram.org/api/offsets>`__",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "limit": "Maximum number of results to return, `see pagination <https://core.telegram.org/api/offsets>`__",
-        "max_id": "",
-        "min_id": "",
+        "max_id": "Only return messages with IDs less than or equal to this value",
+        "min_id": "Only return messages with IDs greater than or equal to this value",
         "offset_id": "`Offsets for pagination, for more info click here <https://core.telegram.org/api/offsets>`__",
-        "peer": "",
-        "top_msg_id": ""
+        "peer": "The chat to fetch unread poll votes from",
+        "top_msg_id": "If the chat is a forum, restrict results to this topic"
       },
       "usable-by": "users"
     },
@@ -18151,11 +18160,11 @@
     "messages.ReadPollVotes": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Mark all `unread poll votes  <https://core.telegram.org/api/poll#unread-poll-votes>`__ in a chat as read",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "peer": "",
-        "top_msg_id": ""
+        "peer": "The chat to mark poll votes as read in",
+        "top_msg_id": "If the chat is a forum, restrict to this topic"
       },
       "usable-by": "users"
     },
@@ -18292,10 +18301,10 @@
     "messages.ReportMusicListen": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Report the listening duration of a music track (audio document without the voice flag), see `here  <https://core.telegram.org/api/views#music-listens>`__ for more info on the full flow.",
       "params": {
-        "id": "",
-        "listened_duration": ""
+        "id": "The `InputDocument <https://core.telegram.org/type/InputDocument>`__ of the listened song",
+        "listened_duration": "Accumulated playing time in whole seconds"
       },
       "usable-by": "users"
     },
@@ -18313,10 +18322,10 @@
     "messages.ReportReadMetrics": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Report viewport read metrics for visible messages, indicating how long each message stayed in the chat viewport, see `here  <https://core.telegram.org/api/views#read-metrics>`__ for more info on the full flow.",
       "params": {
-        "metrics": "",
-        "peer": ""
+        "metrics": "List of read metrics for individual messages",
+        "peer": "Peer where the messages are located"
       },
       "usable-by": "users"
     },
@@ -18336,23 +18345,6 @@
       "params": {
         "option": "Chosen report option, initially an empty string, see `here \u00bb <https://core.telegram.org/api/sponsored-messages#reporting-sponsored-messages>`__ for more info on the full flow.",
         "random_id": "The ad's unique ID."
-      },
-      "usable-by": "users"
-    },
-    "messages.RequestAppWebView": {
-      "can_use_business_connection": false,
-      "can_use_without_auth": false,
-      "desc": "Open a `bot mini app <https://core.telegram.org/bots/webapps>`__ from a `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__, sending over user information after user confirmation.\nAfter calling this method, until the user closes the webview, `messages.prolongWebView <https://core.telegram.org/method/messages.prolongWebView>`__ must be called every 60 seconds.",
-      "params": {
-        "app": "The app obtained by invoking `messages.getBotApp <https://core.telegram.org/method/messages.getBotApp>`__ as specified in the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__ docs.",
-        "compact": "If set, requests to open the mini app in compact mode (as opposed to normal or fullscreen mode). Must be set if the mode parameter of the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__ is equal to compact.",
-        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "fullscreen": "If set, requests to open the mini app in fullscreen mode (as opposed to compact or normal mode). Must be set if the mode parameter of the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__ is equal to fullscreen.",
-        "peer": "If the client has clicked on the link in a Telegram chat, pass the chat's peer information; otherwise pass the bot's peer information, instead.",
-        "platform": "Short name of the application; 0-64 English letters, digits, and underscores",
-        "start_param": "If the startapp query string parameter is present in the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__, pass it to start_param.",
-        "theme_params": "`Theme parameters \u00bb <https://core.telegram.org/api/bots/webapps#theme-parameters>`__",
-        "write_allowed": "Set this flag if the bot is asking permission to send messages to the user as specified in the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__ docs, and the user agreed."
       },
       "usable-by": "users"
     },
@@ -21957,7 +21949,7 @@
       "desc": "A message\n\n"
     },
     "InputMessageReadMetric": {
-      "desc": "\n"
+      "desc": "Read metric for a single message exposure, describing how long the message was visible in the chat viewport.\n\n"
     },
     "InputNotifyPeer": {
       "desc": "Object defines the set of users and/or groups that generate notifications.\n\n"
@@ -22755,13 +22747,13 @@
       "desc": "Type of the verification code that was sent\n\n"
     },
     "bots.AccessSettings": {
-      "desc": "\n"
+      "desc": "Access restriction settings for a managed bot.\n\n"
     },
     "bots.BotInfo": {
       "desc": "Localized name, about text and description of a bot.\n\n"
     },
     "bots.ExportedBotToken": {
-      "desc": "\n"
+      "desc": "The bot token of a managed bot, exported by the manager bot.\n\n"
     },
     "bots.PopularAppBots": {
       "desc": "Popular `Main Mini Apps <https://core.telegram.org/api/bots/webapps#main-mini-apps>`__, to be used in the `apps tab of global search  <https://core.telegram.org/api/search#apps-tab>`__.\n\nBots can offer users interactive HTML5 web apps to completely replace any website.\nTelegram allows applying detailed message filters while looking for messages in chats.\n"
