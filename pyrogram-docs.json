@@ -7,34 +7,34 @@
       }
     },
     "AiComposeTone": {
-      "desc": "",
+      "desc": "A custom `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__, used to rephrase messages in a specific style with the `AI message composer <https://core.telegram.org/api/ai#compose-messages>`__.",
       "params": {
-        "access_hash": "",
-        "author_id": "",
-        "creator": "",
-        "emoji_id": "",
-        "example_english": "",
+        "access_hash": "Tone access hash",
+        "author_id": "ID of the user that created this tone, if made public by the author.",
+        "creator": "Whether the current user is the creator of this tone",
+        "emoji_id": "`Custom emoji ID <https://core.telegram.org/api/custom-emoji>`__ of the tone's icon",
+        "example_english": "An example showing how a sample English message is rephrased by this tone; use `aicompose.getToneExample <https://core.telegram.org/method/aicompose.getToneExample>`__ to fetch more examples.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "id": "",
-        "installs_count": "",
-        "prompt": "",
-        "slug": "",
-        "title": ""
+        "id": "Tone identifier",
+        "installs_count": "Number of users that have installed this tone",
+        "prompt": "The prompt that describes how the AI should rephrase messages using this tone, up to `aicompose_tone_prompt_length_max \u00bb <https://core.telegram.org/api/config#aicompose-tone-prompt-length-max>`__ UTF-8 characters long; only present for tones created by the current user",
+        "slug": "Unique tone slug, used to share and install the tone via `AI compose tone links \u00bb <https://core.telegram.org/api/links#ai-compose-tone-links>`__",
+        "title": "Human-readable tone name, up to `aicompose_tone_title_length_max \u00bb <https://core.telegram.org/api/config#aicompose-tone-title-length-max>`__ UTF-8 characters long"
       }
     },
     "AiComposeToneDefault": {
-      "desc": "",
+      "desc": "A built-in, default `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__, identified by a string identifier rather than by a numeric ID.",
       "params": {
-        "emoji_id": "",
-        "title": "",
-        "tone": ""
+        "emoji_id": "`Custom emoji ID <https://core.telegram.org/api/custom-emoji>`__ of the tone's icon",
+        "title": "Localized, human-readable name of the tone",
+        "tone": "String identifier of the built-in tone, to be passed to `inputAiComposeToneDefault <https://core.telegram.org/constructor/inputAiComposeToneDefault>`__"
       }
     },
     "AiComposeToneExample": {
-      "desc": "",
+      "desc": "An example showing how an `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__ rephrases a message, used as a preview in the tone picker.",
       "params": {
-        "from": "",
-        "to": ""
+        "from": "The original, un-transformed sample message",
+        "to": "The same sample message after being rephrased with this tone"
       }
     },
     "AttachMenuBot": {
@@ -1362,7 +1362,7 @@
         "send_photos": "If set, does not allow a user to send photos in a `supergroup/chat <https://core.telegram.org/api/channel>`__.",
         "send_plain": "If set, does not allow a user to send text messages in a `supergroup/chat <https://core.telegram.org/api/channel>`__.",
         "send_polls": "If set, does not allow a user to send polls in a `supergroup/chat <https://core.telegram.org/api/channel>`__",
-        "send_reactions": "",
+        "send_reactions": "If set, does not allow a user to react to messages in a chat.",
         "send_roundvideos": "If set, does not allow a user to send round videos in a `supergroup/chat <https://core.telegram.org/api/channel>`__.",
         "send_stickers": "If set, does not allow a user to send stickers in a `supergroup/chat <https://core.telegram.org/api/channel>`__",
         "send_videos": "If set, does not allow a user to send videos in a `supergroup/chat <https://core.telegram.org/api/channel>`__.",
@@ -1734,7 +1734,7 @@
         "unread_count": "Number of unread messages",
         "unread_mark": "Whether the chat was manually marked as unread",
         "unread_mentions_count": "Number of `unread mentions <https://core.telegram.org/api/mentions>`__",
-        "unread_poll_votes_count": "",
+        "unread_poll_votes_count": "Number of `unread votes cast in non-anonymous polls \u00bb <https://core.telegram.org/api/poll#unread-poll-votes>`__ owned by the user in this dialog.",
         "unread_reactions_count": "Number of unread reactions to messages you sent",
         "view_forum_as_messages": "Users may also choose to display messages from all topics of a `forum <https://core.telegram.org/api/forum>`__ as if they were sent to a normal group, using a \"View as messages\" setting in the local client.  This setting only affects the current account, and is synced to other logged in sessions using the `channels.toggleViewForumAsMessages <https://core.telegram.org/method/channels.toggleViewForumAsMessages>`__ method; invoking this method will update the value of this flag."
       }
@@ -2236,7 +2236,7 @@
         "top_message": "ID of the last message that was sent to this topic",
         "unread_count": "Number of unread messages",
         "unread_mentions_count": "Number of `unread mentions <https://core.telegram.org/api/mentions>`__",
-        "unread_poll_votes_count": "",
+        "unread_poll_votes_count": "Number of `unread votes cast in non-anonymous polls \u00bb <https://core.telegram.org/api/poll#unread-poll-votes>`__ owned by the user in this forum topic.",
         "unread_reactions_count": "Number of unread reactions to messages you sent"
       }
     },
@@ -2471,22 +2471,22 @@
       "params": {}
     },
     "InputAiComposeToneDefault": {
-      "desc": "",
+      "desc": "References a built-in, default `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__ by its string identifier.",
       "params": {
-        "tone": ""
+        "tone": "String identifier of the built-in tone, as returned in `aiComposeToneDefault <https://core.telegram.org/constructor/aiComposeToneDefault>`__.tone"
       }
     },
     "InputAiComposeToneID": {
-      "desc": "",
+      "desc": "References a custom `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__ by its ID and access hash.",
       "params": {
-        "access_hash": "",
-        "id": ""
+        "access_hash": "Tone `access hash <https://core.telegram.org/api/peers#access-hash>`__, as returned in `aiComposeTone <https://core.telegram.org/constructor/aiComposeTone>`__.access_hash",
+        "id": "Tone identifier, as returned in `aiComposeTone <https://core.telegram.org/constructor/aiComposeTone>`__.id"
       }
     },
     "InputAiComposeToneSlug": {
-      "desc": "",
+      "desc": "References a custom `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__ by its public slug, used when opening an `AI compose tone link  <https://core.telegram.org/api/links#ai-compose-tone-links>`__.",
       "params": {
-        "slug": ""
+        "slug": "Public tone slug, as returned in `aiComposeTone <https://core.telegram.org/constructor/aiComposeTone>`__.slug"
       }
     },
     "InputAppEvent": {
@@ -3258,10 +3258,10 @@
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "id": "Photo to be forwarded",
-        "live_photo": "",
+        "live_photo": "Whether this is a live photo, i.e. a still photo paired with the short video clip captured alongside it",
         "spoiler": "Whether this media should be hidden behind a spoiler warning",
         "ttl_seconds": "Time to live of self-destructing photo, can be 0 to disable self-destruction, 0x7FFFFFFF to self-destruct the document immediately after it's played; otherwise self-destructs ttl_seconds after it's played.",
-        "video": ""
+        "video": "The short video clip of the live photo"
       }
     },
     "InputMediaPhotoExternal": {
@@ -3328,11 +3328,11 @@
       "params": {
         "file": "The `uploaded file <https://core.telegram.org/api/files>`__",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "live_photo": "",
+        "live_photo": "Whether this is a live photo, i.e. a still photo paired with the short video clip captured alongside it",
         "spoiler": "Whether this media should be hidden behind a spoiler warning",
         "stickers": "Attached mask stickers",
         "ttl_seconds": "Time to live of self-destructing photo, can be 0 to disable self-destruction, 0x7FFFFFFF to self-destruct the photo immediately after it's played; otherwise self-destructs ttl_seconds after it's played.",
-        "video": ""
+        "video": "The short video clip of the live photo"
       }
     },
     "InputMediaVenue": {
@@ -3818,7 +3818,7 @@
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "monoforum_peer_id": "Must be set to the ID of the topic when replying to a message within a `monoforum topic <https://core.telegram.org/api/monoforum>`__.",
-        "poll_option": "",
+        "poll_option": "If set, sends the message as a `reply to a specific poll answer option \u00bb <https://core.telegram.org/api/poll#replying-to-poll-options>`__, containing the option bytes of the desired answer.",
         "quote_entities": "`Message entities for styled text <https://core.telegram.org/api/entities>`__ from the quote_text field.",
         "quote_offset": "Offset of the message quote_text within the original message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__).",
         "quote_text": "Used to quote-reply to only a certain section (specified here) of the original message. The maximum UTF-8 length for quotes is specified in the `quote_length_max <https://core.telegram.org/api/config#quote-length-max>`__ config key.",
@@ -4084,7 +4084,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "phone_code_hash": "phone_code_hash returned by `auth.sendCode <https://core.telegram.org/method/auth.sendCode>`__.",
         "phone_number": "Phone number.",
-        "premium_days": "",
+        "premium_days": "Duration in days of the `Telegram Premium <https://core.telegram.org/api/premium>`__ subscription granted by this purchase, as indicated in `auth.sentCodePaymentRequired <https://core.telegram.org/constructor/auth.sentCodePaymentRequired>`__.premium_days.",
         "restore": "Set this flag to restore a previously made purchase."
       }
     },
@@ -4668,7 +4668,7 @@
         "from_scheduled": "Whether this is a `scheduled message <https://core.telegram.org/api/scheduled-messages>`__",
         "fwd_from": "Info about forwarded messages",
         "grouped_id": "Multiple media messages sent using `messages.sendMultiMedia <https://core.telegram.org/method/messages.sendMultiMedia>`__ with the same grouped ID indicate an `album or media group <https://core.telegram.org/api/files#albums-grouped-media>`__",
-        "guestchat_via_from": "",
+        "guestchat_via_from": "If the message was posted by a `guest bot \u00bb <https://core.telegram.org/api/bots/guest-mode#guest-messages>`__, the peer on whose behalf the bot sent the message.",
         "id": "ID of the message",
         "invert_media": "If set, any eventual webpage preview will be shown on top of the message instead of at the bottom.",
         "legacy": "This is a legacy message: it has to be refetched with the new layer",
@@ -4926,9 +4926,9 @@
       }
     },
     "MessageActionManagedBotCreated": {
-      "desc": "",
+      "desc": "Service message sent by a user to a manager bot when a new `managed bot  <https://core.telegram.org/api/bots/managed-bots>`__ is created through it, by invoking `messages.sendBotRequestedPeer <https://core.telegram.org/method/messages.sendBotRequestedPeer>`__ with a `requestPeerTypeCreateBot <https://core.telegram.org/constructor/requestPeerTypeCreateBot>`__, see `here  <https://core.telegram.org/api/bots/buttons#requesting-a-managed-bot>`__ for more info.",
       "params": {
-        "bot_id": ""
+        "bot_id": "ID of the newly created managed bot"
       }
     },
     "MessageActionNewCreatorPending": {
@@ -5598,11 +5598,11 @@
       "desc": "Attached photo.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "live_photo": "",
+        "live_photo": "Whether this is a live photo, i.e. a still photo paired with the short video clip captured alongside it",
         "photo": "Photo",
         "spoiler": "Whether this media should be hidden behind a spoiler warning",
         "ttl_seconds": "Time to live of self-destructing photo, can be 0 to disable self-destruction, 0x7FFFFFFF to self-destruct the photo immediately after it's played; otherwise self-destructs ttl_seconds after it's played.",
-        "video": ""
+        "video": "The short video clip of the live photo"
       }
     },
     "MessageMediaPoll": {
@@ -5749,7 +5749,7 @@
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "forum_topic": "Whether this message was sent in a `forum topic <https://core.telegram.org/api/forum#forum-topics>`__ (except for the General topic).",
-        "poll_option": "",
+        "poll_option": "If the message is a `reply to a specific poll answer option \u00bb <https://core.telegram.org/api/poll#replying-to-poll-options>`__, the option bytes of the answer the reply is directed at.",
         "quote": "Whether this message is quoting a part of another message.",
         "quote_entities": "`Message entities for styled text <https://core.telegram.org/api/entities>`__ from the quote_text field.",
         "quote_offset": "Offset of the message quote_text within the original message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__).",
@@ -6675,7 +6675,7 @@
     "PollResults": {
       "desc": "Results of poll",
       "params": {
-        "can_view_stats": "Whether the current user can view detailed poll statistics via `stats.getPollStats <https://core.telegram.org/method/stats.getPollStats>`__",
+        "can_view_stats": "Whether the current user can view detailed `poll statistics \u00bb <https://core.telegram.org/api/stats#poll-statistics>`__",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "has_unread_votes": "Whether there are unread votes in this non-anonymous poll, see `polls \u00bb <https://core.telegram.org/api/poll#unread-poll-votes>`__",
         "min": "Similar to `min <https://core.telegram.org/api/min>`__ objects, used for poll constructors that are the same for all users so they don't have the option chosen by the current user (you can use `messages.getPollResults <https://core.telegram.org/method/messages.getPollResults>`__ to get the full poll results).",
@@ -6976,7 +6976,7 @@
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "messages_notify_from": "Message reaction notification settings, if not set completely disables notifications/updates about message reactions.",
-        "poll_votes_notify_from": "",
+        "poll_votes_notify_from": "`Non-anonymous poll vote \u00bb <https://core.telegram.org/api/poll#unread-poll-votes>`__ notification settings, if not set completely disables notifications/updates about votes cast in the user's non-anonymous polls.",
         "show_previews": "If false, `push notifications \u00bb <https://core.telegram.org/api/push-updates>`__ about message/story reactions will only be of type REACT_HIDDEN/REACT_STORY_HIDDEN, without any information about the reacted-to story or the reaction itself.",
         "sound": "`Notification sound for reactions \u00bb <https://core.telegram.org/api/ringtones>`__",
         "stories_notify_from": "Story reaction notification settings, if not set completely disables notifications/updates about reactions to stories."
@@ -7114,12 +7114,12 @@
       }
     },
     "RequestPeerTypeCreateBot": {
-      "desc": "",
+      "desc": "Used in a `keyboardButtonRequestPeer <https://core.telegram.org/constructor/keyboardButtonRequestPeer>`__ by a `manager bot <https://core.telegram.org/api/bots/managed-bots>`__ to ask a user to create a new `managed bot  <https://core.telegram.org/api/bots/managed-bots>`__, see `here  <https://core.telegram.org/api/bots/buttons#requesting-a-managed-bot>`__ for more info.",
       "params": {
         "bot_managed": "Must always be set.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "suggested_name": "",
-        "suggested_username": ""
+        "suggested_name": "If set, the name to pre-fill in the managed bot creation flow",
+        "suggested_username": "If set, the username to pre-fill in the managed bot creation flow"
       }
     },
     "RequestPeerTypeUser": {
@@ -8303,7 +8303,7 @@
         "media": "Story media.",
         "media_areas": "List of media areas, see `here \u00bb <https://core.telegram.org/api/stories#media-areas>`__ for more info on media areas.",
         "min": "Full information about this story was omitted for space and performance reasons; use `stories.getStoriesByID <https://core.telegram.org/method/stories.getStoriesByID>`__ to fetch full info about this story when and if needed.",
-        "music": "",
+        "music": "If set, the audio track played as background music for the story.",
         "noforwards": "Whether this story is `protected <https://telegram.org/blog/content-protection-delete-by-date-and-more>`__ and thus cannot be forwarded; clients should also prevent users from saving attached media (i.e. videos should only be streamed, photos should be kept in RAM, et cetera).",
         "out": "indicates whether we sent this story.",
         "pinned": "Whether this story is pinned on the user's profile",
@@ -8638,7 +8638,7 @@
       "params": {}
     },
     "TopPeerCategoryBotsGuestChat": {
-      "desc": "",
+      "desc": "Top `guest bots  <https://core.telegram.org/api/bots/guest-mode>`__, i.e. bots most frequently invoked as guests in chats.",
       "params": {}
     },
     "TopPeerCategoryBotsInline": {
@@ -8682,7 +8682,7 @@
       "params": {}
     },
     "UpdateAiComposeTones": {
-      "desc": "",
+      "desc": "The list of saved `AI composer tones  <https://core.telegram.org/api/ai#ai-compose-tones>`__ of the current user has changed, and should be refetched using `aicompose.getTones <https://core.telegram.org/method/aicompose.getTones>`__.",
       "params": {}
     },
     "UpdateAttachMenuBots": {
@@ -8760,13 +8760,13 @@
       }
     },
     "UpdateBotGuestChatQuery": {
-      "desc": "",
+      "desc": "Sent to `guest bots  <https://core.telegram.org/api/bots/guest-mode>`__ when a user invokes the bot as a guest in a chat. The bot should reply by invoking `messages.setBotGuestChatResult <https://core.telegram.org/method/messages.setBotGuestChatResult>`__, see `here  <https://core.telegram.org/api/bots/guest-mode#handling-guest-queries-bot-side>`__ for more info.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "message": "",
-        "qts": "",
-        "query_id": "",
-        "reference_messages": ""
+        "message": "The message that triggered the query",
+        "qts": "`Persistent timestamp <https://core.telegram.org/api/updates>`__ (qts) of the update, used by bots to receive updates of this type",
+        "query_id": "Query identifier, to be passed to `messages.setBotGuestChatResult <https://core.telegram.org/method/messages.setBotGuestChatResult>`__ when replying",
+        "reference_messages": "Additional context messages referenced by the triggering message (for example replied-to messages)"
       }
     },
     "UpdateBotInlineQuery": {
@@ -10047,11 +10047,11 @@
         "bot_attach_menu": "Whether this bot offers an `attachment menu web app <https://core.telegram.org/api/bots/attach>`__",
         "bot_business": "Whether this bot can be `connected to a user as specified here \u00bb <https://core.telegram.org/api/bots/connected-business-bots>`__.",
         "bot_can_edit": "Whether we can edit the profile picture, name, about text and description of this bot because we own it. When updating the `local peer database <https://core.telegram.org/api/peers>`__, do not apply changes to this field if the min flag is set. Changes to this flag (if min is not set) should invalidate the local `userFull <https://core.telegram.org/constructor/userFull>`__ cache for this user ID.",
-        "bot_can_manage_bots": "",
+        "bot_can_manage_bots": "If set, this bot is a `manager bot <https://core.telegram.org/api/bots/managed-bots>`__ that can create and manage `managed bots \u00bb <https://core.telegram.org/api/bots/managed-bots>`__ on behalf of the user.",
         "bot_chat_history": "Can the bot see all messages in groups?",
         "bot_forum_can_manage_topics": "If set, this bot supports `bot forum topics \u00bb <https://core.telegram.org/api/forum#bot-forums>`__, and users (not just the bot!) are allowed to create and manage bot forum topics in their private chat with the bot.",
         "bot_forum_view": "If set, this bot supports `bot forum topics \u00bb <https://core.telegram.org/api/forum#bot-forums>`__.",
-        "bot_guestchat": "",
+        "bot_guestchat": "If set, this bot can be invoked as a `guest in chats \u00bb <https://core.telegram.org/api/bots/guest-mode>`__.",
         "bot_has_main_app": "If set, this bot has configured a `Main Mini App \u00bb <https://core.telegram.org/api/bots/webapps#main-mini-apps>`__.",
         "bot_info_version": "Version of the `bot_info field in userFull <https://core.telegram.org/constructor/userFull>`__, incremented every time it changes. Changes to this flag should invalidate the local `userFull <https://core.telegram.org/constructor/userFull>`__ cache for this user ID, see `here \u00bb <https://core.telegram.org/api/peers#full-info-database>`__ for more info.",
         "bot_inline_geo": "Whether the bot can request our geolocation in inline mode",
@@ -10109,7 +10109,7 @@
         "bot_can_manage_emoji_status": "If set, this is a bot that can `change our emoji status \u00bb <https://core.telegram.org/api/emoji-status#setting-an-emoji-status-from-a-bot>`__",
         "bot_group_admin_rights": "A `suggested set of administrator rights <https://core.telegram.org/api/rights#suggested-bot-rights>`__ for the bot, to be shown when adding the bot as admin to a group, see `here for more info on how to handle them \u00bb <https://core.telegram.org/api/rights#suggested-bot-rights>`__.",
         "bot_info": "For bots, info about the bot (bot commands, etc)",
-        "bot_manager_id": "",
+        "bot_manager_id": "If this user is a `managed bot \u00bb <https://core.telegram.org/api/bots/managed-bots>`__, the ID of the user or manager bot that manages it.",
         "bot_verification": "Describes a `bot verification icon \u00bb <https://core.telegram.org/api/bots/verification>`__.",
         "business_away_message": "`Telegram Business away message \u00bb <https://core.telegram.org/api/business#away-messages>`__.",
         "business_greeting_message": "`Telegram Business greeting message \u00bb <https://core.telegram.org/api/business#greeting-messages>`__.",
@@ -10156,7 +10156,7 @@
         "theme": "`The chat theme associated with this user \u00bb <https://core.telegram.org/api/themes#chat-themes>`__.",
         "translations_disabled": "Whether the `real-time chat translation popup <https://core.telegram.org/api/translation>`__ should be hidden.",
         "ttl_period": "Time To Live of all messages in this chat; once a message is this many seconds old, it must be deleted.",
-        "unofficial_security_risk": "",
+        "unofficial_security_risk": "If set, this user uses an unofficial Telegram client, and messages sent to them may be less secure; clients should display a warning in the user's profile.",
         "video_calls_available": "Whether the user can receive video calls",
         "voice_messages_forbidden": "Whether this user doesn't allow sending voice messages in a private chat with them",
         "wallpaper": "`Wallpaper <https://core.telegram.org/api/wallpapers>`__ to use in the private chat with the user.",
@@ -10354,9 +10354,9 @@
       }
     },
     "WebPageAttributeAiComposeTone": {
-      "desc": "",
+      "desc": "`Webpage attribute <https://core.telegram.org/type/WebPageAttribute>`__ attached to a `webPage <https://core.telegram.org/constructor/webPage>`__ of type telegram_aicomposetone, generated when previewing a shared `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__ via an `AI compose tone link  <https://core.telegram.org/api/links#ai-compose-tone-links>`__.",
       "params": {
-        "emoji_id": ""
+        "emoji_id": "`Custom emoji ID <https://core.telegram.org/api/custom-emoji>`__ of the tone's icon"
       }
     },
     "WebPageAttributeStarGiftAuction": {
@@ -10724,15 +10724,15 @@
       "params": {}
     },
     "aicompose.Tones": {
-      "desc": "",
+      "desc": "The list of saved `AI composer tones  <https://core.telegram.org/api/ai#ai-compose-tones>`__ of the current user.",
       "params": {
-        "hash": "",
-        "tones": "",
-        "users": ""
+        "hash": "`Hash for pagination, for more info click here <https://core.telegram.org/api/offsets#hash-generation>`__",
+        "tones": "The saved AI composer tones",
+        "users": "Mentioned users (i.e. the authors of the tones)"
       }
     },
     "aicompose.TonesNotModified": {
-      "desc": "",
+      "desc": "The list of saved `AI composer tones  <https://core.telegram.org/api/ai#ai-compose-tones>`__ hasn't changed since the last time it was fetched (i.e. the hash passed to `aicompose.getTones <https://core.telegram.org/method/aicompose.getTones>`__ is still valid).",
       "params": {}
     },
     "auth.Authorization": {
@@ -10835,7 +10835,7 @@
         "amount": "Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in `currencies.json <https://core.telegram.org/bots/payments/currencies.json>`__, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
         "currency": "Three-letter ISO 4217 `currency <https://core.telegram.org/bots/payments#supported-currencies>`__ code.",
         "phone_code_hash": "Phone code hash, to be stored and later re-used with `auth.signIn <https://core.telegram.org/method/auth.signIn>`__",
-        "premium_days": "",
+        "premium_days": "Duration in days of the `Telegram Premium <https://core.telegram.org/api/premium>`__ subscription granted by this purchase.",
         "store_product": "For official apps, tore identifier of the Telegram Premium subscription.",
         "support_email_address": "An email address that can be contacted for more information about this request.",
         "support_email_subject": "The mandatory subject for the email."
@@ -10969,9 +10969,9 @@
       }
     },
     "bots.RequestedButton": {
-      "desc": "",
+      "desc": "Contains the request ID a bot should pass to a `Mini App <https://core.telegram.org/api/bots/webapps>`__ after preparing a peer request button with `bots.requestWebViewButton <https://core.telegram.org/method/bots.requestWebViewButton>`__, see `here  <https://core.telegram.org/api/bots/buttons#requesting-peers-via-mini-apps>`__ for more info.",
       "params": {
-        "webapp_req_id": ""
+        "webapp_req_id": "Mini App request ID, to be passed by the bot to the Mini App and then back to `bots.getRequestedWebViewButton <https://core.telegram.org/method/bots.getRequestedWebViewButton>`__ and `messages.sendBotRequestedPeer <https://core.telegram.org/method/messages.sendBotRequestedPeer>`__"
       }
     },
     "channels.AdminLogResults": {
@@ -12668,9 +12668,9 @@
       }
     },
     "stats.PollStats": {
-      "desc": "",
+      "desc": "`Statistics <https://core.telegram.org/api/stats#poll-statistics>`__ for a poll sent in a message.",
       "params": {
-        "votes_graph": ""
+        "votes_graph": "A graph containing the number of votes cast in the poll over time"
       }
     },
     "stats.PublicForwards": {
@@ -14358,74 +14358,74 @@
     "aicompose.CreateTone": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Create a new custom `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__.",
       "params": {
-        "display_author": "",
-        "emoji_id": "",
+        "display_author": "If set, the current user will be publicly credited as the author of the tone",
+        "emoji_id": "`Custom emoji ID <https://core.telegram.org/api/custom-emoji>`__ of the tone's icon",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "prompt": "",
-        "title": ""
+        "prompt": "The prompt that describes how the AI should rephrase messages using this tone, up to `aicompose_tone_prompt_length_max \u00bb <https://core.telegram.org/api/config#aicompose-tone-prompt-length-max>`__ UTF-8 characters long",
+        "title": "Human-readable tone name, up to `aicompose_tone_title_length_max \u00bb <https://core.telegram.org/api/config#aicompose-tone-title-length-max>`__ UTF-8 characters long"
       },
       "usable-by": "users"
     },
     "aicompose.DeleteTone": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Permanently delete a custom `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__ created by the current user.",
       "params": {
-        "tone": ""
+        "tone": "The tone to delete"
       },
       "usable-by": "users"
     },
     "aicompose.GetTone": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Fetch information about a single `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__, for example to resolve a shared tone deep link.",
       "params": {
-        "tone": ""
+        "tone": "The tone to fetch"
       },
       "usable-by": "users"
     },
     "aicompose.GetToneExample": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Fetch an example showing how an `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__ rephrases a sample message, used as a preview in the tone picker.",
       "params": {
-        "num": "",
-        "tone": ""
+        "num": "0-based index of the example to fetch, to cycle through the available examples (there are `aicompose_tone_examples_num \u00bb <https://core.telegram.org/api/config#aicompose-tone-examples-num>`__ examples per tone)",
+        "tone": "The tone to preview"
       },
       "usable-by": "users"
     },
     "aicompose.GetTones": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Fetch the list of saved `AI composer tones  <https://core.telegram.org/api/ai#ai-compose-tones>`__ of the current user.",
       "params": {
-        "hash": ""
+        "hash": "Hash from a previously cached `aicompose.tones <https://core.telegram.org/constructor/aicompose.tones>`__.hash to avoid refetching the list if it hasn't changed; initially 0."
       },
       "usable-by": "users"
     },
     "aicompose.SaveTone": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Install or uninstall an `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__, adding it to or removing it from the list of saved tones of the current user.\nNon-`Premium <https://core.telegram.org/api/premium>`__ users may install up to `aicompose_tone_saved_limit_default  <https://core.telegram.org/api/config#aicompose-tone-saved-limit-default>`__ tones, `Premium <https://core.telegram.org/api/premium>`__ users up to `aicompose_tone_saved_limit_premium  <https://core.telegram.org/api/config#aicompose-tone-saved-limit-premium>`__ tones.",
       "params": {
-        "tone": "",
-        "unsave": ""
+        "tone": "The tone to save or unsave",
+        "unsave": "If false, installs (saves) the tone; if true, uninstalls (unsaves) it"
       },
       "usable-by": "users"
     },
     "aicompose.UpdateTone": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Edit a custom `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__ previously created by the current user. Only the fields whose flag is set will be modified.",
       "params": {
-        "display_author": "",
-        "emoji_id": "",
+        "display_author": "If set, changes whether the current user is publicly credited as the author of the tone (ternary value, can be not set, set and true, set and false).",
+        "emoji_id": "If set, the new `custom emoji ID <https://core.telegram.org/api/custom-emoji>`__ of the tone's icon",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "prompt": "",
-        "title": "",
-        "tone": ""
+        "prompt": "If set, the new prompt that describes how the AI should rephrase messages using this tone, up to `aicompose_tone_prompt_length_max \u00bb <https://core.telegram.org/api/config#aicompose-tone-prompt-length-max>`__ UTF-8 characters long",
+        "title": "If set, the new human-readable tone name, up to `aicompose_tone_title_length_max \u00bb <https://core.telegram.org/api/config#aicompose-tone-title-length-max>`__ UTF-8 characters long",
+        "tone": "The tone to edit"
       },
       "usable-by": "users"
     },
@@ -14904,10 +14904,10 @@
     "bots.GetRequestedWebViewButton": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Fetch the peer request button a bot prepared for a `Mini App <https://core.telegram.org/api/bots/webapps>`__ with `bots.requestWebViewButton <https://core.telegram.org/method/bots.requestWebViewButton>`__, invoked when the Mini App emits a `web_app_request_chat <https://core.telegram.org/api/web-events#web-app-request-chat>`__ event, see `here  <https://core.telegram.org/api/bots/buttons#requesting-peers-via-mini-apps>`__ for more info.",
       "params": {
-        "bot": "",
-        "webapp_req_id": ""
+        "bot": "The bot that owns the Mini App",
+        "webapp_req_id": "The Mini App request ID, taken from the `web_app_request_chat <https://core.telegram.org/api/web-events#web-app-request-chat>`__ event's req_id"
       },
       "usable-by": "users"
     },
@@ -14946,10 +14946,10 @@
     "bots.RequestWebViewButton": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Bots may use this method to prepare a peer request button for a `Mini App <https://core.telegram.org/api/bots/webapps>`__, see `here  <https://core.telegram.org/api/bots/buttons#requesting-peers-via-mini-apps>`__ for more info.",
       "params": {
-        "button": "",
-        "user_id": ""
+        "button": "The button to prepare, an `inputKeyboardButtonRequestPeer <https://core.telegram.org/constructor/inputKeyboardButtonRequestPeer>`__ of any `RequestPeerType <https://core.telegram.org/type/RequestPeerType>`__",
+        "user_id": "The user that will use the prepared button in the Mini App"
       },
       "usable-by": "bots"
     },
@@ -15971,7 +15971,7 @@
       "desc": "Get most used peers",
       "params": {
         "bots_app": "Most frequently used `Main Mini Bot Apps <https://core.telegram.org/api/bots/webapps#main-mini-apps>`__.",
-        "bots_guestchat": "",
+        "bots_guestchat": "Most frequently used `guest bots \u00bb <https://core.telegram.org/api/bots/guest-mode>`__",
         "bots_inline": "Most used inline bots",
         "bots_pm": "Most used bots",
         "channels": "Most frequently visited channels",
@@ -16526,7 +16526,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "proofread": "If set, proofreads and fixes mistakes in the message",
         "text": "The message",
-        "tone": "",
+        "tone": "If set, rephrases the message using the specified `AI composer tone \u00bb <https://core.telegram.org/api/ai#ai-compose-tones>`__",
         "translate_to_lang": "If set, translates the message to the specified language"
       },
       "usable-by": "users"
@@ -16638,21 +16638,21 @@
     "messages.DeleteParticipantReaction": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "As an admin, remove all of a specific participant's `reactions <https://core.telegram.org/api/reactions>`__ from a single message.",
       "params": {
-        "msg_id": "",
-        "participant": "",
-        "peer": ""
+        "msg_id": "ID of the message whose reactions should be removed",
+        "participant": "The participant whose reactions should be removed from the message",
+        "peer": "The group or channel where the message is located"
       },
       "usable-by": ""
     },
     "messages.DeleteParticipantReactions": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "As an admin, remove all of a specific participant's `reactions <https://core.telegram.org/api/reactions>`__ from every message in a group or channel.",
       "params": {
-        "participant": "",
-        "peer": ""
+        "participant": "The participant whose reactions should be removed",
+        "peer": "The group or channel where the participant's reactions should be removed"
       },
       "usable-by": ""
     },
@@ -17597,13 +17597,13 @@
     "messages.GetPersonalChannelHistory": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Fetch the message history of a user's `personal channel  <https://core.telegram.org/api/profile#personal-channel>`__.",
       "params": {
-        "hash": "",
+        "hash": "`Result hash <https://core.telegram.org/api/offsets>`__",
         "limit": "Maximum number of results to return, `see pagination <https://core.telegram.org/api/offsets>`__",
-        "max_id": "",
-        "min_id": "",
-        "user_id": ""
+        "max_id": "If a positive value was transferred, the method will return only messages with IDs less than max_id",
+        "min_id": "If a positive value was transferred, the method will return only messages with IDs more than min_id",
+        "user_id": "The user whose personal channel history to fetch"
       },
       "usable-by": "bots"
     },
@@ -18348,6 +18348,23 @@
       },
       "usable-by": "users"
     },
+    "messages.RequestAppWebView": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "Open a `bot mini app <https://core.telegram.org/bots/webapps>`__ from a `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__, sending over user information after user confirmation.\nAfter calling this method, until the user closes the webview, `messages.prolongWebView <https://core.telegram.org/method/messages.prolongWebView>`__ must be called every 60 seconds.",
+      "params": {
+        "app": "The app obtained by invoking `messages.getBotApp <https://core.telegram.org/method/messages.getBotApp>`__ as specified in the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__ docs.",
+        "compact": "If set, requests to open the mini app in compact mode (as opposed to normal or fullscreen mode). Must be set if the mode parameter of the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__ is equal to compact.",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "fullscreen": "If set, requests to open the mini app in fullscreen mode (as opposed to compact or normal mode). Must be set if the mode parameter of the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__ is equal to fullscreen.",
+        "peer": "If the client has clicked on the link in a Telegram chat, pass the chat's peer information; otherwise pass the bot's peer information, instead.",
+        "platform": "Short name of the application; 0-64 English letters, digits, and underscores",
+        "start_param": "If the startapp query string parameter is present in the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__, pass it to start_param.",
+        "theme_params": "`Theme parameters \u00bb <https://core.telegram.org/api/bots/webapps#theme-parameters>`__",
+        "write_allowed": "Set this flag if the bot is asking permission to send messages to the user as specified in the `direct Mini App deep link <https://core.telegram.org/api/links#direct-mini-app-links>`__ docs, and the user agreed."
+      },
+      "usable-by": "users"
+    },
     "messages.RequestEncryption": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
@@ -18606,7 +18623,7 @@
         "msg_id": "ID of the message that contained the reply keyboard with the `keyboardButtonRequestPeer <https://core.telegram.org/constructor/keyboardButtonRequestPeer>`__ button.",
         "peer": "The bot that sent the `keyboardButtonRequestPeer <https://core.telegram.org/constructor/keyboardButtonRequestPeer>`__ button.",
         "requested_peers": "The chosen peers.",
-        "webapp_req_id": ""
+        "webapp_req_id": "If the button was prepared for a `Mini App \u00bb <https://core.telegram.org/api/bots/buttons#requesting-peers-via-mini-apps>`__, the Mini App request ID returned by `bots.requestWebViewButton <https://core.telegram.org/method/bots.requestWebViewButton>`__."
       },
       "usable-by": "users"
     },
@@ -18865,10 +18882,10 @@
     "messages.SetBotGuestChatResult": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Bots may use this method to answer a `guest mode  <https://core.telegram.org/api/bots/guest-mode>`__ query received via an `updateBotGuestChatQuery <https://core.telegram.org/constructor/updateBotGuestChatQuery>`__ update, providing the message to post into the chat as a guest, see `here  <https://core.telegram.org/api/bots/guest-mode#handling-guest-queries-bot-side>`__ for more info.",
       "params": {
-        "query_id": "",
-        "result": ""
+        "query_id": "Query identifier from the `updateBotGuestChatQuery <https://core.telegram.org/constructor/updateBotGuestChatQuery>`__.query_id field",
+        "result": "The result to send as the answer to the query"
       },
       "usable-by": "bots"
     },
@@ -19061,7 +19078,7 @@
         "id": "Message ID.",
         "peer": "The peer where the message is located.",
         "to_lang": "",
-        "tone": ""
+        "tone": "If set, rephrases the summary using the specified `AI composer tone \u00bb <https://core.telegram.org/api/ai#ai-compose-tones>`__ (pass the tone identifier)"
       },
       "usable-by": "users"
     },
@@ -19201,7 +19218,7 @@
         "peer": "If the text is a chat message, the peer ID",
         "text": "A list of styled messages to translate",
         "to_lang": "Two-letter ISO 639-1 language code of the language to which the message is translated",
-        "tone": ""
+        "tone": "If set, rephrases the translation using the specified `AI composer tone \u00bb <https://core.telegram.org/api/ai#ai-compose-tones>`__ (pass the tone identifier)"
       },
       "usable-by": "users"
     },
@@ -20733,12 +20750,12 @@
     "stats.GetPollStats": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Get `statistics <https://core.telegram.org/api/stats#poll-statistics>`__ for a poll sent in a message.",
       "params": {
-        "dark": "",
+        "dark": "Whether to enable dark theme for graph colors",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "msg_id": "",
-        "peer": ""
+        "msg_id": "ID of the message containing the poll",
+        "peer": "The peer where the poll was sent"
       },
       "usable-by": "users"
     },
@@ -20958,7 +20975,7 @@
         "id": "ID of story to edit.",
         "media": "If specified, replaces the story media.",
         "media_areas": "`Media areas <https://core.telegram.org/api/stories#media-areas>`__ associated to the story, see `here \u00bb <https://core.telegram.org/api/stories#media-areas>`__ for more info.",
-        "music": "",
+        "music": "If set, the new audio track to play as background music for the story.",
         "peer": "Peer where the story was posted.",
         "privacy_rules": "If specified, alters the `privacy settings \u00bb <https://core.telegram.org/api/privacy>`__ of the story, changing who can or can't view the story."
       },
@@ -21197,7 +21214,7 @@
         "fwd_modified": "Set this flag when reposting stories with fwd_from_id+fwd_from_id, if the media was modified before reposting.",
         "media": "The story media.",
         "media_areas": "`Media areas <https://core.telegram.org/api/stories#media-areas>`__ associated to the story, see `here \u00bb <https://core.telegram.org/api/stories#media-areas>`__ for more info.",
-        "music": "",
+        "music": "If set, the audio track to play as background music for the story.",
         "noforwards": "If set, disables forwards, screenshots, and downloads.",
         "peer": "The peer to send the story as.",
         "period": "Period after which the story is moved to archive (and to the profile if pinned is set), in seconds; must be one of 6 * 3600, 12 * 3600, 86400, or 2 * 86400 for Telegram Premium users, and 86400 otherwise.",
@@ -21481,10 +21498,10 @@
       "desc": "Time-to-live of current account\n\n"
     },
     "AiComposeTone": {
-      "desc": "\n"
+      "desc": "An `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__, used to rephrase messages in a specific style with the `AI message composer <https://core.telegram.org/api/ai#compose-messages>`__.\n\nTelegram offers many AI features powered by Cocoon \u2014 a decentralized network designed to maximize privacy.\n"
     },
     "AiComposeToneExample": {
-      "desc": "\n"
+      "desc": "An example showing how an `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__ rephrases a message, used as a preview in the tone picker.\n\nTelegram offers many AI features powered by Cocoon \u2014 a decentralized network designed to maximize privacy.\n"
     },
     "AttachMenuBot": {
       "desc": "Represents a `bot mini app that can be launched from the attachment menu  <https://core.telegram.org/bots/webapps#launching-mini-apps-from-the-attachment-menu>`__\n\n"
@@ -21850,7 +21867,7 @@
       "desc": "Inline query peer type.\n\n"
     },
     "InputAiComposeTone": {
-      "desc": "\n"
+      "desc": "References an `AI composer tone  <https://core.telegram.org/api/ai#ai-compose-tones>`__, either a built-in default tone or a custom one (by ID or slug).\n\nTelegram offers many AI features powered by Cocoon \u2014 a decentralized network designed to maximize privacy.\n"
     },
     "InputAppEvent": {
       "desc": "Object contains info about an event that occurred in the application.\n\n"
@@ -22025,9 +22042,6 @@
     },
     "InputTheme": {
       "desc": "Cloud theme\n\n"
-    },
-    "InputThemeSettings": {
-      "desc": "Theme settings\n\n"
     },
     "InputUser": {
       "desc": "Defines a user for subsequent interaction.\n\n"
@@ -22717,7 +22731,7 @@
       "desc": ""
     },
     "aicompose.Tones": {
-      "desc": "\n"
+      "desc": "The list of saved `AI composer tones  <https://core.telegram.org/api/ai#ai-compose-tones>`__ of the current user.\n\nTelegram offers many AI features powered by Cocoon \u2014 a decentralized network designed to maximize privacy.\n"
     },
     "auth.Authorization": {
       "desc": "Object contains info on user authorization.\n\n"
@@ -22762,7 +22776,7 @@
       "desc": "Contains info about `Main Mini App previews, see here  <https://core.telegram.org/api/bots/webapps#main-mini-app-previews>`__ for more info.\n\nBots can offer users interactive HTML5 web apps to completely replace any website.\n"
     },
     "bots.RequestedButton": {
-      "desc": "\n"
+      "desc": "Contains the Mini App request ID generated when a bot prepares a peer request button, see `here  <https://core.telegram.org/api/bots/buttons#requesting-peers-via-mini-apps>`__ for more info.\n\nUsers can interact with your bot via buttons or even inline buttons, straight from inline messages in any chat.\n"
     },
     "channels.AdminLogResults": {
       "desc": "Admin log events\n\n"
@@ -23215,7 +23229,7 @@
       "desc": "Message statistics\n\n"
     },
     "stats.PollStats": {
-      "desc": "\n"
+      "desc": "`Statistics <https://core.telegram.org/api/stats#poll-statistics>`__ for a poll sent in a message.\n\nTelegram offers detailed channel statistics for channels and supergroups.\n"
     },
     "stats.PublicForwards": {
       "desc": "Contains info about the forwards of a `story <https://core.telegram.org/api/stories>`__ as a message to public chats and reposts by public channels.\n\nTelegram users and channels can easily post and view stories through the API.\n"
