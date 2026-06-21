@@ -1055,7 +1055,7 @@
         "delete": "`Message deletion events <https://core.telegram.org/constructor/channelAdminLogEventActionDeleteMessage>`__",
         "demote": "`Admin demotion events <https://core.telegram.org/constructor/channelAdminLogEventActionParticipantToggleAdmin>`__",
         "edit": "`Message edit events <https://core.telegram.org/constructor/channelAdminLogEventActionEditMessage>`__",
-        "edit_rank": "",
+        "edit_rank": "Events where a participant's custom `tag (rank) \u00bb <https://core.telegram.org/api/rank>`__ was changed (`channelAdminLogEventActionParticipantEditRank <https://core.telegram.org/constructor/channelAdminLogEventActionParticipantEditRank>`__).",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "forums": "`Forum <https://core.telegram.org/api/forum>`__-related events",
         "group_call": "Group call events",
@@ -1346,7 +1346,7 @@
       "desc": "Represents the rights of a normal user in a `supergroup/channel/chat <https://core.telegram.org/api/channel>`__. In this case, the flags are inverted: if set, a flag does not allow a user to do X.",
       "params": {
         "change_info": "If set, does not allow a user to change the description of a `supergroup/chat <https://core.telegram.org/api/channel>`__",
-        "edit_rank": "",
+        "edit_rank": "If set, does not allow a user to edit their own custom `tag (rank) \u00bb <https://core.telegram.org/api/rank>`__ in a `supergroup/chat <https://core.telegram.org/api/channel>`__.",
         "embed_links": "If set, does not allow a user to embed links in the messages of a `supergroup/chat <https://core.telegram.org/api/channel>`__",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "invite_users": "If set, does not allow a user to invite users in a `supergroup/chat <https://core.telegram.org/api/channel>`__",
@@ -2232,7 +2232,7 @@
         "read_outbox_max_id": "Position up to which all outgoing messages are read.",
         "short": "Whether this constructor is a reduced version of the full topic information. If set, only the my, closed, id, date, title, icon_color, icon_emoji_id and from_id parameters will contain valid information. Reduced info is usually only returned in topic-related `admin log events \u00bb <https://core.telegram.org/api/recent-actions>`__ and in the `messages.channelMessages <https://core.telegram.org/constructor/messages.channelMessages>`__ constructor: if needed, full information can be fetched using `messages.getForumTopicsByID <https://core.telegram.org/method/messages.getForumTopicsByID>`__.",
         "title": "Topic title",
-        "title_missing": "",
+        "title_missing": "If set, the topic has no user-defined title (as happens for the per-user topics of `bot forums <https://core.telegram.org/api/forum#bot-forums>`__ and `monoforums \u00bb <https://core.telegram.org/api/monoforum>`__): the title field holds an automatically derived name and clients may display the topic peer's name instead.",
         "top_message": "ID of the last message that was sent to this topic",
         "unread_count": "Number of unread messages",
         "unread_mentions_count": "Number of `unread mentions <https://core.telegram.org/api/mentions>`__",
@@ -3286,11 +3286,11 @@
       }
     },
     "InputMediaStakeDice": {
-      "desc": "",
+      "desc": "Place a bet in a provably-fair `stake dice game  <https://core.telegram.org/api/dice#stake-dice>`__, staking `TON <https://core.telegram.org/api/stars#toncoin>`__ on the outcome of a  dice roll.",
       "params": {
-        "client_seed": "",
-        "game_hash": "",
-        "ton_amount": ""
+        "client_seed": "Client-generated random seed, combined with the server seed to compute the outcome, allowing the user to verify the fairness of the game.",
+        "game_hash": "Hash committing the server to the seed of the current round, obtained from `messages.getEmojiGameInfo <https://core.telegram.org/method/messages.getEmojiGameInfo>`__.`game_hash <https://core.telegram.org/constructor/messages.emojiGameDiceInfo>`__.",
+        "ton_amount": "Amount of `TON <https://core.telegram.org/api/stars#toncoin>`__ to stake on this roll, in nanoTON."
       }
     },
     "InputMediaStory": {
@@ -3503,9 +3503,9 @@
       "params": {}
     },
     "InputPasskeyCredentialFirebasePNV": {
-      "desc": "",
+      "desc": "Alternative `passkey <https://core.telegram.org/api/passkeys>`__ credential that proves ownership of the account's phone number through a Firebase Phone Number Verification (PNV) token, used on official apps where a full WebAuthn `public-key passkey <https://core.telegram.org/constructor/inputPasskeyCredentialPublicKey>`__ cannot be created, in a way similar to `Firebase SMS authentication  <https://core.telegram.org/api/auth>`__.",
       "params": {
-        "pnv_token": ""
+        "pnv_token": "Firebase Phone Number Verification token attesting that the user controls the phone number associated with the account."
       }
     },
     "InputPasskeyCredentialPublicKey": {
@@ -4697,7 +4697,7 @@
         "schedule_repeat_period": "Once sent, this message will be automatically re-scheduled to be re-sent again this many seconds in the future, see `here \u00bb <https://core.telegram.org/api/scheduled-messages#repeating-scheduled-messages>`__ for more info on repeating scheduled messages.",
         "silent": "Whether this is a silent message (no notification triggered)",
         "suggested_post": "Used to `suggest a post to a channel, see here \u00bb <https://core.telegram.org/api/suggested-posts>`__ for more info on the full flow.",
-        "summary_from_language": "",
+        "summary_from_language": "If this message's text is an `AI-generated summary \u00bb <https://core.telegram.org/api/ai#summarize-messages>`__, the two-letter ISO 639-1 language code of the original content the summary was generated from.",
         "ttl_period": "Time To Live of the message, once message.date+message.ttl_period === time(), the message will be deleted on the server, and must be deleted locally as well.",
         "via_bot_id": "ID of the inline bot that generated the message",
         "via_business_bot_id": "Whether the message was sent by the `business bot <https://core.telegram.org/api/bots/connected-business-bots>`__ specified in via_bot_id on behalf of the user.",
@@ -5108,7 +5108,7 @@
         "from_id": "Sender of the gift (unset for anonymous gifts).",
         "gift": "Info about the gift",
         "gift_msg_id": "For `separate upgrades <https://core.telegram.org/api/gifts#prepaying-for-someone-elses-upgrade>`__, the identifier of the message with the gift whose upgrade was prepaid (only valid for the receiver of the service message).",
-        "gift_num": "",
+        "gift_num": "For gifts acquired in an `auction \u00bb <https://core.telegram.org/api/auctions>`__, the collectible number of the won `collectible gift \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
         "message": "Additional message from the sender of the gift",
         "name_hidden": "If set, the name of the sender of the gift will be hidden if the destination user decides to display the gift on their profile",
         "peer": "Receiver of the gift.",
@@ -5117,7 +5117,7 @@
         "refunded": "This gift is not available anymore because a request to refund the payment related to this gift was made, and the money was returned.",
         "saved": "Whether this gift was added to the destination user's profile (may be toggled using `payments.saveStarGift <https://core.telegram.org/method/payments.saveStarGift>`__ and fetched using `payments.getSavedStarGifts <https://core.telegram.org/method/payments.getSavedStarGifts>`__)",
         "saved_id": "For channel gifts, ID to use in `inputSavedStarGiftChat <https://core.telegram.org/constructor/inputSavedStarGiftChat>`__ constructors.",
-        "to_id": "",
+        "to_id": "For gifts acquired in an `auction \u00bb <https://core.telegram.org/api/auctions>`__ (i.e. when auction_acquired is set), the peer the gift was assigned to.",
         "upgrade_msg_id": "If set, this gift was `upgraded to a collectible gift <https://core.telegram.org/api/gifts#upgrade-a-gift-to-a-collectible-gift>`__, and the corresponding `messageActionStarGiftUnique <https://core.telegram.org/constructor/messageActionStarGiftUnique>`__ is available at the specified message ID.",
         "upgrade_separate": "This service message is the notification of a `separate pre-payment for the upgrade of a gift we own <https://core.telegram.org/api/gifts#prepaying-for-someone-elses-upgrade>`__.",
         "upgrade_stars": "The number of Telegram Stars the user can pay to `convert the gift into a collectible gift \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
@@ -5225,7 +5225,7 @@
         "icon_color": "If no custom emoji icon is specified, specifies the color of the fallback topic icon (RGB), one of 0x6FB9F0, 0xFFD67E, 0xCB86DB, 0x8EEE98, 0xFF93B2, or 0xFB6F5F.",
         "icon_emoji_id": "ID of the `custom emoji <https://core.telegram.org/api/custom-emoji>`__ used as topic icon.",
         "title": "Topic name.",
-        "title_missing": ""
+        "title_missing": "If set, the topic was created without a user-defined title (as happens for the per-user topics of `bot forums <https://core.telegram.org/api/forum#bot-forums>`__ and `monoforums \u00bb <https://core.telegram.org/api/monoforum>`__): the title field holds an automatically derived name."
       }
     },
     "MessageActionTopicEdit": {
@@ -5492,7 +5492,7 @@
       "params": {
         "emoticon": "The emoji, for now ,  and  are supported",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "game_outcome": "",
+        "game_outcome": "For dice sent as a `stake dice \u00bb <https://core.telegram.org/api/dice#stake-dice>`__ bet, the outcome of the roll, including the won amount and the server seed used to verify fairness.",
         "value": "`Dice value <https://core.telegram.org/api/dice>`__"
       }
     },
@@ -6634,7 +6634,7 @@
         "close_date": "Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future; can't be used together with close_period.",
         "close_period": "Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with close_date.",
         "closed": "Whether the poll is closed and doesn't accept any more answers",
-        "countries_iso2": "If set, only users from the specified ISO 3166-1 alpha-2 country codes may vote",
+        "countries_iso2": "If set, only users from the specified ISO 3166-1 alpha-2 country codes may vote, see `country-restricted polls \u00bb <https://core.telegram.org/api/poll#country-restricted-polls>`__; a user may vote only if the `phone_country_iso2 \u00bb <https://core.telegram.org/api/config#phone-country-iso2>`__ configuration parameter is contained in this list.",
         "creator": "Whether the current user created this poll",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "hash": "Hash for use with `messages.getPollResults <https://core.telegram.org/method/messages.getPollResults>`__",
@@ -6647,7 +6647,7 @@
         "quiz": "Whether this is a quiz (with wrong and correct answers, results shown in the return type)",
         "revoting_disabled": "If set, users cannot change their vote after casting it",
         "shuffle_answers": "Whether answer options are displayed in a randomized order to each user",
-        "subscribers_only": "Whether only channel subscribers can vote"
+        "subscribers_only": "Whether only subscribers can vote: a user may vote only if they are currently a member of the channel/supergroup and joined it at least 24 hours before the poll was posted, see `subscriber-only polls \u00bb <https://core.telegram.org/api/poll#subscriber-only-polls>`__."
       }
     },
     "PollAnswer": {
@@ -7031,11 +7031,11 @@
       }
     },
     "RecentStory": {
-      "desc": "",
+      "desc": "Summary of a peer's most recent `stories  <https://core.telegram.org/api/stories>`__, embedded in `user <https://core.telegram.org/constructor/user>`__.stories_max_id and `channel <https://core.telegram.org/constructor/channel>`__.stories_max_id and returned by `stories.getPeerMaxIDs <https://core.telegram.org/method/stories.getPeerMaxIDs>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "live": "",
-        "max_id": ""
+        "live": "Whether the peer is currently broadcasting a `live video stream \u00bb <https://core.telegram.org/api/stories>`__ as a story.",
+        "max_id": "ID of the peer's most recent story."
       }
     },
     "ReplyInlineMarkup": {
@@ -7116,7 +7116,7 @@
     "RequestPeerTypeCreateBot": {
       "desc": "Used in a `keyboardButtonRequestPeer <https://core.telegram.org/constructor/keyboardButtonRequestPeer>`__ by a `manager bot <https://core.telegram.org/api/bots/managed-bots>`__ to ask a user to create a new `managed bot  <https://core.telegram.org/api/bots/managed-bots>`__, see `here  <https://core.telegram.org/api/bots/buttons#requesting-a-managed-bot>`__ for more info.",
       "params": {
-        "bot_managed": "Must always be set.",
+        "bot_managed": "If set, requests to create a managed bot; must always be set.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "suggested_name": "If set, the name to pre-fill in the managed bot creation flow",
         "suggested_username": "If set, the username to pre-fill in the managed bot creation flow"
@@ -8064,7 +8064,7 @@
         "paid_messages": "This transaction is related to the reception or transmission of a `paid message \u00bb <https://core.telegram.org/api/paid-messages>`__.",
         "peer": "Source of the incoming transaction, or its recipient for outgoing transactions.",
         "pending": "The transaction is currently pending.",
-        "phonegroup_message": "",
+        "phonegroup_message": "Represents payment for a paid text message sent during a `group call or live video stream \u00bb <https://core.telegram.org/api/group-calls>`__.",
         "photo": "For transactions with bots, photo of the bought product.",
         "posts_search": "Represents payment for a `paid global post search \u00bb <https://core.telegram.org/api/search#posts-tab>`__.",
         "premium_gift_months": "This transaction indicates the payment for a `gifted Telegram Premium subscription \u00bb <https://core.telegram.org/api/premium#gifting-telegram-premium>`__.",
@@ -8328,7 +8328,7 @@
         "expire_date": "When does the story expire.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "id": "Story ID",
-        "live": ""
+        "live": "Whether this story is a `live video stream \u00bb <https://core.telegram.org/api/stories>`__."
       }
     },
     "StoryReaction": {
@@ -9186,9 +9186,9 @@
       }
     },
     "UpdateEmojiGameInfo": {
-      "desc": "",
+      "desc": "The state of the `stake dice game  <https://core.telegram.org/api/dice#stake-dice>`__ has changed (for example after placing a bet): clients should refresh their cached game info.",
       "params": {
-        "info": ""
+        "info": "Updated `stake dice game \u00bb <https://core.telegram.org/api/dice#stake-dice>`__ state, equivalent to the result of `messages.getEmojiGameInfo <https://core.telegram.org/method/messages.getEmojiGameInfo>`__."
       }
     },
     "UpdateEncryptedChatTyping": {
@@ -10348,7 +10348,7 @@
         "photo": "Image representing the content",
         "site_name": "Short name of the site (e.g., Google Docs, App Store)",
         "title": "Title of the content",
-        "type": "Type of the web page. One of the following: start_table type- app- article- document- gif- photo- profile- telegram_album- telegram_auction- telegram_background- telegram_bot- telegram_botapp- telegram_call- telegram_channel- telegram_channel_boost- telegram_channel_direct- telegram_channel_request- telegram_chat- telegram_chat_request- telegram_chatlist- telegram_collection- telegram_community- telegram_giftcode- telegram_group_boost- telegram_livestream- telegram_megagroup- telegram_megagroup_request- telegram_message- telegram_newbot- telegram_nft- telegram_stickerset- telegram_story- telegram_story_album- telegram_theme- telegram_user- telegram_videochat- telegram_voicechat- videoend_table type",
+        "type": "Type of the web page. One of the following: start_table type- app - Preview of a link to a `Mini App \u00bb <https://core.telegram.org/api/bots/webapps>`__.- article - Preview of a generic external article or webpage.- document - Preview of an external document or file.- gif - Preview of an external animated GIF.- photo - Preview of an external photo.- profile - Preview of an external author or profile page.- telegram_aicomposetone - Preview of a link to a shared `custom AI composer tone \u00bb <https://core.telegram.org/api/ai#ai-compose-tones>`__.- telegram_album - Preview of a link to a `group of messages (album) \u00bb <https://core.telegram.org/api/links>`__.- telegram_auction - Preview of a link to a `collectible gift auction \u00bb <https://core.telegram.org/api/auctions>`__.- telegram_background - Preview of a link to a `chat wallpaper \u00bb <https://core.telegram.org/api/wallpapers>`__.- telegram_bot - Preview of a link to a `bot \u00bb <https://core.telegram.org/api/bots>`__.- telegram_botapp - Preview of a link to a `named bot Mini App \u00bb <https://core.telegram.org/api/bots/webapps>`__.- telegram_call - Preview of a link to a `group call/conference call \u00bb <https://core.telegram.org/api/group-calls>`__.- telegram_channel - Preview of a link to a `channel \u00bb <https://core.telegram.org/api/channel>`__.- telegram_channel_boost - Preview of a link to `boost a channel \u00bb <https://core.telegram.org/api/boost>`__.- telegram_channel_direct - Preview of a link to the `direct messages \u00bb <https://core.telegram.org/api/monoforum>`__ of a channel.- telegram_channel_request - Preview of a `join request \u00bb <https://core.telegram.org/api/invites#join-requests>`__ link to a channel.- telegram_chat - Preview of a link to a `basic group \u00bb <https://core.telegram.org/api/channel>`__.- telegram_chat_request - Preview of a `join request \u00bb <https://core.telegram.org/api/invites#join-requests>`__ link to a group.- telegram_chatlist - Preview of a link to a `shareable chat folder \u00bb <https://core.telegram.org/api/folders#shareable-folders>`__.- telegram_collection - Preview of a link to a `gift collection \u00bb <https://core.telegram.org/api/gifts#gift-collections>`__.- telegram_community - Preview of a link to a community.- telegram_giftcode - Preview of a link to a `Telegram Premium gift code \u00bb <https://core.telegram.org/api/giveaways>`__.- telegram_group_boost - Preview of a link to `boost a supergroup \u00bb <https://core.telegram.org/api/boost>`__.- telegram_livestream - Preview of a link to a `live video stream \u00bb <https://core.telegram.org/api/group-calls>`__.- telegram_megagroup - Preview of a link to a `supergroup \u00bb <https://core.telegram.org/api/channel>`__.- telegram_megagroup_request - Preview of a `join request \u00bb <https://core.telegram.org/api/invites#join-requests>`__ link to a supergroup.- telegram_message - Preview of a link to a `single message \u00bb <https://core.telegram.org/api/links>`__.- telegram_newbot - Preview of a link to create a new `bot \u00bb <https://core.telegram.org/api/bots>`__.- telegram_nft - Preview of a link to a `collectible (unique) gift \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__.- telegram_stickerset - Preview of a link to a `sticker or custom emoji set \u00bb <https://core.telegram.org/api/stickers>`__.- telegram_story - Preview of a link to a `story \u00bb <https://core.telegram.org/api/stories>`__.- telegram_story_album - Preview of a link to a `story album \u00bb <https://core.telegram.org/api/stories>`__.- telegram_theme - Preview of a link to a `theme \u00bb <https://core.telegram.org/api/themes>`__.- telegram_user - Preview of a link to a `user \u00bb <https://core.telegram.org/api/links>`__.- telegram_videochat - Preview of a link to a `video chat \u00bb <https://core.telegram.org/api/group-calls>`__.- telegram_voicechat - Preview of a link to a `voice chat \u00bb <https://core.telegram.org/api/group-calls>`__.- video - Preview of an external video.end_table type",
         "url": "URL of previewed webpage",
         "video_cover_photo": "Represents a custom `video cover <https://core.telegram.org/api/files#video-covers>`__."
       }
@@ -11643,26 +11643,26 @@
       }
     },
     "messages.EmojiGameDiceInfo": {
-      "desc": "",
+      "desc": "Current state and parameters of the `stake dice game  <https://core.telegram.org/api/dice#stake-dice>`__ for the logged-in user.",
       "params": {
-        "current_streak": "",
+        "current_streak": "Number of consecutive winning rounds the user has accumulated.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "game_hash": "",
-        "params": "",
-        "plays_left": "",
-        "prev_stake": ""
+        "game_hash": "Hash committing the server to the seed of the next round; pass it to `inputMediaStakeDice <https://core.telegram.org/constructor/inputMediaStakeDice>`__.game_hash to place a bet, and verify it against the `messages.emojiGameOutcome <https://core.telegram.org/constructor/messages.emojiGameOutcome>`__.seed revealed after the roll.",
+        "params": "Reward multipliers in thousandths (i.e. divide by 1000): the first 6 entries are the multipliers applied to the stake for each of the 6 possible dice values, and the 7th entry, if present, is the jackpot multiplier.",
+        "plays_left": "Number of plays the user has left, if the game is rate-limited.",
+        "prev_stake": "Amount of `TON <https://core.telegram.org/api/stars#toncoin>`__ staked in the previous round, in nanoTON."
       }
     },
     "messages.EmojiGameOutcome": {
-      "desc": "",
+      "desc": "Result of a `stake dice  <https://core.telegram.org/api/dice#stake-dice>`__ roll, attached to the `messageMediaDice <https://core.telegram.org/constructor/messageMediaDice>`__.game_outcome field of the sent dice.",
       "params": {
-        "seed": "",
-        "stake_ton_amount": "",
-        "ton_amount": ""
+        "seed": "Server seed revealed after the roll: hashing it must yield the `game_hash <https://core.telegram.org/constructor/messages.emojiGameDiceInfo>`__ the server committed to before the bet was placed, allowing the user to verify the fairness of the outcome.",
+        "stake_ton_amount": "Amount of `TON <https://core.telegram.org/api/stars#toncoin>`__ that was staked, in nanoTON.",
+        "ton_amount": "Amount of `TON <https://core.telegram.org/api/stars#toncoin>`__ won, in nanoTON (0 if the bet was lost)."
       }
     },
     "messages.EmojiGameUnavailable": {
-      "desc": "",
+      "desc": "The `stake dice game  <https://core.telegram.org/api/dice#stake-dice>`__ is currently not available to the user.",
       "params": {}
     },
     "messages.EmojiGroups": {
@@ -11836,7 +11836,7 @@
       "params": {
         "chats": "List of chats mentioned in dialogs",
         "messages": "List of messages",
-        "topics": "",
+        "topics": "`Forum topics <https://core.telegram.org/api/forum#forum-topics>`__ the returned messages belong to.",
         "users": "List of users mentioned in messages and chats"
       }
     },
@@ -11857,7 +11857,7 @@
         "next_rate": "Rate to use in the offset_rate parameter in the next call to `messages.searchGlobal <https://core.telegram.org/method/messages.searchGlobal>`__",
         "offset_id_offset": "Indicates the absolute position of messages[0] within the total result set with count count. This is useful, for example, if the result was fetched using offset_id, and we need to display a progress/total counter (like photo 134 of 200, for all media in a chat, we could simply use photo ${offset_id_offset} of ${count}).",
         "search_flood": "`For global post searches \u00bb <https://core.telegram.org/api/search#posts-tab>`__, the remaining amount of free searches, here query_is_free is related to the current call only, not to the next paginated call, and all subsequent pagination calls will always be free.",
-        "topics": "",
+        "topics": "`Forum topics <https://core.telegram.org/api/forum#forum-topics>`__ the returned messages belong to.",
         "users": "List of users mentioned in messages and chats"
       }
     },
@@ -16555,7 +16555,7 @@
         "random_id": "Unique client message ID to prevent duplicate sending of the same event",
         "send_as": "Create the topic as the specified peer",
         "title": "Topic title (maximum UTF-8 length: 128)",
-        "title_missing": ""
+        "title_missing": "If set, indicates that the topic has no user-defined title (as for the per-user topics of `bot forums <https://core.telegram.org/api/forum#bot-forums>`__ and `monoforums \u00bb <https://core.telegram.org/api/monoforum>`__) and the title is only an automatically derived placeholder."
       },
       "usable-by": ""
     },
@@ -17204,7 +17204,7 @@
     "messages.GetEmojiGameInfo": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "",
+      "desc": "Fetch the current state and parameters of the `stake dice game  <https://core.telegram.org/api/dice#stake-dice>`__, including the `game_hash <https://core.telegram.org/constructor/messages.emojiGameDiceInfo>`__ needed to place a bet with `inputMediaStakeDice <https://core.telegram.org/constructor/inputMediaStakeDice>`__.",
       "params": {},
       "usable-by": "users"
     },
@@ -18835,7 +18835,7 @@
     "messages.SendVote": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Vote in a `poll <https://core.telegram.org/constructor/poll>`__\nStarting from layer 159, the vote will be sent from the peer specified using `messages.saveDefaultSendAs <https://core.telegram.org/method/messages.saveDefaultSendAs>`__.",
+      "desc": "Vote in a `poll <https://core.telegram.org/constructor/poll>`__\nStarting from layer 159, the vote will be sent from the peer specified using `messages.saveDefaultSendAs <https://core.telegram.org/method/messages.saveDefaultSendAs>`__.\nBefore voting, clients should check that the user is actually allowed to vote: voting is not possible if the poll is closed, if it is `subscriber-only  <https://core.telegram.org/api/poll#subscriber-only-polls>`__ and the user is not an eligible subscriber, or if it is `country-restricted  <https://core.telegram.org/api/poll#country-restricted-polls>`__ and the user's `phone_country_iso2  <https://core.telegram.org/api/config#phone-country-iso2>`__ is not in the poll's allowed country list. See `vote restrictions  <https://core.telegram.org/api/poll#vote-restrictions>`__ for the full list of conditions.",
       "params": {
         "msg_id": "The message ID of the poll",
         "options": "The options that were chosen",
@@ -19077,7 +19077,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "id": "Message ID.",
         "peer": "The peer where the message is located.",
-        "to_lang": "",
+        "to_lang": "If set, generates the summary in the specified language (two-letter ISO 639-1 language code) instead of the language of the original message.",
         "tone": "If set, rephrases the summary using the specified `AI composer tone \u00bb <https://core.telegram.org/api/ai#ai-compose-tones>`__ (pass the tone identifier)"
       },
       "usable-by": "users"
@@ -19637,7 +19637,7 @@
       "desc": "Fetch the full list of `gifts <https://core.telegram.org/api/gifts>`__ owned by a peer.\nNote that unlike what the name suggests, the method can be used to fetch both \"saved\" and \"unsaved\" gifts (aka gifts both pinned and not pinned) to the profile, depending on the passed flags.",
       "params": {
         "collection_id": "Only returns gifts within the specified `collection \u00bb <https://core.telegram.org/api/gifts#gift-collections>`__.",
-        "exclude_hosted": "",
+        "exclude_hosted": "If set, excludes `collectible gifts <https://core.telegram.org/api/gifts#collectible-gifts>`__ that are merely `hosted <https://core.telegram.org/constructor/starGiftUnique>`__ on the profile (i.e. displayed by the peer while ownership belongs to a TON wallet), returning only gifts actually owned by the peer.",
         "exclude_saved": "Exclude gifts pinned on the profile.",
         "exclude_unique": "Exclude `collectible gifts \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
         "exclude_unlimited": "Exclude gifts that do not have the `starGift <https://core.telegram.org/constructor/starGift>`__.limited flag set.",
@@ -19648,7 +19648,7 @@
         "limit": "Maximum number of results to return, `see pagination <https://core.telegram.org/api/offsets>`__",
         "offset": "`Offset for pagination <https://core.telegram.org/api/offsets>`__.",
         "peer": "Fetch only gifts owned by the specified peer, such as: a user, with peer=`inputPeerUser <https://core.telegram.org/constructor/inputPeerUser>`__; a channel, with peer=`inputPeerChannel <https://core.telegram.org/constructor/inputPeerChannel>`__; a `connected business user <https://core.telegram.org/api/bots/connected-business-bots>`__ (when executing the method as a bot, over the business connection), with peer=`inputPeerUser <https://core.telegram.org/constructor/inputPeerUser>`__.",
-        "peer_color_available": "",
+        "peer_color_available": "If set, only returns `collectible gifts <https://core.telegram.org/api/gifts#collectible-gifts>`__ whose palette can be used as a `collectible message palette \u00bb <https://core.telegram.org/api/colors#collectible-message-palettes>`__.",
         "sort_by_value": "If set, sorts the gifts by price instead of reception date."
       },
       "usable-by": ""
@@ -21972,10 +21972,10 @@
       "desc": "Object defines the set of users and/or groups that generate notifications.\n\n"
     },
     "InputPasskeyCredential": {
-      "desc": "\n"
+      "desc": "Credential used to register a `passkey  <https://core.telegram.org/api/passkeys>`__ or to log in with one.\n\n"
     },
     "InputPasskeyResponse": {
-      "desc": "\n"
+      "desc": "WebAuthn response generated by the authenticator when registering or logging in with a `public-key passkey  <https://core.telegram.org/api/passkeys>`__.\n\n"
     },
     "InputPaymentCredentials": {
       "desc": "Payment credentials\n\n"
@@ -22023,7 +22023,7 @@
       "desc": "A single media in an `album or grouped media <https://core.telegram.org/api/files#albums-grouped-media>`__ sent with `messages.sendMultiMedia <https://core.telegram.org/method/messages.sendMultiMedia>`__.\n\nHow to transfer large data batches correctly.\nSend an `album or grouped media <https://core.telegram.org/api/files#albums-grouped-media>`__\n"
     },
     "InputStarGiftAuction": {
-      "desc": "\n"
+      "desc": "Identifies a `collectible gift auction  <https://core.telegram.org/api/auctions>`__, either by the ID of the linked collectible gift or by an auction deep link slug.\n\n"
     },
     "InputStarsTransaction": {
       "desc": "Used to fetch info about a `Telegram Star transaction  <https://core.telegram.org/api/stars#balance-and-transaction-history>`__.\n\nTelegram Stars are virtual items that allow users to purchase digital goods and services from bots and mini apps inside the Telegram ecosystem, send gifts to content creators on the Telegram platform, and more.\n"
@@ -22042,6 +22042,9 @@
     },
     "InputTheme": {
       "desc": "Cloud theme\n\n"
+    },
+    "InputThemeSettings": {
+      "desc": "Theme settings\n\n"
     },
     "InputUser": {
       "desc": "Defines a user for subsequent interaction.\n\n"
@@ -22317,7 +22320,7 @@
       "desc": "Recent t.me urls\n\n"
     },
     "RecentStory": {
-      "desc": "\n"
+      "desc": "Summary of a peer's most recent `stories  <https://core.telegram.org/api/stories>`__.\n\n"
     },
     "ReplyMarkup": {
       "desc": "Reply markup for bot and inline keyboards\n\n"
@@ -22437,16 +22440,16 @@
       "desc": "Represents the identifier of a `collectible gift attribute <https://core.telegram.org/api/gifts#collectible-gifts>`__.\n\nUsers can send Gifts to their friends. The recipients of gifts can display them on their profile pages or turn them into Telegram Stars . Telegram Stars can be used for many things, including supporting creators and buying services in mini apps.\n"
     },
     "StarGiftAttributeRarity": {
-      "desc": "\n"
+      "desc": "Rarity of a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__ attribute, either as an exact permille value or as one of the named rarity tiers (uncommon, rare, epic, legendary).\n\n"
     },
     "StarGiftAuctionAcquiredGift": {
       "desc": "Describes a gift that the current user won in an auction.\n\n"
     },
     "StarGiftAuctionRound": {
-      "desc": "\n"
+      "desc": "Describes one or more rounds of a `collectible gift auction  <https://core.telegram.org/api/auctions>`__, optionally extendable.\n\n"
     },
     "StarGiftAuctionState": {
-      "desc": "\n"
+      "desc": "State of a `collectible gift auction  <https://core.telegram.org/api/auctions>`__: active/pending, finished, or unchanged with respect to a locally cached version.\n\n"
     },
     "StarGiftAuctionUserState": {
       "desc": "Contains information about the current user's state in an `auction  <https://core.telegram.org/api/auctions>`__.\nThe bid_amount, bid_date, bid_peer and min_bid_amount flags of `starGiftAuctionUserState <https://core.telegram.org/constructor/starGiftAuctionUserState>`__ will all be set if the user placed a bid in the auction.\n\nContains information about the current user's state in an `auction  <https://core.telegram.org/api/auctions>`__.\nThe bid_amount, bid_date, bid_peer and min_bid_amount flags of `starGiftAuctionUserState <https://core.telegram.org/constructor/starGiftAuctionUserState>`__ will all be set if the user placed a bid in the auction.\n"
@@ -22965,10 +22968,10 @@
       "desc": "Info about a message thread\n\n"
     },
     "messages.EmojiGameInfo": {
-      "desc": "\n"
+      "desc": "Current state and parameters of the `stake dice game  <https://core.telegram.org/api/dice#stake-dice>`__, or an indication that the game is unavailable.\n\n"
     },
     "messages.EmojiGameOutcome": {
-      "desc": "\n"
+      "desc": "Result of a `stake dice  <https://core.telegram.org/api/dice#stake-dice>`__ roll.\n\n"
     },
     "messages.EmojiGroups": {
       "desc": "Represents a list of `emoji categories <https://core.telegram.org/api/emoji-categories>`__.\n\nSticker, custom emoji and GIF selection UIs should offer a list of categories to quickly filter results by a (list of) emojis, or by some other criteria.\n"
@@ -23127,7 +23130,7 @@
       "desc": "Represents a list of `gifts <https://core.telegram.org/api/gifts>`__.\n\nUsers can send Gifts to their friends. The recipients of gifts can display them on their profile pages or turn them into Telegram Stars . Telegram Stars can be used for many things, including supporting creators and buying services in mini apps.\n"
     },
     "payments.StarGiftActiveAuctions": {
-      "desc": "\n"
+      "desc": "List of currently active `gift auctions  <https://core.telegram.org/api/auctions>`__ where the user has placed a bid, or an indication that the locally cached list hasn't changed.\n\n"
     },
     "payments.StarGiftAuctionAcquiredGifts": {
       "desc": "Describes all the gifts that the current user won in an `auction <https://core.telegram.org/api/auctions>`__.\n\n"
