@@ -1573,7 +1573,7 @@
     "ChatThemeUniqueGift": {
       "desc": "A chat theme based on a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
       "params": {
-        "gift": "The owned collectible gift on which this theme is based, as a `starGiftUnique <https://core.telegram.org/constructor/starGiftUnique>`__ constructor.",
+        "gift": "The owned or `hosted collectible gift \u00bb <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__ on which this theme is based, as a `starGiftUnique <https://core.telegram.org/constructor/starGiftUnique>`__ constructor.",
         "theme_settings": "Theme settings."
       }
     },
@@ -2039,7 +2039,7 @@
       }
     },
     "EmojiStatusCollectible": {
-      "desc": "An `owned collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__ as emoji status.\nCannot be passed to `account.updateEmojiStatus <https://core.telegram.org/method/account.updateEmojiStatus>`__, must be converted to an `inputEmojiStatusCollectible <https://core.telegram.org/constructor/inputEmojiStatusCollectible>`__ first before passing it to that method.",
+      "desc": "An owned or `hosted collectible gift  <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__ as emoji status.\nCannot be passed to `account.updateEmojiStatus <https://core.telegram.org/method/account.updateEmojiStatus>`__, must be converted to an `inputEmojiStatusCollectible <https://core.telegram.org/constructor/inputEmojiStatusCollectible>`__ first before passing it to that method.",
       "params": {
         "center_color": "Color of the center of the profile backdrop in RGB24 format, from the gift's `starGiftAttributeBackdrop <https://core.telegram.org/constructor/starGiftAttributeBackdrop>`__.",
         "collectible_id": "ID of the collectible (from `starGiftUnique <https://core.telegram.org/constructor/starGiftUnique>`__.id).",
@@ -2768,7 +2768,7 @@
       "params": {}
     },
     "InputChatThemeUniqueGift": {
-      "desc": "Set a theme based on an owned `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__, returned by `account.getUniqueGiftChatThemes <https://core.telegram.org/method/account.getUniqueGiftChatThemes>`__.",
+      "desc": "Set a theme based on an owned or `hosted collectible gift  <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__, returned by `account.getUniqueGiftChatThemes <https://core.telegram.org/method/account.getUniqueGiftChatThemes>`__.",
       "params": {
         "slug": "The slug from `starGiftUnique <https://core.telegram.org/constructor/starGiftUnique>`__.slug."
       }
@@ -2854,7 +2854,7 @@
       }
     },
     "InputEmojiStatusCollectible": {
-      "desc": "An `owned collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__ as emoji status: can only be used in `account.updateEmojiStatus <https://core.telegram.org/method/account.updateEmojiStatus>`__, is never returned by the API.\nNote that once set, the status will be returned to users as a `emojiStatusCollectible <https://core.telegram.org/constructor/emojiStatusCollectible>`__ constructor, instead (which cannot be passed to `account.updateEmojiStatus <https://core.telegram.org/method/account.updateEmojiStatus>`__, and must be converted to an `inputEmojiStatusCollectible <https://core.telegram.org/constructor/inputEmojiStatusCollectible>`__ first).",
+      "desc": "An owned or `hosted collectible gift  <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__ as emoji status: can only be used in `account.updateEmojiStatus <https://core.telegram.org/method/account.updateEmojiStatus>`__, is never returned by the API.\nNote that once set, the status will be returned to users as a `emojiStatusCollectible <https://core.telegram.org/constructor/emojiStatusCollectible>`__ constructor, instead (which cannot be passed to `account.updateEmojiStatus <https://core.telegram.org/method/account.updateEmojiStatus>`__, and must be converted to an `inputEmojiStatusCollectible <https://core.telegram.org/constructor/inputEmojiStatusCollectible>`__ first).",
       "params": {
         "collectible_id": "ID of the collectible (from `starGiftUnique <https://core.telegram.org/constructor/starGiftUnique>`__.id).",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -4697,7 +4697,7 @@
         "schedule_repeat_period": "Once sent, this message will be automatically re-scheduled to be re-sent again this many seconds in the future, see `here \u00bb <https://core.telegram.org/api/scheduled-messages#repeating-scheduled-messages>`__ for more info on repeating scheduled messages.",
         "silent": "Whether this is a silent message (no notification triggered)",
         "suggested_post": "Used to `suggest a post to a channel, see here \u00bb <https://core.telegram.org/api/suggested-posts>`__ for more info on the full flow.",
-        "summary_from_language": "If set, clients should offer a `summarization button \u00bb <https://core.telegram.org/api/ai#summarize-messages>`__ for this message; contains the two-letter ISO 639-1 language code of the message text that will be summarized.",
+        "summary_from_language": "If set, clients should offer a `summarization button \u00bb <https://core.telegram.org/api/ai#summarize-messages>`__ for this message; contains the two-letter ISO 639-1 language code of the inferred language of the current message.",
         "ttl_period": "Time To Live of the message, once message.date+message.ttl_period === time(), the message will be deleted on the server, and must be deleted locally as well.",
         "via_bot_id": "ID of the inline bot that generated the message",
         "via_business_bot_id": "Whether the message was sent by the `business bot <https://core.telegram.org/api/bots/connected-business-bots>`__ specified in via_bot_id on behalf of the user.",
@@ -5147,7 +5147,7 @@
     "MessageActionStarGiftUnique": {
       "desc": "A `gift  <https://core.telegram.org/api/gifts>`__ was upgraded to a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
       "params": {
-        "assigned": "This collectible gift was assigned from the `TON blockchain \u00bb <https://core.telegram.org/api/gifts#withdraw-a-collectible-gift-to-the-ton-blockchain>`__.",
+        "assigned": "This collectible gift was `linked from the TON blockchain to a Telegram profile \u00bb <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__.",
         "can_craft_at": "If set, this gift can be used for `crafting \u00bb <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__ only starting from the specified unixtime.",
         "can_export_at": "If set, indicates that the current gift can't be `exported to the TON blockchain \u00bb <https://core.telegram.org/api/gifts#withdraw-a-collectible-gift-to-the-ton-blockchain>`__ yet: the owner will be able to export it at the specified unixtime.",
         "can_resell_at": "If set, indicates that the current gift can't be `resold \u00bb <https://core.telegram.org/api/gifts#reselling-collectible-gifts>`__ yet: the owner will be able to put it up for sale at the specified unixtime.",
@@ -6579,7 +6579,7 @@
       "params": {
         "bytes": "Binary data, file content",
         "h": "Image height",
-        "type": "Thumbnail type",
+        "type": "`PhotoSize.type value \u00bb <https://core.telegram.org/api/files#photosizetype-values>`__",
         "w": "Image width"
       }
     },
@@ -6592,8 +6592,8 @@
     "PhotoPathSize": {
       "desc": "Messages with animated stickers can have a compressed svg (< 300 bytes) to show the outline of the sticker before fetching the actual lottie animation.",
       "params": {
-        "bytes": "Compressed SVG path payload, `see here for decompression instructions <https://core.telegram.org/api/files#vector-thumbnails>`__",
-        "type": "Always j"
+        "bytes": "Compressed SVG path payload, see `vector thumbnails \u00bb <https://core.telegram.org/api/files#vector-thumbnails>`__",
+        "type": "Always `j \u00bb <https://core.telegram.org/api/files#j>`__"
       }
     },
     "PhotoSize": {
@@ -6601,14 +6601,14 @@
       "params": {
         "h": "Image height",
         "size": "File size",
-        "type": "`Thumbnail type \u00bb <https://core.telegram.org/api/files#image-thumbnail-types>`__",
+        "type": "`PhotoSize.type value \u00bb <https://core.telegram.org/api/files#photosizetype-values>`__",
         "w": "Image width"
       }
     },
     "PhotoSizeEmpty": {
       "desc": "Empty constructor. Image with this thumbnail is unavailable.",
       "params": {
-        "type": "`Thumbnail type \u00bb <https://core.telegram.org/api/files#image-thumbnail-types>`__"
+        "type": "`PhotoSize.type value \u00bb <https://core.telegram.org/api/files#photosizetype-values>`__"
       }
     },
     "PhotoSizeProgressive": {
@@ -6616,15 +6616,15 @@
       "params": {
         "h": "Photo height",
         "sizes": "Sizes of progressive JPEG file prefixes, which can be used to preliminarily show the image.",
-        "type": "`Photosize type \u00bb <https://core.telegram.org/api/files#image-thumbnail-types>`__",
+        "type": "`PhotoSize.type value \u00bb <https://core.telegram.org/api/files#photosizetype-values>`__",
         "w": "Photo width"
       }
     },
     "PhotoStrippedSize": {
       "desc": "A low-resolution compressed JPG payload",
       "params": {
-        "bytes": "Thumbnail data, see `here for more info on decompression \u00bb <https://core.telegram.org/api/files#stripped-thumbnails>`__",
-        "type": "Thumbnail type"
+        "bytes": "Thumbnail data, see `stripped thumbnails \u00bb <https://core.telegram.org/api/files#stripped-thumbnails>`__",
+        "type": "`PhotoSize.type value \u00bb <https://core.telegram.org/api/files#photosizetype-values>`__"
       }
     },
     "Poll": {
@@ -7899,7 +7899,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "gift_address": "For `NFTs on the TON blockchain <https://core.telegram.org/api/gifts#withdraw-a-collectible-gift-to-the-ton-blockchain>`__, contains the address of the NFT (append it to the `ton_blockchain_explorer_url client configuration value \u00bb <https://core.telegram.org/api/config#ton-blockchain-explorer-url>`__ to obtain a link with information about the address).",
         "gift_id": "ID of the regular gift from which this gift was upgraded (all collectible gifts upgraded from the same gift will have the same gift_id, with different attributes).",
-        "host_id": "If set, the gift is currently hosted on the specified user or channel profile even though ownership belongs to a TON wallet. The owner may transfer, resell or export the gift, while the host or owner may show it on the profile, use it as a theme/status and add it to a collection.",
+        "host_id": "If set, the gift is currently `hosted on the specified user or channel profile \u00bb <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__, while ownership remains with the TON wallet in owner_address.",
         "id": "Unique identifier of this collectible gift.",
         "num": "Unique identifier of this collectible gift among all (already upgraded) collectible gifts of the same type.",
         "offer_min_stars": "If set, you can `send a purchase offer for this gift \u00bb <https://core.telegram.org/api/gifts#collectible-gift-purchase-offers>`__: the minimum offer price is specified in this flag.",
@@ -10230,7 +10230,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "h": "Video height",
         "size": "File size",
-        "type": "u for animated profile pictures, and v for trimmed and downscaled video previews",
+        "type": "`videoSize.type value \u00bb <https://core.telegram.org/api/files#videosizetype-values>`__",
         "video_start_ts": "Timestamp that should be shown as static preview to the user (seconds)",
         "w": "Video width"
       }
@@ -13428,7 +13428,7 @@
     "account.GetCollectibleEmojiStatuses": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Obtain a list of `emoji statuses  <https://core.telegram.org/api/emoji-status>`__ for owned `collectible gifts <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
+      "desc": "Obtain a list of `emoji statuses  <https://core.telegram.org/api/emoji-status>`__ for owned or `hosted collectible gifts  <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__.",
       "params": {
         "hash": "`Hash for pagination <https://core.telegram.org/api/offsets>`__"
       },
@@ -13647,7 +13647,7 @@
     "account.GetUniqueGiftChatThemes": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Obtain all `chat themes  <https://core.telegram.org/api/themes#chat-themes>`__ associated to owned `collectible gifts  <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
+      "desc": "Obtain all `chat themes  <https://core.telegram.org/api/themes#chat-themes>`__ associated to owned or `hosted collectible gifts  <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__.",
       "params": {
         "hash": "Hash from a previously returned `account.chatThemes <https://core.telegram.org/constructor/account.chatThemes>`__ constructor, to avoid returning any result if the theme list hasn't changed.",
         "limit": "Maximum number of results to return, `see pagination <https://core.telegram.org/api/offsets>`__. Note that the server may return less than limit results, even if the actual number of remaining results is >= limit, paginate to fetch them all.",
@@ -19634,10 +19634,10 @@
     "payments.GetSavedStarGifts": {
       "can_use_business_connection": true,
       "can_use_without_auth": false,
-      "desc": "Fetch the full list of `gifts <https://core.telegram.org/api/gifts>`__ owned by a peer.\nNote that unlike what the name suggests, the method can be used to fetch both \"saved\" and \"unsaved\" gifts (aka gifts both pinned and not pinned) to the profile, depending on the passed flags.",
+      "desc": "Fetch the full list of `gifts  <https://core.telegram.org/api/gifts#list-all-received-gifts>`__ owned, received or `hosted  <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__ by a peer.\nNote that unlike what the name suggests, the method can be used to fetch both \"saved\" and \"unsaved\" gifts (aka gifts both pinned and not pinned) to the profile, depending on the passed flags.",
       "params": {
         "collection_id": "Only returns gifts within the specified `collection \u00bb <https://core.telegram.org/api/gifts#gift-collections>`__.",
-        "exclude_hosted": "If set, excludes `collectible gifts <https://core.telegram.org/api/gifts#collectible-gifts>`__ that are merely `hosted <https://core.telegram.org/constructor/starGiftUnique>`__ on the profile (i.e. displayed by the peer while ownership belongs to a TON wallet), returning only gifts actually owned by the peer.",
+        "exclude_hosted": "If set, excludes `hosted collectible gifts \u00bb <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__, returning only gifts owned or received by peer.",
         "exclude_saved": "Exclude gifts pinned on the profile.",
         "exclude_unique": "Exclude `collectible gifts \u00bb <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
         "exclude_unlimited": "Exclude gifts that do not have the `starGift <https://core.telegram.org/constructor/starGift>`__.limited flag set.",
@@ -19647,7 +19647,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "limit": "Maximum number of results to return, `see pagination <https://core.telegram.org/api/offsets>`__",
         "offset": "`Offset for pagination <https://core.telegram.org/api/offsets>`__.",
-        "peer": "Fetch only gifts owned by the specified peer, such as: a user, with peer=`inputPeerUser <https://core.telegram.org/constructor/inputPeerUser>`__; a channel, with peer=`inputPeerChannel <https://core.telegram.org/constructor/inputPeerChannel>`__; a `connected business user <https://core.telegram.org/api/bots/connected-business-bots>`__ (when executing the method as a bot, over the business connection), with peer=`inputPeerUser <https://core.telegram.org/constructor/inputPeerUser>`__.",
+        "peer": "Fetch only gifts owned, received or `hosted \u00bb <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__ by the specified peer, such as: a user, with peer=`inputPeerUser <https://core.telegram.org/constructor/inputPeerUser>`__; a channel, with peer=`inputPeerChannel <https://core.telegram.org/constructor/inputPeerChannel>`__; a `connected business user \u00bb <https://core.telegram.org/api/bots/connected-business-bots>`__ (when executing the method as a bot, over the business connection), with peer=`inputPeerUser <https://core.telegram.org/constructor/inputPeerUser>`__.",
         "peer_color_available": "If set, only returns `collectible gifts <https://core.telegram.org/api/gifts#collectible-gifts>`__ whose palette can be used as a `collectible message palette \u00bb <https://core.telegram.org/api/colors#collectible-message-palettes>`__.",
         "sort_by_value": "If set, sorts the gifts by price instead of reception date."
       },
@@ -19915,10 +19915,10 @@
     "payments.SaveStarGift": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Display or remove a `received gift  <https://core.telegram.org/api/gifts>`__ from our profile.",
+      "desc": "Display or remove a `received or hosted gift  <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__ from our profile.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "stargift": "The gift to display or remove.",
+        "stargift": "The gift to display or remove. A `hosted collectible gift \u00bb <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__ may be used by its host or owner.",
         "unsave": "If set, hides the gift from our profile."
       },
       "usable-by": "users"
