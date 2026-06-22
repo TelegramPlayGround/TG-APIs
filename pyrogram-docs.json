@@ -9523,6 +9523,17 @@
         "phone_call_id": "Phone call ID"
       }
     },
+    "UpdatePinnedChannelMessages": {
+      "desc": "Messages were pinned/unpinned in a `channel/supergroup <https://core.telegram.org/api/channel>`__",
+      "params": {
+        "channel_id": "Channel ID",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "messages": "Messages",
+        "pinned": "Whether the messages were pinned or unpinned",
+        "pts": "`Event count after generation <https://core.telegram.org/api/updates>`__",
+        "pts_count": "`Number of events that were generated <https://core.telegram.org/api/updates>`__"
+      }
+    },
     "UpdatePinnedDialogs": {
       "desc": "Pinned dialogs were updated",
       "params": {
