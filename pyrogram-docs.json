@@ -646,7 +646,7 @@
       }
     },
     "Channel": {
-      "desc": "Channel/supergroup info\nWhen updating the `local peer database <https://core.telegram.org/api/peers>`__, all fields from the newly received constructor take priority over the old constructor cached locally (including by removing fields that aren't set in the new constructor).\nThe only exception to the above rule is when the min flag is set, in which case only the following fields must be applied over any locally stored version:\nSee `here  <https://github.com/tdlib/td/blob/a24af0992245f838f2b4b418a0a2d5fa9caa27b5/td/telegram/ChatManager.cpp#L8329>`__ for an implementation of the logic to use when updating the `local user peer database <https://core.telegram.org/api/peers>`__.\n\n\n\n\n\t | title \n\n\t | megagroup \n\n\t | color \n\n\t | photo \n\n\t | username \n\n\t | usernames \n\n\t | has_geo \n\n\t | noforwards \n\n\t | emoji_status \n\n\t | has_link \n\n\t | slow_mode_enabled \n\n\t | scam \n\n\t | fake \n\n\t | gigagroup \n\n\t | forum \n\n\t | level \n\n\t | restricted \n\n\t | restriction_reason \n\n\t | join_to_send \n\n\t | join_request \n\n\t | is_verified \n\n\t | default_banned_rights \n\n\t | signature_profiles \n\n\t | autotranslation \n\n\t | broadcast_messages_allowed \n\n\t | monoforum \n\n\t | forum_tabs \n\n\t | linked_monoforum_id \n\n\t | send_paid_messages_stars \n\n\t | bot_verification_icon",
+      "desc": "Channel/supergroup info\nWhen updating the `local peer database <https://core.telegram.org/api/peers>`__, all fields from the newly received constructor take priority over the old constructor cached locally (including by removing fields that aren't set in the new constructor).\nThe only exception to the above rule is when the min flag is set, in which case only the following fields must be applied over any locally stored version:\nSee `here  <https://github.com/tdlib/td/blob/a17f87c4cff7b90b278d12b91ba0614383aaee82/td/telegram/ChatManager.cpp#L9176>`__ for an implementation of the logic to use when updating the `local channel peer database <https://core.telegram.org/api/peers>`__.\n\n\n\n\n\t | title \n\n\t | megagroup \n\n\t | color \n\n\t | photo \n\n\t | username \n\n\t | usernames \n\n\t | has_geo \n\n\t | noforwards \n\n\t | emoji_status \n\n\t | has_link \n\n\t | slow_mode_enabled \n\n\t | scam \n\n\t | fake \n\n\t | gigagroup \n\n\t | forum \n\n\t | level \n\n\t | restricted \n\n\t | restriction_reason \n\n\t | join_to_send \n\n\t | join_request \n\n\t | is_verified \n\n\t | default_banned_rights \n\n\t | signature_profiles \n\n\t | autotranslation \n\n\t | broadcast_messages_allowed \n\n\t | monoforum \n\n\t | forum_tabs \n\n\t | linked_monoforum_id \n\n\t | send_paid_messages_stars \n\n\t | bot_verification_icon",
       "params": {
         "access_hash": "Access hash, see `here \u00bb <https://core.telegram.org/api/peers#access-hash>`__ for more info",
         "admin_rights": "Admin rights of the user in this channel (see `rights <https://core.telegram.org/api/rights>`__)",
@@ -1291,7 +1291,7 @@
       }
     },
     "Chat": {
-      "desc": "Info about a group.\nWhen updating the `local peer database <https://core.telegram.org/api/peers>`__, all fields from the newly received constructor take priority over the old constructor cached locally (including by removing fields that aren't set in the new constructor).\nSee `here  <https://github.com/tdlib/td/blob/a24af0992245f838f2b4b418a0a2d5fa9caa27b5/td/telegram/ChatManager.cpp#L5152>`__ for an implementation of the logic to use when updating the `local user peer database <https://core.telegram.org/api/peers>`__.",
+      "desc": "Info about a group.\nWhen updating the `local peer database <https://core.telegram.org/api/peers>`__, all fields from the newly received constructor take priority over the old constructor cached locally (including by removing fields that aren't set in the new constructor).\nSee `here  <https://github.com/tdlib/td/blob/a17f87c4cff7b90b278d12b91ba0614383aaee82/td/telegram/ChatManager.cpp#L5679>`__ for an implementation of the logic to use when updating the `local chat peer database <https://core.telegram.org/api/peers>`__.",
       "params": {
         "admin_rights": "`Admin rights <https://core.telegram.org/api/rights>`__ of the user in the group",
         "call_active": "Whether a group call is currently active",
@@ -1851,7 +1851,7 @@
         "performer": "Performer",
         "title": "Name of song",
         "voice": "Whether this is a voice message",
-        "waveform": "Waveform: consists in a series of bitpacked 5-bit values. Example implementation: `android <https://github.com/DrKLO/Telegram/blob/96dce2c9aabc33b87db61d830aa087b6b03fe397/TMessagesProj/jni/audio.c#L546>`__."
+        "waveform": "Waveform: consists in a series of bitpacked 5-bit values. Example implementation: `android <https://github.com/DrKLO/Telegram/blob/9b50143d8896d255d03155598937e4f3e28afd86/TMessagesProj/jni/audio.c#L562>`__."
       }
     },
     "DocumentAttributeCustomEmoji": {
@@ -2305,34 +2305,34 @@
       }
     },
     "GroupCall": {
-      "desc": "Describes a `group call <https://core.telegram.org/api/group-calls>`__.",
+      "desc": "Describes a `group call <https://core.telegram.org/api/group-calls>`__.\nIf the min flag is set, this is a partial (min) constructor: only a subset of its fields contains up-to-date information, and it must be merged into a previously cached non-min constructor as described below. If no full (non-min) constructor for this call was cached previously, the min constructor must be discarded.\nWhen min is set, the following mandatory fields may be used: id, access_hash, participants_count and version. In addition, only the following conditional fields may be used if present, subject to the usual version check:\nWhen min is set, the following fields must be ignored, keeping the values from the previously cached non-min constructor:\nThe join_date_asc flag is set only when the call is created and never changes afterwards, so it too is not applied from a min constructor.\n\n\n\n\n\t | conference \n\n\t | rtmp_stream \n\n\t | listeners_hidden \n\n\t | title \n\n\t | messages_enabled \n\n\t | record_start_date and record_video_active \n\n\t | schedule_date \n\n\t | send_paid_messages_stars",
       "params": {
         "access_hash": "Group call access hash",
-        "can_change_join_muted": "Whether the current user can change the value of the join_muted flag using `phone.toggleGroupCallSettings <https://core.telegram.org/method/phone.toggleGroupCallSettings>`__",
-        "can_change_messages_enabled": "Whether the current user may enable or disable the `in-call message overlay \u00bb <https://core.telegram.org/api/group-calls#in-call-messages>`__",
-        "can_start_video": "Whether you can start streaming video into the call",
+        "can_change_join_muted": "Whether the current user can change the value of the join_muted flag using `phone.toggleGroupCallSettings <https://core.telegram.org/method/phone.toggleGroupCallSettings>`__. Must be ignored if the min flag is set.",
+        "can_change_messages_enabled": "Whether the current user may enable or disable the `in-call message overlay \u00bb <https://core.telegram.org/api/group-calls#in-call-messages>`__. Must be ignored if the min flag is set.",
+        "can_start_video": "Whether you can start streaming video into the call. Must be ignored if the min flag is set.",
         "conference": "Whether this is an E2E conference call.",
-        "creator": "Whether the current user created this group call.",
-        "default_send_as": "Default peer displayed as the author of `live story comments and reactions \u00bb <https://core.telegram.org/api/group-calls#in-call-messages>`__",
+        "creator": "Whether the current user created this group call. Must be ignored if the min flag is set.",
+        "default_send_as": "Default peer displayed as the author of `live story comments and reactions \u00bb <https://core.telegram.org/api/group-calls#in-call-messages>`__. Must be ignored if the min flag is set.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "id": "Group call ID",
-        "invite_link": "Invitation link for a `conference call \u00bb <https://core.telegram.org/api/group-calls#conference-calls>`__.",
-        "join_date_asc": "Specifies the ordering to use when locally sorting by date and displaying in the UI group call participants.",
-        "join_muted": "Whether the user should be muted upon joining the call",
+        "invite_link": "Invitation link for a `conference call \u00bb <https://core.telegram.org/api/group-calls#conference-calls>`__. Must be ignored if the min flag is set.",
+        "join_date_asc": "Specifies the ordering to use when locally sorting by date and displaying in the UI group call participants. Set only when the call is created and never changed afterwards, so it is not applied from a min constructor.",
+        "join_muted": "Whether the user should be muted upon joining the call. Must be ignored if the min flag is set.",
         "listeners_hidden": "Whether the listeners list is hidden and cannot be fetched using `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__. The phone.groupParticipants.count and groupCall.participants_count counters will still include listeners.",
         "messages_enabled": "Whether the `in-call message overlay \u00bb <https://core.telegram.org/api/group-calls#in-call-messages>`__ is enabled",
-        "min": "Whether this is a partial constructor that must be applied using the `group call update rules \u00bb <https://core.telegram.org/api/group-calls#applying-group-call-updates>`__",
+        "min": "Whether this is a partial constructor that must be merged into a previously cached non-min constructor, following the rules described above.",
         "participants_count": "Participant count",
         "record_start_date": "When was the recording started",
         "record_video_active": "Whether the group call is currently being recorded",
         "rtmp_stream": "Whether this call uses `RTMP livestream mode \u00bb <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__",
         "schedule_date": "When is the call scheduled to start",
-        "schedule_start_subscribed": "Whether we subscribed to the scheduled call",
+        "schedule_start_subscribed": "Whether we subscribed to the scheduled call. Must be ignored if the min flag is set.",
         "send_paid_messages_stars": "Minimum Stars donation required from users other than the live story owner to send a `paid comment \u00bb <https://core.telegram.org/api/group-calls#paid-live-story-comments>`__; 0 or no value allows free comments",
-        "stream_dc_id": "Media DC ID to use for `RTMP stream requests \u00bb <https://core.telegram.org/api/group-calls#playing-an-rtmp-livestream>`__",
+        "stream_dc_id": "Media DC ID to use for `RTMP stream requests \u00bb <https://core.telegram.org/api/group-calls#playing-an-rtmp-livestream>`__. Must be ignored if the min flag is set.",
         "title": "Group call title",
-        "unmuted_video_count": "Number of people currently streaming video into the call",
-        "unmuted_video_limit": "Maximum number of people allowed to stream video into the call",
+        "unmuted_video_count": "Number of people currently streaming video into the call. Must be ignored if the min flag is set.",
+        "unmuted_video_limit": "Maximum number of people allowed to stream video into the call. Must be ignored if the min flag is set.",
         "version": "Revision used to apply `group call updates \u00bb <https://core.telegram.org/api/group-calls#applying-group-call-updates>`__"
       }
     },
@@ -4471,7 +4471,7 @@
       }
     },
     "KeyboardButtonUrl": {
-      "desc": "URL button\nAvailable only in `inline keyboards <https://core.telegram.org/constructor/replyInlineMarkup>`__.\nWhen pressed, clients open url, showing a confirmation prompt unless the URL is one of the `internal URIs <https://github.com/DrKLO/Telegram/blob/002c01ecd37cd08ed07b3ed84d79318d091dfc85/TMessagesProj/src/main/java/org/telegram/messenger/browser/Browser.java#L351>`__.",
+      "desc": "URL button\nAvailable only in `inline keyboards <https://core.telegram.org/constructor/replyInlineMarkup>`__.\nWhen pressed, clients open url, showing a confirmation prompt unless the URL is one of the `internal URIs <https://github.com/DrKLO/Telegram/blob/9b50143d8896d255d03155598937e4f3e28afd86/TMessagesProj/src/main/java/org/telegram/messenger/browser/Browser.java#L680>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "style": "Button style, see `here \u00bb <https://core.telegram.org/api/bots/buttons#button-styles>`__ for more info on button styles.",
@@ -10037,7 +10037,7 @@
       }
     },
     "User": {
-      "desc": "Indicates info about a certain user.\nUnless specified otherwise, when updating the `local peer database <https://core.telegram.org/api/peers>`__, all fields from the newly received constructor take priority over the old constructor cached locally (including by removing fields that aren't set in the new constructor).\nSee `here  <https://github.com/tdlib/td/blob/cb164927417f22811c74cd8678ed4a5ab7cb80ba/td/telegram/UserManager.cpp#L2267>`__ for an implementation of the logic to use when updating the `local user peer database <https://core.telegram.org/api/peers>`__.",
+      "desc": "Indicates info about a certain user.\nUnless specified otherwise, when updating the `local peer database <https://core.telegram.org/api/peers>`__, all fields from the newly received constructor take priority over the old constructor cached locally (including by removing fields that aren't set in the new constructor).\nSee `here  <https://github.com/tdlib/td/blob/a17f87c4cff7b90b278d12b91ba0614383aaee82/td/telegram/UserManager.cpp#L3106>`__ for an implementation of the logic to use when updating the `local user peer database <https://core.telegram.org/api/peers>`__.",
       "params": {
         "access_hash": "Access hash of the user, see `here \u00bb <https://core.telegram.org/api/peers#access-hash>`__ for more info. If this flag is set, when updating the `local peer database <https://core.telegram.org/api/peers>`__, generate a virtual flag called min_access_hash, which is: - Set to true if min is set AND -- The phone flag is not set OR -- The phone flag is set and the associated phone number string is non-empty - Set to false otherwise. Then, apply both access_hash and min_access_hash to the local database if: - min_access_hash is false OR - min_access_hash is true AND -- There is no locally cached object for this user OR -- There is no access_hash in the local cache OR -- The cached object's min_access_hash is also true If the final merged object stored to the database has the min_access_hash field set to true, the related access_hash is only suitable to use in `inputPeerPhotoFileLocation \u00bb <https://core.telegram.org/constructor/inputPeerPhotoFileLocation>`__, to directly `download the profile pictures <https://core.telegram.org/api/files>`__ of users, everywhere else a inputPeer*FromMessage constructor will have to be generated as specified `here \u00bb <https://core.telegram.org/api/min>`__. Bots can also use min access hashes in some conditions, by passing 0 instead of the min access hash.",
         "apply_min_photo": "If set and min is set, the value of photo can be used to update the local database, see the documentation of that flag for more info.",
@@ -14441,7 +14441,7 @@
     "auth.BindTempAuthKey": {
       "can_use_business_connection": false,
       "can_use_without_auth": true,
-      "desc": "Binds a temporary authorization key temp_auth_key_id to the permanent authorization key perm_auth_key_id. Each permanent key may only be bound to one temporary key at a time, binding a new temporary key overwrites the previous one.\nFor more information, see `Perfect Forward Secrecy <https://core.telegram.org/api/pfs>`__.",
+      "desc": "Binds a temporary authorization key temp_auth_key_id to the permanent authorization key perm_auth_key_id.\nFor more information, see `Perfect Forward Secrecy <https://core.telegram.org/api/pfs>`__.",
       "params": {
         "encrypted_message": "See `Generating encrypted_message <#generating-encrypted-message>`__",
         "expires_at": "Unix timestamp to invalidate temporary key, see `Binding message contents <#binding-message-contents>`__",
@@ -15926,7 +15926,7 @@
       "can_use_without_auth": false,
       "desc": "Returns the current user's contact list.",
       "params": {
-        "hash": "`Hash used for caching, for more info click here <https://core.telegram.org/api/offsets#hash-generation>`__.Note that the hash is computed `using the usual algorithm <https://core.telegram.org/api/offsets#hash-generation>`__, passing to the algorithm first the previously returned `contacts.contacts <https://core.telegram.org/constructor/contacts.contacts>`__.saved_count field, then max 100000 sorted user IDs from the contact list, including the ID of the currently logged in user if it is saved as a contact. Example: `tdlib implementation <https://github.com/tdlib/td/blob/63c7d0301825b78c30dc7307f1f1466be049eb79/td/telegram/UserManager.cpp#L5754>`__."
+        "hash": "`Hash used for caching, for more info click here <https://core.telegram.org/api/offsets#hash-generation>`__.Note that the hash is computed `using the usual algorithm <https://core.telegram.org/api/offsets#hash-generation>`__, passing to the algorithm first the previously returned `contacts.contacts <https://core.telegram.org/constructor/contacts.contacts>`__.saved_count field, then max 100000 sorted user IDs from the contact list, including the ID of the currently logged in user if it is saved as a contact. Example: `tdlib implementation <https://github.com/tdlib/td/blob/a17f87c4cff7b90b278d12b91ba0614383aaee82/td/telegram/UserManager.cpp#L7865>`__."
       },
       "usable-by": "users"
     },
@@ -19455,7 +19455,7 @@
     "payments.CraftStarGift": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Craft a new `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__ by combining 1 to 4 owned collectible gifts of the same base gift type.\nThe passed gifts must all have the same `starGiftUnique <https://core.telegram.org/constructor/starGiftUnique>`__.gift_id, must be usable for crafting, and must not be blocked by a future can_craft_at timestamp.\nThe first passed gift must not be located on the TON blockchain.",
+      "desc": "Craft a new `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__ by combining 1 to 4 owned collectible gifts of the same base gift type.\nThe passed gifts must all have the same `starGiftUnique <https://core.telegram.org/constructor/starGiftUnique>`__.gift_id, must be usable for crafting, and must not be blocked by a future can_craft_at timestamp.\nThe first passed gift must not be `located on the TON blockchain <https://core.telegram.org/api/gifts#hosted-collectible-gifts>`__.",
       "params": {
         "stargift": "1 to 4 owned collectible gifts of the same type to use for `crafting \u00bb <https://core.telegram.org/api/gifts#crafting-collectible-gifts>`__. The first gift's ID is reused if crafting succeeds."
       },
@@ -20223,7 +20223,7 @@
     "phone.GetGroupCall": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get info about a `group call <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__ and its participants.",
+      "desc": "Get info about a `group call <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__ and its participants.\n\n\n\n\n\t | conference \n\n\t | rtmp_stream \n\n\t | listeners_hidden \n\n\t | title \n\n\t | messages_enabled \n\n\t | record_start_date and record_video_active \n\n\t | schedule_date \n\n\t | send_paid_messages_stars",
       "params": {
         "call": "Group call of any type to fetch",
         "limit": "Maximum number of participants to return in this call (0 to return a server-defined amount). If the number of returned participants is less than `groupCall <https://core.telegram.org/constructor/groupCall>`__.participants_count, paginate through the remaining participants using `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__, passing to offset the `phone.groupCall <https://core.telegram.org/constructor/phone.groupCall>`__.participants_next_offset returned by this call. This parameter behaves in a different way compared to the limit of `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__, see `here \u00bb <https://core.telegram.org/api/group-calls#getting-info-about-a-group-call>`__ for more info."
@@ -20263,7 +20263,7 @@
     "phone.GetGroupCallStreamChannels": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Get the available stream channels and current playback timestamp of an RTMP-mode video chat, livestream or live story, see `here  <https://core.telegram.org/api/group-calls#playing-an-rtmp-livestream>`__ for the full flow.\nThe group call must be joined before invoking this method. Send the request to the media DC specified by `groupCall <https://core.telegram.org/constructor/groupCall>`__.stream_dc_id.",
+      "desc": "Get the available stream channels and current playback timestamp of an RTMP-mode video chat, livestream or live story, see `here  <https://core.telegram.org/api/group-calls#playing-an-rtmp-livestream>`__ for the full flow.\nThe group call must be joined before invoking this method. Send the request to the media DC specified by `groupCall <https://core.telegram.org/constructor/groupCall>`__.stream_dc_id.\n\n\n\n\n\t | conference \n\n\t | rtmp_stream \n\n\t | listeners_hidden \n\n\t | title \n\n\t | messages_enabled \n\n\t | record_start_date and record_video_active \n\n\t | schedule_date \n\n\t | send_paid_messages_stars",
       "params": {
         "call": "RTMP-mode video chat, livestream or live story"
       },
@@ -20448,7 +20448,7 @@
     "phone.SendGroupCallMessage": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
-      "desc": "Send an in-call message to all participants of a video chat/livestream or live story, including in RTMP mode, see `here  <https://core.telegram.org/api/group-calls#in-call-messages>`__ for more info.\nThe send_as field can only be populated for live stories, where it optionally selects the displayed author. If omitted, the server automatically selects the appropriate author. Do not populate it for video chats/livestreams.\nVideo chats/livestreams and live stories support `animated emoji reactions  <https://core.telegram.org/api/group-calls#in-call-reactions>`__, encoded as messages containing only a standard available reaction emoji or a single custom emoji entity.\nFor a paid live story comment, pass the user-confirmed donation amount in allow_paid_stars. For commenters other than the live story owner, this amount must be at least the current `groupCall <https://core.telegram.org/constructor/groupCall>`__.send_paid_messages_stars minimum. A higher amount may be donated to highlight the comment. The live story owner may comment without populating allow_paid_stars. To send a standalone paid live story donation, pass a positive allow_paid_stars value and an empty message, see `here  <https://core.telegram.org/api/group-calls#paid-live-story-donations>`__ for the full flow.",
+      "desc": "Send an in-call message to all participants of a video chat/livestream or live story, including in RTMP mode, see `here  <https://core.telegram.org/api/group-calls#in-call-messages>`__ for more info.\nThe send_as field can only be populated for live stories, where it optionally selects the displayed author. If omitted, the server automatically selects the appropriate author. Do not populate it for video chats/livestreams.\nVideo chats/livestreams and live stories support `animated emoji reactions  <https://core.telegram.org/api/group-calls#in-call-reactions>`__, encoded as messages containing only a standard available reaction emoji or a single custom emoji entity.\nFor a paid live story comment, pass the user-confirmed donation amount in allow_paid_stars. For commenters other than the live story owner, this amount must be at least the current `groupCall <https://core.telegram.org/constructor/groupCall>`__.send_paid_messages_stars minimum. A higher amount may be donated to highlight the comment. The live story owner may comment without populating allow_paid_stars. To send a standalone paid live story donation, pass a positive allow_paid_stars value and an empty message, see `here  <https://core.telegram.org/api/group-calls#paid-live-story-donations>`__ for the full flow.\n\n\n\n\n\t | conference \n\n\t | rtmp_stream \n\n\t | listeners_hidden \n\n\t | title \n\n\t | messages_enabled \n\n\t | record_start_date and record_video_active \n\n\t | schedule_date \n\n\t | send_paid_messages_stars",
       "params": {
         "allow_paid_stars": "User-confirmed number of Telegram Stars to donate with a live story comment or standalone donation",
         "call": "Video chat/livestream or live story that should receive the message, reaction or donation",
@@ -21564,7 +21564,7 @@
       "desc": "`Mini app  <https://core.telegram.org/api/bots/webapps>`__ settings\n\nBots can offer users interactive HTML5 web apps to completely replace any website.\n"
     },
     "BotBusinessConnection": {
-      "desc": "Contains info about a `bot business connection <https://core.telegram.org/api/bots/connected-business-bots>`__.\n\nBusiness users can connect Telegram bots that will process and answer messages on their behalf. This allows businesses to seamlessly integrate any existing tools and workflows, or add AI assistants that manage their chats.\n"
+      "desc": "Contains info about a `bot business connection <https://core.telegram.org/api/bots/connected-business-bots>`__.\n\nUsers can connect Telegram bots that will process and answer messages on their behalf. This allows them to seamlessly integrate any existing tools and workflows, or add AI assistants that manage their chats.\n"
     },
     "BotCommand": {
       "desc": "Describes a bot command that can be used in a chat\n\n"
@@ -21600,10 +21600,10 @@
       "desc": "Specifies when should the `Telegram Business away messages <https://core.telegram.org/api/business#away-messages>`__ be sent.\n\nUsers can turn their Telegram account into a business account, gaining access to business features such as opening hours, location, quick replies, automated messages, custom start pages, chatbot support, and more.\n"
     },
     "BusinessBotRecipients": {
-      "desc": "Specifies the private chats that a `connected business bot  <https://core.telegram.org/api/bots/connected-business-bots>`__ may receive messages and interact with.\n\nBusiness users can connect Telegram bots that will process and answer messages on their behalf. This allows businesses to seamlessly integrate any existing tools and workflows, or add AI assistants that manage their chats.\n"
+      "desc": "Specifies the private chats that a `connected business bot  <https://core.telegram.org/api/bots/connected-business-bots>`__ may receive messages and interact with.\n\nUsers can connect Telegram bots that will process and answer messages on their behalf. This allows them to seamlessly integrate any existing tools and workflows, or add AI assistants that manage their chats.\n"
     },
     "BusinessBotRights": {
-      "desc": "`Business bot rights <https://core.telegram.org/api/bots/connected-business-bots>`__.\n\nBusiness users can connect Telegram bots that will process and answer messages on their behalf. This allows businesses to seamlessly integrate any existing tools and workflows, or add AI assistants that manage their chats.\n"
+      "desc": "`Business bot rights <https://core.telegram.org/api/bots/connected-business-bots>`__.\n\nUsers can connect Telegram bots that will process and answer messages on their behalf. This allows them to seamlessly integrate any existing tools and workflows, or add AI assistants that manage their chats.\n"
     },
     "BusinessChatLink": {
       "desc": "Contains info about a `business chat deep link  <https://core.telegram.org/api/business#business-chat-links>`__ created by the current account.\n\nUsers can turn their Telegram account into a business account, gaining access to business features such as opening hours, location, quick replies, automated messages, custom start pages, chatbot support, and more.\n"
@@ -21699,7 +21699,7 @@
       "desc": "Object contains info on API configuring parameters.\n\n"
     },
     "ConnectedBot": {
-      "desc": "Contains info about a `connected business bot  <https://core.telegram.org/api/bots/connected-business-bots>`__.\n\nBusiness users can connect Telegram bots that will process and answer messages on their behalf. This allows businesses to seamlessly integrate any existing tools and workflows, or add AI assistants that manage their chats.\n"
+      "desc": "Contains info about a `connected business bot  <https://core.telegram.org/api/bots/connected-business-bots>`__.\n\nUsers can connect Telegram bots that will process and answer messages on their behalf. This allows them to seamlessly integrate any existing tools and workflows, or add AI assistants that manage their chats.\n"
     },
     "ConnectedBotStarRef": {
       "desc": "Info about an `active affiliate program we have with a Mini App <https://core.telegram.org/api/bots/referrals#becoming-an-affiliate>`__\n\nDevelopers can open affiliate programs for their mini app \u2013 allowing content creators, other mini app developers and any Telegram user to promote it and earn commissions on purchases made by people they referred.\n"
@@ -21888,7 +21888,7 @@
       "desc": "Describes a `Telegram Business away message <https://core.telegram.org/api/business#away-messages>`__, automatically sent to users writing to us when we're offline, during closing hours, while we're on vacation, or in some other custom time period when we cannot immediately answer to the user.\n\nUsers can turn their Telegram account into a business account, gaining access to business features such as opening hours, location, quick replies, automated messages, custom start pages, chatbot support, and more.\n"
     },
     "InputBusinessBotRecipients": {
-      "desc": "Specifies the private chats that a `connected business bot  <https://core.telegram.org/api/bots/connected-business-bots>`__ may interact with.\n\nBusiness users can connect Telegram bots that will process and answer messages on their behalf. This allows businesses to seamlessly integrate any existing tools and workflows, or add AI assistants that manage their chats.\n"
+      "desc": "Specifies the private chats that a `connected business bot  <https://core.telegram.org/api/bots/connected-business-bots>`__ may interact with.\n\nUsers can connect Telegram bots that will process and answer messages on their behalf. This allows them to seamlessly integrate any existing tools and workflows, or add AI assistants that manage their chats.\n"
     },
     "InputBusinessChatLink": {
       "desc": "Contains info about a `business chat deep link  <https://core.telegram.org/api/business#business-chat-links>`__ to be created by the current account.\n\nUsers can turn their Telegram account into a business account, gaining access to business features such as opening hours, location, quick replies, automated messages, custom start pages, chatbot support, and more.\n"
@@ -22665,7 +22665,7 @@
       "desc": "Available chat themes\n\n"
     },
     "account.ConnectedBots": {
-      "desc": "Info about currently connected `business bots <https://core.telegram.org/api/bots/connected-business-bots>`__.\n\nBusiness users can connect Telegram bots that will process and answer messages on their behalf. This allows businesses to seamlessly integrate any existing tools and workflows, or add AI assistants that manage their chats.\n"
+      "desc": "Info about currently connected `business bots <https://core.telegram.org/api/bots/connected-business-bots>`__.\n\nUsers can connect Telegram bots that will process and answer messages on their behalf. This allows them to seamlessly integrate any existing tools and workflows, or add AI assistants that manage their chats.\n"
     },
     "account.ContentSettings": {
       "desc": "Sensitive content settings\n\n"
