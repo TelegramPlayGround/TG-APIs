@@ -2385,7 +2385,7 @@
         "raise_hand_rating": "Specifies the UI visualization order of peers with raised hands: peers with a higher rating should be showed first in the list.",
         "self": "Whether this participant is the current user",
         "source": "Source ID of the participant's main audio stream",
-        "versioned": "If set, and `updateGroupCallParticipants <https://core.telegram.org/constructor/updateGroupCallParticipants>`__.version < locally stored call.version, info about this participant should be ignored. If (...), and `updateGroupCallParticipants <https://core.telegram.org/constructor/updateGroupCallParticipants>`__.version > call.version+1, the participant list should be refetched using `phone.getGroupParticipants <https://core.telegram.org/method/phone.getGroupParticipants>`__.",
+        "versioned": "If set, the application logic for this update is slightly different, see `here \u00bb <https://core.telegram.org/api/group-calls#applying-group-call-updates>`__ for more info on the full flow.",
         "video": "Info about the video stream the participant is currently broadcasting",
         "video_joined": "Whether this participant is currently broadcasting video",
         "volume": "Volume, between 1 and 20000; 10000 represents 100% volume. If not set, the volume is set to 100%.",
