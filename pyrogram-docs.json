@@ -8496,6 +8496,10 @@
         "text": "Text"
       }
     },
+    "TextMath": {
+      "desc": "",
+      "params": {}
+    },
     "TextMention": {
       "desc": "",
       "params": {}
