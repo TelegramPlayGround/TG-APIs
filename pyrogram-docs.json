@@ -6426,7 +6426,7 @@
       "params": {
         "access_hash": "Access hash",
         "admin_id": "User ID of the creator of the call",
-        "conference_supported": "If set, the other party supports upgrading of the call to a `conference call <https://core.telegram.org/api/end-to-end/group-calls>`__.",
+        "conference_supported": "If set, the other party supports `migrating the call to a conference call \u00bb <https://core.telegram.org/api/calls#migrating-to-a-conference-call>`__; clients should only offer the migrate/\"Add participants\" option in the call UI when this flag is set.",
         "connections": "List of endpoints the user can connect to exchange call data",
         "custom_parameters": "Custom JSON-encoded call parameters to be passed to tgcalls.",
         "date": "Date of creation of the call",
