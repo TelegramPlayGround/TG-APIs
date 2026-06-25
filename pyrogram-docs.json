@@ -21933,7 +21933,7 @@
       "desc": "Defines a document for subsequent interaction.\n\n"
     },
     "InputEncryptedChat": {
-      "desc": "An `e2e encrypted chat <https://core.telegram.org/api/end-to-end>`__.\n\n"
+      "desc": "An `e2e encrypted chat <https://core.telegram.org/api/end-to-end>`__.\n\nNew feature for end-to-end-encrypted messaging.\n"
     },
     "InputEncryptedFile": {
       "desc": "Object sets encrypted file for attachment\n\n"
