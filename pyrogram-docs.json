@@ -2862,9 +2862,9 @@
       }
     },
     "InputEncryptedChat": {
-      "desc": "Creates an encrypted chat.",
+      "desc": "An `e2e encrypted chat <https://core.telegram.org/api/end-to-end>`__.",
       "params": {
-        "access_hash": "Checking sum from constructor `encryptedChat <https://core.telegram.org/constructor/encryptedChat>`__, `encryptedChatWaiting <https://core.telegram.org/constructor/encryptedChatWaiting>`__ or `encryptedChatRequested <https://core.telegram.org/constructor/encryptedChatRequested>`__",
+        "access_hash": "Access hash from `encryptedChat <https://core.telegram.org/constructor/encryptedChat>`__, `encryptedChatWaiting <https://core.telegram.org/constructor/encryptedChatWaiting>`__ or `encryptedChatRequested <https://core.telegram.org/constructor/encryptedChatRequested>`__",
         "chat_id": "Chat ID"
       }
     },
@@ -21933,7 +21933,7 @@
       "desc": "Defines a document for subsequent interaction.\n\n"
     },
     "InputEncryptedChat": {
-      "desc": "Object sets an encrypted chat ID.\n\n"
+      "desc": "An `e2e encrypted chat <https://core.telegram.org/api/end-to-end>`__.\n\n"
     },
     "InputEncryptedFile": {
       "desc": "Object sets encrypted file for attachment\n\n"
