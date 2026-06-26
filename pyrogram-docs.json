@@ -22148,9 +22148,6 @@
     "MessagesFilter": {
       "desc": "Object describes message filter.\n\n"
     },
-    "MissingInvitee": {
-      "desc": "Info about why a specific user could not be `invited  <https://core.telegram.org/api/invites#direct-invites>`__.\n\nChats and channels may have a public username or a private invite link: private invite links may be further enhanced with per-user join requests.\n"
-    },
     "MyBoost": {
       "desc": "Contains information about a single `boost slot  <https://core.telegram.org/api/boost>`__.\n\nTelegram Premium users can grant their favorite channels and supergroups additional features like the ability to post stories by giving them boosts.\n"
     },
