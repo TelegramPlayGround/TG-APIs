@@ -5923,6 +5923,13 @@
         "name": "Name of target section"
       }
     },
+    "PageBlockAudio": {
+      "desc": "Audio",
+      "params": {
+        "audio_id": "Audio ID (to be fetched from the container `page <https://core.telegram.org/constructor/page>`__ constructor",
+        "caption": "Audio caption"
+      }
+    },
     "PageBlockAuthorDate": {
       "desc": "Author and date of creation of article",
       "params": {
