@@ -2432,6 +2432,13 @@
         "user_id": "User identifier"
       }
     },
+    "InlineBotSwitchPM": {
+      "desc": "The bot requested the user to message them in private",
+      "params": {
+        "start_param": "The parameter for the /start parameter",
+        "text": "Text for the button that switches the user to a private chat with the bot and sends the bot a start message with the parameter start_parameter (can be empty)"
+      }
+    },
     "InlineBotWebView": {
       "desc": "Specifies an `inline mode mini app <https://core.telegram.org/api/bots/webapps#inline-mode-mini-apps>`__ button, shown on top of the inline query results list.",
       "params": {
@@ -2920,12 +2927,6 @@
         "local_id": "File identifier",
         "secret": "Check sum to access the file",
         "volume_id": "Server volume"
-      }
-    },
-    "InputFileStoryDocument": {
-      "desc": "Used to `edit the thumbnail/static preview of a story, see here  <https://core.telegram.org/api/stories#editing-stories>`__ for more info on the full flow.",
-      "params": {
-        "id": "The old story video."
       }
     },
     "InputFolderPeer": {
@@ -6499,20 +6500,6 @@
         "udp_reflector": "Whether to allow connection to the other participants through the reflector servers"
       }
     },
-    "PhoneCallRequested": {
-      "desc": "Requested phone call, see `here  <https://core.telegram.org/api/calls>`__ for more info on the full flow.",
-      "params": {
-        "access_hash": "Access hash",
-        "admin_id": "ID of the creator of the phone call",
-        "date": "When was the phone call created",
-        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
-        "g_a_hash": "`Parameter for key exchange <https://core.telegram.org/api/end-to-end/voice-calls>`__",
-        "id": "Phone call ID",
-        "participant_id": "ID of the other participant of the phone call",
-        "protocol": "Call protocol info to be passed to libtgvoip",
-        "video": "Whether this is a video call"
-      }
-    },
     "PhoneCallWaiting": {
       "desc": "Incoming phone call, see `here  <https://core.telegram.org/api/calls>`__ for more info on the full flow.",
       "params": {
@@ -7716,6 +7703,12 @@
       "params": {
         "attribute": "The attribute (just the ID, without the attribute itself).",
         "count": "Total number of gifts with this attribute."
+      }
+    },
+    "StarGiftAttributeIdBackdrop": {
+      "desc": "The ID of a backdrop of a `collectible gift  <https://core.telegram.org/api/gifts#collectible-gifts>`__.",
+      "params": {
+        "backdrop_id": "Unique ID of the backdrop."
       }
     },
     "StarGiftAttributeIdModel": {
@@ -13369,15 +13362,6 @@
       "params": {},
       "usable-by": "users"
     },
-    "account.GetBotBusinessConnection": {
-      "can_use_business_connection": false,
-      "can_use_without_auth": false,
-      "desc": "Bots may invoke this method to re-fetch the `updateBotBusinessConnect <https://core.telegram.org/constructor/updateBotBusinessConnect>`__ constructor associated with a specific `business connection_id, see here  <https://core.telegram.org/api/bots/connected-business-bots>`__ for more info on connected business bots.\nThis is needed for example for freshly logged in bots that are receiving some `updateBotNewBusinessMessage <https://core.telegram.org/constructor/updateBotNewBusinessMessage>`__, etc. updates because some users have already connected to the bot before it could login.\nIn this case, the bot is receiving messages from the business connection, but it hasn't cached the associated `updateBotBusinessConnect <https://core.telegram.org/constructor/updateBotBusinessConnect>`__ with info about the connection (can it reply to messages? etc.) yet, and cannot receive the old ones because they were sent when the bot wasn't logged into the session yet.\nThis method can be used to fetch info about a not-yet-cached business connection, and should not be invoked if the info is already cached or to fetch changes, as eventual changes will automatically be sent as new `updateBotBusinessConnect <https://core.telegram.org/constructor/updateBotBusinessConnect>`__ updates to the bot using the usual `update delivery methods  <https://core.telegram.org/api/updates>`__.",
-      "params": {
-        "connection_id": "`Business connection ID \u00bb <https://core.telegram.org/api/bots/connected-business-bots>`__."
-      },
-      "usable-by": ""
-    },
     "account.GetBusinessChatLinks": {
       "can_use_business_connection": false,
       "can_use_without_auth": false,
@@ -15641,6 +15625,19 @@
       "params": {
         "channel": "The forum",
         "enabled": "The new value of the view_forum_as_messages flag."
+      },
+      "usable-by": "users"
+    },
+    "channels.UpdateColor": {
+      "can_use_business_connection": false,
+      "can_use_without_auth": false,
+      "desc": "Update the `accent color and background custom emoji  <https://core.telegram.org/api/colors>`__ of a channel.",
+      "params": {
+        "background_emoji_id": "Custom emoji ID used in the accent color pattern.",
+        "channel": "Channel whose accent color should be changed.",
+        "color": "`ID of the accent color palette \u00bb <https://core.telegram.org/api/colors>`__ to use (not RGB24, see `here \u00bb <https://core.telegram.org/api/colors>`__ for more info); if not set, the default palette is used.",
+        "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
+        "for_profile": "Whether to change the accent color emoji pattern of the profile page; otherwise, the accent color and emoji pattern of messages will be changed. Channels can change both message and profile palettes; supergroups can only change the profile palette, of course after reaching the `appropriate boost level <https://core.telegram.org/api/colors>`__."
       },
       "usable-by": "users"
     },
@@ -21633,6 +21630,9 @@
     "ChatAdminRights": {
       "desc": "Represents the rights of an admin in a `channel/supergroup <https://core.telegram.org/api/channel>`__.\n\nHow to handle channels, supergroups, gigagroups, basic groups, and what's the difference between them.\n"
     },
+    "ChatAdminWithInvites": {
+      "desc": "Info about chat invites generated by admins.\n\n"
+    },
     "ChatBannedRights": {
       "desc": "Represents the rights of a normal user in a `supergroup/channel/chat <https://core.telegram.org/api/channel>`__.\n\nHow to handle channels, supergroups, gigagroups, basic groups, and what's the difference between them.\n"
     },
@@ -22967,6 +22967,9 @@
     },
     "messages.FoundStickers": {
       "desc": "Found `stickers <https://core.telegram.org/api/stickers>`__\n\nTelegram clients support displaying static and animated stickers.\n"
+    },
+    "messages.HighScores": {
+      "desc": "High scores (in games)\n\n"
     },
     "messages.HistoryImport": {
       "desc": "Identifier of a `history import session, click here for more info  <https://core.telegram.org/api/import>`__.\n\nTelegram allows importing messages and media from foreign chat apps.\n"
