@@ -1840,11 +1840,11 @@
       }
     },
     "DocumentAttributeAnimated": {
-      "desc": "Defines an animated GIF",
+      "desc": "Defines an animated GIF\nAPI schema:",
       "params": {}
     },
     "DocumentAttributeAudio": {
-      "desc": "Represents an audio file",
+      "desc": "Represents an audio file\nAPI schema:",
       "params": {
         "duration": "Duration in seconds",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -1865,7 +1865,7 @@
       }
     },
     "DocumentAttributeFilename": {
-      "desc": "A simple document with a file name",
+      "desc": "A simple document with a file name\nAPI schema:",
       "params": {
         "file_name": "The file name"
       }
@@ -1875,14 +1875,14 @@
       "params": {}
     },
     "DocumentAttributeImageSize": {
-      "desc": "Defines the width and height of an image uploaded as document",
+      "desc": "Defines the width and height of an image uploaded as document\nAPI schema:",
       "params": {
         "h": "Height of image",
         "w": "Width of image"
       }
     },
     "DocumentAttributeSticker": {
-      "desc": "Defines a sticker",
+      "desc": "Defines a sticker\nAPI schema:",
       "params": {
         "alt": "Alternative emoji representation of sticker",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -1892,7 +1892,7 @@
       }
     },
     "DocumentAttributeVideo": {
-      "desc": "Defines a video",
+      "desc": "Defines a video\nAPI schema:",
       "params": {
         "duration": "Duration in seconds",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -2355,7 +2355,7 @@
       }
     },
     "GroupCallMessage": {
-      "desc": "Represents an `in-call message  <https://core.telegram.org/api/group-calls#in-call-messages>`__, emoji reaction, paid live story comment or standalone paid live story donation.",
+      "desc": "Represents an `in-call message  <https://core.telegram.org/api/group-calls#in-call-messages>`__, emoji reaction, paid live story comment or standalone paid live story donation.\nAPI schema:",
       "params": {
         "date": "Message date",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -4023,7 +4023,7 @@
       "params": {}
     },
     "InputStickerSetEmpty": {
-      "desc": "Empty constructor",
+      "desc": "Empty constructor\nAPI schema:",
       "params": {}
     },
     "InputStickerSetID": {
@@ -4048,7 +4048,7 @@
       "params": {}
     },
     "InputStickerSetShortName": {
-      "desc": "Stickerset by short name, from a `stickerset deep link  <https://core.telegram.org/api/links#stickerset-links>`__",
+      "desc": "Stickerset by short name, from a `stickerset deep link  <https://core.telegram.org/api/links#stickerset-links>`__\nAPI schema:",
       "params": {
         "short_name": "Short name from a `stickerset deep link \u00bb <https://core.telegram.org/api/links#stickerset-links>`__"
       }
@@ -4315,42 +4315,42 @@
       "params": {}
     },
     "JsonArray": {
-      "desc": "JSON array",
+      "desc": "JSON array\nAPI schema:",
       "params": {
         "value": "JSON values"
       }
     },
     "JsonBool": {
-      "desc": "JSON boolean value",
+      "desc": "JSON boolean value\nAPI schema:",
       "params": {
         "value": "Value"
       }
     },
     "JsonNull": {
-      "desc": "null JSON value",
+      "desc": "null JSON value\nAPI schema:",
       "params": {}
     },
     "JsonNumber": {
-      "desc": "JSON numeric value",
+      "desc": "JSON numeric value\nAPI schema:",
       "params": {
         "value": "Value"
       }
     },
     "JsonObject": {
-      "desc": "JSON object value",
+      "desc": "JSON object value\nAPI schema:",
       "params": {
         "value": "Values"
       }
     },
     "JsonObjectValue": {
-      "desc": "JSON key: value pair",
+      "desc": "JSON key: value pair\nAPI schema:",
       "params": {
         "key": "Key",
         "value": "Value"
       }
     },
     "JsonString": {
-      "desc": "JSON string",
+      "desc": "JSON string\nAPI schema:",
       "params": {
         "value": "Value"
       }
@@ -5267,7 +5267,7 @@
       }
     },
     "MessageEntityBlockquote": {
-      "desc": "Message entity representing a block quote.",
+      "desc": "Message entity representing a block quote.\nAPI schema:",
       "params": {
         "collapsed": "Whether the quote is collapsed by default.",
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
@@ -5276,14 +5276,14 @@
       }
     },
     "MessageEntityBold": {
-      "desc": "Message entity representing bold text.",
+      "desc": "Message entity representing bold text.\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)"
       }
     },
     "MessageEntityBotCommand": {
-      "desc": "Message entity representing a bot /command",
+      "desc": "Message entity representing a bot /command\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)"
@@ -5297,14 +5297,14 @@
       }
     },
     "MessageEntityCode": {
-      "desc": "Message entity representing a codeblock.",
+      "desc": "Message entity representing a codeblock.\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)"
       }
     },
     "MessageEntityCustomEmoji": {
-      "desc": "Represents a custom emoji.\nNote that this entity must wrap exactly one regular emoji (the one contained in `documentAttributeCustomEmoji <https://core.telegram.org/constructor/documentAttributeCustomEmoji>`__.alt) in the related text, otherwise the server will ignore it.",
+      "desc": "Represents a custom emoji.\nNote that this entity must wrap exactly one regular emoji (the one contained in `documentAttributeCustomEmoji <https://core.telegram.org/constructor/documentAttributeCustomEmoji>`__.alt) in the related text, otherwise the server will ignore it.\nAPI schema:",
       "params": {
         "document_id": "Document ID of the `custom emoji <https://core.telegram.org/api/custom-emoji>`__, use `messages.getCustomEmojiDocuments <https://core.telegram.org/method/messages.getCustomEmojiDocuments>`__ to fetch the emoji animation and the actual emoji it represents.",
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
@@ -5334,7 +5334,7 @@
       }
     },
     "MessageEntityEmail": {
-      "desc": "Message entity representing an `email@example.com <mailto:email@example.com>`__.",
+      "desc": "Message entity representing an `email@example.com <mailto:email@example.com>`__.\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)"
@@ -5356,21 +5356,21 @@
       }
     },
     "MessageEntityHashtag": {
-      "desc": "#hashtag message entity",
+      "desc": "#hashtag message entity\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)"
       }
     },
     "MessageEntityItalic": {
-      "desc": "Message entity representing italic text.",
+      "desc": "Message entity representing italic text.\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)"
       }
     },
     "MessageEntityMention": {
-      "desc": "Message entity `mentioning <https://core.telegram.org/api/mentions>`__ a user by @username; `messageEntityMentionName <https://core.telegram.org/constructor/messageEntityMentionName>`__ can also be used to mention users by their ID.",
+      "desc": "Message entity `mentioning <https://core.telegram.org/api/mentions>`__ a user by @username; `messageEntityMentionName <https://core.telegram.org/constructor/messageEntityMentionName>`__ can also be used to mention users by their ID.\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)"
@@ -5392,7 +5392,7 @@
       }
     },
     "MessageEntityPre": {
-      "desc": "Message entity representing a preformatted codeblock, allowing the user to specify a programming language for the codeblock.",
+      "desc": "Message entity representing a preformatted codeblock, allowing the user to specify a programming language for the codeblock.\nAPI schema:",
       "params": {
         "language": "Programming language of the code",
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
@@ -5400,21 +5400,21 @@
       }
     },
     "MessageEntitySpoiler": {
-      "desc": "Message entity representing a spoiler",
+      "desc": "Message entity representing a spoiler\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)"
       }
     },
     "MessageEntityStrike": {
-      "desc": "Message entity representing strikethrough text.",
+      "desc": "Message entity representing strikethrough text.\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)"
       }
     },
     "MessageEntityTextUrl": {
-      "desc": "Message entity representing a `text url <https://google.com>`__: for in-text urls like `https://google.com <https://google.com>`__ use `messageEntityUrl <https://core.telegram.org/constructor/messageEntityUrl>`__.\nNote that an additional confirmation popup with the full URL must be displayed to the user before opening this link, unless the domain satisfies the conditions specified in the `domain whitelist documentation  <https://core.telegram.org/api/config#whitelisted-domains>`__.",
+      "desc": "Message entity representing a `text url <https://google.com>`__: for in-text urls like `https://google.com <https://google.com>`__ use `messageEntityUrl <https://core.telegram.org/constructor/messageEntityUrl>`__.\nNote that an additional confirmation popup with the full URL must be displayed to the user before opening this link, unless the domain satisfies the conditions specified in the `domain whitelist documentation  <https://core.telegram.org/api/config#whitelisted-domains>`__.\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
@@ -5422,21 +5422,21 @@
       }
     },
     "MessageEntityUnderline": {
-      "desc": "Message entity representing underlined text.",
+      "desc": "Message entity representing underlined text.\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)"
       }
     },
     "MessageEntityUnknown": {
-      "desc": "Unknown message entity",
+      "desc": "Unknown message entity\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)"
       }
     },
     "MessageEntityUrl": {
-      "desc": "Message entity representing an in-text url: `https://google.com <https://google.com>`__; for `text urls <https://google.com>`__, use `messageEntityTextUrl <https://core.telegram.org/constructor/messageEntityTextUrl>`__.",
+      "desc": "Message entity representing an in-text url: `https://google.com <https://google.com>`__; for `text urls <https://google.com>`__, use `messageEntityTextUrl <https://core.telegram.org/constructor/messageEntityTextUrl>`__.\nAPI schema:",
       "params": {
         "length": "Length of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)",
         "offset": "Offset of message entity within message (in `UTF-16 code units <https://core.telegram.org/api/entities#entity-length>`__)"
@@ -6575,7 +6575,7 @@
       }
     },
     "PhotoCachedSize": {
-      "desc": "Description of an image and its content.",
+      "desc": "Description of an image and its content.\nAPI schema:",
       "params": {
         "bytes": "Binary data, file content",
         "h": "Image height",
@@ -6597,7 +6597,7 @@
       }
     },
     "PhotoSize": {
-      "desc": "Image description.",
+      "desc": "Image description.\nAPI schema:",
       "params": {
         "h": "Image height",
         "size": "File size",
@@ -6606,7 +6606,7 @@
       }
     },
     "PhotoSizeEmpty": {
-      "desc": "Empty constructor. Image with this thumbnail is unavailable.",
+      "desc": "Empty constructor. Image with this thumbnail is unavailable.\nAPI schema:",
       "params": {
         "type": "`PhotoSize.type value \u00bb <https://core.telegram.org/api/files#photosizetype-values>`__"
       }
@@ -7510,11 +7510,11 @@
       }
     },
     "SendMessageCancelAction": {
-      "desc": "Invalidate all previous action updates. E.g. when user deletes entered text or aborts a video upload.",
+      "desc": "Invalidate all previous action updates. E.g. when user deletes entered text or aborts a video upload.\nAPI schema:",
       "params": {}
     },
     "SendMessageChooseContactAction": {
-      "desc": "User is selecting a contact to share.",
+      "desc": "User is selecting a contact to share.\nAPI schema:",
       "params": {}
     },
     "SendMessageChooseStickerAction": {
@@ -7540,7 +7540,7 @@
       "params": {}
     },
     "SendMessageGeoLocationAction": {
-      "desc": "User is selecting a location to share.",
+      "desc": "User is selecting a location to share.\nAPI schema:",
       "params": {}
     },
     "SendMessageHistoryImportAction": {
@@ -7550,15 +7550,15 @@
       }
     },
     "SendMessageRecordAudioAction": {
-      "desc": "User is recording a voice message.",
+      "desc": "User is recording a voice message.\nAPI schema:",
       "params": {}
     },
     "SendMessageRecordRoundAction": {
-      "desc": "User is recording a round video to share",
+      "desc": "User is recording a round video to share\nAPI schema:",
       "params": {}
     },
     "SendMessageRecordVideoAction": {
-      "desc": "User is recording a video.",
+      "desc": "User is recording a video.\nAPI schema:",
       "params": {}
     },
     "SendMessageRichMessageDraftAction": {
@@ -7573,35 +7573,35 @@
       }
     },
     "SendMessageTypingAction": {
-      "desc": "User is typing.",
+      "desc": "User is typing.\nAPI schema:",
       "params": {}
     },
     "SendMessageUploadAudioAction": {
-      "desc": "User is uploading a voice message.",
+      "desc": "User is uploading a voice message.\nAPI schema:",
       "params": {
         "progress": "Progress percentage"
       }
     },
     "SendMessageUploadDocumentAction": {
-      "desc": "User is uploading a file.",
+      "desc": "User is uploading a file.\nAPI schema:",
       "params": {
         "progress": "Progress percentage"
       }
     },
     "SendMessageUploadPhotoAction": {
-      "desc": "User is uploading a photo.",
+      "desc": "User is uploading a photo.\nAPI schema:",
       "params": {
         "progress": "Progress percentage"
       }
     },
     "SendMessageUploadRoundAction": {
-      "desc": "User is uploading a round video",
+      "desc": "User is uploading a round video\nAPI schema:",
       "params": {
         "progress": "Progress percentage"
       }
     },
     "SendMessageUploadVideoAction": {
-      "desc": "User is uploading a video.",
+      "desc": "User is uploading a video.\nAPI schema:",
       "params": {
         "progress": "Progress percentage"
       }
@@ -8558,7 +8558,7 @@
       }
     },
     "TextWithEntities": {
-      "desc": "Styled text with `message entities <https://core.telegram.org/api/entities>`__",
+      "desc": "Styled text with `message entities <https://core.telegram.org/api/entities>`__\nAPI schema:",
       "params": {
         "entities": "`Message entities for styled text <https://core.telegram.org/api/entities>`__",
         "text": "Text"
@@ -21211,7 +21211,7 @@
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "fwd_from_id": "If set, indicates that this story is a repost of story with ID fwd_from_story posted by the peer in fwd_from_id.",
         "fwd_from_story": "If set, indicates that this story is a repost of story with ID fwd_from_story posted by the peer in fwd_from_id.",
-        "fwd_modified": "Set this flag when reposting stories with fwd_from_id+fwd_from_id, if the media was modified before reposting.",
+        "fwd_modified": "Set this flag when reposting stories with fwd_from_id+fwd_from_story, if the media was modified before reposting.",
         "media": "The story media.",
         "media_areas": "`Media areas <https://core.telegram.org/api/stories#media-areas>`__ associated to the story, see `here \u00bb <https://core.telegram.org/api/stories#media-areas>`__ for more info.",
         "music": "If set, the audio track to play as background music for the story.",
@@ -21741,7 +21741,7 @@
       "desc": "A document.\n\n"
     },
     "DocumentAttribute": {
-      "desc": "Various possible attributes of a document (used to define if it's a sticker, a GIF, a video, a mask sticker, an image, an audio, and so on)\n\n"
+      "desc": "Various possible attributes of a document (used to define if it's a sticker, a GIF, a video, a mask sticker, an image, an audio, and so on)\nAPI schema:\n\n"
     },
     "DraftMessage": {
       "desc": "Represents a message `draft <https://core.telegram.org/api/drafts>`__.\n\nHow to handle message drafts\n"
@@ -21837,7 +21837,7 @@
       "desc": "Describes a live story donor in the `donation leaderboard  <https://core.telegram.org/api/group-calls#paid-live-story-donations>`__.\n\nHow to start, join and manage group calls and video chats.\n"
     },
     "GroupCallMessage": {
-      "desc": "Represents an in-call message, `emoji reaction  <https://core.telegram.org/api/group-calls#in-call-reactions>`__, paid live story comment or standalone paid live story donation.\n\nHow to start, join and manage group calls and video chats.\n"
+      "desc": "Represents an in-call message, `emoji reaction  <https://core.telegram.org/api/group-calls#in-call-reactions>`__, paid live story comment or standalone paid live story donation.\nAPI schema:\n\nHow to start, join and manage group calls and video chats.\n"
     },
     "GroupCallParticipant": {
       "desc": "Info about a group call participant\n\n"
@@ -22029,7 +22029,7 @@
       "desc": "Used to fetch info about a `Telegram Star transaction  <https://core.telegram.org/api/stars#balance-and-transaction-history>`__.\n\nTelegram Stars are virtual items that allow users to purchase digital goods and services from bots and mini apps inside the Telegram ecosystem, send gifts to content creators on the Telegram platform, and more.\n"
     },
     "InputStickerSet": {
-      "desc": "Represents a stickerset\n\n"
+      "desc": "Represents a stickerset\nAPI schema:\n\n"
     },
     "InputStickerSetItem": {
       "desc": "Sticker\n\n"
@@ -22062,10 +22062,10 @@
       "desc": "Invoice\n\n"
     },
     "JSONObjectValue": {
-      "desc": "JSON key: value pair\n\n"
+      "desc": "JSON key: value pair\nAPI schema:\n\n"
     },
     "JSONValue": {
-      "desc": "JSON value\n\n"
+      "desc": "JSON value\nAPI schema:\n\n"
     },
     "JoinChatBotResult": {
       "desc": ""
@@ -22107,7 +22107,7 @@
       "desc": "Object describing actions connected to a service message.\n\n"
     },
     "MessageEntity": {
-      "desc": "Message entities, representing styled text in a message\n\n"
+      "desc": "Message entities, representing styled text in a message\nAPI schema:\n\n"
     },
     "MessageExtendedMedia": {
       "desc": "`Paid media, see here  <https://core.telegram.org/api/paid-media>`__ for more info.\n\nContent creators can accept Stars by publishing paid photos or videos on their channels.  Subscribers will be allowed to view such posts only after paying the author to unlock them.\n"
@@ -22251,7 +22251,7 @@
       "desc": "Object describes a photo.\n\n"
     },
     "PhotoSize": {
-      "desc": "Location of a certain size of a picture\n\n"
+      "desc": "Location of a certain size of a picture\nAPI schema:\n\n"
     },
     "Poll": {
       "desc": "Indicates a poll message\n\n"
@@ -22407,7 +22407,7 @@
       "desc": "Indicates a peer that can be used to send messages\n\n"
     },
     "SendMessageAction": {
-      "desc": "User actions. Use this to provide users with detailed info about their chat partner's actions: typing or sending attachments of all kinds.\n\n"
+      "desc": "User actions. Use this to provide users with detailed info about their chat partner's actions: typing or sending attachments of all kinds.\nAPI schema:\n\n"
     },
     "ShippingOption": {
       "desc": "Shipping options\n\n"
@@ -22560,7 +22560,7 @@
       "desc": "Contains info about a `suggested post  <https://core.telegram.org/api/suggested-posts>`__.\n\nTelegram offers a powerful monetization feature to channel administrators: suggested posts.\n"
     },
     "TextWithEntities": {
-      "desc": "Styled text with `message entities <https://core.telegram.org/api/entities>`__\n\nHow to create styled text with message entities\n"
+      "desc": "Styled text with `message entities <https://core.telegram.org/api/entities>`__\nAPI schema:\n\nHow to create styled text with message entities\n"
     },
     "Theme": {
       "desc": "Cloud theme\n\n"
