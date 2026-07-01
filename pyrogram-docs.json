@@ -9250,7 +9250,7 @@
       }
     },
     "UpdateGroupCallConnection": {
-      "desc": "Connection parameters returned after joining a group call, see `presentations  <https://core.telegram.org/api/group-calls#presentations>`__ and `RTMP livestreams  <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__.\nIf presentation is set, the parameters belong to the separate `presentation connection <https://core.telegram.org/api/group-calls#presentations>`__; otherwise they belong to the main connection.\nFor a normal WebRTC connection, pass params to the local tgcalls group-call engine as its join response payload.\nFor `RTMP-mode calls <https://core.telegram.org/api/group-calls#rtmp-livestreams>`__, params instead has the following shape:",
+      "desc": "Connection parameters returned after joining a group call, see `presentations  <https://core.telegram.org/api/group-calls#presentations>`__ and `stream mode  <https://core.telegram.org/api/group-calls#stream-mode>`__.\nIf presentation is set, the parameters belong to the separate `presentation connection <https://core.telegram.org/api/group-calls#presentations>`__; otherwise they belong to the main connection.\nFor a normal WebRTC connection, pass params to the local tgcalls group-call engine as its join response payload.\nFor `stream-mode calls <https://core.telegram.org/api/group-calls#detecting-stream-mode>`__, where the client plays the call by `downloading media chunks  <https://core.telegram.org/api/group-calls#downloading-media-chunks>`__ instead of using WebRTC, params instead has one of the following shapes:\nfor a call that entered `stream mode <https://core.telegram.org/api/group-calls#stream-mode>`__, or\nfor an `RTMP-mode call <https://core.telegram.org/api/group-calls#creating-and-publishing-an-rtmp-livestream>`__.",
       "params": {
         "flags": "Flags, see `TL conditional fields <https://core.telegram.org/mtproto/TL-combinators#conditional-fields>`__",
         "params": "RTC join response parameters or broadcast-stream metadata, as described above",
@@ -9348,7 +9348,7 @@
       }
     },
     "UpdateMessagePollVote": {
-      "desc": "A specific peer has voted in a poll",
+      "desc": "A specific peer has voted in a poll (this update can only be received by a bot).",
       "params": {
         "options": "Chosen option(s)",
         "peer": "The peer that voted in the poll",
